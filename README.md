@@ -2,10 +2,7 @@
 
 Bioinformatics pipeline for the integration, normalization, and enrichment of
 protein functional annotation results from multiple computational tools.
-
-**Author:** Luís Pedrosa  
-**Institution:** Center of Biological Engineering, University of Minho  
-
+ 
 ---
 
 ## Pipeline Overview
