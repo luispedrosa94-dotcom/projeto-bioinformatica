@@ -1,0 +1,642 @@
+6	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Alpha-tubulin suppressor ATS1 and related RCC1 domain-containing proteins	COG5184
+2	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Cell division protein CpoB, coordinates peptidoglycan biosynthesis and outer membrane constriction	COG1729
+2	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Cell division protein DamX, binds to the septal ring, contains C-terminal SPOR domain	COG3266
+3	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Cell division protein DedD (periplasmic protein involved in septation)	COG3147
+4	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Chromosome segregation ATPase Smc	COG1196
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Radical SAM superfamily maturase, SkfB/NifB/PqqE family	COG0535
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Stage II sporulation protein SpoIIE/SpoIIH (serine phosphatase - sigma-F activation)	COG5817
+5	CELLULAR PROCESSES AND SIGNALING	Cell motility 	Flagellar hook-capping protein FlgD	COG1843
+8	CELLULAR PROCESSES AND SIGNALING	Cell motility 	Flagellin and related hook-associated protein FlgL	COG1344
+1	CELLULAR PROCESSES AND SIGNALING	Cell motility 	Glycosyltransferase, catalytic subunit of cellulose synthase and poly-beta-1,6-N-acetylglucosamine synthase	COG1215
+2	CELLULAR PROCESSES AND SIGNALING	Cell motility 	Type II secretory pathway, pseudopilin PulG	COG2165
+3	CELLULAR PROCESSES AND SIGNALING	Cell motility 	Type IV pilus assembly protein PilE	COG4968
+5	CELLULAR PROCESSES AND SIGNALING	Cell motility 	Type IV pilus assembly protein PilF/PilW	COG3063
+1	CELLULAR PROCESSES AND SIGNALING	Cell motility 	Type IV pilus assembly protein PilT, pilus retraction ATPase	COG2805
+1	CELLULAR PROCESSES AND SIGNALING	Cell motility 	Type IV pilus assembly protein, ATPase PilM	COG4972
+7	CELLULAR PROCESSES AND SIGNALING	Cell motility 	Type IV pilus assembly protein, tip-associated adhesin PilY1	COG3419
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	4-hydroxy-tetrahydrodipicolinate synthase/N-acetylneuraminate lyase	COG0329
+2	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	ABC-type transport system involved in lipoprotein release, permease component LolC	COG4591
+2	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Acyl-[acyl carrier protein]--UDP-N-acetylglucosamine O-acyltransferase	COG1043
+12	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Autotransporter adhesin AidA	COG3468
+41	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Clumping factor A-related surface protein, MSCRAMM (microbial surface components recognizing adhesive matrix molecules) family, DEv-IgG fold	COG4932
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Exopolysaccharide export protein/domain GumC/Wzc1	COG3206
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Glycosyltransferase involved in cell wall bisynthesis	COG0438
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Glycosyltransferase involved in cell wall bisynthesis	COG0463
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Lipopolysaccharide biosynthesis protein, LPS:glycosyltransferase	COG1442
+7	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Lipopolysaccharide biosynthesis regulator YciM/LapB, contains six TPR domains and a C-terminal metal-binding domain	COG2956
+2	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Magnetosome formation protein MamQ, lipoprotein antigen LemA family	COG1704
+2	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Murein DD-endopeptidase MepM and murein hydrolase activator NlpD, contains LysM domain	COG0739
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Murein tripeptide amidase MpaA	COG2866
+7	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	N-acetylneuraminic acid mutarotase	COG3055
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	NDP-sugar pyrophosphorylase, includes eIF-2Bgamma, eIF-2Bepsilon, and LPS biosynthesis protein s	COG1208
+2	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Nucleoside-diphosphate-sugar epimerase	COG0451
+3	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Opacity protein LomR and related surface antigens	COG3637
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Outer membrane murein-binding lipoprotein Lpp	COG4238
+10	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Outer membrane porin OmpC/OmpF/PhoE	COG3203
+19	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Outer membrane protein OmpA and related peptidoglycan-associated (lipo)proteins	COG2885
+2	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Outer membrane protein assembly factor BamA	COG4775
+21	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Outer membrane protein assembly factor BamB, contains PQQ-like beta-propeller repeat	COG1520
+19	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Outer membrane protein chaperone/metalloprotease BepA/YfgC, contains M48 and TPR domains	COG4783
+8	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	PASTA domain, binds beta-lactams	COG2815
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Penicillin-binding protein 1B/1F, peptidoglycan  transglycosylase/transpeptidase	COG0744
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Peptidoglycan-binding (PGRP) domain of peptidoglycan hydrolases	COG3409
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Periplasmic subunit MlaD of the ABC-type intermembrane phospholipid transporter Mla	COG1463
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Phage-related lysozyme (muramidase), GH24 family	COG3772
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Phosphoglycerol transferase MdoB/OpgB, AlkP superfamily	COG1368
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Polysaccharide pyruvyl transferase family protein WcaK (colanic acid biosynthesis)	COG2327
+2	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Putative cell wall-binding domain (amidase enhancer), LytB superfamily	COG2247
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	UDP-2,3-diacylglucosamine pyrophosphatase LpxH	COG2908
+2	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	UDP-3-O-[3-hydroxymyristoyl] glucosamine N-acyltransferase	COG1044
+2	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Uncharacterized conserved protein AsmA involved in outer membrane biogenesis	COG2982
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	dTDP-4-amino-4,6-dideoxygalactose transaminase	COG0399
+6	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Alpha-tubulin suppressor ATS1 and related RCC1 domain-containing proteins	COG5184
+2	CELLULAR PROCESSES AND SIGNALING	Defense mechanisms 	2',3'-cyclic-nucleotide 2'-phosphodiesterase/5'- or 3'-nucleotidase, 5'-nucleotidase family	COG0737
+1	CELLULAR PROCESSES AND SIGNALING	Defense mechanisms 	5-methylcytosine-specific restriction endonuclease McrBC, GTP-binding regulatory subunit McrB	COG1401
+1	CELLULAR PROCESSES AND SIGNALING	Defense mechanisms 	ABC-type multidrug transport system, permease component	COG0842
+1	CELLULAR PROCESSES AND SIGNALING	Defense mechanisms 	Alkyl hydroperoxide reductase subunit AhpC (peroxiredoxin)	COG0450
+1	CELLULAR PROCESSES AND SIGNALING	Defense mechanisms 	Bacteriocin, linocin/CFP29 family	COG1659
+1	CELLULAR PROCESSES AND SIGNALING	Defense mechanisms 	Endonuclease, HJR/Mrr/RecB family	COG1787
+1	CELLULAR PROCESSES AND SIGNALING	Defense mechanisms 	Multidrug resistance efflux pump EmrA	COG1566
+1	CELLULAR PROCESSES AND SIGNALING	Defense mechanisms 	Predicted anti-virus defense system component AQ645, contains DUF2357 and  PD-(D/E)xK nuclease domains	COG1700
+2	CELLULAR PROCESSES AND SIGNALING	Defense mechanisms 	Protein/nucleotide deglycase, PfpI/YajL/DJ-1 family (repair of methylglyoxal-glycated proteins and nucleic acids)	COG0693
+7	CELLULAR PROCESSES AND SIGNALING	Defense mechanisms 	Streptogramin lyase	COG4257
+2	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Flp pilus assembly protein, secretin CpaC	COG4964
+2	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Type II secretory pathway, pseudopilin PulG	COG2165
+3	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Type IV pilus assembly protein PilE	COG4968
+5	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Type IV pilus assembly protein PilF/PilW	COG3063
+1	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Type IV pilus assembly protein PilT, pilus retraction ATPase	COG2805
+1	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Type IV pilus assembly protein, ATPase PilM	COG4972
+7	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Type IV pilus assembly protein, tip-associated adhesin PilY1	COG3419
+12	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Autotransporter adhesin AidA	COG3468
+2	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Autotransporter translocation and assembly protein TamB	COG2911
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Exosome complex RNA-binding protein Csl4, contains S1 and Zn-ribbon domains	COG1096
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Exosome complex RNA-binding protein Rrp42, RNase PH superfamily	COG2123
+2	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Flp pilus assembly protein, secretin CpaC	COG4964
+113	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Large exoprotein involved in heme utilization or adhesion	COG3210
+21	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Periplasmic component TolB of the Tol biopolymer transport system	COG0823
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Predicted component TssB of the type VI protein secretion system, VipA/VipB/TssB family	COG3517
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Predicted component of the type VI protein secretion system	COG3521
+2	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Signal recognition particle GTPase	COG0541
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Type II secretory pathway, component HofQ	COG4796
+2	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Type II secretory pathway, pseudopilin PulG	COG2165
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Type IV secretory pathway, VirB6 component	COG3704
+4	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Type VI protein secretion system component Hcp (secreted cytotoxin)	COG3157
+1	CELLULAR PROCESSES AND SIGNALING	Mobilome: prophages, transposons	Bacteriophage DNA transposition protein, AAA+ family ATPase	COG2842
+2	CELLULAR PROCESSES AND SIGNALING	Mobilome: prophages, transposons	Phage tail sheath protein FI	COG3497
+1	CELLULAR PROCESSES AND SIGNALING	Mobilome: prophages, transposons	Phage-related protein, tail protein J	COG4733
+1	CELLULAR PROCESSES AND SIGNALING	Mobilome: prophages, transposons	Predicted phage phi-C31 gp36 major capsid-like protein	COG4653
+1	CELLULAR PROCESSES AND SIGNALING	Mobilome: prophages, transposons	Protein involved in initiation of plasmid replication	COG5527
+1	CELLULAR PROCESSES AND SIGNALING	Mobilome: prophages, transposons	Transposase	COG0675
+1	CELLULAR PROCESSES AND SIGNALING	Mobilome: prophages, transposons	Transposase	COG3436
+1	CELLULAR PROCESSES AND SIGNALING	Mobilome: prophages, transposons	Transposase	COG4584
+3	CELLULAR PROCESSES AND SIGNALING	Mobilome: prophages, transposons	Transposase InsO and inactivated derivatives	COG2801
+1	CELLULAR PROCESSES AND SIGNALING	Mobilome: prophages, transposons	Transposase and inactivated derivatives, IS30 family	COG2826
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, alpha and beta subunits	COG0638
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	ABC-type glutathione transport system ATPase component, contains duplicated ATPase domain	COG1123
+6	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	ATP-dependent 26S proteasome regulatory subunit	COG1222
+3	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	ATP-dependent Clp protease, ATP-binding subunit ClpA	COG0542
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	ATP-dependent Zn proteases	COG0465
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Bacillopeptidase F, M6 metalloprotease family	COG4412
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	CO dehydrogenase nickel-insertion accessory protein CooC1	COG3640
+3	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Chaperedoxin CnoX, contains thioredoxin-like and TPR-like domains, YbbN/TrxSC family	COG3118
+31	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Chaperonin GroEL (HSP60 family)	COG0459
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Co-chaperonin GroES (HSP10)	COG0234
+4	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Cysteine protease, C1A family	COG4870
+8	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Cytochrome c-type biogenesis protein CcmH/NrfG	COG4235
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	DnaJ-class molecular chaperone with C-terminal Zn finger domain	COG0484
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Fe-S cluster assembly ATPase SufC	COG0396
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Fe-S cluster assembly scaffold protein IscU, NifU family	COG0822
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Fe-S cluster assembly scaffold protein SufB	COG0719
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Fe-S cluster biogenesis protein NfuA, 4Fe-4S-binding domain	COG0694
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Formylglycine-generating enzyme, required for sulfatase activity, contains SUMF1/FGE domain	COG1262
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Glutamine synthetase adenylyltransferase	COG1391
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Membrane protease subunit, stomatin/prohibitin family, contains C-terminal Zn-ribbon domain	COG4260
+26	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone DnaK (HSP70)	COG0443
+19	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Outer membrane protein chaperone/metalloprotease BepA/YfgC, contains M48 and TPR domains	COG4783
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Peptidyl-prolyl cis-trans isomerase, FKBP type	COG1047
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Periplasmic serine protease, ClpP class	COG0616
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Periplasmic serine protease, S1-C subfamily, contain C-terminal PDZ domain	COG0265
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Peroxiredoxin	COG1225
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Peroxiredoxin	COG2077
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Predicted Fe-Mo cluster-binding protein, NifX family	COG1433
+30	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Predicted O-linked N-acetylglucosamine transferase, SPINDLY family	COG3914
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Prenyltransferase, beta subunit	COG5029
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Protein thiol-disulfide isomerase DsbC	COG1651
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Protein-arginine kinase activator protein McsA	COG3880
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Pyruvate-formate lyase-activating enzyme	COG1180
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Regulator of protease activity HflC, stomatin/prohibitin superfamily	COG0330
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Regulatory P domain of the subtilisin-like proprotein convertases and other proteases	COG4935
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Secreted trypsin-like serine protease	COG5640
+25	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Serine protease, subtilase family	COG1572
+15	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Serine protease, subtilisin family	COG1404
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Small heat shock protein IbpA, HSP20 family	COG0071
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Thioredoxin reductase	COG0492
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Transglutaminase-like enzyme, putative cysteine protease	COG1305
+5	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	V8-like Glu-specific endopeptidase	COG3591
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Zn-dependent peptidase ImmA, M78 family	COG2856
+9	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	ABC-type amino acid transport/signal transduction system, periplasmic component/domain	COG0834
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Adenylate cyclase, class 3	COG2114
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Anti-anti-sigma regulatory factor (antagonist of anti-sigma factor)	COG1366
+5	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	CBS domain	COG0517
+13	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	CBS-domain-containing membrane protein	COG3448
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Ca2+-binding protein, EF-hand superfamily	COG5126
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Chemotaxis signal transduction protein CheW	COG0835
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Cyclic di-AMP receptor DarA/PstA	COG3870
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	DNA-binding transcriptional response regulator, NtrC family, contains REC, AAA-type ATPase, and a Fis-type DNA-binding domains	COG2204
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	GAF domain	COG2203
+10	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Lipoprotein Med, regulator of KinD/Spo0A, PBP1-ABC superfamily, includes NupN	COG1744
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Nitrogen regulatory protein PII	COG0347
+28	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Nucleotide-binding universal stress protein,  UspA family	COG0589
+3	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Periplasmic ligand-binding sensor domain	COG3292
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Phosphotransferase system mannitol/fructose-specific IIA domain (Ntr-type)	COG1762
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Predicted regulator of Ras-like GTPase activity, Roadblock/LC7/MglB family	COG2018
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	RocR-type transcriptional regulator, contains PAS, AAA-type ATPase, and DNA-binding Fis domains	COG3829
+6	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine protein kinase	COG0515
+3	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Signal transduction histidine kinase	COG0642
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Signal transduction histidine kinase	COG4564
+6	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Signal-transduction protein containing cAMP-binding, CBS, and nucleotidyltransferase domains	COG2905
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Trk/Ktr K+ transport system regulatory component TrkA/KtrA/KtrC, RCK domain	COG0569
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	sRNA-binding regulator protein Hfq	COG1923
+6	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	Archaeal histone H3/H4	COG2036
+3	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	DNA/RNA endonuclease YhcR, contains UshA esterase domain	COG4085
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	PAB1-binding protein, interacts with poly(A)-binding protein	COG5180
+6	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Bacterial nucleoid DNA-binding protein IHF-alpha	COG0776
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	DNA gyrase/topoisomerase IV, subunit B	COG0187
+3	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	DNA polymerase III sliding clamp (beta) subunit, PCNA homolog	COG0592
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	DNA primase (bacterial type)	COG0358
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Excinuclease UvrABC helicase subunit UvrB	COG0556
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Primosomal protein N' (replication factor Y) - superfamily II helicase	COG1198
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Replication initiation and membrane attachment protein DnaB	COG3611
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Ribonuclease HI	COG0328
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Single-stranded DNA-binding protein	COG0629
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Site-specific DNA recombinase SpoIVCA/DNA invertase PinE	COG1961
+2	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Superfamily II DNA and RNA helicase	COG0513
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	ssDNA-binding replication factor A, large subunit	COG1599
+2	INFORMATION STORAGE AND PROCESSING	Transcription 	AraC-type DNA-binding domain and AraC-containing proteins	COG2207
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Cold shock protein, CspA family	COG1278
+2	INFORMATION STORAGE AND PROCESSING	Transcription 	DNA-binding transcriptional regulator, LacI/PurR family	COG1609
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	DNA-binding transcriptional regulator, MocR family, contains an aminotransferase domain	COG1167
+4	INFORMATION STORAGE AND PROCESSING	Transcription 	DNA-directed RNA polymerase, beta subunit/140 kD subunit	COG0085
+4	INFORMATION STORAGE AND PROCESSING	Transcription 	DNA-directed RNA polymerase, beta' subunit/160 kD subunit	COG0086
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	DNA-directed RNA polymerase, sigma subunit (sigma70/sigma32)	COG0568
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	DNA-directed RNA polymerase, subunit E'/Rpb7	COG1095
+44	INFORMATION STORAGE AND PROCESSING	Transcription 	Leucine-rich repeat (LRR) protein	COG4886
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Metal-responsive transcriptional regulator, contains CopG/Arc/MetJ DNA-binding domain	COG0864
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Predicted transcriptional regulator MJ0558, contains a CRP-type HTH domain	COG1497
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Predicted transcriptional regulator,contains XRE-type HTH domain	COG1709
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	RNA polymerase subunit RPABC4/transcription elongation factor Spt4	COG2093
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	RocR-type transcriptional regulator, contains PAS, AAA-type ATPase, and DNA-binding Fis domains	COG3829
+3	INFORMATION STORAGE AND PROCESSING	Transcription 	TATA-box binding protein (TBP), component of TFIID and TFIIIB	COG2101
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Transcription antitermination factor NusA, contains S1 and KH domains	COG0195
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Transcriptional regulator DhaR of acetoin/glycerol metabolism	COG3284
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Arginyl-tRNA synthetase	COG0018
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Asp-tRNAAsn/Glu-tRNAGln amidotransferase A subunit or related amidase	COG0154
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Glutathione synthase, LysX or RimK-type ligase, ATP-grasp superfamily	COG0189
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Lysyl-tRNA synthetase, class I	COG1384
+2	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Methionyl-tRNA formyltransferase	COG0223
+2	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Midasin, AAA ATPase with  vWA domain, involved in ribosome maturation	COG5271
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	NDP-sugar pyrophosphorylase, includes eIF-2Bgamma, eIF-2Bepsilon, and LPS biosynthesis protein s	COG1208
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Phenylalanyl-tRNA synthetase alpha subunit	COG0016
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Phenylalanyl-tRNA synthetase beta subunit	COG0072
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Protein chain release factor RF1	COG0216
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Ribonuclease PH	COG0689
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Ribosomal protein L10	COG0244
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Ribosomal protein L11	COG0080
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Ribosomal protein L12E/L44/L45/RPP1/RPP2	COG2058
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Ribosomal protein L7Ae or related RNA K-turn-binding protein	COG1358
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Ribosomal protein S11	COG0100
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Ribosomal protein S2	COG0052
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Ribosomal protein S24E	COG2004
+3	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Ribosomal protein S3	COG0092
+2	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Ribosomal protein S8	COG0096
+3	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation elongation factor EF-1alpha (GTPase)	COG5256
+3	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation elongation factor EF-G, a GTPase	COG0480
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation elongation factor EF-Ts	COG0264
+21	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation elongation factor EF-Tu, a GTPase	COG0050
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation initiation factor 2, gamma subunit (eIF-2gamma; GTPase)	COG5257
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	mRNA degradation ribonuclease J1/J2	COG0595
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	tRNA A-37 threonylcarbamoyl transferase component Bud32	COG3642
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	tRNA(Ile)-lysidine synthase TilS/MesJ	COG0037
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	tRNA(Ile2) C34 agmatinyltransferase TiaS	COG1571
+1	METABOLISM	Amino acid transport and metabolism 	3'-phosphoadenosine 5'-phosphosulfate sulfotransferase (PAPS reductase)/FAD synthetase or related enzyme	COG0175
+1	METABOLISM	Amino acid transport and metabolism 	3-dehydroquinate synthase, class II	COG1465
+2	METABOLISM	Amino acid transport and metabolism 	3-isopropylmalate dehydratase small subunit	COG0066
+3	METABOLISM	Amino acid transport and metabolism 	4-hydroxy-tetrahydrodipicolinate reductase	COG0289
+1	METABOLISM	Amino acid transport and metabolism 	4-hydroxy-tetrahydrodipicolinate synthase/N-acetylneuraminate lyase	COG0329
+4	METABOLISM	Amino acid transport and metabolism 	4-hydroxyphenylpyruvate dioxygenase and related hemolysins	COG3185
+9	METABOLISM	Amino acid transport and metabolism 	ABC-type amino acid transport/signal transduction system, periplasmic component/domain	COG0834
+1	METABOLISM	Amino acid transport and metabolism 	ABC-type branched-chain amino acid transport system, ATPase component LivG	COG0411
+25	METABOLISM	Amino acid transport and metabolism 	ABC-type branched-chain amino acid transport system, periplasmic component	COG0683
+8	METABOLISM	Amino acid transport and metabolism 	ABC-type oligopeptide transport system, periplasmic component	COG4166
+82	METABOLISM	Amino acid transport and metabolism 	ABC-type transport system, periplasmic component	COG0747
+2	METABOLISM	Amino acid transport and metabolism 	Acetolactate synthase, small subunit	COG0440
+1	METABOLISM	Amino acid transport and metabolism 	Acetylornithine deacetylase/Succinyl-diaminopimelate desuccinylase or related deacylase	COG0624
+2	METABOLISM	Amino acid transport and metabolism 	Acetylornithine/succinyldiaminopimelate/putrescine aminotransferase	COG4992
+1	METABOLISM	Amino acid transport and metabolism 	Archaeal aspartate aminotransferase or a related aminotransferase, includes purine catabolism protein PucG	COG0075
+1	METABOLISM	Amino acid transport and metabolism 	Arginine decarboxylase (spermidine biosynthesis)	COG1166
+1	METABOLISM	Amino acid transport and metabolism 	Argininosuccinate synthase	COG0137
+2	METABOLISM	Amino acid transport and metabolism 	Aspartate kinase	COG0527
+5	METABOLISM	Amino acid transport and metabolism 	Aspartate/methionine/tyrosine aminotransferase	COG0436
+2	METABOLISM	Amino acid transport and metabolism 	Benzoyl-CoA reductase/2-hydroxyglutaryl-CoA dehydratase subunit, BcrC/BadD/HgdB	COG1775
+2	METABOLISM	Amino acid transport and metabolism 	Branched-chain amino acid aminotransferase/4-amino-4-deoxychorismate lyase	COG0115
+1	METABOLISM	Amino acid transport and metabolism 	Chorismate synthase	COG0082
+1	METABOLISM	Amino acid transport and metabolism 	Cystathionine beta-lyase/cystathionine gamma-synthase	COG0626
+1	METABOLISM	Amino acid transport and metabolism 	DNA-binding transcriptional regulator, MocR family, contains an aminotransferase domain	COG1167
+2	METABOLISM	Amino acid transport and metabolism 	Di- or tripeptidase	COG2195
+1	METABOLISM	Amino acid transport and metabolism 	Diaminopimelate epimerase	COG0253
+1	METABOLISM	Amino acid transport and metabolism 	Dihydroxyacid dehydratase/phosphogluconate dehydratase	COG0129
+3	METABOLISM	Amino acid transport and metabolism 	Dipeptidyl aminopeptidase/acylaminoacyl peptidase	COG1506
+3	METABOLISM	Amino acid transport and metabolism 	Ethanolamine utilization protein EutL, microcompartment shell protein	COG4816
+3	METABOLISM	Amino acid transport and metabolism 	Gamma-glutamyltranspeptidase	COG0405
+1	METABOLISM	Amino acid transport and metabolism 	Glutamate N-acetyltransferase (ornithine transacetylase)	COG1364
+9	METABOLISM	Amino acid transport and metabolism 	Glutamate dehydrogenase/leucine dehydrogenase	COG0334
+1	METABOLISM	Amino acid transport and metabolism 	Glutamate synthase domain 1	COG0067
+5	METABOLISM	Amino acid transport and metabolism 	Glutamine synthetase	COG0174
+1	METABOLISM	Amino acid transport and metabolism 	Glutathione synthase, LysX or RimK-type ligase, ATP-grasp superfamily	COG0189
+1	METABOLISM	Amino acid transport and metabolism 	Glycine cleavage system protein T (aminomethyltransferase)	COG0404
+1	METABOLISM	Amino acid transport and metabolism 	Histidinol dehydrogenase	COG0141
+1	METABOLISM	Amino acid transport and metabolism 	Homoaconitase/3-isopropylmalate dehydratase large subunit	COG0065
+1	METABOLISM	Amino acid transport and metabolism 	Homocysteine/selenocysteine methylase (S-methylmethionine-dependent)	COG2040
+2	METABOLISM	Amino acid transport and metabolism 	Homoserine dehydrogenase	COG0460
+1	METABOLISM	Amino acid transport and metabolism 	Imidazoleglycerol phosphate dehydratase HisB	COG0131
+2	METABOLISM	Amino acid transport and metabolism 	Isocitrate/isopropylmalate dehydrogenase	COG0473
+1	METABOLISM	Amino acid transport and metabolism 	Isopropylmalate/homocitrate/citramalate synthases	COG0119
+3	METABOLISM	Amino acid transport and metabolism 	Ketol-acid reductoisomerase	COG0059
+1	METABOLISM	Amino acid transport and metabolism 	Kynurenine formamidase	COG1878
+1	METABOLISM	Amino acid transport and metabolism 	MFS family permease, includes anhydromuropeptide permease AmpG	COG0477
+1	METABOLISM	Amino acid transport and metabolism 	Methionine synthase I, cobalamin-binding domain	COG1410
+2	METABOLISM	Amino acid transport and metabolism 	N-acetyl-gamma-glutamylphosphate reductase	COG0002
+1	METABOLISM	Amino acid transport and metabolism 	N-methylhydantoinase A/oxoprolinase/acetone carboxylase, beta subunit	COG0145
+4	METABOLISM	Amino acid transport and metabolism 	NADPH-dependent glutamate synthase beta chain or related oxidoreductase	COG0493
+1	METABOLISM	Amino acid transport and metabolism 	Nitrogen regulatory protein PII	COG0347
+2	METABOLISM	Amino acid transport and metabolism 	Phosphoserine aminotransferase	COG1932
+1	METABOLISM	Amino acid transport and metabolism 	Phosphoserine phosphatase	COG0560
+1	METABOLISM	Amino acid transport and metabolism 	Predicted alternative tryptophan synthase beta-subunit (paralog of TrpB)	COG1350
+1	METABOLISM	Amino acid transport and metabolism 	Putative aminopeptidase FrvX	COG1363
+1	METABOLISM	Amino acid transport and metabolism 	Threonine dehydrogenase or related Zn-dependent dehydrogenase	COG1063
+1	METABOLISM	Amino acid transport and metabolism 	Threonine synthase	COG0498
+1	METABOLISM	Amino acid transport and metabolism 	Tryptophan synthase beta chain	COG0133
+1	METABOLISM	Carbohydrate transport and metabolism 	1,4-alpha-glucan branching enzyme	COG0296
+1	METABOLISM	Carbohydrate transport and metabolism 	2,3-bisphosphoglycerate-independent phosphoglycerate mutase, archeal type	COG3635
+1	METABOLISM	Carbohydrate transport and metabolism 	3-keto-L-gulonate-6-phosphate decarboxylase	COG0269
+2	METABOLISM	Carbohydrate transport and metabolism 	3-phosphoglycerate kinase	COG0126
+1	METABOLISM	Carbohydrate transport and metabolism 	6-phosphofructokinase	COG0205
+22	METABOLISM	Carbohydrate transport and metabolism 	ABC-type glycerol-3-phosphate transport system, periplasmic component	COG1653
+11	METABOLISM	Carbohydrate transport and metabolism 	ABC-type sugar transport system, periplasmic component, contains N-terminal xre family HTH domain	COG1879
+4	METABOLISM	Carbohydrate transport and metabolism 	ABC-type xylose transport system, periplasmic component	COG4213
+1	METABOLISM	Carbohydrate transport and metabolism 	Alpha-amylase/alpha-mannosidase, GH57 family	COG1449
+1	METABOLISM	Carbohydrate transport and metabolism 	Alpha-glucosidase/xylosidase, GH31 family	COG1501
+4	METABOLISM	Carbohydrate transport and metabolism 	Archaeal fructose 1,6-bisphosphatase	COG1980
+1	METABOLISM	Carbohydrate transport and metabolism 	Beta-galactosidase/beta-glucuronidase	COG3250
+1	METABOLISM	Carbohydrate transport and metabolism 	Beta-glucanase, GH16 family	COG2273
+5	METABOLISM	Carbohydrate transport and metabolism 	Chitinase	COG3469
+3	METABOLISM	Carbohydrate transport and metabolism 	Dihydroxyacetone kinase	COG2376
+1	METABOLISM	Carbohydrate transport and metabolism 	Dihydroxyacid dehydratase/phosphogluconate dehydratase	COG0129
+6	METABOLISM	Carbohydrate transport and metabolism 	Enolase	COG0148
+1	METABOLISM	Carbohydrate transport and metabolism 	Fructose-1,6-bisphosphatase	COG0158
+2	METABOLISM	Carbohydrate transport and metabolism 	Fructose-bisphosphate aldolase class Ia, DhnA family	COG1830
+4	METABOLISM	Carbohydrate transport and metabolism 	Fructose/tagatose bisphosphate aldolase	COG0191
+2	METABOLISM	Carbohydrate transport and metabolism 	Glucan-binding domain (YG repeat)	COG5263
+2	METABOLISM	Carbohydrate transport and metabolism 	Glucose/arabinose dehydrogenase, beta-propeller fold	COG2133
+8	METABOLISM	Carbohydrate transport and metabolism 	Glyceraldehyde-3-phosphate dehydrogenase/erythrose-4-phosphate dehydrogenase	COG0057
+1	METABOLISM	Carbohydrate transport and metabolism 	Glycogen debranching enzyme (alpha-1,6-glucosidase)	COG3408
+4	METABOLISM	Carbohydrate transport and metabolism 	Glycosidase/amylase (phosphorylase)	COG0366
+1	METABOLISM	Carbohydrate transport and metabolism 	L-ribulose-5-phosphate 3-epimerase UlaE	COG3623
+1	METABOLISM	Carbohydrate transport and metabolism 	MFS family permease, includes anhydromuropeptide permease AmpG	COG0477
+1	METABOLISM	Carbohydrate transport and metabolism 	Maltooligosyltrehalose synthase	COG3280
+6	METABOLISM	Carbohydrate transport and metabolism 	Maltose-binding periplasmic protein MalE	COG2182
+1	METABOLISM	Carbohydrate transport and metabolism 	Pectate lyase	COG3866
+1	METABOLISM	Carbohydrate transport and metabolism 	Pentose-5-phosphate-3-epimerase	COG0036
+4	METABOLISM	Carbohydrate transport and metabolism 	Phosphoenolpyruvate synthase/pyruvate phosphate dikinase	COG0574
+3	METABOLISM	Carbohydrate transport and metabolism 	Phosphoenolpyruvate-protein kinase (PTS system EI component in bacteria)	COG1080
+1	METABOLISM	Carbohydrate transport and metabolism 	Phosphoglucomutase/phosphomannomutase	COG0033
+1	METABOLISM	Carbohydrate transport and metabolism 	Phosphoglycerate mutase (BPG-independent), AlkP superfamily	COG0696
+3	METABOLISM	Carbohydrate transport and metabolism 	Phosphomannomutase	COG1109
+1	METABOLISM	Carbohydrate transport and metabolism 	Phosphotransferase system mannitol/fructose-specific IIA domain (Ntr-type)	COG1762
+1	METABOLISM	Carbohydrate transport and metabolism 	Phosphotransferase system, fructose-specific IIC component	COG1299
+2	METABOLISM	Carbohydrate transport and metabolism 	Pullulanase/glycogen debranching enzyme	COG1523
+2	METABOLISM	Carbohydrate transport and metabolism 	Putative alpha-1,2-mannosidase	COG3537
+1	METABOLISM	Carbohydrate transport and metabolism 	Putative aminopeptidase FrvX	COG1363
+1	METABOLISM	Carbohydrate transport and metabolism 	Pyruvate kinase	COG0469
+1	METABOLISM	Carbohydrate transport and metabolism 	Ribose 5-phosphate isomerase	COG0120
+3	METABOLISM	Carbohydrate transport and metabolism 	Ribulose 1,5-bisphosphate carboxylase, large subunit, or a RuBisCO-like protein	COG1850
+1	METABOLISM	Carbohydrate transport and metabolism 	Sugar or nucleoside kinase, ribokinase family	COG0524
+19	METABOLISM	Carbohydrate transport and metabolism 	TRAP-type C4-dicarboxylate transport system, periplasmic component	COG1638
+1	METABOLISM	Carbohydrate transport and metabolism 	Triosephosphate isomerase	COG0149
+1	METABOLISM	Carbohydrate transport and metabolism 	UDP:flavonoid glycosyltransferase YjiC, YdhE family	COG1819
+1	METABOLISM	Carbohydrate transport and metabolism 	Uncharacterized conserved protein YibQ, putative polysaccharide deacetylase 2 family	COG2861
+4	METABOLISM	Coenzyme transport and metabolism 	2-polyprenyl-3-methyl-5-hydroxy-6-metoxy-1,4-benzoquinol methylase	COG2227
+1	METABOLISM	Coenzyme transport and metabolism 	2-polyprenyl-6-methoxyphenol hydroxylase and related FAD-dependent oxidoreductases	COG0654
+1	METABOLISM	Coenzyme transport and metabolism 	3'-phosphoadenosine 5'-phosphosulfate sulfotransferase (PAPS reductase)/FAD synthetase or related enzyme	COG0175
+1	METABOLISM	Coenzyme transport and metabolism 	5,10-methylene-tetrahydrofolate dehydrogenase/Methenyl tetrahydrofolate cyclohydrolase	COG0190
+2	METABOLISM	Coenzyme transport and metabolism 	6,7-dimethyl-8-ribityllumazine synthase (Riboflavin synthase beta chain)	COG0054
+1	METABOLISM	Coenzyme transport and metabolism 	Archaeal S-adenosylmethionine synthetase	COG1812
+4	METABOLISM	Coenzyme transport and metabolism 	Aspartate oxidase	COG0029
+2	METABOLISM	Coenzyme transport and metabolism 	Branched-chain amino acid aminotransferase/4-amino-4-deoxychorismate lyase	COG0115
+1	METABOLISM	Coenzyme transport and metabolism 	Cobalamin biosynthesis protein CbiK, Co2+ chelatase	COG4822
+4	METABOLISM	Coenzyme transport and metabolism 	Cobalamin biosynthesis protein CobN, Mg-chelatase	COG1429
+6	METABOLISM	Coenzyme transport and metabolism 	Flavin-dependent oxidoreductase, luciferase family (includes alkanesulfonate monooxygenase SsuD and methylene tetrahydromethanopterin reductase)	COG2141
+1	METABOLISM	Coenzyme transport and metabolism 	Geranylgeranyl pyrophosphate synthase	COG0142
+1	METABOLISM	Coenzyme transport and metabolism 	Glutamate-1-semialdehyde aminotransferase	COG0001
+1	METABOLISM	Coenzyme transport and metabolism 	Glutathione synthase, LysX or RimK-type ligase, ATP-grasp superfamily	COG0189
+1	METABOLISM	Coenzyme transport and metabolism 	Heme-degrading monooxygenase HmoA and related ABM domain proteins	COG2329
+1	METABOLISM	Coenzyme transport and metabolism 	Hydroxyethylthiazole kinase, sugar kinase family	COG2145
+3	METABOLISM	Coenzyme transport and metabolism 	Ketol-acid reductoisomerase	COG0059
+2	METABOLISM	Coenzyme transport and metabolism 	Ketopantoate hydroxymethyltransferase	COG0413
+2	METABOLISM	Coenzyme transport and metabolism 	Methenyltetrahydromethanopterin cyclohydrolase	COG3252
+12	METABOLISM	Coenzyme transport and metabolism 	Methyl coenzyme M reductase, alpha subunit	COG4058
+8	METABOLISM	Coenzyme transport and metabolism 	Methyl coenzyme M reductase, beta subunit	COG4054
+1	METABOLISM	Coenzyme transport and metabolism 	Methyl coenzyme M reductase, gamma subunit	COG4057
+1	METABOLISM	Coenzyme transport and metabolism 	Methyl coenzyme M reductase, subunit D	COG4055
+3	METABOLISM	Coenzyme transport and metabolism 	NAD(P)H-flavin reductase	COG0543
+1	METABOLISM	Coenzyme transport and metabolism 	NH3-dependent NAD+ synthetase	COG0171
+1	METABOLISM	Coenzyme transport and metabolism 	Nitrogenase ATPase subunit NifH/coenzyme F430 biosynthesis subunit CfbC	COG1348
+3	METABOLISM	Coenzyme transport and metabolism 	Outer membrane cobalamin receptor protein BtuB	COG4206
+1	METABOLISM	Coenzyme transport and metabolism 	Phenylacetate-coenzyme A ligase PaaK, adenylate-forming domain family	COG1541
+4	METABOLISM	Coenzyme transport and metabolism 	Phosphoglycerate dehydrogenase or related dehydrogenase	COG0111
+2	METABOLISM	Coenzyme transport and metabolism 	Phosphoserine aminotransferase	COG1932
+1	METABOLISM	Coenzyme transport and metabolism 	Pyridoxal 5'-phosphate synthase subunit PdxS	COG0214
+1	METABOLISM	Coenzyme transport and metabolism 	Radical SAM superfamily maturase, SkfB/NifB/PqqE family	COG0535
+1	METABOLISM	Coenzyme transport and metabolism 	S-adenosylhomocysteine hydrolase	COG0499
+1	METABOLISM	Coenzyme transport and metabolism 	S-adenosylmethionine synthetase	COG0192
+1	METABOLISM	Coenzyme transport and metabolism 	Tetrahydromethanopterin S-methyltransferase, subunit E	COG4059
+1	METABOLISM	Coenzyme transport and metabolism 	Tetrahydromethanopterin S-methyltransferase, subunit G	COG4064
+6	METABOLISM	Coenzyme transport and metabolism 	Tetrahydromethanopterin S-methyltransferase, subunit H	COG1962
+6	METABOLISM	Coenzyme transport and metabolism 	vWFA (von Willebrand factor type A) domain of Mg and Co chelatases	COG1240
+1	METABOLISM	Energy production and conversion 	2-polyprenyl-6-methoxyphenol hydroxylase and related FAD-dependent oxidoreductases	COG0654
+5	METABOLISM	Energy production and conversion 	2Fe-2S ferredoxin	COG3411
+4	METABOLISM	Energy production and conversion 	AIM24 protein, required for mitochondrial respiration	COG2013
+1	METABOLISM	Energy production and conversion 	Aconitase A	COG1048
+1	METABOLISM	Energy production and conversion 	Acyl-CoA synthetase (NDP forming)	COG1042
+1	METABOLISM	Energy production and conversion 	Acylphosphatase	COG1254
+22	METABOLISM	Energy production and conversion 	Alcohol dehydrogenase, class IV	COG1454
+10	METABOLISM	Energy production and conversion 	Aldehyde, CO or xanthine dehydrogenase, Mo-binding subunit	COG1529
+1	METABOLISM	Energy production and conversion 	Aldehyde, CO, or xanthine dehydrogenase, FAD-binding subunit	COG1319
+11	METABOLISM	Energy production and conversion 	Aldehyde, CO, or xanthine dehydrogenase, Fe-S subunit, CoxS/CutS family	COG2080
+4	METABOLISM	Energy production and conversion 	Aldehyde:ferredoxin oxidoreductase	COG2414
+1	METABOLISM	Energy production and conversion 	Anaerobic selenocysteine-containing dehydrogenase	COG0243
+5	METABOLISM	Energy production and conversion 	Archaeal/vacuolar-type H+-ATPase catalytic subunit A/Vma1	COG1155
+1	METABOLISM	Energy production and conversion 	Archaeal/vacuolar-type H+-ATPase subunit B/Vma2	COG1156
+1	METABOLISM	Energy production and conversion 	Archaeal/vacuolar-type H+-ATPase subunit C/Vma6	COG1527
+1	METABOLISM	Energy production and conversion 	Archaeal/vacuolar-type H+-ATPase subunit D/Vma8	COG1394
+3	METABOLISM	Energy production and conversion 	Archaeal/vacuolar-type H+-ATPase subunit E/Vma4	COG1390
+1	METABOLISM	Energy production and conversion 	Archaeal/vacuolar-type H+-ATPase subunit F/Vma7	COG1436
+2	METABOLISM	Energy production and conversion 	Archaeal/vacuolar-type H+-ATPase subunit H	COG2811
+1	METABOLISM	Energy production and conversion 	Archaeal/vacuolar-type H+-ATPase subunit I/STV1	COG1269
+4	METABOLISM	Energy production and conversion 	CO dehydrogenase/acetyl-CoA synthase alpha subunit	COG1152
+4	METABOLISM	Energy production and conversion 	CO dehydrogenase/acetyl-CoA synthase beta subunit	COG1614
+2	METABOLISM	Energy production and conversion 	CO dehydrogenase/acetyl-CoA synthase delta subunit (corrinoid Fe-S protein)	COG2069
+1	METABOLISM	Energy production and conversion 	CO dehydrogenase/acetyl-CoA synthase gamma subunit (corrinoid Fe-S protein)	COG1456
+11	METABOLISM	Energy production and conversion 	Carboxysome shell and ethanolamine utilization microcompartment protein CcmL/EutN	COG4577
+3	METABOLISM	Energy production and conversion 	Coenzyme F420-reducing hydrogenase, alpha subunit	COG3259
+5	METABOLISM	Energy production and conversion 	Coenzyme F420-reducing hydrogenase, beta subunit	COG1035
+4	METABOLISM	Energy production and conversion 	Coenzyme F420-reducing hydrogenase, delta subunit	COG1908
+2	METABOLISM	Energy production and conversion 	Coenzyme F420-reducing hydrogenase, gamma subunit	COG1941
+8	METABOLISM	Energy production and conversion 	Cytochrome c-type biogenesis protein CcmH/NrfG	COG4235
+1	METABOLISM	Energy production and conversion 	Dehydrogenase (flavoprotein)	COG0644
+8	METABOLISM	Energy production and conversion 	Desulfoferrodoxin, superoxide reductase-like (SORL) domain	COG2033
+2	METABOLISM	Energy production and conversion 	Electron transfer flavoprotein, alpha and beta subunits	COG2086
+3	METABOLISM	Energy production and conversion 	Electron transfer flavoprotein, alpha subunit FixB	COG2025
+6	METABOLISM	Energy production and conversion 	F420-dependent methylenetetrahydromethanopterin dehydrogenase	COG1927
+1	METABOLISM	Energy production and conversion 	FMN reductase RutF, DIM6/NTAB family	COG1853
+4	METABOLISM	Energy production and conversion 	Fe-S cluster-containing oxidoreductase, includes glycolate oxidase subunit GlcF	COG0247
+1	METABOLISM	Energy production and conversion 	Fe-S-cluster-containing dehydrogenase component (DMSO reductase)	COG0437
+3	METABOLISM	Energy production and conversion 	Ferredoxin	COG0633
+1	METABOLISM	Energy production and conversion 	Ferredoxin	COG1145
+1	METABOLISM	Energy production and conversion 	Ferredoxin-thioredoxin reductase, catalytic subunit	COG4802
+3	METABOLISM	Energy production and conversion 	Flavorubredoxin	COG0426
+3	METABOLISM	Energy production and conversion 	FoF1-type ATP synthase, alpha subunit	COG0056
+6	METABOLISM	Energy production and conversion 	FoF1-type ATP synthase, beta subunit	COG0055
+1	METABOLISM	Energy production and conversion 	FoF1-type ATP synthase, delta subunit	COG0712
+1	METABOLISM	Energy production and conversion 	Formaldehyde-activating enzyme (5,6,7,8-tetrahydromethanopterin hydrolyase)	COG1795
+1	METABOLISM	Energy production and conversion 	Formate dehydrogenase assembly factor FdhD, a sulfurtransferase	COG1526
+2	METABOLISM	Energy production and conversion 	Formate hydrogenlyase subunit 6/NADH:ubiquinone oxidoreductase 23 kD subunit (chain I)	COG1143
+2	METABOLISM	Energy production and conversion 	Formylmethanofuran dehydrogenase subunit A	COG1229
+1	METABOLISM	Energy production and conversion 	Formylmethanofuran dehydrogenase subunit B	COG1029
+3	METABOLISM	Energy production and conversion 	Formylmethanofuran dehydrogenase subunit C	COG2218
+2	METABOLISM	Energy production and conversion 	Formylmethanofuran dehydrogenase subunit D	COG1153
+1	METABOLISM	Energy production and conversion 	Formylmethanofuran:tetrahydromethanopterin formyltransferase	COG2037
+5	METABOLISM	Energy production and conversion 	Glycerol kinase	COG0554
+17	METABOLISM	Energy production and conversion 	Heterodisulfide reductase, subunit A (polyferredoxin)	COG1148
+2	METABOLISM	Energy production and conversion 	Heterodisulfide reductase, subunit B	COG2048
+3	METABOLISM	Energy production and conversion 	Heterodisulfide reductase, subunit C	COG1150
+3	METABOLISM	Energy production and conversion 	Hydroxylamine reductase (hybrid-cluster protein)	COG1151
+1	METABOLISM	Energy production and conversion 	Inorganic pyrophosphatase/exopolyphosphatase	COG1227
+5	METABOLISM	Energy production and conversion 	Iron only hydrogenase large subunit, C-terminal domain	COG4624
+2	METABOLISM	Energy production and conversion 	Isocitrate/isopropylmalate dehydrogenase	COG0473
+1	METABOLISM	Energy production and conversion 	L-lactate utilization protein LutB, contains a ferredoxin-type domain	COG1139
+5	METABOLISM	Energy production and conversion 	Malate/lactate dehydrogenase	COG0039
+1	METABOLISM	Energy production and conversion 	Malic enzyme	COG0281
+3	METABOLISM	Energy production and conversion 	Membrane H+-translocase/NADH:ubiquinone oxidoreductase subunit 5 (chain L)/Multisubunit Na+/H+ antiporter, MnhA subunit	COG1009
+1	METABOLISM	Energy production and conversion 	Multimeric flavodoxin WrbA, includes NAD(P)H:quinone oxidoreductase	COG0655
+3	METABOLISM	Energy production and conversion 	NAD(P)H-flavin reductase	COG0543
+7	METABOLISM	Energy production and conversion 	NADH dehydrogenase/NADH:ubiquinone oxidoreductase 75 kD subunit (chain G)	COG1034
+6	METABOLISM	Energy production and conversion 	NADH:ubiquinone oxidoreductase 24 kD subunit (chain E)	COG1905
+1	METABOLISM	Energy production and conversion 	NADH:ubiquinone oxidoreductase 27 kD subunit (chain C)	COG0852
+1	METABOLISM	Energy production and conversion 	NADH:ubiquinone oxidoreductase 49 kD subunit (chain D)	COG0649
+6	METABOLISM	Energy production and conversion 	NADH:ubiquinone oxidoreductase, NADH-binding 51 kD subunit (chain F)	COG1894
+1	METABOLISM	Energy production and conversion 	NADPH:quinone reductase or related Zn-dependent oxidoreductase	COG0604
+1	METABOLISM	Energy production and conversion 	Na+ or H+-translocating membrane pyrophosphatase	COG3808
+1	METABOLISM	Energy production and conversion 	Na+-translocating ferredoxin:NAD+ oxidoreductase  RNF, RnfC subunit	COG4656
+1	METABOLISM	Energy production and conversion 	Ni,Fe-hydrogenase I small subunit	COG1740
+1	METABOLISM	Energy production and conversion 	Ni,Fe-hydrogenase III large subunit	COG3261
+2	METABOLISM	Energy production and conversion 	Ni,Fe-hydrogenase III small subunit	COG3260
+1	METABOLISM	Energy production and conversion 	Nitrate reductase beta subunit	COG1140
+1	METABOLISM	Energy production and conversion 	Nitroreductase	COG0778
+1	METABOLISM	Energy production and conversion 	Phosphoenolpyruvate carboxylase	COG2352
+4	METABOLISM	Energy production and conversion 	Phosphotransacetylase (includes Pta, EutD and phosphobutyryltransferase)	COG0280
+1	METABOLISM	Energy production and conversion 	Plastocyanin	COG3794
+3	METABOLISM	Energy production and conversion 	Pyruvate carboxylase	COG1038
+1	METABOLISM	Energy production and conversion 	Pyruvate/2-oxoglutarate/acetoin dehydrogenase complex, dehydrogenase (E1) component, beta subunit	COG0022
+2	METABOLISM	Energy production and conversion 	Pyruvate/oxaloacetate carboxyltransferase	COG5016
+9	METABOLISM	Energy production and conversion 	Pyruvate:ferredoxin oxidoreductase or related 2-oxoacid:ferredoxin oxidoreductase, alpha subunit	COG0674
+8	METABOLISM	Energy production and conversion 	Pyruvate:ferredoxin oxidoreductase or related 2-oxoacid:ferredoxin oxidoreductase, beta subunit	COG1013
+2	METABOLISM	Energy production and conversion 	Pyruvate:ferredoxin oxidoreductase or related 2-oxoacid:ferredoxin oxidoreductase, delta subunit	COG1144
+9	METABOLISM	Energy production and conversion 	Pyruvate:ferredoxin oxidoreductase or related 2-oxoacid:ferredoxin oxidoreductase, gamma subunit	COG1014
+1	METABOLISM	Energy production and conversion 	Rubrerythrin	COG1592
+3	METABOLISM	Energy production and conversion 	Succinate dehydrogenase/fumarate reductase, Fe-S protein subunit	COG0479
+4	METABOLISM	Energy production and conversion 	Succinate dehydrogenase/fumarate reductase, flavoprotein subunit	COG1053
+1	METABOLISM	Energy production and conversion 	Succinyl-CoA synthetase, alpha subunit	COG0074
+1	METABOLISM	Energy production and conversion 	Succinyl-CoA synthetase, beta subunit	COG0045
+22	METABOLISM	Energy production and conversion 	TPP-dependent indolepyruvate ferredoxin oxidoreductase, alpha subunit	COG4231
+1	METABOLISM	Energy production and conversion 	Tartrate dehydratase alpha subunit/Fumarate hydratase class I, N-terminal domain	COG1951
+1	METABOLISM	Energy production and conversion 	Tartrate dehydratase beta subunit/Fumarate hydratase class I, C-terminal domain	COG1838
+7	METABOLISM	Energy production and conversion 	Tripartite-type tricarboxylate transporter, extracytoplasmic receptor component TctC	COG3181
+4	METABOLISM	Inorganic ion transport and metabolism 	ABC-type Fe3+ transport system, periplasmic component	COG1840
+16	METABOLISM	Inorganic ion transport and metabolism 	ABC-type Fe3+-hydroxamate transport system, periplasmic component	COG0614
+1	METABOLISM	Inorganic ion transport and metabolism 	ABC-type Zn uptake system ZnuABC, Zn-binding component ZnuA	COG0803
+1	METABOLISM	Inorganic ion transport and metabolism 	ABC-type metal ion transport system, periplasmic component/surface antigen	COG1464
+2	METABOLISM	Inorganic ion transport and metabolism 	ABC-type molybdate transport system, periplasmic Mo-binding protein ModA	COG0725
+1	METABOLISM	Inorganic ion transport and metabolism 	ABC-type nitrate/sulfonate/bicarbonate transport system, periplasmic component	COG0715
+4	METABOLISM	Inorganic ion transport and metabolism 	ABC-type phosphate transport system, periplasmic component	COG0226
+1	METABOLISM	Inorganic ion transport and metabolism 	ABC-type phosphate/phosphonate transport system, periplasmic component	COG3221
+1	METABOLISM	Inorganic ion transport and metabolism 	ABC-type phosphonate transport system, ATPase component PhnK	COG4107
+8	METABOLISM	Inorganic ion transport and metabolism 	ABC-type tungstate transport system, permease component TupA	COG2998
+3	METABOLISM	Inorganic ion transport and metabolism 	Arylsulfatase A or related enzyme, AlkP superfamily	COG3119
+1	METABOLISM	Inorganic ion transport and metabolism 	Carbonic anhydrase	COG0288
+2	METABOLISM	Inorganic ion transport and metabolism 	Catalase (peroxidase I)	COG0376
+5	METABOLISM	Inorganic ion transport and metabolism 	Cytoplasmic potassium-binding protein Kbp/XkdP/YgaU, contains LysM domain	COG1652
+7	METABOLISM	Inorganic ion transport and metabolism 	Dissimilatory sulfite reductase (desulfoviridin), alpha and beta subunits	COG2221
+1	METABOLISM	Inorganic ion transport and metabolism 	Ferritin	COG1528
+1	METABOLISM	Inorganic ion transport and metabolism 	Flavorubredoxin	COG1773
+1	METABOLISM	Inorganic ion transport and metabolism 	MFS family permease, includes anhydromuropeptide permease AmpG	COG0477
+3	METABOLISM	Inorganic ion transport and metabolism 	Magnesium-transporting ATPase (P-type)	COG0474
+1	METABOLISM	Inorganic ion transport and metabolism 	Nitrate reductase beta subunit	COG1140
+1	METABOLISM	Inorganic ion transport and metabolism 	Nitrogenase ATPase subunit NifH/coenzyme F430 biosynthesis subunit CfbC	COG1348
+23	METABOLISM	Inorganic ion transport and metabolism 	Nitrous oxide reductase accessory protein NosD, contains tandem CASH domains	COG3420
+2	METABOLISM	Inorganic ion transport and metabolism 	Outer membrane receptor for Fe3+-dicitrate	COG4772
+1	METABOLISM	Inorganic ion transport and metabolism 	Outer membrane receptor for ferric coprogen and ferric-rhodotorulic acid	COG4773
+51	METABOLISM	Inorganic ion transport and metabolism 	Outer membrane receptor for ferrienterochelin and colicins	COG4771
+53	METABOLISM	Inorganic ion transport and metabolism 	Outer membrane receptor protein, Fe transport	COG1629
+1	METABOLISM	Inorganic ion transport and metabolism 	Phenylpropionate dioxygenase or related ring-hydroxylating dioxygenase, large terminal subunit	COG4638
+6	METABOLISM	Inorganic ion transport and metabolism 	Phosphate-selective porin	COG3746
+1	METABOLISM	Inorganic ion transport and metabolism 	Rhodanese-related sulfurtransferase	COG0607
+1	METABOLISM	Inorganic ion transport and metabolism 	Siderophore synthetase component IucA/IucC/SbnC	COG4264
+9	METABOLISM	Inorganic ion transport and metabolism 	Sulfite reductase, beta subunit (hemoprotein)	COG0155
+1	METABOLISM	Inorganic ion transport and metabolism 	Superoxide dismutase	COG0605
+2	METABOLISM	Inorganic ion transport and metabolism 	Trk/Ktr K+ transport system regulatory component TrkA/KtrA/KtrC, RCK domain	COG0569
+2	METABOLISM	Lipid transport and metabolism 	3-hydroxy-3-methylglutaryl CoA synthase	COG3425
+1	METABOLISM	Lipid transport and metabolism 	3-oxoacyl-(acyl-carrier-protein) synthase	COG0304
+1	METABOLISM	Lipid transport and metabolism 	3-oxoacyl-[acyl-carrier-protein] synthase III	COG0332
+7	METABOLISM	Lipid transport and metabolism 	Acetyl-CoA acetyltransferase	COG0183
+2	METABOLISM	Lipid transport and metabolism 	Acetyl-CoA carboxylase, carboxyltransferase component	COG4799
+2	METABOLISM	Lipid transport and metabolism 	Acetyl/propionyl-CoA carboxylase, alpha subunit	COG4770
+1	METABOLISM	Lipid transport and metabolism 	Activator of 2-hydroxyglutaryl-CoA dehydratase (HSP70-class ATPase domain)	COG1924
+2	METABOLISM	Lipid transport and metabolism 	Acyl CoA:acetate/3-ketoacid CoA transferase, alpha subunit	COG1788
+27	METABOLISM	Lipid transport and metabolism 	Acyl carrier protein	COG0236
+1	METABOLISM	Lipid transport and metabolism 	Acyl-CoA dehydratase PaaZ	COG2030
+11	METABOLISM	Lipid transport and metabolism 	Acyl-CoA dehydrogenase related to the alkylation response protein AidB	COG1960
+1	METABOLISM	Lipid transport and metabolism 	Acyl-CoA hydrolase	COG1607
+2	METABOLISM	Lipid transport and metabolism 	Acyl-CoA reductase or other NAD-dependent aldehyde dehydrogenase	COG1012
+7	METABOLISM	Lipid transport and metabolism 	Acyl-CoA:acetate/3-ketoacid CoA transferase, beta subunit	COG2057
+7	METABOLISM	Lipid transport and metabolism 	Acyl-coenzyme A synthetase/AMP-(fatty) acid ligase	COG0365
+2	METABOLISM	Lipid transport and metabolism 	Biotin carboxyl carrier protein	COG0511
+5	METABOLISM	Lipid transport and metabolism 	Enoyl-CoA hydratase/carnithine racemase	COG1024
+1	METABOLISM	Lipid transport and metabolism 	Hydroxymethylglutaryl-CoA reductase	COG1257
+2	METABOLISM	Lipid transport and metabolism 	Long-chain fatty acid transport protein	COG2067
+2	METABOLISM	Lipid transport and metabolism 	Lysophospholipase, alpha-beta hydrolase superfamily	COG2267
+4	METABOLISM	Lipid transport and metabolism 	Methylmalonyl-CoA mutase, C-terminal domain/subunit (cobalamin-binding)	COG2185
+3	METABOLISM	Lipid transport and metabolism 	Methylmalonyl-CoA mutase, N-terminal domain/subunit	COG1884
+1	METABOLISM	Lipid transport and metabolism 	Myo-inositol-1-phosphate synthase	COG1260
+3	METABOLISM	Lipid transport and metabolism 	NAD(P)-dependent dehydrogenase, short-chain alcohol dehydrogenase family	COG1028
+1	METABOLISM	Lipid transport and metabolism 	NADPH-dependent 2,4-dienoyl-CoA reductase, sulfur reductase, or a related oxidoreductase	COG0446
+1	METABOLISM	Lipid transport and metabolism 	O-succinylbenzoic acid-CoA ligase MenE or related acyl-CoA synthetase (AMP-forming)	COG0318
+2	METABOLISM	Lipid transport and metabolism 	Phosphatidylserine/phosphatidylglycerophosphate/cardiolipin synthase	COG1502
+1	METABOLISM	Lipid transport and metabolism 	Poly-beta-hydroxybutyrate synthase	COG3243
+1	METABOLISM	Lipid transport and metabolism 	Prenyltransferase, beta subunit	COG5029
+2	METABOLISM	Nucleotide transport and metabolism 	2',3'-cyclic-nucleotide 2'-phosphodiesterase/5'- or 3'-nucleotidase, 5'-nucleotidase family	COG0737
+2	METABOLISM	Nucleotide transport and metabolism 	5-formaminoimidazole-4-carboxamide-1-beta-D-ribofuranosyl 5'-monophosphate synthetase (purine biosynthesis)	COG1759
+2	METABOLISM	Nucleotide transport and metabolism 	Adenosine deaminase	COG1816
+1	METABOLISM	Nucleotide transport and metabolism 	Adenosine/AMP kinase	COG1839
+1	METABOLISM	Nucleotide transport and metabolism 	Adenylate kinase or related kinase	COG0563
+1	METABOLISM	Nucleotide transport and metabolism 	Adenylosuccinate synthase	COG0104
+1	METABOLISM	Nucleotide transport and metabolism 	Archaeal aspartate aminotransferase or a related aminotransferase, includes purine catabolism protein PucG	COG0075
+2	METABOLISM	Nucleotide transport and metabolism 	Formyltetrahydrofolate synthetase	COG2759
+2	METABOLISM	Nucleotide transport and metabolism 	IMP dehydrogenase/GMP reductase	COG0516
+2	METABOLISM	Nucleotide transport and metabolism 	NAD(P)H-hydrate repair enzyme Nnr, NAD(P)H-hydrate epimerase domain	COG0062
+4	METABOLISM	Nucleotide transport and metabolism 	NAD-dependent dihydropyrimidine dehydrogenase, PreA subunit	COG1146
+3	METABOLISM	Nucleotide transport and metabolism 	Orotate phosphoribosyltransferase homolog	COG0856
+1	METABOLISM	Nucleotide transport and metabolism 	Orotidine-5'-phosphate decarboxylase	COG0284
+1	METABOLISM	Nucleotide transport and metabolism 	Phosphoribosylaminoimidazole (AIR) synthetase	COG0150
+1	METABOLISM	Nucleotide transport and metabolism 	Phosphoribosylformylglycinamidine (FGAM) synthase, glutamine amidotransferase domain	COG0047
+1	METABOLISM	Nucleotide transport and metabolism 	Phosphoribosylformylglycinamidine (FGAM) synthase, synthetase domain	COG0046
+1	METABOLISM	Nucleotide transport and metabolism 	Purine nucleoside phosphorylase	COG0005
+1	METABOLISM	Nucleotide transport and metabolism 	Thymidine phosphorylase	COG0213
+1	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	3-oxoacyl-(acyl-carrier-protein) synthase	COG0304
+2	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Acetoacetate decarboxylase	COG4689
+18	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Acyl transferase domain in polyketide synthase (PKS) enzymes	COG3321
+3	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Alkyl sulfatase BDS1 and related hydrolases, metallo-beta-lactamase superfamily	COG2015
+2	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Benzoyl-CoA reductase/2-hydroxyglutaryl-CoA dehydratase subunit, BcrC/BadD/HgdB	COG1775
+11	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Carboxysome shell and ethanolamine utilization microcompartment protein CcmL/EutN	COG4577
+2	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Catechol-2,3-dioxygenase	COG2514
+2	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	EntF, seryl-AMP synthase component  of non-ribosomal peptide synthetase	COG1020
+1	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Glutathione synthase, LysX or RimK-type ligase, ATP-grasp superfamily	COG0189
+1	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	N-methylhydantoinase A/oxoprolinase/acetone carboxylase, beta subunit	COG0145
+2	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Surfactin synthase thioesterase subunit	COG3208
+2	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	TRAP-type mannitol/chloroaromatic compound transport system, periplasmic component	COG4663
+1	POORLY CHARACTERIZED	Function unknown 	PPE-repeat protein	COG5651
+1	POORLY CHARACTERIZED	Function unknown 	Small periplasmic lipoprotein YifL (function unknown)	COG5567
+3	POORLY CHARACTERIZED	Function unknown 	Stage V sporulation protein SpoVS, predicted DNA-binding, AlbA superfamily	COG2359
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized 2Fe-2S and 4Fe-4S clusters-containing protein, contains DUF4445 domain	COG3894
+8	POORLY CHARACTERIZED	Function unknown 	Uncharacterized Fe-S cluster protein	COG2768
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein	COG4916
+2	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein AF1278, contains saccharopine dehydrogenase N-terminal (SDHN) domain	COG1915
+3	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein CPn0794, contains PKD-like HAF repeats	COG5563
+2	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein YggE, contains kinase-interacting SIMPL domain	COG2968
+8	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein YjbI, contains pentapeptide repeats	COG1357
+3	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein YloU, alkaline shock protein (Asp23) family	COG1302
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, DUF169 family	COG2043
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, DUF1800 family	COG5267
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, DUF2111 domain	COG4048
+2	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, DUF2193 domain	COG4883
+27	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, PKD repeat domain	COG3291
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, contains CHAT domain	COG4995
+11	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, contains a C-terminal beta-barrel porin domain	COG4625
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, contains a phytase-like domain	COG4222
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, cupin superfamily	COG3837
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized lipoprotein YddW, UPF0748 family	COG1649
+2	POORLY CHARACTERIZED	Function unknown 	Uncharacterized membrane protein	COG1470
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized membrane-anchored protein YjiN, DUF445 family	COG2733
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized pentameric protein YbjQ, UPF0145 family	COG0393
+4	POORLY CHARACTERIZED	Function unknown 	Uncharacterized protein, contains DUF3084 domain	COG4372
+2	POORLY CHARACTERIZED	Function unknown 	Uncharacterized protein, contains DUF4139 domain	COG5316
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized protein, contains DUF5611 domain	COG4004
+4	POORLY CHARACTERIZED	Function unknown 	Uncharacterized secreted protein, contains LVIVD repeats, choice-of-anchor domain	COG5276
+4	POORLY CHARACTERIZED	General function prediction only 	4-hydroxyphenylpyruvate dioxygenase and related hemolysins	COG3185
+1	POORLY CHARACTERIZED	General function prediction only 	ABC-type uncharacterized transport system, periplasmic component	COG2984
+2	POORLY CHARACTERIZED	General function prediction only 	ACT domain-containing protein	COG4747
+1	POORLY CHARACTERIZED	General function prediction only 	Carbonic anhydrase or acetyltransferase, isoleucine patch superfamily	COG0663
+1	POORLY CHARACTERIZED	General function prediction only 	Cupin domain protein related to quercetin dioxygenase	COG1917
+1	POORLY CHARACTERIZED	General function prediction only 	Cyclophilin family protein MJ1412, methanogenesis marker protein 3	COG4070
+10	POORLY CHARACTERIZED	General function prediction only 	DNA-binding beta-propeller fold protein YncE	COG3391
+7	POORLY CHARACTERIZED	General function prediction only 	Extracellular solute-binding protein, contains Ig-fold domain	COG3889
+1	POORLY CHARACTERIZED	General function prediction only 	Ferritin-like protein MJ0754, DUF2202 family	COG4902
+24	POORLY CHARACTERIZED	General function prediction only 	Fibronectin type 3 domain	COG3401
+2	POORLY CHARACTERIZED	General function prediction only 	Flavin-binding protein dodecin	COG3360
+6	POORLY CHARACTERIZED	General function prediction only 	Flavin-dependent oxidoreductase, luciferase family (includes alkanesulfonate monooxygenase SsuD and methylene tetrahydromethanopterin reductase)	COG2141
+1	POORLY CHARACTERIZED	General function prediction only 	GTPase SAR1 family domain	COG1100
+2	POORLY CHARACTERIZED	General function prediction only 	Glyoxylase or a related metal-dependent hydrolase, beta-lactamase superfamily II	COG0491
+1	POORLY CHARACTERIZED	General function prediction only 	MFS family permease, includes anhydromuropeptide permease AmpG	COG0477
+5	POORLY CHARACTERIZED	General function prediction only 	MoxR-like ATPase	COG0714
+4	POORLY CHARACTERIZED	General function prediction only 	NADPH-dependent glutamate synthase beta chain or related oxidoreductase	COG0493
+1	POORLY CHARACTERIZED	General function prediction only 	NADPH:quinone reductase or related Zn-dependent oxidoreductase	COG0604
+1	POORLY CHARACTERIZED	General function prediction only 	Phenylpropionate dioxygenase or related ring-hydroxylating dioxygenase, large terminal subunit	COG4638
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted ATP-dependent carboligase, ATP-grasp superfamily	COG1938
+3	POORLY CHARACTERIZED	General function prediction only 	Predicted ATPase	COG3903
+2	POORLY CHARACTERIZED	General function prediction only 	Predicted DNA-binding protein with PD1-like DNA-binding motif, PPC/DUF296 domain	COG1661
+2	POORLY CHARACTERIZED	General function prediction only 	Predicted RNA-binding protein involved in translation, contains  Zn-ribbon domain, DUF1610 family	COG2888
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted acyl esterase	COG2936
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted class III extradiol dioxygenase, MEMO1 family	COG1355
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted dinucleotide-binding enzyme	COG2085
+2	POORLY CHARACTERIZED	General function prediction only 	Predicted flavin-nucleotide-binding protein, pyridoxine 5'-phosphate oxidase superfamily	COG3576
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted glycosyl hydrolase, alpha amylase family	COG1306
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted hydrocarbon binding protein, contains 4VR domain	COG1719
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted kinase related to dihydroxyacetone kinase	COG1461
+3	POORLY CHARACTERIZED	General function prediction only 	Predicted lipid transporter YdfJ, MMPL/SSD domain, RND superfamily	COG2409
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted metal-dependent RNase, contains metallo-beta-lactamase and KH domains	COG1782
+11	POORLY CHARACTERIZED	General function prediction only 	Predicted molibdopterin-dependent oxidoreductase YjgC	COG3383
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted nucleic acid-binding protein DR0291, contains C4-type Zn-ribbon domain	COG1579
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted regulator of amino acid metabolism, contains ACT domain	COG2150
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted selenoprotein, Rdx family	COG3526
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted transcriptional regulator, contains CW (cell wall-binding) repeats and an HTH domain	COG2512
+19	POORLY CHARACTERIZED	General function prediction only 	S-layer protein MJ0795, predicted component of type IV pili-like system	COG1361
+1	POORLY CHARACTERIZED	General function prediction only 	SET domain-containing protein (function unknown)	COG2940
+1	POORLY CHARACTERIZED	General function prediction only 	Secreted protein containing bacterial Ig-like domain and vWFA domain	COG2304
+7	POORLY CHARACTERIZED	General function prediction only 	Short-chain dehydrogenase	COG0300
+1	POORLY CHARACTERIZED	General function prediction only 	Sporulation protein YlmC, YlmC/YmxH family, contains PRC-barrel domain	COG1873
+9	POORLY CHARACTERIZED	General function prediction only 	TRAP-type uncharacterized transport system, periplasmic component	COG2358
+75	POORLY CHARACTERIZED	General function prediction only 	Tetratricopeptide (TPR) repeat	COG0457
+1	POORLY CHARACTERIZED	General function prediction only 	Threonine dehydrogenase or related Zn-dependent dehydrogenase	COG1063
+4	POORLY CHARACTERIZED	General function prediction only 	Uncaracterized surface protein containing fasciclin (FAS1) repeats	COG2335
+2	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized OB-fold protein, contains Zn-ribbon domain	COG1545
+7	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein MJ1470, contains DUF2341 domain, predicted component of type IV pili-like system	COG5306
+12	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein RhaS, contains 28 RHS repeats	COG3209
+2	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein YfaS, alpha-2-macroglobulin family	COG2373
+2	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein YurZ, alkylhydroperoxidase/carboxymuconolactone decarboxylase family	COG0599
+1	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein containing a metal-binding domain	COG5643
+5	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein related to plant photosystem II stability/assembly factor	COG4447
+1	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein, contains ACT domain	COG2061
+1	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein, contains SIS (Sugar ISomerase) phosphosugar binding domain	COG4821
+2	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized peptidoglycan binding protein, contains LysM and FecR  domains	COG4254
+4	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized protein, contains GH25 family domain	COG5266
+15	POORLY CHARACTERIZED	General function prediction only 	WD40 repeat	COG2319
