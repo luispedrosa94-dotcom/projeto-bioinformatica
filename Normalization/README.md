@@ -52,8 +52,7 @@ Outputs written to `../outputs/`:
   re-inclusion without migration.
 - **Confidence model:** every annotation carries a categorical
   `confidence_level` (high / medium / low / unknown), in addition to the raw
-  numeric `score`. This implements the supervisor's principle of "not
-  treating all annotation evidence as equivalent".
+  numeric `score`.
 
 ## Canonical schema
 
