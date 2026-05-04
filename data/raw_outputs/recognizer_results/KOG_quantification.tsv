@@ -1,0 +1,888 @@
+3	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Anaphase promoting complex, Cdc20, Cdh1, and Ama1 subunits	KOG0305
+22	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Anaphase-promoting complex (APC), Cdc16 subunit	KOG1173
+35	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Anaphase-promoting complex (APC), Cdc23 subunit	KOG1155
+22	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Anaphase-promoting complex (APC), subunit 7	KOG1174
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Cdc2-related protein kinase	KOG0600
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Cdk activating kinase (CAK)/RNA polymerase II transcription initiation/nucleotide excision repair factor TFIIH/TFIIK, kinase subunit CDK7	KOG0659
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Centromere-associated protein HEC1	KOG0995
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Component of histone deacetylase complex (breast carcinoma metastasis suppressor 1 protein in human)	KOG4466
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	DNA replication checkpoint protein CHL12/CTF18	KOG1969
+42	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	DNA-binding cell division cycle control protein	KOG1126
+3	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	FAD-dependent sulfhydryl oxidase/quiescin and related proteins	KOG1731
+2	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Host cell transcription factor HCFC1	KOG4152
+3	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Leucine-rich acidic nuclear protein	KOG2739
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Metacaspase involved in regulation of apoptosis	KOG1546
+7	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Microtubule severing protein katanin p80 subunit B (contains WD40 repeats)	KOG0267
+3	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Microtubule-associated protein dynactin DCTN1/Glued	KOG0971
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Mitotic checkpoint protein MAD1	KOG4593
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Mitotic checkpoint protein PRCC	KOG3903
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Mitotic checkpoint serine/threonine protein kinase	KOG1166
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Mitotic spindle checkpoint protein BUB3, WD repeat superfamily	KOG1036
+3	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	NIMA (never in mitosis)-related G2-specific serine/threonine protein kinase	KOG0591
+3	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Polo-like serine/threonine protein kinase	KOG0575
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Predicted ATPase, nucleotide-binding	KOG3022
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Serine/threonine protein kinase	KOG0580
+3	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Serine/threonine protein kinase	KOG0588
+4	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Serine/threonine protein kinase Chk2 and related proteins	KOG0615
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Speckle-type POZ protein SPOP and related proteins with TRAF, MATH and BTB/POZ domains	KOG1987
+2	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Structural maintenance of chromosome protein 1 (sister chromatid cohesion complex Cohesin, subunit SMC1)	KOG0018
+3	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	Structural maintenance of chromosome protein 3 (sister chromatid cohesion complex Cohesin, subunit SMC3)	KOG0964
+1	CELLULAR PROCESSES AND SIGNALING	Cell cycle control, cell division, chromosome partitioning 	p53-interacting protein 53BP/ASPP, contains ankyrin and SH3 domains	KOG0515
+7	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Fasciclin and related adhesion glycoproteins	KOG1437
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	GDP-mannose pyrophosphorylase/mannose-1-phosphate guanylyltransferase	KOG1322
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Glycosyltransferase	KOG0853
+2	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Membrane-associated protein FER-1 and related ferlins, contain multiple C2 domains	KOG1326
+1	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	N-acetylglucosaminyltransferase complex, subunit PIG-A/SPT14, required for phosphatidylinositol biosynthesis/Sulfolipid synthase	KOG1111
+2	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	Nidogen and related basement membrane protein proteins	KOG1214
+4	CELLULAR PROCESSES AND SIGNALING	Cell wall/membrane/envelope biogenesis 	UDP-glucose 4-epimerase/UDP-sulfoquinovose synthase	KOG1371
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Actin filament-coating protein tropomyosin	KOG1003
+7	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Actin-binding protein SLA2/Huntingtin-interacting protein Hip1	KOG0980
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Alpha tubulin	KOG1376
+2	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Arp2/3 complex-interacting protein VIP1/Asp1, involved in regulation of actin cytoskeleton	KOG1057
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Beta tubulin	KOG1375
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Beta-spectrin	KOG0517
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Cytoplasmic protein Max-1, contains PH, MyTH4 and FERM domains	KOG0248
+24	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Cytoskeletal regulator Flightless-I (contains leucine-rich and gelsolin repeats)	KOG0444
+3	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Drebrins and related actin binding proteins	KOG3655
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Dystonin, GAS (Growth-arrest-specific protein), and related proteins	KOG0516
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Gamma tubulin	KOG1374
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Kinesin (KAR3 subfamily)	KOG0239
+2	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Kinesin (SMY1 subfamily)	KOG0240
+16	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Kinesin light chain	KOG1840
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Kinesin-like protein	KOG0241
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Kinesin-like protein	KOG0242
+2	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Kinesin-like protein	KOG0243
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Kinesin-like protein	KOG0244
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Kinesin-like protein	KOG0245
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Kinesin-like protein	KOG0246
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Kinesin-like protein	KOG0247
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Kinesin-like protein	KOG4280
+19	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Leucine-rich repeat (LRR) protein, contains calponin homology domain	KOG0532
+1	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Members of tubulin/FtsZ family	KOG2530
+5	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Microtubule-associated protein TAU	KOG2418
+2	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Microtubule-associated proteins	KOG3592
+18	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Myosin class II heavy chain	KOG0161
+2	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Projectin/twitchin and related proteins	KOG0613
+3	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	WASP-interacting protein VRP1/WIP, contains WH2 domain	KOG4462
+2	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	WD40 repeat stress protein/actin interacting protein	KOG0318
+8	CELLULAR PROCESSES AND SIGNALING	Cytoskeleton 	Wiskott Aldrich syndrome proteins	KOG1830
+3	CELLULAR PROCESSES AND SIGNALING	Defense mechanisms 	Flavonol reductase/cinnamoyl-CoA reductase	KOG1502
+22	CELLULAR PROCESSES AND SIGNALING	Defense mechanisms 	dsRNA-activated protein kinase inhibitor P58, contains TPR and DnaJ domains	KOG0624
+12	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Collagens (type IV and type XIII), and related proteins	KOG3544
+16	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Collagens (type XV)	KOG3546
+7	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Extracellular matrix protein slit, contains leucine-rich and EGF-like repeats	KOG4237
+1	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Mucin/alpha-tectorin	KOG4291
+1	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Tumor necrosis factor-alpha-converting enzyme (TACE/ADAM17) and related metalloproteases	KOG3658
+12	CELLULAR PROCESSES AND SIGNALING	Extracellular structures 	Vitronectin receptor, alpha subunit	KOG3637
+2	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Amphiphysin	KOG3771
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Clathrin coat binding protein/Huntingtin interacting protein HIP1, involved in regulation of endocytosis	KOG4442
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Endocytosis protein RME-8, contains DnaJ domain	KOG1789
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	GTPase Rab11/YPT3, small G protein superfamily	KOG0087
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	GTPase Rab14, small G protein superfamily	KOG0097
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	GTPase Rab2, small G protein superfamily	KOG0098
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	GTPase Rab27, small G protein superfamily	KOG0081
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	GTPase Rab3, small G protein superfamily	KOG0093
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	GTPase Rab30, small G protein superfamily	KOG0095
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	GTPase Rab4, small G protein superfamily	KOG0086
+2	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	GTPase Rab5/YPT51 and related small G protein superfamily GTPases	KOG0092
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	GTPase Rab6/YPT6/Ryh1, small G protein superfamily	KOG0094
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Guanine nucleotide exchange factor EFA6	KOG0932
+4	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Inositol-1,4,5-triphosphate 5-phosphatase (synaptojanin), INP51/INP52/INP53 family	KOG0566
+5	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Mitochondrial Fe/S cluster exporter, ABC superfamily	KOG0057
+5	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Peptide exporter, ABC superfamily	KOG0058
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Prolactin regulatory element-binding protein/Protein transport protein SEC12p	KOG0771
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Rab6 GTPase-interacting protein involved in endosome-to-TGN transport	KOG4809
+2	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Signal recognition particle receptor, alpha subunit	KOG0781
+2	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Signal recognition particle, subunit Srp54	KOG0780
+3	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Signal recognition particle, subunit Srp72	KOG2376
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Synaptic vesicle protein BAIAP3, involved in vesicle priming/regulation	KOG1328
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Synaptic vesicle protein rabphilin-3A	KOG1013
+43	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Translocase of outer mitochondrial membrane complex, subunit TOM70/TOM72	KOG0547
+4	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Vesicle coat complex COPII, subunit SEC24/subunit SFB2	KOG1985
+6	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Vesicle coat complex COPII, subunit SEC31	KOG0307
+4	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Vesicle coat complex COPII, subunit SFB3	KOG1984
+1	CELLULAR PROCESSES AND SIGNALING	Intracellular trafficking, secretion, and vesicular transport 	Vesicular amine transporter	KOG3764
+4	CELLULAR PROCESSES AND SIGNALING	Nuclear structure 	Nuclear architecture related protein	KOG2439
+1	CELLULAR PROCESSES AND SIGNALING	Nuclear structure 	Nuclear pore complex protein	KOG4719
+3	CELLULAR PROCESSES AND SIGNALING	Nuclear structure 	Nuclear pore complex, Nup214/CAN component	KOG3630
+4	CELLULAR PROCESSES AND SIGNALING	Nuclear structure 	Nuclear pore complex, Nup98 component (sc Nup145/Nup100/Nup116)	KOG0845
+3	CELLULAR PROCESSES AND SIGNALING	Nuclear structure 	Nuclear pore complex, p54 component (sc Nup57)	KOG3091
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit alpha type PSMA1/PRE5	KOG0863
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit alpha type PSMA2/PRE8	KOG0181
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit alpha type PSMA3/PRE10	KOG0184
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit alpha type PSMA4/PRE9	KOG0178
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit alpha type PSMA5/PUP2	KOG0176
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit alpha type PSMA6/SCL1	KOG0182
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit alpha type PSMA7/PRE6	KOG0183
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit beta type PSMB1/PRE7	KOG0179
+8	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit beta type PSMB2/PRE1	KOG0177
+4	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit beta type PSMB3/PUP3	KOG0180
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit beta type PSMB4/PRE4	KOG0185
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit beta type PSMB5/PSMB8/PRE2	KOG0175
+8	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit beta type PSMB6/PSMB9/PRE3	KOG0174
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	20S proteasome, regulatory subunit beta type PSMB7/PSMB10/PUP1	KOG0173
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	26S proteasome regulatory complex, ATPase RPT1	KOG0729
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	26S proteasome regulatory complex, ATPase RPT2	KOG0726
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	26S proteasome regulatory complex, ATPase RPT3	KOG0727
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	26S proteasome regulatory complex, ATPase RPT4	KOG0651
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	26S proteasome regulatory complex, ATPase RPT5	KOG0652
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	26S proteasome regulatory complex, ATPase RPT6	KOG0728
+10	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase	KOG0730
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase	KOG0735
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase	KOG0737
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase	KOG0738
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase	KOG0739
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase	KOG0740
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase	KOG0741
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase	KOG0742
+6	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase	KOG0743
+6	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase	KOG0744
+12	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase containing the bromodomain	KOG0732
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase containing the peptidase M41 domain	KOG0731
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	AAA+-type ATPase containing the peptidase M41 domain	KOG0734
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	ATP binding protein	KOG1672
+3	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Alkyl hydroperoxide reductase, thiol specific antioxidant and related enzymes	KOG0852
+3	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Alkyl hydroperoxide reductase, thiol specific antioxidant and related enzymes	KOG0854
+3	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Alkyl hydroperoxide reductase, thiol specific antioxidant and related enzymes	KOG0855
+6	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Alpha crystallins	KOG3591
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Alpha-macroglobulin	KOG1366
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Asparaginyl peptidases	KOG1348
+6	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Beta-tubulin folding cofactor E	KOG3207
+3	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Chaperone HSP104 and related ATP-dependent Clp proteases	KOG1051
+30	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Chaperonin complex component, TCP-1 alpha subunit (CCT1)	KOG0360
+30	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Chaperonin complex component, TCP-1 beta subunit (CCT2)	KOG0363
+30	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Chaperonin complex component, TCP-1 delta subunit (CCT4)	KOG0358
+35	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Chaperonin complex component, TCP-1 epsilon subunit (CCT5)	KOG0357
+30	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Chaperonin complex component, TCP-1 eta subunit (CCT7)	KOG0361
+30	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Chaperonin complex component, TCP-1 gamma subunit (CCT3)	KOG0364
+30	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Chaperonin complex component, TCP-1 theta subunit (CCT8)	KOG0362
+30	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Chaperonin complex component, TCP-1 zeta subunit (CCT6)	KOG0359
+4	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Cysteine proteinase Cathepsin F	KOG1542
+4	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Cysteine proteinase Cathepsin L	KOG1543
+3	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Dipeptidyl aminopeptidase	KOG2100
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Dipeptidyl aminopeptidases/acylaminoacyl-peptidases	KOG2281
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	E3 ubiquitin ligase interacting with arginine methyltransferase	KOG4400
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	E3 ubiquitin ligase involved in syntaxin degradation	KOG0978
+12	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	FKBP-type peptidyl-prolyl cis-trans isomerase	KOG0543
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	FKBP-type peptidyl-prolyl cis-trans isomerase	KOG0544
+3	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	FKBP-type peptidyl-prolyl cis-trans isomerase	KOG0549
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	FKBP-type peptidyl-prolyl cis-trans isomerase	KOG0552
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Gelatinase A and related matrix metalloproteases	KOG1565
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Glutaredoxin-related protein	KOG0911
+15	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Hsp70-interacting protein Hip/Transient component of progesterone receptor complexes and an Hsp70-binding protein	KOG1308
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Meltrins, fertilins and related Zn-dependent metalloproteinases of the ADAMs family	KOG3607
+9	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Metalloproteinase-related collagenase pM5	KOG1948
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Mitochondrial chaperonin	KOG1641
+31	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Mitochondrial chaperonin, Cpn60/Hsp60p	KOG0356
+29	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0550
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0691
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0712
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0713
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0714
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0715
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0716
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0717
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0718
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0719
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0720
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0721
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (DnaJ superfamily)	KOG0722
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperone (small heat-shock protein Hsp26/Hsp42)	KOG0710
+13	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperones GRP170/SIL1, HSP70 superfamily	KOG0104
+13	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperones GRP78/BiP/KAR2, HSP70 superfamily	KOG0100
+13	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperones HSP105/HSP110/SSE1, HSP70 superfamily	KOG0103
+13	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperones HSP70/HSC70, HSP70 superfamily	KOG0101
+13	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular chaperones mortalin/PBP74/GRP75, HSP70 superfamily	KOG0102
+57	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Molecular co-chaperone STI1	KOG0548
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	NifU-like domain-containing proteins	KOG2358
+8	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Nuclear AAA ATPase (VCP subfamily)	KOG0733
+10	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Peroxisome assembly factor 2 containing the AAA+-type ATPase domain	KOG0736
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Predicted E3 ubiquitin ligase	KOG2231
+4	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Predicted E3 ubiquitin ligase	KOG4628
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Predicted molecular chaperone (DnaJ superfamily)	KOG1150
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Predicted serine protease	KOG2237
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Prohibitin	KOG3083
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Prohibitin-like protein	KOG3090
+5	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Protein disulfide isomerase (prolyl 4-hydroxylase beta subunit)	KOG0190
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	SCF ubiquitin ligase, Skp2 component	KOG2120
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Serine protease	KOG1320
+5	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Serine/threonine-protein kinase involved in autophagy	KOG0595
+14	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Subtilisin kexin isozyme-1/site 1 protease, subtilase superfamily	KOG4266
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Subtilisin-like proprotein convertase	KOG3525
+4	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Subtilisin-like proprotein convertase	KOG3526
+16	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Subtilisin-related protease/Vacuolar protease B	KOG1153
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Thiol-disulfide isomerase and thioredoxin	KOG0912
+3	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Thioredoxin	KOG0907
+4	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Thioredoxin reductase	KOG0404
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Thioredoxin reductase	KOG4716
+2	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Thioredoxin-like protein	KOG0908
+3	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Thioredoxin-like protein	KOG0910
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Thioredoxin-like protein	KOG0914
+7	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Thioredoxin/protein disulfide isomerase	KOG0191
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Transferrin receptor and related proteins containing the protease-associated (PA) domain	KOG2195
+14	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Tripeptidyl peptidase II	KOG1114
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Ubiquitin-like protein	KOG0010
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Ubiquitin-like protein, regulator of apoptosis	KOG4248
+1	CELLULAR PROCESSES AND SIGNALING	Posttranslational modification, protein turnover, chaperones 	Ubiquitin-specific protease UBP14	KOG0944
+6	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	1-aminocyclopropane-1-carboxylate synthase, and related proteins	KOG0256
+4	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	3-phosphoinositide-dependent protein kinase (PDK1)	KOG0592
+3	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	ARK protein kinase family	KOG1989
+7	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Actin regulatory protein (Wiskott-Aldrich syndrome protein)	KOG3671
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Adaptor protein Disabled	KOG3535
+13	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Apoptotic ATPase	KOG4658
+10	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Axon guidance receptor Dscam	KOG4222
+6	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Ca2+-dependent phospholipid-binding protein Synaptotagmin, required for synaptic vesicle and secretory granule exocytosis	KOG1028
+4	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Ca2+/calmodulin-dependent protein kinase kinase beta and related serine/threonine protein kinases	KOG0585
+6	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Ca2+/calmodulin-dependent protein kinase, EF-Hand protein superfamily	KOG0032
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Ca2+/calmodulin-dependent protein kinase, EF-Hand protein superfamily	KOG0033
+5	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Cadherin EGF LAG seven-pass G-type receptor	KOG4289
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Casein kinase (serine/threonine/tyrosine protein kinase)	KOG1164
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Chimaerin and related Rho GTPase activating proteins	KOG1453
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Clathrin assembly protein AP180 and related proteins, contain ENTH domain	KOG0251
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Copine	KOG1327
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Discoidin domain receptor DDR1	KOG1094
+3	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Endocytic adaptor protein intersectin	KOG1029
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Epidermal growth factor receptor EGFR and related tyrosine kinases	KOG1025
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Fibrillins and related proteins containing Ca2+-binding EGF-like domains	KOG1217
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Fibroblast/platelet-derived growth factor receptor and related receptor tyrosine kinases	KOG0200
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Focal adhesion adaptor protein Paxillin and related LIM proteins	KOG1701
+4	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	G protein beta subunit-like protein	KOG0279
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	GTP-binding protein	KOG4252
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	GTP-binding protein SEC4, small G protein superfamily, and related Ras family GTP-binding proteins	KOG0078
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	GTPase Rab1/YPT1, small G protein superfamily, and related GTP-binding proteins	KOG0084
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	GTPase-activator protein	KOG4270
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Inhibitor of type V adenylyl cyclases/Neuronal presynaptic protein Highwire/PAM/RPM-1	KOG1428
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Insulin/growth factor receptor (contains protein kinase domain)	KOG4258
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	MAP kinase-activated protein kinase 2	KOG0604
+6	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	MEKK and related serine/threonine protein kinases	KOG0198
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	MP1 adaptor interacting protein P14	KOG4107
+35	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Membrane glycoprotein LIG-1	KOG4194
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Mitogen-activated protein kinase (MAPK) kinase MKK3/MKK6	KOG0984
+5	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Mitogen-activated protein kinase kinase (MAP2K)	KOG0581
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Nerve growth factor receptor TRKA and related tyrosine kinases	KOG1026
+23	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Neural cell adhesion molecule L1	KOG3513
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Neurexin IV	KOG3516
+9	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Nischarin, modulator of integrin alpha5 subunit action	KOG1259
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Oligophrenin-1 and related Rho GTPase-activating proteins	KOG1451
+6	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Phosphatidylinositol-4-phosphate 5-kinase and related FYVE finger-containing proteins	KOG0230
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Predicted Rho GTPase-activating protein	KOG1450
+21	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Predicted calmodulin-binding protein	KOG4162
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Programmed cell death 8 (apoptosis-inducing factor)	KOG1346
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Protein kinase containing WD40 repeats	KOG1240
+15	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Protein phosphatase 1, regulatory subunit, and related proteins	KOG0531
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Protein tyrosine kinase	KOG0194
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Protein tyrosine kinase	KOG1095
+6	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Proteins containing BTB/POZ and Kelch domains, involved in regulatory/signal transduction processes	KOG4441
+3	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	RTK signaling protein MASK/UNC-44	KOG4369
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	RUN domain-containing protein	KOG4381
+3	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Rac1 GTPase effector FRL	KOG1923
+3	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Ras GTPase-activating protein	KOG2059
+15	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Ras suppressor protein (contains leucine-rich repeats)	KOG0617
+24	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Receptor mediating netrin-dependent axon guidance	KOG4221
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Rho GTPase effector BNI1 and related formins	KOG1922
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Rho GTPase-activating protein	KOG2710
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Rho- and Arf-GTPase activating protein ARAP3	KOG1117
+3	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Rho-associated, coiled-coil containing protein kinase	KOG0612
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Rho/Rac1-interacting serine/threonine kinase Citron	KOG0976
+3	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	RhoA GTPase effector DIA/Diaphanous	KOG1924
+3	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Ribosomal protein S6 kinase	KOG0603
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	STE20-like serine/threonine kinase MST	KOG0574
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Sensory transduction histidine kinase	KOG0519
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine racemase	KOG1251
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine kinase	KOG1345
+23	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine phosphatase 2C containing leucine-rich repeats, similar to SCN circadian oscillatory protein (SCOP)	KOG0618
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine protein kinase	KOG0201
+6	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine protein kinase	KOG0583
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine protein kinase	KOG0690
+4	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine protein kinase	KOG0696
+5	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine protein kinase	KOG1187
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine protein kinase	KOG4717
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine protein kinase PKC mu/PKD and related proteins	KOG4236
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine protein kinase RAF	KOG0193
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine protein kinase and endoribonuclease ERN1/IRE1, sensor of the unfolded protein response pathway	KOG1027
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Serine/threonine protein kinase, contains leucine zipper domain	KOG4721
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Signal transduction protein Enabled, contains WH1 domain	KOG4590
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Synaptic vesicle protein EHS-1 and related EH domain proteins	KOG0998
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Synaptic vesicle protein Synapsin	KOG3895
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Tousled-like protein kinase	KOG1151
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Transforming growth factor beta/activin receptor subfamily of serine/threonine kinases	KOG3653
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Tumour suppressor protein p122-RhoGAP/DLC1	KOG2200
+6	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Tyrosine kinase specific for activated (GTP-bound) p21cdc42Hs	KOG0192
+3	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Tyrosine kinase, EPH (ephrin) receptor family	KOG0196
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Tyrosine kinases	KOG0197
+15	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	Uncharacterized conserved protein, contains laminin, cadherin and EGF domains	KOG1219
+2	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	cAMP-dependent protein kinase catalytic subunit (PKA)	KOG0616
+1	CELLULAR PROCESSES AND SIGNALING	Signal transduction mechanisms 	p21-activated serine/threonine protein kinase	KOG0578
+1	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	Acinus (induces apoptotic chromatin condensation)	KOG2416
+5	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	Beta-transducin family (WD-40 repeat) protein	KOG0273
+1	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	Chromatin remodeling factor subunit and related transcription factors	KOG1279
+2	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	Chromatin-associated protein Dek and related proteins, contains SAP DNA binding domain	KOG2266
+1	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	DNA topoisomerase type II	KOG0355
+1	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	Histone H3 (Lys4) methyltransferase complex, subunit SET1 and related methyltransferases	KOG1080
+1	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	Histone H3 (Lys9) methyltransferase SUV39H1/Clr4, required for transcriptional silencing	KOG1082
+3	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	Histone H4	KOG3467
+1	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	Histone acetyltransferase complex SAGA/ADA, subunit ADA2	KOG0457
+2	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	Histone deacetylase complex, SIN3 component	KOG4204
+10	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	N-terminal acetyltransferase	KOG1156
+1	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	Predicted histone methyl transferase	KOG1141
+8	INFORMATION STORAGE AND PROCESSING	Chromatin structure and dynamics 	Structural maintenance of chromosome protein 4 (chromosome condensation complex Condensin, subunit C)	KOG0996
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	60S ribosomal protein 15.5kD/SNU13, NHP2/L7A family (includes ribonuclease P subunit p38), involved in splicing	KOG3387
+3	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0326
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0329
+3	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0330
+4	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0331
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0332
+3	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0335
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0336
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0337
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0338
+3	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0339
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0340
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0344
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0345
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase	KOG0348
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	ATP-dependent RNA helicase pitchoune	KOG0342
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	Box H/ACA snoRNP component, involved in ribosomal RNA pseudouridinylation	KOG3167
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	DEAD-box protein abstrakt	KOG0341
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	Exosomal 3'-5' exoribonuclease complex, subunit Rrp4	KOG3013
+9	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	HAT repeat protein	KOG0495
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	K-homology type RNA binding proteins	KOG1676
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	Mitochondrial mRNA maturase	KOG4768
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	Nonsense-mediated mRNA decay 2 protein	KOG2051
+4	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	Pleiotropic regulator 1	KOG0285
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	Predicted cleavage and polyadenylation specificity factor (CPSF subunit)	KOG1136
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	Protein involved in mRNA turnover	KOG0816
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	Putative DEAD-box RNA helicase DDX1	KOG0349
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	RNA Helicase	KOG0343
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	RNA helicase	KOG0334
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	RNA helicase	KOG0346
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	RNA helicase	KOG0347
+3	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	RNA polymerase II C-terminal domain-binding protein RA4, contains RPR and RRM domains	KOG0132
+4	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	RNA-binding translational regulator IRP (aconitase superfamily)	KOG0452
+7	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	RNAse L inhibitor, ABC superfamily	KOG0063
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	Splicing factor 1/branch point binding protein (RRM superfamily)	KOG0119
+52	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	TPR repeat-containing protein	KOG1127
+1	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	U3 snoRNP-associated protein (contains WD40 repeats)	KOG0299
+5	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	U4/U6 small nuclear ribonucleoprotein Prp4 (contains WD40 repeats)	KOG0272
+4	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	U5 snRNP-like RNA helicase subunit	KOG0333
+4	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	U5 snRNP-specific protein-like factor and related proteins	KOG0265
+6	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	WD40-repeat-containing subunit of the 18S rRNA processing complex	KOG0291
+8	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	WD40-repeat-containing subunit of the 18S rRNA processing complex	KOG0306
+11	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	WD40-repeat-containing subunit of the 18S rRNA processing complex	KOG0319
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	mRNA cleavage and polyadenylation factor II complex, BRR5 (CPSF subunit)	KOG1137
+2	INFORMATION STORAGE AND PROCESSING	RNA processing and modification 	mRNA cleavage and polyadenylation factor II complex, subunit CFT2 (CPSF subunit)	KOG1135
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	5'-3' exonuclease XRN1/KEM1/SEP1 involved in DNA strand exchange and mRNA turnover	KOG2045
+2	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	ATPase related to the helicase subunit of the Holliday junction resolvase	KOG2028
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	DNA helicase	KOG1803
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	DNA polymerase delta processivity factor (proliferating cell nuclear antigen)	KOG1636
+4	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	DNA repair protein RAD18 (SMC family protein)	KOG0250
+3	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	DNA repair protein RAD50, ABC-type ATPase/SMC superfamily	KOG0962
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	DNA topoisomerase I	KOG0981
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Oxidation resistance protein	KOG2372
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Predicted hydrolase involved in interstrand cross-link repair	KOG1361
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Replication factor C, subunit RFC1 (large subunit)	KOG1968
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Replication factor C, subunit RFC4	KOG0989
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Sequence-specific single-stranded-DNA-binding protein	KOG4594
+1	INFORMATION STORAGE AND PROCESSING	Replication, recombination and repair 	Single-stranded DNA-binding protein	KOG1653
+3	INFORMATION STORAGE AND PROCESSING	Transcription 	CCAAT-binding factor, subunit A (HAP3)	KOG0869
+2	INFORMATION STORAGE AND PROCESSING	Transcription 	Calcium-responsive transcription coactivator	KOG3227
+3	INFORMATION STORAGE AND PROCESSING	Transcription 	DEAD box protein	KOG4284
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	DNA-dependent RNA polymerase I	KOG4134
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	DNA-directed RNA polymerase subunit E'	KOG3297
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	DNA-directed RNA polymerase subunit E'	KOG3298
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Decapping enzyme complex component DCP1	KOG2868
+2	INFORMATION STORAGE AND PROCESSING	Transcription 	Dosage compensation complex, subunit MLE	KOG0921
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	MOT2 transcription factor	KOG2068
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Mlx interactors and related transcription factors	KOG3582
+7	INFORMATION STORAGE AND PROCESSING	Transcription 	Positive cofactor 2 (PC2), subunit of a multiprotein coactivator of RNA polymerase II	KOG4274
+2	INFORMATION STORAGE AND PROCESSING	Transcription 	Predicted DNA-binding protein	KOG2588
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Putative transcription factor ASH1/LIN-59	KOG1083
+3	INFORMATION STORAGE AND PROCESSING	Transcription 	RNA polymerase I, large subunit	KOG0262
+3	INFORMATION STORAGE AND PROCESSING	Transcription 	RNA polymerase I, second largest subunit	KOG0216
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	RNA polymerase II elongation factor	KOG4796
+2	INFORMATION STORAGE AND PROCESSING	Transcription 	RNA polymerase II transcription elongation factor DSIF/SUPT5H/SPT5	KOG1999
+12	INFORMATION STORAGE AND PROCESSING	Transcription 	RNA polymerase II, large subunit	KOG0260
+3	INFORMATION STORAGE AND PROCESSING	Transcription 	RNA polymerase II, second largest subunit	KOG0214
+34	INFORMATION STORAGE AND PROCESSING	Transcription 	RNA polymerase III transcription factor TFIIIC	KOG2076
+4	INFORMATION STORAGE AND PROCESSING	Transcription 	RNA polymerase III, large subunit	KOG0261
+3	INFORMATION STORAGE AND PROCESSING	Transcription 	RNA polymerase III, second largest subunit	KOG0215
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Regucalcin gene promoter region-related protein (RGPR)	KOG1913
+6	INFORMATION STORAGE AND PROCESSING	Transcription 	TATA-box binding protein (TBP), component of TFIID and TFIIIB	KOG3302
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	TBP-associated transcription factor Prodos	KOG4336
+4	INFORMATION STORAGE AND PROCESSING	Transcription 	Transcription factor CtBP	KOG0067
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Transcription factor MBF1	KOG3398
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Transcription factor NSD1 and related SET domain proteins	KOG1081
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Transcription factor PRD and related proteins, contain PAX and HOX domains	KOG0849
+2	INFORMATION STORAGE AND PROCESSING	Transcription 	Transcription factor/CCAAT displacement protein CDP1	KOG0963
+2	INFORMATION STORAGE AND PROCESSING	Transcription 	Transcription initiation factor TFIID, subunit TAF12 (also component of histone acetyltransferase SAGA)	KOG1142
+4	INFORMATION STORAGE AND PROCESSING	Transcription 	Transcription initiation factor TFIID, subunit TAF5 (also component of histone acetyltransferase SAGA)	KOG0263
+3	INFORMATION STORAGE AND PROCESSING	Transcription 	Transcription initiation factor TFIID, subunit TAF6 (also component of histone acetyltransferase SAGA)	KOG2549
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Transcriptional repressor EZH1	KOG1079
+1	INFORMATION STORAGE AND PROCESSING	Transcription 	Zn2+-binding dehydrogenase (nuclear receptor binding factor-1)	KOG0025
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	40S ribosomal protein S12	KOG3406
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	40S ribosomal protein S14	KOG0407
+2	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	40S ribosomal protein S15/S22	KOG1754
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	40S ribosomal protein S2	KOG0886
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	40S ribosomal protein S24	KOG3424
+2	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	40S ribosomal protein S3	KOG3181
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	40S ribosomal protein SA (P40)/Laminin receptor 1	KOG0830
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	60S acidic ribosomal protein P0	KOG0815
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Amidases	KOG1211
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Amidases	KOG1212
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Arginyl-tRNA synthetase	KOG1195
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Arginyl-tRNA synthetase	KOG4426
+27	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Elongation factor 1 alpha	KOG0458
+24	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Elongation factor 2	KOG0469
+24	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Elongation factor G	KOG0464
+27	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Elongation factor-type GTP-binding protein	KOG0462
+2	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Exosomal 3'-5' exoribonuclease complex, subunit Rrp41 and related exoribonucleases	KOG1068
+2	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Exosomal 3'-5' exoribonuclease complex, subunit Rrp42	KOG1612
+2	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Exosomal 3'-5' exoribonuclease complex, subunit Rrp43	KOG1613
+2	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Exosomal 3'-5' exoribonuclease complex, subunit Rrp45	KOG1614
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Exosomal 3'-5' exoribonuclease complex, subunit Rrp46	KOG1069
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Exosomal 3'-5' exoribonuclease complex, subunit ski4 (Csl4)	KOG3409
+2	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Methionyl-tRNA formyltransferase	KOG3082
+26	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Mitochondrial elongation factor	KOG0465
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Mitochondrial polypeptide chain release factor	KOG2726
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Mitochondrial translation elongation factor EF-Tsmt, catalyzes nucleotide exchange on EF-Tumt	KOG1071
+27	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Mitochondrial translation elongation factor Tu	KOG0460
+26	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Mitochondrial translation initiation factor 2 (IF-2; GTPase)	KOG1145
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Mitochondrial/chloroplast ribosomal protein L11	KOG3257
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Mitochondrial/chloroplast ribosomal protein S11	KOG0408
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Mitochondrial/chloroplast ribosomal protein S2	KOG0832
+2	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Phenylalanyl-tRNA synthetase	KOG2783
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Phenylalanyl-tRNA synthetase beta subunit	KOG2472
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Phenylalanyl-tRNA synthetase, beta subunit	KOG2784
+24	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Polypeptide release factor 3	KOG0459
+3	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Predicted ATP-dependent RNA helicase FAL1, involved in rRNA maturation, DEAD-box superfamily	KOG0328
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Predicted RNA-binding protein containing PIN domain and invovled in translation or RNA processing	KOG3070
+23	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Predicted translation elongation factor	KOG1143
+26	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Selenocysteine-specific elongation factor	KOG0461
+25	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation elongation factor 2/ribosome biogenesis protein RIA1 and related proteins	KOG0467
+25	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation elongation factor EF-1 alpha/Tu	KOG0052
+24	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation initiation factor 2, gamma subunit (eIF-2gamma; GTPase)	KOG0466
+2	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation initiation factor 2B, epsilon subunit (eIF-2Bepsilon/GCD6)	KOG1461
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation initiation factor 2B, gamma subunit (eIF-2Bgamma/GCD1)	KOG1462
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation initiation factor 3, subunit a (eIF-3a)	KOG2072
+3	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation initiation factor 4F, helicase subunit (eIF-4A) and related helicases	KOG0327
+23	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	Translation initiation factor 5B (eIF-5B)	KOG1144
+27	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	U5 snRNP-specific protein	KOG0468
+9	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	eIF2-interacting protein ABC50 (ABC superfamily)	KOG0066
+1	INFORMATION STORAGE AND PROCESSING	Translation, ribosomal structure and biogenesis 	tRNA-binding protein	KOG2241
+2	METABOLISM	Amino acid transport and metabolism 	3-Methylcrotonyl-CoA carboxylase, non-biotin containing subunit/Acetyl-CoA carboxylase carboxyl transferase, subunit beta	KOG0540
+3	METABOLISM	Amino acid transport and metabolism 	3-isopropylmalate dehydratase (aconitase superfamily)	KOG0454
+2	METABOLISM	Amino acid transport and metabolism 	3-isopropylmalate dehydrogenase	KOG0786
+3	METABOLISM	Amino acid transport and metabolism 	4-aminobutyrate aminotransferase	KOG1405
+2	METABOLISM	Amino acid transport and metabolism 	4-hydroxyphenylpyruvate dioxygenase	KOG0638
+7	METABOLISM	Amino acid transport and metabolism 	ATPase component of ABC transporters with duplicated ATPase domains/Translation elongation factor EF-3b	KOG0062
+2	METABOLISM	Amino acid transport and metabolism 	Acetolactate synthase, small subunit	KOG2663
+3	METABOLISM	Amino acid transport and metabolism 	Acetylornithine aminotransferase	KOG1401
+6	METABOLISM	Amino acid transport and metabolism 	Alanine aminotransferase	KOG0258
+3	METABOLISM	Amino acid transport and metabolism 	Alanine-glyoxylate aminotransferase AGT2	KOG1404
+3	METABOLISM	Amino acid transport and metabolism 	Alpha-isopropylmalate synthase/homocitrate synthase	KOG2367
+3	METABOLISM	Amino acid transport and metabolism 	Aminoacylase ACY1 and related metalloexopeptidases	KOG2275
+1	METABOLISM	Amino acid transport and metabolism 	Aminomethyl transferase	KOG2770
+1	METABOLISM	Amino acid transport and metabolism 	Angiotensin I-converting enzymes - M2 family peptidases	KOG3690
+1	METABOLISM	Amino acid transport and metabolism 	Anthranilate synthase component II	KOG4201
+1	METABOLISM	Amino acid transport and metabolism 	Argininosuccinate synthase	KOG1706
+6	METABOLISM	Amino acid transport and metabolism 	Aromatic amino acid aminotransferase and related proteins	KOG0634
+2	METABOLISM	Amino acid transport and metabolism 	Aspartate kinase	KOG0456
+2	METABOLISM	Amino acid transport and metabolism 	Aspartate-semialdehyde dehydrogenase	KOG4777
+2	METABOLISM	Amino acid transport and metabolism 	Branched chain aminotransferase BCAT1, pyridoxal phosphate enzymes type IV superfamily	KOG0975
+1	METABOLISM	Amino acid transport and metabolism 	Carbon-nitrogen hydrolase	KOG0806
+1	METABOLISM	Amino acid transport and metabolism 	Carbon-nitrogen hydrolase	KOG0807
+1	METABOLISM	Amino acid transport and metabolism 	Chorismate synthase	KOG4492
+4	METABOLISM	Amino acid transport and metabolism 	Cystathionine beta-lyases/cystathionine gamma-synthases	KOG0053
+3	METABOLISM	Amino acid transport and metabolism 	Cysteine desulfurase NFS1	KOG1549
+5	METABOLISM	Amino acid transport and metabolism 	D-3-phosphoglycerate dehydrogenase, D-isomer-specific 2-hydroxy acid dehydrogenase superfamily	KOG0068
+1	METABOLISM	Amino acid transport and metabolism 	Dihydroxy-acid dehydratase	KOG2448
+1	METABOLISM	Amino acid transport and metabolism 	Dimethylglycine dehydrogenase precursor	KOG2844
+1	METABOLISM	Amino acid transport and metabolism 	Dopamine beta-monooxygenase	KOG3568
+3	METABOLISM	Amino acid transport and metabolism 	Gamma-glutamyltransferase	KOG2410
+5	METABOLISM	Amino acid transport and metabolism 	Glutamate synthase	KOG0399
+9	METABOLISM	Amino acid transport and metabolism 	Glutamate/leucine/phenylalanine/valine dehydrogenases	KOG2250
+5	METABOLISM	Amino acid transport and metabolism 	Glutamine synthetase	KOG0683
+11	METABOLISM	Amino acid transport and metabolism 	Glutaryl-CoA dehydrogenase	KOG0138
+1	METABOLISM	Amino acid transport and metabolism 	Glycine C-acetyltransferase/2-amino-3-ketobutyrate-CoA ligase	KOG1359
+1	METABOLISM	Amino acid transport and metabolism 	Histidinol dehydrogenase	KOG2697
+5	METABOLISM	Amino acid transport and metabolism 	Histidinol phosphate aminotransferase	KOG0633
+1	METABOLISM	Amino acid transport and metabolism 	Homocysteine S-methyltransferase	KOG1579
+2	METABOLISM	Amino acid transport and metabolism 	Homoserine dehydrogenase	KOG0455
+1	METABOLISM	Amino acid transport and metabolism 	Imidazoleglycerol-phosphate dehydratase	KOG3143
+2	METABOLISM	Amino acid transport and metabolism 	Isocitrate dehydrogenase, alpha subunit	KOG0785
+2	METABOLISM	Amino acid transport and metabolism 	Isocitrate dehydrogenase, gamma subunit	KOG0784
+11	METABOLISM	Amino acid transport and metabolism 	Isovaleryl-CoA dehydrogenase	KOG0141
+7	METABOLISM	Amino acid transport and metabolism 	Kynurenine aminotransferase, glutamine transaminase K	KOG0257
+1	METABOLISM	Amino acid transport and metabolism 	Metalloexopeptidases	KOG2276
+2	METABOLISM	Amino acid transport and metabolism 	N-acetyl-gamma-glutamyl-phosphate reductase	KOG4354
+3	METABOLISM	Amino acid transport and metabolism 	Ornithine aminotransferase	KOG1402
+1	METABOLISM	Amino acid transport and metabolism 	Ornithine decarboxylase	KOG0622
+1	METABOLISM	Amino acid transport and metabolism 	Oxoprolinase	KOG1939
+1	METABOLISM	Amino acid transport and metabolism 	Putative glutamate/ornithine acetyltransferase	KOG2786
+1	METABOLISM	Amino acid transport and metabolism 	Pyridoxalphosphate-dependent enzyme/predicted threonine synthase	KOG2616
+2	METABOLISM	Amino acid transport and metabolism 	Thiamine pyrophosphate-requiring enzyme	KOG1185
+1	METABOLISM	Amino acid transport and metabolism 	Threonine aldolase	KOG1368
+1	METABOLISM	Amino acid transport and metabolism 	Threonine/serine dehydratases	KOG1250
+3	METABOLISM	Amino acid transport and metabolism 	Trypsin	KOG3627
+2	METABOLISM	Amino acid transport and metabolism 	Tryptophan synthase beta chain	KOG1395
+6	METABOLISM	Amino acid transport and metabolism 	Tyrosine aminotransferase	KOG0259
+5	METABOLISM	Carbohydrate transport and metabolism 	1,4-alpha-glucan branching enzyme/starch branching enzyme II	KOG0470
+2	METABOLISM	Carbohydrate transport and metabolism 	3-phosphoglycerate kinase	KOG1367
+2	METABOLISM	Carbohydrate transport and metabolism 	5'-phosphoribosylglycinamide formyltransferase	KOG3076
+1	METABOLISM	Carbohydrate transport and metabolism 	Alpha amylase	KOG3625
+4	METABOLISM	Carbohydrate transport and metabolism 	Alpha-amylase	KOG0471
+1	METABOLISM	Carbohydrate transport and metabolism 	Alpha-amylase	KOG2212
+1	METABOLISM	Carbohydrate transport and metabolism 	Carbohydrate kinase	KOG2947
+2	METABOLISM	Carbohydrate transport and metabolism 	D-ribulose-5-phosphate 3-epimerase	KOG3111
+4	METABOLISM	Carbohydrate transport and metabolism 	Dihydroxyacetone kinase/glycerone kinase	KOG2426
+6	METABOLISM	Carbohydrate transport and metabolism 	Enolase	KOG2670
+3	METABOLISM	Carbohydrate transport and metabolism 	Fructose 1,6-bisphosphate aldolase	KOG4153
+1	METABOLISM	Carbohydrate transport and metabolism 	Fructose-1,6-bisphosphatase	KOG1458
+1	METABOLISM	Carbohydrate transport and metabolism 	GDP-L-fucose synthetase	KOG1431
+1	METABOLISM	Carbohydrate transport and metabolism 	GDP-mannose pyrophosphorylase	KOG1460
+1	METABOLISM	Carbohydrate transport and metabolism 	Glucosidase II catalytic (alpha) subunit and related enzymes, glycosyl hydrolase family 31	KOG1066
+8	METABOLISM	Carbohydrate transport and metabolism 	Glyceraldehyde 3-phosphate dehydrogenase	KOG0657
+2	METABOLISM	Carbohydrate transport and metabolism 	Glyoxalase	KOG2944
+1	METABOLISM	Carbohydrate transport and metabolism 	Hydroxypyruvate isomerase	KOG4518
+1	METABOLISM	Carbohydrate transport and metabolism 	Maltase glucoamylase and related hydrolases, glycosyl hydrolase family 31	KOG1065
+59	METABOLISM	Carbohydrate transport and metabolism 	O-linked N-acetylglucosamine transferase OGT	KOG4626
+1	METABOLISM	Carbohydrate transport and metabolism 	Permease of the major facilitator superfamily	KOG0569
+4	METABOLISM	Carbohydrate transport and metabolism 	Phosphoglucomutase	KOG0625
+4	METABOLISM	Carbohydrate transport and metabolism 	Phosphoglucomutase/phosphomannomutase	KOG1220
+2	METABOLISM	Carbohydrate transport and metabolism 	Phosphoglucomutase/phosphomannomutase	KOG2537
+1	METABOLISM	Carbohydrate transport and metabolism 	Phosphoglycerate mutase	KOG4513
+1	METABOLISM	Carbohydrate transport and metabolism 	Phosphorylase kinase gamma subunit	KOG0599
+1	METABOLISM	Carbohydrate transport and metabolism 	Possible pfkB family carbohydrate kinase	KOG2854
+1	METABOLISM	Carbohydrate transport and metabolism 	Predicted bile acid beta-glucosidase	KOG2119
+1	METABOLISM	Carbohydrate transport and metabolism 	Predicted sugar kinase	KOG3974
+1	METABOLISM	Carbohydrate transport and metabolism 	Protein involved in Snf1 protein kinase complex assembly	KOG1616
+1	METABOLISM	Carbohydrate transport and metabolism 	Putative NAD+-dependent epimerases	KOG0747
+2	METABOLISM	Carbohydrate transport and metabolism 	Pyrophosphate-dependent phosphofructo-1-kinase	KOG2440
+1	METABOLISM	Carbohydrate transport and metabolism 	Pyruvate kinase	KOG2323
+1	METABOLISM	Carbohydrate transport and metabolism 	Ribokinase	KOG2855
+1	METABOLISM	Carbohydrate transport and metabolism 	Ribose 5-phosphate isomerase	KOG3075
+8	METABOLISM	Carbohydrate transport and metabolism 	Ribulose kinase and related carbohydrate kinases	KOG2517
+4	METABOLISM	Carbohydrate transport and metabolism 	Sugar (pentulose and hexulose) kinases	KOG2531
+1	METABOLISM	Carbohydrate transport and metabolism 	Sugar transporter/spinster transmembrane protein	KOG1330
+3	METABOLISM	Carbohydrate transport and metabolism 	Sulfatases	KOG3731
+1	METABOLISM	Carbohydrate transport and metabolism 	Transketolase	KOG0523
+1	METABOLISM	Carbohydrate transport and metabolism 	Triosephosphate isomerase	KOG1643
+1	METABOLISM	Carbohydrate transport and metabolism 	UDP-glucuronosyl and UDP-glucosyl transferase	KOG1192
+2	METABOLISM	Carbohydrate transport and metabolism 	dTDP-glucose 4-6-dehydratase/UDP-glucuronic acid decarboxylase	KOG1429
+2	METABOLISM	Coenzyme transport and metabolism 	6,7-dimethyl-8-ribityllumazine synthase	KOG3243
+3	METABOLISM	Coenzyme transport and metabolism 	C1-tetrahydrofolate synthase	KOG4230
+1	METABOLISM	Coenzyme transport and metabolism 	Geranylgeranyl pyrophosphate synthase/Polyprenyl synthetase	KOG0776
+1	METABOLISM	Coenzyme transport and metabolism 	Geranylgeranyl pyrophosphate synthase/Polyprenyl synthetase	KOG0777
+2	METABOLISM	Coenzyme transport and metabolism 	Ketopantoate hydroxymethyltransferase	KOG2949
+1	METABOLISM	Coenzyme transport and metabolism 	Methylenetetrahydrofolate dehydrogenase/methylenetetrahydrofolate cyclohydrolase	KOG0089
+1	METABOLISM	Coenzyme transport and metabolism 	Molybdenum cofactor biosynthesis pathway protein	KOG2876
+1	METABOLISM	Coenzyme transport and metabolism 	NADH-cytochrome b-5 reductase	KOG0534
+2	METABOLISM	Coenzyme transport and metabolism 	Phosphoserine aminotransferase	KOG2790
+2	METABOLISM	Coenzyme transport and metabolism 	Phytoene desaturase	KOG4254
+1	METABOLISM	Coenzyme transport and metabolism 	Polyprenyl synthetase	KOG0711
+1	METABOLISM	Coenzyme transport and metabolism 	Predicted NAD synthase, contains CN hydrolase domain	KOG2303
+1	METABOLISM	Coenzyme transport and metabolism 	Protoporphyrinogen oxidase	KOG1276
+2	METABOLISM	Coenzyme transport and metabolism 	S-adenosylhomocysteine hydrolase	KOG1370
+1	METABOLISM	Coenzyme transport and metabolism 	S-adenosylmethionine synthetase	KOG1506
+1	METABOLISM	Coenzyme transport and metabolism 	Stationary phase-induced protein, SOR/SNZ family	KOG1606
+11	METABOLISM	Energy production and conversion 	5'-AMP-activated protein kinase, gamma subunit	KOG1764
+1	METABOLISM	Energy production and conversion 	ATP-citrate lyase	KOG1254
+4	METABOLISM	Energy production and conversion 	Aconitase/homoaconitase (aconitase superfamily)	KOG0453
+22	METABOLISM	Energy production and conversion 	Alcohol dehydrogenase, class IV	KOG3857
+2	METABOLISM	Energy production and conversion 	Aldehyde dehydrogenase	KOG2450
+2	METABOLISM	Energy production and conversion 	Aldehyde dehydrogenase	KOG2451
+1	METABOLISM	Energy production and conversion 	Aldehyde dehydrogenase	KOG2456
+1	METABOLISM	Energy production and conversion 	Betaine aldehyde dehydrogenase	KOG2454
+1	METABOLISM	Energy production and conversion 	Branched chain alpha-keto acid dehydrogenase E1, beta subunit	KOG0525
+1	METABOLISM	Energy production and conversion 	Dihydrolipoamide acetyltransferase	KOG0557
+10	METABOLISM	Energy production and conversion 	Dihydrolipoamide dehydrogenase	KOG1335
+5	METABOLISM	Energy production and conversion 	Dihydrolipoamide succinyltransferase (2-oxoglutarate dehydrogenase, E2 subunit)	KOG0559
+1	METABOLISM	Energy production and conversion 	Dihydrolipoamide transacylase (alpha-keto acid dehydrogenase E2 subunit)	KOG0558
+3	METABOLISM	Energy production and conversion 	Electron transfer flavoprotein, alpha subunit	KOG3954
+2	METABOLISM	Energy production and conversion 	Electron transfer flavoprotein, beta subunit	KOG3180
+1	METABOLISM	Energy production and conversion 	Exopolyphosphatases and related proteins	KOG4129
+8	METABOLISM	Energy production and conversion 	F0F1-type ATP synthase, alpha subunit	KOG1353
+15	METABOLISM	Energy production and conversion 	F0F1-type ATP synthase, beta subunit	KOG1350
+4	METABOLISM	Energy production and conversion 	Fumarate reductase, flavoprotein subunit	KOG2404
+1	METABOLISM	Energy production and conversion 	GTP-specific succinyl-CoA synthetase, beta subunit	KOG1447
+1	METABOLISM	Energy production and conversion 	Globins and related hemoproteins	KOG3378
+1	METABOLISM	Energy production and conversion 	Glycolate oxidase	KOG0538
+6	METABOLISM	Energy production and conversion 	Glyoxylate/hydroxypyruvate reductase (D-isomer-specific 2-hydroxy acid dehydrogenase superfamily)	KOG0069
+2	METABOLISM	Energy production and conversion 	Hydroxymethylglutaryl-CoA lyase	KOG2368
+1	METABOLISM	Energy production and conversion 	Iron binding protein involved in Fe-S cluster formation	KOG3361
+3	METABOLISM	Energy production and conversion 	Kynurenine 3-monooxygenase and related flavoprotein monooxygenases	KOG2614
+5	METABOLISM	Energy production and conversion 	Lactate dehydrogenase	KOG1495
+5	METABOLISM	Energy production and conversion 	Malate dehydrogenase	KOG1496
+1	METABOLISM	Energy production and conversion 	Mitochondrial F1F0-ATP synthase, subunit OSCP/ATP5	KOG1662
+5	METABOLISM	Energy production and conversion 	NAD-dependent malate dehydrogenase	KOG1494
+3	METABOLISM	Energy production and conversion 	NADH dehydrogenase subunits 2, 5, and related proteins	KOG4668
+3	METABOLISM	Energy production and conversion 	NADH dehydrogenase, subunit 4	KOG4845
+1	METABOLISM	Energy production and conversion 	NADH-dehydrogenase (ubiquinone)	KOG2495
+15	METABOLISM	Energy production and conversion 	NADH-ubiquinone oxidoreductase, NDUFS1/75 kDa subunit	KOG2282
+1	METABOLISM	Energy production and conversion 	NADH-ubiquinone oxidoreductase, NDUFS3/30 kDa subunit	KOG1713
+3	METABOLISM	Energy production and conversion 	NADH-ubiquinone oxidoreductase, NUFS7/PSST/20 kDa subunit	KOG1687
+2	METABOLISM	Energy production and conversion 	NADH:ubiquinone oxidoreductase, NDUFS2/49 kDa subunit	KOG2870
+20	METABOLISM	Energy production and conversion 	NADH:ubiquinone oxidoreductase, NDUFS8/23 kDa subunit	KOG3256
+6	METABOLISM	Energy production and conversion 	NADH:ubiquinone oxidoreductase, NDUFV1/51kDa subunit	KOG2658
+8	METABOLISM	Energy production and conversion 	NADH:ubiquinone oxidoreductase, NDUFV2/24 kD subunit	KOG3196
+1	METABOLISM	Energy production and conversion 	NADP+-dependent malic enzyme	KOG1257
+2	METABOLISM	Energy production and conversion 	Predicted quinone oxidoreductase	KOG1197
+1	METABOLISM	Energy production and conversion 	Prohibitins and stomatins of the PID superfamily	KOG2620
+1	METABOLISM	Energy production and conversion 	Prohibitins and stomatins of the PID superfamily	KOG2621
+6	METABOLISM	Energy production and conversion 	Pyruvate carboxylase	KOG0369
+1	METABOLISM	Energy production and conversion 	Pyruvate dehydrogenase E1, beta subunit	KOG0524
+3	METABOLISM	Energy production and conversion 	Succinate dehydrogenase, Fe-S protein subunit	KOG3049
+4	METABOLISM	Energy production and conversion 	Succinate dehydrogenase, flavoprotein subunit	KOG2403
+2	METABOLISM	Energy production and conversion 	Succinyl-CoA synthetase, alpha subunit	KOG1255
+1	METABOLISM	Energy production and conversion 	Succinyl-CoA synthetase, beta subunit	KOG2799
+3	METABOLISM	Energy production and conversion 	Succinyl-CoA:alpha-ketoacid-CoA transferase	KOG3822
+1	METABOLISM	Energy production and conversion 	Sulfide:quinone oxidoreductase/flavo-binding protein	KOG3851
+1	METABOLISM	Energy production and conversion 	Vacuolar H+-ATPase V0 sector, subunit a	KOG2189
+15	METABOLISM	Energy production and conversion 	Vacuolar H+-ATPase V1 sector, subunit A	KOG1352
+14	METABOLISM	Energy production and conversion 	Vacuolar H+-ATPase V1 sector, subunit B	KOG1351
+1	METABOLISM	Energy production and conversion 	Vacuolar H+-ATPase V1 sector, subunit D	KOG1647
+3	METABOLISM	Energy production and conversion 	Vacuolar H+-ATPase V1 sector, subunit E	KOG1664
+2	METABOLISM	Energy production and conversion 	Zinc-binding oxidoreductase	KOG1198
+1	METABOLISM	Inorganic ion transport and metabolism 	Adenosine 5'-phosphosulfate kinase	KOG0635
+3	METABOLISM	Inorganic ion transport and metabolism 	Ca2+ transporting ATPase	KOG0202
+1	METABOLISM	Inorganic ion transport and metabolism 	Ca2+/Mg2+-permeable cation channels (LTRPC family)	KOG3614
+3	METABOLISM	Inorganic ion transport and metabolism 	Calcium transporting ATPase	KOG0204
+3	METABOLISM	Inorganic ion transport and metabolism 	Cation transport ATPase	KOG0207
+3	METABOLISM	Inorganic ion transport and metabolism 	Cation transport ATPase	KOG0208
+1	METABOLISM	Inorganic ion transport and metabolism 	Cl- channel CLC-2 and related proteins (CLC superfamily)	KOG0476
+1	METABOLISM	Inorganic ion transport and metabolism 	Ferritin	KOG2332
+6	METABOLISM	Inorganic ion transport and metabolism 	GABA-B ion channel receptor subunit GABABR1 and related subunits, G-protein coupled receptor superfamily	KOG1055
+2	METABOLISM	Inorganic ion transport and metabolism 	Glutamate-gated AMPA-type ion channel receptor subunit GluR2 and related subunits	KOG1054
+2	METABOLISM	Inorganic ion transport and metabolism 	Glutamate-gated NMDA-type ion channel receptor subunit GRIN2A and related subunits	KOG1053
+4	METABOLISM	Inorganic ion transport and metabolism 	Glutamate-gated kainate-type ion channel receptor subunit GluR5 and related subunits	KOG1052
+6	METABOLISM	Inorganic ion transport and metabolism 	Glutamate-gated metabotropic ion channel receptor subunit GRM2 and related subunits, G-protein coupled receptor superfamily	KOG1056
+5	METABOLISM	Inorganic ion transport and metabolism 	Heavy metal exporter HMT1, ABC superfamily	KOG0056
+1	METABOLISM	Inorganic ion transport and metabolism 	Inorganic phosphate transporter	KOG0252
+1	METABOLISM	Inorganic ion transport and metabolism 	L-type voltage-dependent Ca2+ channel, alpha2/delta subunit	KOG2353
+1	METABOLISM	Inorganic ion transport and metabolism 	Manganese superoxide dismutase	KOG0876
+2	METABOLISM	Inorganic ion transport and metabolism 	NMDA selective glutamate-gated ion channel receptor subunit GRIN1	KOG4440
+3	METABOLISM	Inorganic ion transport and metabolism 	Na+/K+ ATPase, alpha subunit	KOG0203
+3	METABOLISM	Inorganic ion transport and metabolism 	P-type ATPase	KOG0209
+2	METABOLISM	Inorganic ion transport and metabolism 	P-type ATPase	KOG0210
+3	METABOLISM	Inorganic ion transport and metabolism 	Plasma membrane H+-transporting ATPase	KOG0205
+1	METABOLISM	Inorganic ion transport and metabolism 	Predicted carbonic anhydrase involved in protection against oxidative damage	KOG1578
+1	METABOLISM	Inorganic ion transport and metabolism 	Putative arsenite-translocating ATPase	KOG2825
+1	METABOLISM	Inorganic ion transport and metabolism 	Rhodanese-related sulfurtransferase	KOG1530
+1	METABOLISM	Inorganic ion transport and metabolism 	Sulfate/bicarbonate/oxalate exchanger SAT-1 and related transporters (SLC26 family)	KOG0236
+6	METABOLISM	Inorganic ion transport and metabolism 	Sulfite reductase (ferredoxin)	KOG0560
+8	METABOLISM	Inorganic ion transport and metabolism 	TPR-containing nuclear phosphoprotein that regulates K(+) uptake	KOG2002
+4	METABOLISM	Lipid transport and metabolism 	15-hydroxyprostaglandin dehydrogenase and related dehydrogenases	KOG4169
+5	METABOLISM	Lipid transport and metabolism 	17 beta-hydroxysteroid dehydrogenase type 3, HSD17B3	KOG1014
+1	METABOLISM	Lipid transport and metabolism 	2-enoyl-CoA hydratase/3-hydroxyacyl-CoA dehydrogenase/Peroxisomal 3-ketoacyl-CoA-thiolase, sterol-binding domain and related enzymes	KOG4170
+7	METABOLISM	Lipid transport and metabolism 	3-Methylcrotonyl-CoA carboxylase, biotin-containing subunit/Propionyl-CoA carboxylase, alpha chain/Acetyl-CoA carboxylase, biotin carboxylase subunit	KOG0238
+1	METABOLISM	Lipid transport and metabolism 	3-hydroxy-3-methylglutaryl-CoA (HMG-CoA) reductase	KOG2480
+2	METABOLISM	Lipid transport and metabolism 	3-keto sterol reductase	KOG1478
+4	METABOLISM	Lipid transport and metabolism 	3-oxoacyl CoA thiolase	KOG1389
+16	METABOLISM	Lipid transport and metabolism 	3-oxoacyl-(acyl-carrier-protein) synthase (I and II)	KOG1394
+6	METABOLISM	Lipid transport and metabolism 	Acetyl-CoA acetyltransferase	KOG1390
+4	METABOLISM	Lipid transport and metabolism 	Acetyl-CoA acetyltransferase	KOG1391
+4	METABOLISM	Lipid transport and metabolism 	Acetyl-CoA acetyltransferase	KOG1392
+5	METABOLISM	Lipid transport and metabolism 	Acetyl-CoA carboxylase	KOG0368
+8	METABOLISM	Lipid transport and metabolism 	Acyl-CoA oxidase	KOG0136
+11	METABOLISM	Lipid transport and metabolism 	Acyl-CoA synthetase	KOG1175
+10	METABOLISM	Lipid transport and metabolism 	Acyl-CoA synthetase	KOG1176
+7	METABOLISM	Lipid transport and metabolism 	Acyl-CoA synthetase	KOG1180
+1	METABOLISM	Lipid transport and metabolism 	Alkaline ceramidase	KOG2329
+25	METABOLISM	Lipid transport and metabolism 	Animal-type fatty acid synthase and related proteins	KOG1202
+3	METABOLISM	Lipid transport and metabolism 	C-3 sterol dehydrogenase/3-beta-hydroxysteroid dehydrogenase and related dehydrogenases	KOG1430
+5	METABOLISM	Lipid transport and metabolism 	Enoyl-CoA hydratase	KOG1679
+5	METABOLISM	Lipid transport and metabolism 	Enoyl-CoA hydratase	KOG1680
+4	METABOLISM	Lipid transport and metabolism 	Enoyl-CoA hydratase	KOG1684
+5	METABOLISM	Lipid transport and metabolism 	Enoyl-CoA hydratase/isomerase	KOG0016
+5	METABOLISM	Lipid transport and metabolism 	Enoyl-CoA isomerase	KOG1681
+5	METABOLISM	Lipid transport and metabolism 	Enoyl-CoA isomerase	KOG1682
+2	METABOLISM	Lipid transport and metabolism 	Hydroxymethylglutaryl-CoA synthase	KOG1393
+5	METABOLISM	Lipid transport and metabolism 	Lipid exporter ABCA1 and related proteins, ABC superfamily	KOG0059
+10	METABOLISM	Lipid transport and metabolism 	Long chain fatty acid acyl-CoA ligase	KOG1177
+9	METABOLISM	Lipid transport and metabolism 	Long-chain acyl-CoA synthetases (AMP-forming)	KOG1256
+4	METABOLISM	Lipid transport and metabolism 	Long-chain acyl-CoA transporter, ABC superfamily (involved in peroxisome organization and biogenesis)	KOG0060
+1	METABOLISM	Lipid transport and metabolism 	Lysophospholipase	KOG1455
+4	METABOLISM	Lipid transport and metabolism 	Malonyl-CoA:ACP transacylase	KOG2926
+11	METABOLISM	Lipid transport and metabolism 	Medium-chain acyl-CoA dehydrogenase	KOG0140
+4	METABOLISM	Lipid transport and metabolism 	Mitochondrial/plastidial beta-ketoacyl-ACP reductase	KOG1200
+1	METABOLISM	Lipid transport and metabolism 	Oxidosqualene-lanosterol cyclase and related proteins	KOG0497
+5	METABOLISM	Lipid transport and metabolism 	Peroxisomal 3-ketoacyl-CoA-thiolase P-44/SCP2	KOG1406
+4	METABOLISM	Lipid transport and metabolism 	Peroxisomal long-chain acyl-CoA transporter, ABC superfamily	KOG0064
+1	METABOLISM	Lipid transport and metabolism 	Peroxisomal multifunctional beta-oxidation protein and related enzymes	KOG1206
+3	METABOLISM	Lipid transport and metabolism 	Phospholipase A2-activating protein (contains WD40 repeats)	KOG0301
+9	METABOLISM	Lipid transport and metabolism 	Pristanoyl-CoA/acyl-CoA oxidase	KOG0135
+1	METABOLISM	Lipid transport and metabolism 	Serine/threonine kinase receptor-associated protein	KOG0278
+11	METABOLISM	Lipid transport and metabolism 	Short-chain acyl-CoA dehydrogenase	KOG0139
+2	METABOLISM	Lipid transport and metabolism 	Squalene monooxygenase	KOG1298
+9	METABOLISM	Lipid transport and metabolism 	Very long-chain acyl-CoA synthetase/fatty acid transporter	KOG1179
+11	METABOLISM	Lipid transport and metabolism 	Very-long-chain acyl-CoA dehydrogenase	KOG0137
+2	METABOLISM	Nucleotide transport and metabolism 	5' nucleotidase	KOG4419
+2	METABOLISM	Nucleotide transport and metabolism 	Adenine deaminase/adenosine deaminase	KOG1097
+3	METABOLISM	Nucleotide transport and metabolism 	Adenine phosphoribosyl transferases	KOG1712
+1	METABOLISM	Nucleotide transport and metabolism 	Adenosine monophosphate deaminase	KOG1096
+1	METABOLISM	Nucleotide transport and metabolism 	Adenylate kinase	KOG3078
+1	METABOLISM	Nucleotide transport and metabolism 	Adenylosuccinate synthase	KOG1355
+3	METABOLISM	Nucleotide transport and metabolism 	Dihydroorotase and related enzymes	KOG2584
+2	METABOLISM	Nucleotide transport and metabolism 	Ferredoxin/adrenodoxin reductase	KOG1800
+2	METABOLISM	Nucleotide transport and metabolism 	Formyltetrahydrofolate dehydrogenase	KOG2452
+2	METABOLISM	Nucleotide transport and metabolism 	GMP synthase	KOG1622
+2	METABOLISM	Nucleotide transport and metabolism 	Glutamine phosphoribosylpyrophosphate amidotransferase	KOG0572
+2	METABOLISM	Nucleotide transport and metabolism 	Glycinamide ribonucleotide synthetase (GARS)/Aminoimidazole ribonucleotide synthetase (AIRS)	KOG0237
+5	METABOLISM	Nucleotide transport and metabolism 	IMP dehydrogenase/GMP reductase	KOG2550
+1	METABOLISM	Nucleotide transport and metabolism 	Methylthioadenosine phosphorylase MTAP	KOG3985
+2	METABOLISM	Nucleotide transport and metabolism 	Phosphoribosylformylglycinamidine synthase	KOG1907
+1	METABOLISM	Nucleotide transport and metabolism 	Predicted equilibrative nucleoside transporter protein	KOG2057
+1	METABOLISM	Nucleotide transport and metabolism 	Predicted nucleotide kinase/nuclear protein involved oxidative stress response	KOG3347
+1	METABOLISM	Nucleotide transport and metabolism 	Purine nucleoside phosphorylase	KOG3984
+1	METABOLISM	Nucleotide transport and metabolism 	Ribose-phosphate pyrophosphokinase	KOG1448
+1	METABOLISM	Nucleotide transport and metabolism 	Uridylate kinase/adenylate kinase	KOG3079
+22	METABOLISM	Nucleotide transport and metabolism 	Xanthine dehydrogenase	KOG0430
+4	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	1-Acyl dihydroxyacetone phosphate reductase and related dehydrogenases	KOG1209
+1	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Alcohol dehydrogenase, class III	KOG0022
+2	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Alcohol dehydrogenase, class V	KOG0023
+9	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Amine oxidase	KOG0029
+4	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Corticosteroid 11-beta-dehydrogenase and related short chain-type dehydrogenases	KOG1610
+6	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Dehydrogenases with different specificities (related to short-chain alcohol dehydrogenases)	KOG1208
+4	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Diacetyl reductase/L-xylulose reductase	KOG1207
+3	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Flavin-containing monooxygenase	KOG1399
+5	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Hydroxysteroid 17-beta dehydrogenase 11	KOG1201
+10	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Multidrug resistance-associated protein/mitoxantrone resistance protein, ABC superfamily	KOG0054
+10	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Multidrug/pheromone exporter, ABC superfamily	KOG0055
+9	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Non-ribosomal peptide synthetase/alpha-aminoadipate reductase and related enzymes	KOG1178
+10	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	PQQ (pyrrolo-quinoline quinone) repeat protein	KOG4649
+1	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Phenylalanine and histidine ammonia-lyase	KOG0222
+9	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Pleiotropic drug resistance proteins (PDR1-15), ABC superfamily	KOG0065
+6	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Predicted 3-ketosphinganine reductase	KOG1210
+3	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Predicted dehydrogenase	KOG1204
+7	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Predicted dehydrogenase	KOG1205
+3	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Pyridine nucleotide-disulphide oxidoreductase	KOG0405
+4	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Short-chain alcohol dehydrogenase/3-hydroxyacyl-CoA dehydrogenase	KOG1199
+2	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Sorbitol dehydrogenase	KOG0024
+5	METABOLISM	Secondary metabolites biosynthesis, transport and catabolism 	Transporter, ABC superfamily (Breast cancer resistance protein)	KOG0061
+4	POORLY CHARACTERIZED	Function unknown 	Angio-associated migratory cell protein (contains WD40 repeats)	KOG0296
+4	POORLY CHARACTERIZED	Function unknown 	Beta-TrCP (transducin repeats containing)/Slimb proteins	KOG0281
+29	POORLY CHARACTERIZED	Function unknown 	Leucine-rich repeat protein	KOG0472
+4	POORLY CHARACTERIZED	Function unknown 	Notchless-like WD40 repeat-containing protein	KOG0271
+5	POORLY CHARACTERIZED	Function unknown 	Predicted membrane protein	KOG4550
+11	POORLY CHARACTERIZED	Function unknown 	TPR repeat-containing protein	KOG4555
+1	POORLY CHARACTERIZED	Function unknown 	Topoisomerase TOP1-interacting protein BTBD1	KOG2075
+3	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved coiled-coil protein	KOG4674
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved low complexity protein	KOG4672
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein	KOG2585
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein	KOG2939
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein	KOG2998
+9	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein	KOG3060
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein	KOG3620
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein	KOG3740
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein	KOG4422
+9	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein (Rhs family)	KOG4659
+19	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, contains LRR repeats	KOG4648
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, contains RCC1 domain	KOG1427
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, contains TLDc domain	KOG2557
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, contains WD40 repeats	KOG2110
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, contains WD40 repeats	KOG2111
+1	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, contains WD40 repeats and FYVE domains	KOG1409
+4	POORLY CHARACTERIZED	Function unknown 	Uncharacterized conserved protein, contains ankyrin and BTB/POZ domains	KOG0783
+3	POORLY CHARACTERIZED	Function unknown 	WD40 repeat-containing protein	KOG0295
+2	POORLY CHARACTERIZED	Function unknown 	Zinc carboxypeptidase	KOG2650
+6	POORLY CHARACTERIZED	General function prediction only 	AAA ATPase containing von Willebrand factor type A (vWA) domain	KOG1808
+14	POORLY CHARACTERIZED	General function prediction only 	AFH1-interacting protein FIP2, contains BTB/POZ domain and pentapeptide repeats	KOG1665
+3	POORLY CHARACTERIZED	General function prediction only 	ATPase of the AAA+ superfamily	KOG2170
+2	POORLY CHARACTERIZED	General function prediction only 	Alanine-glyoxylate aminotransferase AGT1	KOG2862
+1	POORLY CHARACTERIZED	General function prediction only 	Carboxylesterase and related proteins	KOG1516
+4	POORLY CHARACTERIZED	General function prediction only 	Cdc4 and related F-box and WD-40 proteins	KOG0274
+1	POORLY CHARACTERIZED	General function prediction only 	Conserved WD40 repeat-containing protein	KOG0275
+1	POORLY CHARACTERIZED	General function prediction only 	DEAD-box like helicase	KOG0354
+1	POORLY CHARACTERIZED	General function prediction only 	Dolichol-phosphate mannosyltransferase	KOG2978
+1	POORLY CHARACTERIZED	General function prediction only 	Dual-specificity tyrosine-phosphorylation regulated kinase	KOG0667
+1	POORLY CHARACTERIZED	General function prediction only 	FAD-dependent oxidoreductase	KOG2820
+2	POORLY CHARACTERIZED	General function prediction only 	FYVE finger-containing proteins	KOG1819
+5	POORLY CHARACTERIZED	General function prediction only 	G-protein beta subunit	KOG0286
+1	POORLY CHARACTERIZED	General function prediction only 	G-protein beta subunit-like protein (contains WD40 repeats)	KOG0315
+23	POORLY CHARACTERIZED	General function prediction only 	GTP-binding protein GP-1	KOG0463
+1	POORLY CHARACTERIZED	General function prediction only 	GTP-binding protein H-ray, small G protein superfamily	KOG0079
+1	POORLY CHARACTERIZED	General function prediction only 	GTPase Rab18, small G protein superfamily	KOG0080
+1	POORLY CHARACTERIZED	General function prediction only 	GTPase Rab21, small G protein superfamily	KOG0088
+1	POORLY CHARACTERIZED	General function prediction only 	GTPase Rab26/Rab37, small G protein superfamily	KOG0083
+1	POORLY CHARACTERIZED	General function prediction only 	GTPase Rab39, small G protein superfamily	KOG0091
+2	POORLY CHARACTERIZED	General function prediction only 	Glyoxylase	KOG0813
+1	POORLY CHARACTERIZED	General function prediction only 	Glyoxylase	KOG0814
+5	POORLY CHARACTERIZED	General function prediction only 	Kelch repeat-containing proteins	KOG0379
+1	POORLY CHARACTERIZED	General function prediction only 	Leucine rich repeat proteins, some proteins contain F-box	KOG1947
+6	POORLY CHARACTERIZED	General function prediction only 	Leucine-rich repeat (LRR) protein associated with apoptosis in muscle tissue	KOG4579
+7	POORLY CHARACTERIZED	General function prediction only 	Leucine-rich repeat proteins	KOG1859
+4	POORLY CHARACTERIZED	General function prediction only 	Monodehydroascorbate/ferredoxin reductase	KOG1336
+4	POORLY CHARACTERIZED	General function prediction only 	Multifunctional pyrimidine synthesis protein CAD (includes carbamoyl-phophate synthetase, aspartate transcarbamylase, and glutamine amidotransferase)	KOG0370
+1	POORLY CHARACTERIZED	General function prediction only 	NAD dependent epimerase	KOG2774
+2	POORLY CHARACTERIZED	General function prediction only 	Oxidoreductase	KOG2755
+1	POORLY CHARACTERIZED	General function prediction only 	P-type ATPase	KOG0206
+3	POORLY CHARACTERIZED	General function prediction only 	PHD finger protein AF10	KOG0956
+1	POORLY CHARACTERIZED	General function prediction only 	Polytopic membrane protein Prominin	KOG4331
+4	POORLY CHARACTERIZED	General function prediction only 	Predicted ABC-type transport, ATPase component/CCR4 associated factor	KOG2355
+4	POORLY CHARACTERIZED	General function prediction only 	Predicted Ca2+-dependent phospholipid-binding protein	KOG1030
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted Ca2+-dependent phospholipid-binding protein	KOG1031
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted NAD-dependent oxidoreductase	KOG1196
+2	POORLY CHARACTERIZED	General function prediction only 	Predicted RNA-binding polyribonucleotide nucleotidyltransferase	KOG1067
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted Rho GTPase-activating protein	KOG4407
+9	POORLY CHARACTERIZED	General function prediction only 	Predicted acyl-CoA dehydrogenase	KOG1469
+3	POORLY CHARACTERIZED	General function prediction only 	Predicted alanine-glyoxylate aminotransferase	KOG1403
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted cell surface protein homologous to bacterial outer membrane proteins	KOG2602
+3	POORLY CHARACTERIZED	General function prediction only 	Predicted cysteine proteinase TIN-ag	KOG1544
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted dioxygenase	KOG3086
+2	POORLY CHARACTERIZED	General function prediction only 	Predicted hormone receptor interactor	KOG4276
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted hydrolase/acyltransferase (alpha/beta hydrolase superfamily)	KOG1454
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted hydrolase/acyltransferase (alpha/beta hydrolase superfamily)	KOG4409
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted methyltransferase (contains a SET domain)	KOG1085
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted phospholipase D	KOG3603
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted protein kinase KKIAMRE	KOG0593
+3	POORLY CHARACTERIZED	General function prediction only 	Predicted serine/threonine protein kinase	KOG0611
+4	POORLY CHARACTERIZED	General function prediction only 	Predicted short chain-type dehydrogenase	KOG1611
+2	POORLY CHARACTERIZED	General function prediction only 	Predicted signal transduction protein	KOG2220
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted signaling-associated protein (contains a PDZ domain)	KOG1421
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted transmembrane protein of the immunoglobulin family of cell adhesion molecules	KOG3515
+8	POORLY CHARACTERIZED	General function prediction only 	Predicted transporter (ABC superfamily)	KOG0927
+1	POORLY CHARACTERIZED	General function prediction only 	Predicted transporter (major facilitator superfamily)	KOG0254
+4	POORLY CHARACTERIZED	General function prediction only 	Protein kinase PCTAIRE and related kinases	KOG0594
+1	POORLY CHARACTERIZED	General function prediction only 	Protein kinase PITSLRE and related kinases	KOG0663
+2	POORLY CHARACTERIZED	General function prediction only 	Putative Zn-finger protein	KOG1777
+2	POORLY CHARACTERIZED	General function prediction only 	Putative transcriptional regulator DJ-1	KOG2764
+2	POORLY CHARACTERIZED	General function prediction only 	RAVE (regulator of V-ATPase assembly) complex subunit RAV1/DMX protein, WD repeat superfamily	KOG1064
+1	POORLY CHARACTERIZED	General function prediction only 	Ras-related GTPase	KOG0394
+1	POORLY CHARACTERIZED	General function prediction only 	Ras-related GTPase	KOG0395
+1	POORLY CHARACTERIZED	General function prediction only 	Ras-related small GTPase, Rho type	KOG0393
+6	POORLY CHARACTERIZED	General function prediction only 	Reductases with broad range of substrate specificities	KOG0725
+4	POORLY CHARACTERIZED	General function prediction only 	Ribosomal protein S6 kinase and related proteins	KOG0598
+1	POORLY CHARACTERIZED	General function prediction only 	SNF2 family DNA-dependent ATPase	KOG0391
+21	POORLY CHARACTERIZED	General function prediction only 	Serine-threonine phosphatase 2A, catalytic subunit	KOG0376
+3	POORLY CHARACTERIZED	General function prediction only 	Serine-threonine protein kinase FUSED	KOG0597
+2	POORLY CHARACTERIZED	General function prediction only 	Serine/threonine protein kinase	KOG0586
+3	POORLY CHARACTERIZED	General function prediction only 	Serine/threonine protein kinase	KOG0589
+1	POORLY CHARACTERIZED	General function prediction only 	Serine/threonine protein kinase	KOG3087
+4	POORLY CHARACTERIZED	General function prediction only 	Sulfatase	KOG3867
+1	POORLY CHARACTERIZED	General function prediction only 	Synaptic vesicle transporter SV2 (major facilitator superfamily)	KOG0253
+1	POORLY CHARACTERIZED	General function prediction only 	Synaptic vesicle transporter SVOP and related transporters (major facilitator superfamily)	KOG0255
+53	POORLY CHARACTERIZED	General function prediction only 	TPR repeat-containing protein	KOG0553
+31	POORLY CHARACTERIZED	General function prediction only 	TPR repeat-containing protein	KOG1125
+2	POORLY CHARACTERIZED	General function prediction only 	TPR repeat-containing protein	KOG1129
+2	POORLY CHARACTERIZED	General function prediction only 	TPR repeat-containing protein	KOG2003
+17	POORLY CHARACTERIZED	General function prediction only 	TPR repeat-containing protein	KOG4234
+1	POORLY CHARACTERIZED	General function prediction only 	Transcription factor zerknullt and related HOX domain proteins	KOG0489
+1	POORLY CHARACTERIZED	General function prediction only 	Type I phosphodiesterase/nucleotide pyrophosphatase	KOG2645
+1	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein, contains BTB/POZ domain	KOG4350
+1	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein, contains BTB/POZ domain	KOG4591
+4	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein, contains PA domain	KOG2442
+4	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein, contains PA domain	KOG3920
+19	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein, contains TPR repeats	KOG1128
+1	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein, contains WD40 repeat and BROMO domains	KOG0644
+1	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein, contains dysferlin, TECPR and PH domains	KOG3669
+2	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein, contains kelch repeat	KOG4693
+2	POORLY CHARACTERIZED	General function prediction only 	Uncharacterized conserved protein, contains thioredoxin domain	KOG4277
+2	POORLY CHARACTERIZED	General function prediction only 	WD repeat protein	KOG1539
+1	POORLY CHARACTERIZED	General function prediction only 	WD40 repeat protein	KOG1310
+1	POORLY CHARACTERIZED	General function prediction only 	WD40 repeat protein	KOG2109
+1	POORLY CHARACTERIZED	General function prediction only 	WD40 repeat protein TipD	KOG0288
+6	POORLY CHARACTERIZED	General function prediction only 	WD40 repeat-containing protein	KOG0266
+1	POORLY CHARACTERIZED	General function prediction only 	WD40 repeat-containing protein	KOG4547
+1	POORLY CHARACTERIZED	General function prediction only 	ZYG-1-like serine/threonine protein kinases	KOG3665
+9	POORLY CHARACTERIZED	General function prediction only 	Zinc carboxypeptidase	KOG2649
+1	POORLY CHARACTERIZED	General function prediction only 	mRNA splicing factor	KOG0289
