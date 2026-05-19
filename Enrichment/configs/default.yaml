@@ -1,0 +1,19 @@
+# Enrichment stage configuration.
+
+# Input from Stage 1 — Normalization
+annotations_path: ../../outputs/annotations.json
+proteins_path: ../../outputs/proteins.json
+
+# Output directory (shared with Stage 1)
+output_root: ../../outputs
+
+# API behaviour
+api:
+  string_batch_size: 100       # proteins per STRING request (larger batches cause timeouts)
+  string_delay: 1.0            # seconds between STRING batches
+  string_min_score: 400        # minimum combined score (0-1000); 400=medium, 700=high confidence
+
+# Scope
+# 'all'              — all 1802 proteins (~1 min UniProt + ~5 min STRING)
+# 'poorly_annotated' — only 166 poorly annotated proteins (faster for testing)
+scope: all

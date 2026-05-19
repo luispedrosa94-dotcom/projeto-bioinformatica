@@ -1,0 +1,59 @@
+# Default pipeline configuration.
+# Paths are resolved relative to this config file's directory.
+
+raw_data_root: ../../data/raw_outputs
+output_root: ../../outputs
+
+scope:
+  # Modes: 'all' | 'poorly_annotated' | 'custom'
+  mode: all
+
+  # Required only when mode == 'poorly_annotated'.
+  poorly_annotated_file: ../../data/raw_outputs/proteinas_poorly_annotated_sorted
+
+  # Required only when mode == 'custom'. List of UniProt accessions, e.g.:
+  custom_accessions: []
+  # custom_accessions:
+  #   - A0B9K2
+  #   - X5DZ82
+
+# Per-tool toggles. Per supervisor decision, structural tools (Foldseek,
+# ColabFold) are out of scope for this iteration.
+tools_enabled:
+  upimapi: true
+  eggnog: true
+  clean: true
+  deepgo2: true
+  deepfri: true
+  recognizer: true
+
+parsers:
+  recognizer_top_n_per_db: 5
+  deepfri_min_score: 0.0
+  deepgo2_min_score: 0.0
+
+# Confidence-level thresholds (numeric score → high / medium / low).
+# These are STARTING values from the supervision meeting and should be
+# refined empirically during the project. Each parser applies the rule
+# that fits its score type:
+#   - homology tools use e-value (smaller = better)
+#   - ML tools use a 0..1 confidence (larger = better)
+confidence_thresholds:
+  upimapi:
+    high: 1.0e-50    # e-value ≤ 1e-50 → HIGH
+    medium: 1.0e-10  # 1e-50 < e-value ≤ 1e-10 → MEDIUM, otherwise LOW
+  eggnog:
+    high: 1.0e-50
+    medium: 1.0e-10
+  recognizer:
+    high: 1.0e-50
+    medium: 1.0e-10
+  deepfri:
+    high: 0.7        # score ≥ 0.7 → HIGH
+    medium: 0.3      # 0.3 ≤ score < 0.7 → MEDIUM, otherwise LOW
+  deepgo2:
+    high: 0.7
+    medium: 0.3
+  clean:
+    high: 0.5        # CLEAN scores are typically lower; thresholds are tighter
+    medium: 0.1
