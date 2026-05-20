@@ -6,7 +6,10 @@ with open("test_proteins.json", "r") as f:
     test_proteins = json.load(f)
 
 # URL do Ollama
-ollama_url = "http://localhost:8000/v1/complete"
+ollama_url = "http://localhost:11434/api/generate"
+
+# Ficheiro de output onde vamos guardar os resultados
+output_file = "stage3_results.json"
 
 # Prompt
 prompt = """You are not predicting protein function. You are summarizing and harmonizing provided evidence only. Do not introduce biological claims not present in the input. Do not assign EC numbers unless present in the input evidence. Do not treat STRING enrichment as direct protein-level evidence. Mention uncertainty and conflicts. Return valid JSON only.
@@ -33,32 +36,68 @@ Output schema: {{
 }}
 """
 
+# Lista para acumular todos os resultados
+all_results = []
+
 # Itera sobre cada proteína de teste
-for test_protein in test_proteins:
+total = len(test_proteins)
+for i, test_protein in enumerate(test_proteins, start=1):
+    accession = test_protein["accession"]
+    print(f"[{i}/{total}] A processar {accession}...")
+
     # Constrói o evidence packet
     evidence_packet = {
-        "protein_id": test_protein["accession"],
-        "protein_name": test_protein["identity"]["protein_name"],
-        "gene_name": test_protein["identity"]["gene_name"],
-        "organism": test_protein["identity"]["organism"]["scientific_name"],
-        "go_terms": test_protein["go_terms"],
-        "ec_numbers": test_protein["ec_numbers"],
-        # Adicione outros campos relevantes aqui
+        "protein_id": accession,
+        "protein_name": test_protein["identity"].get("protein_name"),
+        "gene_name": test_protein["identity"].get("gene_name"),
+        "organism": test_protein["identity"].get("organism", {}).get("scientific_name"),
+        "go_annotations": test_protein.get("go_annotations", {}),
+        "ec_numbers": test_protein.get("enzymatic", {}).get("ec_numbers", []),
     }
 
     # Substitui {protein_evidence_packet} no prompt pelo evidence packet real
     protein_prompt = prompt.format(protein_evidence_packet=json.dumps(evidence_packet))
 
     # Envia o evidence packet para o Ollama
-    response = requests.post(ollama_url, json={
-        "prompt": protein_prompt,
-    })
+    try:
+        response = requests.post(ollama_url, json={
+            "model": "gpt-oss",
+            "prompt": protein_prompt,
+            "stream": False
+        }, timeout=600)
 
-    # Processa a resposta do Ollama
-    if response.status_code == 200:
-        result = response.json()
-        print(f"Resultado para a proteína {test_protein['accession']}:")
-        print(result)
-        print("---")
-    else:
-        print(f"Request failed with status {response.status_code} for protein {test_protein['accession']}")
+        if response.status_code == 200:
+            result = response.json()
+            llm_output = result.get("response", "")
+            print(f"   ✓ {accession} processada com sucesso")
+            all_results.append({
+                "accession": accession,
+                "test_group": test_protein.get("_test_group"),
+                "evidence_packet": evidence_packet,
+                "llm_response": llm_output,
+                "status": "success"
+            })
+        else:
+            print(f"   ✗ {accession} falhou com status {response.status_code}")
+            all_results.append({
+                "accession": accession,
+                "test_group": test_protein.get("_test_group"),
+                "status": "failed",
+                "error": f"HTTP {response.status_code}"
+            })
+
+    except Exception as e:
+        print(f"   ✗ {accession} falhou com erro: {e}")
+        all_results.append({
+            "accession": accession,
+            "test_group": test_protein.get("_test_group"),
+            "status": "error",
+            "error": str(e)
+        })
+
+    # Guarda o ficheiro a cada iteração (para não perder progresso)
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(all_results, f, indent=2, ensure_ascii=False)
+
+print(f"\nConcluído! Resultados guardados em {output_file}")
+print(f"Total de proteínas processadas: {len(all_results)}/{total}")
