@@ -1,11 +1,16 @@
 """
 Stage 2 — Enrichment
 
+Fetches the complete UniProt entry for each protein and saves the raw JSON
+to outputs/uniprot_raw/{acc}.json. Also fetches InterPro coverage and saves
+to outputs/interpro_raw/{acc}.json. Resolves GO_unknown aspects using the
+GO term → aspect map extracted from UniProt records.
+
 Usage:
     python scripts/enrich.py --config configs/default.yaml
-    python scripts/enrich.py --config configs/default.yaml --scope poorly_annotated
-    python scripts/enrich.py --config configs/default.yaml --skip-string
     python scripts/enrich.py --config configs/default.yaml --workers 20
+    python scripts/enrich.py --config configs/default.yaml --scope poorly_annotated
+    python scripts/enrich.py --config configs/default.yaml --skip-interpro
 """
 from __future__ import annotations
 
@@ -19,9 +24,9 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.clients.uniprot import fetch_proteins
-from src.clients.string_db import map_identifiers, fetch_interactions, fetch_enrichment
-from src.schema import EnrichmentRecord, EnrichmentType
+from src.clients.uniprot import fetch_proteins as fetch_uniprot
+from src.clients.interpro import fetch_proteins as fetch_interpro
+from src.schema import EnrichmentType
 
 
 def load_config(path: str) -> dict:
@@ -38,9 +43,12 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="configs/default.yaml")
     parser.add_argument("--scope", choices=["all", "poorly_annotated"], default=None)
-    parser.add_argument("--skip-string", action="store_true")
     parser.add_argument("--workers", type=int, default=10,
-                        help="Parallel workers for UniProt (default: 10)")
+                        help="Parallel workers for UniProt/InterPro (default: 10)")
+    parser.add_argument("--skip-interpro", action="store_true",
+                        help="Skip InterPro fetching (faster for testing)")
+    parser.add_argument("--skip-uniprot", action="store_true",
+                        help="Skip UniProt fetching (useful when only adding InterPro)")
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args()
 
@@ -59,12 +67,10 @@ def main() -> None:
     output_root      = resolve_path(base, cfg["output_root"])
     output_root.mkdir(parents=True, exist_ok=True)
 
-    # Checkpoint directory
     cp_dir = output_root / "checkpoints"
     cp_dir.mkdir(exist_ok=True)
 
-    api_cfg = cfg.get("api", {})
-    scope   = args.scope or cfg.get("scope", "all")
+    scope = args.scope or cfg.get("scope", "all")
 
     # ── Load Stage 1 outputs ──────────────────────────────────────────────
     log.info("Loading Stage 1 outputs...")
@@ -85,18 +91,21 @@ def main() -> None:
     accessions = sorted(scope_accs)
 
     # ── Step 1: UniProt ───────────────────────────────────────────────────
-    log.info("=== Step 1: UniProt API (%d parallel workers) ===", args.workers)
-    uniprot_records = fetch_proteins(
-        accessions,
-        max_workers=args.workers,
-        checkpoint_path=cp_dir / "uniprot.json",
-    )
+    uniprot_records = []
+    if args.skip_uniprot:
+        log.info("=== Step 1: UniProt API (SKIPPED) ===")
+    else:
+        log.info("=== Step 1: UniProt API (%d parallel workers) ===", args.workers)
+        uniprot_records = fetch_uniprot(
+            accessions,
+            max_workers=args.workers,
+            checkpoint_path=cp_dir / "uniprot.json",
+            raw_dir=output_root / "uniprot_raw",
+        )
 
     # ── Step 2: Resolve GO_unknown aspects ───────────────────────────────
     log.info("=== Step 2: GO aspect resolution (from UniProt data) ===")
 
-    # UniProt already returns GO terms with aspect prefix (F:/P:/C:)
-    # Extract a GO term → aspect map from the UniProt records we already fetched
     go_aspect_map: dict[str, str] = {}
     prefix_to_aspect = {
         EnrichmentType.GO_MF: "MF",
@@ -109,7 +118,6 @@ def main() -> None:
 
     log.info("GO aspect map built from UniProt: %d terms", len(go_aspect_map))
 
-    # Apply resolution to GO_unknown annotations
     resolved_count = 0
     still_unknown  = 0
     aspect_to_type = {"BP": "GO_BP", "MF": "GO_MF", "CC": "GO_CC"}
@@ -124,72 +132,56 @@ def main() -> None:
 
     log.info("GO resolution: %d resolved, %d still unknown", resolved_count, still_unknown)
 
-    # ── Step 3: STRING ────────────────────────────────────────────────────
-    string_records: list[EnrichmentRecord] = []
-
-    if not args.skip_string:
-        log.info("=== Step 3: STRING API ===")
-        string_id_map = map_identifiers(
-            accessions,
-            batch_size=api_cfg.get("string_batch_size", 500),
-            delay=api_cfg.get("string_delay", 1.0),
-        )
-        log.info("STRING: mapped %d / %d accessions", len(string_id_map), len(accessions))
-
-        if string_id_map:
-            string_ids = list(string_id_map.values())
-            interaction_records = fetch_interactions(
-                string_ids,
-                uniprot_map=string_id_map,
-                min_score=api_cfg.get("string_min_score", 400),
-                batch_size=api_cfg.get("string_batch_size", 500),
-                delay=api_cfg.get("string_delay", 1.0),
-            )
-            string_records.extend(interaction_records)
-
-            enrichment_records = fetch_enrichment(
-                string_ids,
-                delay=api_cfg.get("string_delay", 1.0),
-            )
-            string_records.extend(enrichment_records)
+    # ── Step 3: InterPro ──────────────────────────────────────────────────
+    interpro_records = []
+    if args.skip_interpro:
+        log.info("=== Step 3: InterPro API (SKIPPED) ===")
     else:
-        log.info("Skipping STRING (--skip-string)")
+        log.info("=== Step 3: InterPro API (%d parallel workers) ===", args.workers)
+        interpro_records = fetch_interpro(
+            accessions,
+            max_workers=args.workers,
+            checkpoint_path=cp_dir / "interpro.json",
+            raw_dir=output_root / "interpro_raw",
+        )
 
     # ── Write outputs ─────────────────────────────────────────────────────
-    # 1. Updated annotations (GO_unknown resolved)
     with open(output_root / "annotations.json", "w", encoding="utf-8") as f:
         json.dump(annotations, f, indent=2, ensure_ascii=False)
     log.info("Updated annotations → %s", output_root / "annotations.json")
 
-    # 2. UniProt enrichment records
     uniprot_out = [r.model_dump() for r in uniprot_records]
     with open(output_root / "uniprot_enrichment.json", "w", encoding="utf-8") as f:
         json.dump(uniprot_out, f, indent=2, ensure_ascii=False)
     log.info("UniProt enrichment → %d records", len(uniprot_out))
 
-    # 3. STRING records
-    if string_records:
-        string_out = [r.model_dump() for r in string_records]
-        with open(output_root / "string_enrichment.json", "w", encoding="utf-8") as f:
-            json.dump(string_out, f, indent=2, ensure_ascii=False)
-        log.info("STRING enrichment → %d records", len(string_out))
-
-    # 4. GO aspect map (audit trail)
     with open(output_root / "go_aspect_map.json", "w", encoding="utf-8") as f:
         json.dump(go_aspect_map, f, indent=2, ensure_ascii=False)
     log.info("GO aspect map → %d terms", len(go_aspect_map))
 
+    if not args.skip_interpro:
+        interpro_out = [r.model_dump() for r in interpro_records]
+        with open(output_root / "interpro_enrichment.json", "w", encoding="utf-8") as f:
+            json.dump(interpro_out, f, indent=2, ensure_ascii=False)
+        log.info("InterPro enrichment → %d records", len(interpro_out))
+
     # ── Summary ───────────────────────────────────────────────────────────
     from collections import Counter
     print("\n=== Enrichment summary ===")
-    print(f"Proteins queried:        {len(accessions)}")
-    print(f"UniProt records:         {len(uniprot_records)}")
-    print(f"GO_unknown resolved:     {resolved_count} ({still_unknown} still unknown)")
-    print(f"STRING interactions:     {sum(1 for r in string_records if r.enrichment_type == EnrichmentType.INTERACTION_PARTNER)}")
-    print(f"STRING enrichment terms: {sum(1 for r in string_records if r.enrichment_type == EnrichmentType.FUNCTIONAL_ENRICHMENT)}")
-    print("\nUniProt records by type:")
-    for t, n in sorted(Counter(r.enrichment_type.value for r in uniprot_records).items(), key=lambda x: -x[1]):
-        print(f"  {t}: {n}")
+    print(f"Proteins queried:         {len(accessions)}")
+    print(f"UniProt records:          {len(uniprot_records)}")
+    print(f"InterPro records:         {len(interpro_records)}")
+    print(f"GO_unknown resolved:      {resolved_count} ({still_unknown} still unknown)")
+    print(f"Raw UniProt files:        {len(list((output_root / 'uniprot_raw').glob('*.json')))}")
+    print(f"Raw InterPro files:       {len(list((output_root / 'interpro_raw').glob('*.json')))}")
+    if uniprot_records:
+        print("\nUniProt records by type:")
+        for t, n in sorted(Counter(r.enrichment_type.value for r in uniprot_records).items(), key=lambda x: -x[1]):
+            print(f"  {t}: {n}")
+    if interpro_records:
+        print("\nInterPro records by type:")
+        for t, n in sorted(Counter(r.enrichment_type.value for r in interpro_records).items(), key=lambda x: -x[1]):
+            print(f"  {t}: {n}")
 
 
 if __name__ == "__main__":
