@@ -2,13 +2,15 @@
 Stage 2 — Enrichment
 
 Fetches the complete UniProt entry for each protein and saves the raw JSON
-to outputs/uniprot_raw/{acc}.json. Also resolves GO_unknown aspects using
-the GO term → aspect map extracted from UniProt records.
+to outputs/uniprot_raw/{acc}.json. Also fetches InterPro coverage and saves
+to outputs/interpro_raw/{acc}.json. Resolves GO_unknown aspects using the
+GO term → aspect map extracted from UniProt records.
 
 Usage:
     python scripts/enrich.py --config configs/default.yaml
     python scripts/enrich.py --config configs/default.yaml --workers 20
     python scripts/enrich.py --config configs/default.yaml --scope poorly_annotated
+    python scripts/enrich.py --config configs/default.yaml --skip-interpro
 """
 from __future__ import annotations
 
@@ -22,7 +24,8 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.clients.uniprot import fetch_proteins
+from src.clients.uniprot import fetch_proteins as fetch_uniprot
+from src.clients.interpro import fetch_proteins as fetch_interpro
 from src.schema import EnrichmentType
 
 
@@ -41,7 +44,11 @@ def main() -> None:
     parser.add_argument("--config", default="configs/default.yaml")
     parser.add_argument("--scope", choices=["all", "poorly_annotated"], default=None)
     parser.add_argument("--workers", type=int, default=10,
-                        help="Parallel workers for UniProt (default: 10)")
+                        help="Parallel workers for UniProt/InterPro (default: 10)")
+    parser.add_argument("--skip-interpro", action="store_true",
+                        help="Skip InterPro fetching (faster for testing)")
+    parser.add_argument("--skip-uniprot", action="store_true",
+                        help="Skip UniProt fetching (useful when only adding InterPro)")
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args()
 
@@ -84,13 +91,17 @@ def main() -> None:
     accessions = sorted(scope_accs)
 
     # ── Step 1: UniProt ───────────────────────────────────────────────────
-    log.info("=== Step 1: UniProt API (%d parallel workers) ===", args.workers)
-    uniprot_records = fetch_proteins(
-        accessions,
-        max_workers=args.workers,
-        checkpoint_path=cp_dir / "uniprot.json",
-        raw_dir=output_root / "uniprot_raw",
-    )
+    uniprot_records = []
+    if args.skip_uniprot:
+        log.info("=== Step 1: UniProt API (SKIPPED) ===")
+    else:
+        log.info("=== Step 1: UniProt API (%d parallel workers) ===", args.workers)
+        uniprot_records = fetch_uniprot(
+            accessions,
+            max_workers=args.workers,
+            checkpoint_path=cp_dir / "uniprot.json",
+            raw_dir=output_root / "uniprot_raw",
+        )
 
     # ── Step 2: Resolve GO_unknown aspects ───────────────────────────────
     log.info("=== Step 2: GO aspect resolution (from UniProt data) ===")
@@ -121,6 +132,19 @@ def main() -> None:
 
     log.info("GO resolution: %d resolved, %d still unknown", resolved_count, still_unknown)
 
+    # ── Step 3: InterPro ──────────────────────────────────────────────────
+    interpro_records = []
+    if args.skip_interpro:
+        log.info("=== Step 3: InterPro API (SKIPPED) ===")
+    else:
+        log.info("=== Step 3: InterPro API (%d parallel workers) ===", args.workers)
+        interpro_records = fetch_interpro(
+            accessions,
+            max_workers=args.workers,
+            checkpoint_path=cp_dir / "interpro.json",
+            raw_dir=output_root / "interpro_raw",
+        )
+
     # ── Write outputs ─────────────────────────────────────────────────────
     with open(output_root / "annotations.json", "w", encoding="utf-8") as f:
         json.dump(annotations, f, indent=2, ensure_ascii=False)
@@ -135,16 +159,29 @@ def main() -> None:
         json.dump(go_aspect_map, f, indent=2, ensure_ascii=False)
     log.info("GO aspect map → %d terms", len(go_aspect_map))
 
+    if not args.skip_interpro:
+        interpro_out = [r.model_dump() for r in interpro_records]
+        with open(output_root / "interpro_enrichment.json", "w", encoding="utf-8") as f:
+            json.dump(interpro_out, f, indent=2, ensure_ascii=False)
+        log.info("InterPro enrichment → %d records", len(interpro_out))
+
     # ── Summary ───────────────────────────────────────────────────────────
     from collections import Counter
     print("\n=== Enrichment summary ===")
-    print(f"Proteins queried:        {len(accessions)}")
-    print(f"UniProt records:         {len(uniprot_records)}")
-    print(f"GO_unknown resolved:     {resolved_count} ({still_unknown} still unknown)")
-    print(f"Raw UniProt files:       {len(list((output_root / 'uniprot_raw').glob('*.json')))}")
-    print("\nUniProt records by type:")
-    for t, n in sorted(Counter(r.enrichment_type.value for r in uniprot_records).items(), key=lambda x: -x[1]):
-        print(f"  {t}: {n}")
+    print(f"Proteins queried:         {len(accessions)}")
+    print(f"UniProt records:          {len(uniprot_records)}")
+    print(f"InterPro records:         {len(interpro_records)}")
+    print(f"GO_unknown resolved:      {resolved_count} ({still_unknown} still unknown)")
+    print(f"Raw UniProt files:        {len(list((output_root / 'uniprot_raw').glob('*.json')))}")
+    print(f"Raw InterPro files:       {len(list((output_root / 'interpro_raw').glob('*.json')))}")
+    if uniprot_records:
+        print("\nUniProt records by type:")
+        for t, n in sorted(Counter(r.enrichment_type.value for r in uniprot_records).items(), key=lambda x: -x[1]):
+            print(f"  {t}: {n}")
+    if interpro_records:
+        print("\nInterPro records by type:")
+        for t, n in sorted(Counter(r.enrichment_type.value for r in interpro_records).items(), key=lambda x: -x[1]):
+            print(f"  {t}: {n}")
 
 
 if __name__ == "__main__":

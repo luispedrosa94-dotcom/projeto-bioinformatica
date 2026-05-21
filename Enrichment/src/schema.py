@@ -2,7 +2,7 @@
 Canonical schema for the Enrichment stage.
 
 Each record represents one piece of information retrieved from an external
-API (UniProt) for a given protein. The format mirrors the
+API (UniProt, InterPro) for a given protein. The format mirrors the
 AnnotationRecord from Stage 1 so both can be merged downstream.
 """
 from __future__ import annotations
@@ -15,6 +15,7 @@ from pydantic import BaseModel, Field
 
 class EnrichmentSource(str, Enum):
     UNIPROT = "uniprot"
+    INTERPRO = "interpro"
 
 
 class EnrichmentType(str, Enum):
@@ -53,6 +54,10 @@ class EnrichmentType(str, Enum):
 
     # GO aspect resolution (GO_unknown → GO_BP/MF/CC)
     GO_ASPECT = "go_aspect"
+
+    # InterPro fields
+    INTERPRO_ENTRY = "interpro_entry"                            # integrated InterPro entry (IPRxxxxxx)
+    INTERPRO_UNINTEGRATED_SIGNATURE = "interpro_unintegrated_signature"  # signature not yet integrated
 
 
 
