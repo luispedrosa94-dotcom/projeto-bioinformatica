@@ -56,6 +56,10 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from src.utils.interpro_extract import (
+    extract_interpro_section,
+    load_interpro_raw,
+)
 
 def resolve_path(base: Path, p: str) -> Path:
     pp = Path(p)
@@ -594,6 +598,7 @@ def consolidate(
     proteins_path: Path,
     annotations_path: Path,
     raw_dir: Path,
+    interpro_raw_dir: Path,
     output_path: Path,
 ) -> None:
     log = logging.getLogger("consolidate")
@@ -695,6 +700,27 @@ def consolidate(
             "raw_file": f"{acc}.json",
         }
 
+        # ── Read raw InterPro JSON ──────────────────────────────────────
+        interpro_raw = load_interpro_raw(interpro_raw_dir, acc)
+        if interpro_raw is not None:
+            interpro_section = extract_interpro_section(interpro_raw)
+        else:
+            interpro_section = {
+                "entries": [],
+                "unintegrated_signatures": [],
+                "summary": {
+                    "total_integrated_entries": 0,
+                    "total_unintegrated_signatures": 0,
+                    "by_type": {},
+                    "member_databases_used": [],
+                    "go_terms_count": {
+                        "molecular_function": 0,
+                        "biological_process": 0,
+                        "cellular_component": 0,
+                    },
+                },
+            }
+
         consolidated.append({
             "accession": acc,
             "identity": identity,
@@ -713,6 +739,7 @@ def consolidate(
             "references": uniprot_data.get("references", []),
             "cross_references": uniprot_data.get("cross_references", {}),
             "extra_attributes": uniprot_data.get("extra_attributes"),
+            "interpro": interpro_section,
             "evidence_summary": evidence_summary,
             "provenance": provenance,
         })
@@ -778,6 +805,7 @@ def main() -> None:
         proteins_path    = resolve_path(base, cfg["proteins_path"]),
         annotations_path = resolve_path(base, cfg["annotations_path"]),
         raw_dir          = output_root / "uniprot_raw",
+        interpro_raw_dir = output_root / "interpro_raw",
         output_path      = output_root / "protein_profiles.json",
     )
 
