@@ -1,10 +1,17 @@
 """
-Helper functions for extracting InterPro information from the raw JSON
-files saved by the interpro client.
+Parser for InterPro /entry/all/ raw JSON.
 
-Used by consolidate.py to build the 'interpro' section of each
-protein_profile entry. Preserves all available information from the
-InterPro7 API response.
+Reads outputs/interpro_raw/{acc}.json (saved by interpro.py client) and
+builds the 'interpro' section of one protein profile.
+
+Preserves ALL fields the API exposes:
+  - Per entry: accession, name, source_database, type, integrated,
+    member_databases, go_terms, hierarchy, cross_references, literature,
+    description, entry_id, entry_date
+  - Per protein location: fragments (start, end, dc-status),
+    representative, model, score, subfamily, protein_length, organism,
+    in_alphafold, in_bfvd
+  - Summary statistics aggregating across all entries
 """
 from __future__ import annotations
 
@@ -25,192 +32,233 @@ def _safe_get(d: dict | None, *path, default=None):
     return cur
 
 
-def _extract_entry(result: dict) -> dict:
+def _extract_protein_locations(proteins_list: list) -> list[dict]:
     """
-    Convert one raw InterPro result block into a canonical dict that
-    preserves all fields the API exposes.
-
-    Each `result` from /entry/InterPro/protein/UniProt/{acc}/ has:
-      - metadata        : info about the InterPro entry itself
-      - proteins        : a list with the location info for this protein
+    Extract the per-protein location info from the 'proteins' array.
+    Each entry from /entry/all/ contains a proteins[] list — usually with
+    one element (the protein we queried). We preserve all useful fields.
     """
-    meta = result.get("metadata", {}) or {}
-    proteins = result.get("proteins", []) or []
-
-    # Location info (positions in the protein) lives inside proteins[*]
-    protein_blocks = []
-    for prot in proteins:
-        protein_blocks.append({
-            "accession":          prot.get("accession") or None,
-            "protein_length":     prot.get("protein_length"),
-            "source_database":    prot.get("source_database") or None,
-            "organism":           prot.get("organism") or None,
+    blocks = []
+    for prot in proteins_list or []:
+        blocks.append({
+            "accession":             prot.get("accession") or None,
+            "protein_length":        prot.get("protein_length"),
+            "source_database":       prot.get("source_database") or None,
+            "organism":              prot.get("organism") or None,
+            "in_alphafold":          prot.get("in_alphafold"),
+            "in_bfvd":               prot.get("in_bfvd"),
             "entry_protein_locations": prot.get("entry_protein_locations") or [],
         })
+    return blocks
 
-    # GO terms attached to this InterPro entry, by category
-    go_terms = meta.get("go_terms") or []
-    go_by_category = {
+
+def _normalise_go_terms(go_terms_raw) -> dict[str, list[dict]]:
+    """
+    Convert the raw 'go_terms' list into a dict grouped by GO category:
+        {
+          "molecular_function": [{"go_id": "GO:...", "name": "...", ...}, ...],
+          "biological_process": [...],
+          "cellular_component": [...],
+        }
+
+    The API uses either short codes (F/P/C) or full names. We handle both.
+    """
+    by_category = {
         "molecular_function": [],
         "biological_process": [],
         "cellular_component": [],
     }
+    if not go_terms_raw:
+        return by_category
+
     category_map = {
         "molecular_function": "molecular_function",
         "biological_process": "biological_process",
         "cellular_component": "cellular_component",
-        # InterPro API also uses short codes
         "F": "molecular_function",
         "P": "biological_process",
         "C": "cellular_component",
     }
-    for g in go_terms:
+
+    for g in go_terms_raw:
         cat_raw = g.get("category", {}) or {}
-        cat_name = ""
         if isinstance(cat_raw, dict):
-            cat_name = cat_raw.get("name") or cat_raw.get("code") or ""
+            cat_key = cat_raw.get("code") or cat_raw.get("name") or ""
         else:
-            cat_name = str(cat_raw)
-        cat = category_map.get(cat_name, "molecular_function")
-        go_by_category[cat].append({
-            "go_id":       g.get("identifier") or g.get("id") or None,
-            "name":        g.get("name") or None,
-            "category":    cat,
-            "category_raw": cat_name or None,
+            cat_key = str(cat_raw)
+        cat = category_map.get(cat_key, "molecular_function")
+        by_category[cat].append({
+            "go_id":        g.get("identifier") or g.get("id") or None,
+            "name":         g.get("name") or None,
+            "category":     cat,
+            "category_raw": cat_key or None,
         })
 
-    # Member databases (Pfam, SMART, PROSITE, etc. signatures inside this entry)
-    member_dbs = meta.get("member_databases") or {}
-    member_dbs_clean = {}
+    return by_category
+
+
+def _flatten_member_databases(member_dbs: dict) -> dict[str, list[dict]]:
+    """
+    Convert the raw 'member_databases' nested dict into a cleaner structure:
+        {
+            "pfam":       [{"accession": "PF00890", "name": "FAD binding domain"}, ...],
+            "ncbifam":    [{"accession": "TIGR02061", "name": "..."}, ...],
+        }
+
+    Empty/None member_databases become an empty dict.
+    """
+    if not member_dbs:
+        return {}
+    clean = {}
     for db_name, sigs in member_dbs.items():
         if isinstance(sigs, dict):
-            # Format: {"PF00001": "Name of family", ...}
-            member_dbs_clean[db_name] = [
+            clean[db_name] = [
                 {"accession": acc, "name": name}
                 for acc, name in sigs.items()
             ]
         else:
-            member_dbs_clean[db_name] = sigs
+            clean[db_name] = sigs
+    return clean
 
-    # Hierarchy (parent / children InterPro entries)
-    hierarchy = meta.get("hierarchy") or {}
 
-    # Cross-references (PDB, Reactome, MetaCyc, etc.)
-    cross_refs = meta.get("cross_references") or {}
-
-    # Literature references
-    literature = meta.get("literature") or {}
+def _extract_entry(result: dict) -> dict:
+    """
+    Convert one raw entry block from the /entry/all/ response into a
+    canonical dict preserving all useful fields.
+    """
+    meta = result.get("metadata") or {}
+    proteins = result.get("proteins") or []
 
     return {
+        # Identity
         "accession":         meta.get("accession") or None,
         "name":              meta.get("name") or None,
         "short_name":        meta.get("name_short") or meta.get("short_name") or None,
         "description":       meta.get("description") or [],
         "type":              meta.get("type") or None,
         "source_database":   meta.get("source_database") or None,
-        "integrated":        meta.get("integrated") or None,
-        "member_databases":  member_dbs_clean,
-        "go_terms":          go_by_category,
-        "hierarchy":         hierarchy,
-        "cross_references":  cross_refs,
-        "literature":        literature,
+
+        # Integration relationship
+        "integrated":        meta.get("integrated") or None,         # signature → IPR
+        "member_databases":  _flatten_member_databases(meta.get("member_databases")),  # IPR → signatures
+
+        # Biology
+        "go_terms":          _normalise_go_terms(meta.get("go_terms")),
+
+        # Cross-references / hierarchy / literature
+        "hierarchy":         meta.get("hierarchy") or {},
+        "cross_references":  meta.get("cross_references") or {},
+        "literature":        meta.get("literature") or {},
+
+        # Versioning
         "entry_id":          meta.get("entry_id") or None,
         "entry_date":        meta.get("entry_date") or None,
-        "proteins":          protein_blocks,
+
+        # Per-protein evidence (positions, e-values, models, subfamily)
+        "proteins":          _extract_protein_locations(proteins),
     }
 
 
-def _extract_unintegrated_signature(result: dict) -> dict:
+def _build_summary(entries: list[dict]) -> dict:
     """
-    Convert one raw unintegrated-signature result block into a canonical dict.
-
-    These are member-database signatures (Pfam, SMART, etc.) that are NOT
-    yet integrated into an InterPro entry. They still convey useful domain
-    information for the protein.
+    Build summary statistics across all entries for this protein.
+    Useful for the Streamlit app and for quick filtering.
     """
-    meta = result.get("metadata", {}) or {}
-    proteins = result.get("proteins", []) or []
+    by_source_db = Counter()
+    by_type      = Counter()
 
-    protein_blocks = []
-    for prot in proteins:
-        protein_blocks.append({
-            "accession":          prot.get("accession") or None,
-            "protein_length":     prot.get("protein_length"),
-            "source_database":    prot.get("source_database") or None,
-            "organism":           prot.get("organism") or None,
-            "entry_protein_locations": prot.get("entry_protein_locations") or [],
-        })
+    interpro_integrated = []   # IPRxxxxx entries (source_database == "interpro")
+    unintegrated_sigs   = []   # signatures with integrated == None
+
+    # GO term collection — unique by go_id across all entries
+    go_unique = {}             # go_id → {go_id, name, category, sources: [...]}
+    go_counts_by_cat = {
+        "molecular_function": 0,
+        "biological_process": 0,
+        "cellular_component": 0,
+    }
+
+    member_dbs_used = set()
+
+    for e in entries:
+        src_db = e.get("source_database") or "unknown"
+        by_source_db[src_db] += 1
+
+        etype = e.get("type") or "unknown"
+        by_type[etype] += 1
+
+        if src_db == "interpro":
+            interpro_integrated.append(e.get("accession"))
+        elif e.get("integrated") is None:
+            unintegrated_sigs.append(e.get("accession"))
+
+        # Member databases referenced by this entry
+        for db in (e.get("member_databases") or {}).keys():
+            member_dbs_used.add(db)
+
+        # GO terms — collect unique, track which entries cite each
+        for cat, terms in (e.get("go_terms") or {}).items():
+            for term in terms:
+                gid = term.get("go_id")
+                if not gid:
+                    continue
+                if gid not in go_unique:
+                    go_unique[gid] = {
+                        "go_id":    gid,
+                        "name":     term.get("name"),
+                        "category": cat,
+                        "sources":  [],
+                    }
+                    go_counts_by_cat[cat] = go_counts_by_cat.get(cat, 0) + 1
+                src_entry = e.get("accession")
+                if src_entry and src_entry not in go_unique[gid]["sources"]:
+                    go_unique[gid]["sources"].append(src_entry)
 
     return {
-        "accession":         meta.get("accession") or None,
-        "name":              meta.get("name") or None,
-        "short_name":        meta.get("name_short") or meta.get("short_name") or None,
-        "type":              meta.get("type") or None,
-        "source_database":   meta.get("source_database") or None,
-        "go_terms":          meta.get("go_terms") or [],
-        "cross_references":  meta.get("cross_references") or {},
-        "literature":        meta.get("literature") or {},
-        "entry_id":          meta.get("entry_id") or None,
-        "entry_date":        meta.get("entry_date") or None,
-        "proteins":          protein_blocks,
+        "total_entries":             len(entries),
+        "total_interpro_integrated": len(interpro_integrated),
+        "total_unintegrated":        len(unintegrated_sigs),
+        "by_source_database":        dict(by_source_db),
+        "by_type":                   dict(by_type),
+        "member_databases_used":     sorted(member_dbs_used),
+        "go_terms_count":            go_counts_by_cat,
+        "go_terms_list":             list(go_unique.values()),
+        "interpro_integrated_ids":   sorted(set(filter(None, interpro_integrated))),
+        "unintegrated_ids":          sorted(set(filter(None, unintegrated_sigs))),
     }
 
 
 def extract_interpro_section(raw_data: dict) -> dict:
     """
     Build the 'interpro' section of one protein profile from the raw JSON
-    saved by the InterPro client.
+    saved by the interpro.py client.
 
-    Output schema:
-    {
-      "entries": [ { ...integrated InterPro entries... } ],
-      "unintegrated_signatures": [ { ...unintegrated signatures... } ],
-      "summary": {
-        "total_integrated_entries":         int,
-        "total_unintegrated_signatures":    int,
-        "by_type":                          { "Domain": n, "Family": n, ... },
-        "member_databases_used":            [ "pfam", "smart", ... ],
-        "go_terms_count":                   { "BP": n, "MF": n, "CC": n },
-      }
-    }
+    Input raw_data shape (from /entry/all/protein/uniprot/{acc}/):
+        {
+            "accession": "Q46505",
+            "data": {
+                "count": 17,
+                "results": [
+                    {"metadata": {...}, "proteins": [...]},
+                    ...
+                ]
+            }
+        }
+
+    Output:
+        {
+            "entries": [ { ...all 17 entries, fully expanded... } ],
+            "summary": { ...aggregated statistics... }
+        }
     """
-    integrated_raw   = raw_data.get("integrated",   {}) or {}
-    unintegrated_raw = raw_data.get("unintegrated", {}) or {}
+    data = raw_data.get("data") or {}
+    results = data.get("results") or []
 
-    entries = [
-        _extract_entry(r) for r in integrated_raw.get("results", []) or []
-    ]
-    unintegrated = [
-        _extract_unintegrated_signature(r) for r in unintegrated_raw.get("results", []) or []
-    ]
-
-    # ── Summary statistics ──────────────────────────────────────────────
-    type_counter = Counter()
-    for e in entries:
-        if e.get("type"):
-            type_counter[e["type"]] += 1
-
-    member_dbs_used: set[str] = set()
-    for e in entries:
-        for db in (e.get("member_databases") or {}).keys():
-            member_dbs_used.add(db)
-
-    go_counts = {"molecular_function": 0, "biological_process": 0, "cellular_component": 0}
-    for e in entries:
-        for cat, terms in (e.get("go_terms") or {}).items():
-            go_counts[cat] = go_counts.get(cat, 0) + len(terms)
-
-    summary = {
-        "total_integrated_entries":      len(entries),
-        "total_unintegrated_signatures": len(unintegrated),
-        "by_type":                       dict(type_counter),
-        "member_databases_used":         sorted(member_dbs_used),
-        "go_terms_count":                go_counts,
-    }
+    entries = [_extract_entry(r) for r in results]
+    summary = _build_summary(entries)
 
     return {
         "entries": entries,
-        "unintegrated_signatures": unintegrated,
         "summary": summary,
     }
 

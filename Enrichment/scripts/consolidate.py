@@ -707,10 +707,11 @@ def consolidate(
         else:
             interpro_section = {
                 "entries": [],
-                "unintegrated_signatures": [],
                 "summary": {
-                    "total_integrated_entries": 0,
-                    "total_unintegrated_signatures": 0,
+                    "total_entries": 0,
+                    "total_interpro_integrated": 0,
+                    "total_unintegrated": 0,
+                    "by_source_database": {},
                     "by_type": {},
                     "member_databases_used": [],
                     "go_terms_count": {
@@ -718,6 +719,9 @@ def consolidate(
                         "biological_process": 0,
                         "cellular_component": 0,
                     },
+                    "go_terms_list": [],
+                    "interpro_integrated_ids": [],
+                    "unintegrated_ids": [],
                 },
             }
 

@@ -1,18 +1,20 @@
 """
-InterPro REST API client.
+InterPro REST API client — uses the /entry/all/ endpoint to fetch ALL
+signatures (InterPro entries + Pfam + PANTHER + CATH-Gene3D + SSF +
+PIRSF + NCBIfam + SMART + PROSITE + CDD) in a single call per protein.
 
-Fetches the complete InterPro entry coverage for each protein and saves the
-raw JSON response to outputs/interpro_raw/{acc}.json — nothing is filtered
-or lost.
+This gives much richer coverage than the previous /entry/InterPro/ +
+/entry/unintegrated/ split:
+  - Each member-database signature comes with its own e-value, score,
+    model, and protein locations
+  - InterPro integrated entries (IPRxxxxx) come with member_databases
+    dict showing which signatures they aggregate
+  - Hierarchy, GO terms, cross_references are preserved
 
-The raw JSON is the single source of truth. The consolidate.py script reads
-directly from these raw files and extracts whatever fields are needed.
+The raw JSON is saved as outputs/interpro_raw/{acc}.json — single source
+of truth. The consolidate.py parser reads directly from these files.
 
-Uses ThreadPoolExecutor for parallel fetching (default 10 workers) and supports
-checkpointing every 100 proteins for resumable runs.
-
-API documentation: https://interpro-documentation.readthedocs.io/en/latest/
-Endpoint used: https://www.ebi.ac.uk/interpro/api/entry/InterPro/protein/UniProt/{acc}/
+Endpoint: https://www.ebi.ac.uk/interpro/api/entry/all/protein/uniprot/{acc}/
 """
 from __future__ import annotations
 
@@ -29,15 +31,10 @@ from ..utils.checkpoint import save as cp_save, load as cp_load
 
 log = logging.getLogger(__name__)
 
-# Returns ALL InterPro entries covering a given UniProt protein.
-INTERPRO_ENTRY = (
-    "https://www.ebi.ac.uk/interpro/api/entry/InterPro/protein/UniProt/{acc}/"
-    "?page_size=200"
-)
-
-# Unintegrated member-database signatures.
-INTERPRO_UNINTEGRATED = (
-    "https://www.ebi.ac.uk/interpro/api/entry/unintegrated/protein/UniProt/{acc}/"
+# Single endpoint that returns ALL signatures (InterPro + member databases)
+# covering a given UniProt protein. page_size=200 covers every realistic case.
+INTERPRO_ALL = (
+    "https://www.ebi.ac.uk/interpro/api/entry/all/protein/uniprot/{acc}/"
     "?page_size=200"
 )
 
@@ -50,13 +47,13 @@ _HEADERS = {
 def _fetch_url(url: str, max_retries: int = 5, backoff_base: float = 2.0,
                timeout: int = 60) -> dict:
     """
-    Fetch a single InterPro URL with proper handling of:
-      - 200 OK → return parsed JSON
-      - 204 No Content → return empty results (no match for this protein)
-      - 404 Not Found → return empty results
-      - 429 Rate Limited → retry with exponential backoff
-      - 5xx Server Error → retry with exponential backoff
-      - other 4xx → raise exception
+    Fetch a single InterPro URL with proper status code handling:
+      - 200 OK              → return parsed JSON
+      - 204 No Content      → return empty results (no match for this protein)
+      - 404 Not Found       → return empty results
+      - 429 Rate Limited    → retry with exponential backoff
+      - 5xx Server Error    → retry with exponential backoff
+      - other 4xx           → raise exception
     """
     for attempt in range(max_retries):
         try:
@@ -75,7 +72,6 @@ def _fetch_url(url: str, max_retries: int = 5, backoff_base: float = 2.0,
         if resp.status_code == 200:
             return resp.json()
         if resp.status_code in (204, 404):
-            # No InterPro matches for this protein — legitimate.
             return {"results": [], "count": 0}
         if resp.status_code == 429:
             wait = backoff_base ** attempt
@@ -87,7 +83,6 @@ def _fetch_url(url: str, max_retries: int = 5, backoff_base: float = 2.0,
             log.warning("Server error %d on %s — waiting %.1fs", resp.status_code, url, wait)
             time.sleep(wait)
             continue
-        # 4xx other than 429 / 404 — no point retrying
         resp.raise_for_status()
 
     raise RuntimeError(f"Failed to GET {url} after {max_retries} attempts")
@@ -95,11 +90,15 @@ def _fetch_url(url: str, max_retries: int = 5, backoff_base: float = 2.0,
 
 def _fetch_one(acc: str, raw_dir: Path) -> dict | None:
     """
-    Fetch a single InterPro coverage entry for a UniProt accession and save
-    raw JSON to raw_dir/{acc}.json. Returns the parsed dict or None on error.
+    Fetch the complete InterPro coverage for one UniProt accession.
+    Saves raw JSON to raw_dir/{acc}.json.
 
-    The saved JSON wraps both the integrated entries and the unintegrated
-    signatures so consolidate.py has everything in one place.
+    The saved JSON wraps the API response with the accession so consolidate.py
+    has the protein ID directly available:
+        {
+            "accession": "Q46505",
+            "data": <raw API response from /entry/all/protein/uniprot/Q46505/>
+        }
     """
     raw_file = raw_dir / f"{acc}.json"
 
@@ -111,33 +110,22 @@ def _fetch_one(acc: str, raw_dir: Path) -> dict | None:
         except Exception:
             pass  # corrupt file — re-fetch
 
-    integrated:   dict | None = None
-    unintegrated: dict | None = None
-
     try:
-        integrated = _fetch_url(INTERPRO_ENTRY.format(acc=acc))
+        data = _fetch_url(INTERPRO_ALL.format(acc=acc))
     except Exception as e:
-        log.debug("InterPro integrated: %s failed: %s", acc, e)
-
-    try:
-        unintegrated = _fetch_url(INTERPRO_UNINTEGRATED.format(acc=acc))
-    except Exception as e:
-        log.debug("InterPro unintegrated: %s failed: %s", acc, e)
-
-    if integrated is None and unintegrated is None:
+        log.debug("InterPro /entry/all/ for %s failed: %s", acc, e)
         return None
 
-    data = {
+    wrapped = {
         "accession": acc,
-        "integrated":   integrated   if integrated   is not None else {"results": [], "count": 0},
-        "unintegrated": unintegrated if unintegrated is not None else {"results": [], "count": 0},
+        "data": data,
     }
 
     raw_file.parent.mkdir(parents=True, exist_ok=True)
     with open(raw_file, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False)
+        json.dump(wrapped, f, ensure_ascii=False)
 
-    return data
+    return wrapped
 
 
 def fetch_proteins(
@@ -149,8 +137,9 @@ def fetch_proteins(
     raw_dir: Path | None = None,
 ) -> list[EnrichmentRecord]:
     """
-    Fetch complete InterPro coverage for each protein, saving raw JSON.
+    Fetch complete InterPro /entry/all/ coverage for each protein.
     Returns a minimal list of EnrichmentRecords for enrich.py summary stats.
+    Full extraction is done by interpro_extract.py reading raw JSON directly.
     """
     if raw_dir is None:
         raw_dir = Path("outputs/interpro_raw")
@@ -183,9 +172,9 @@ def fetch_proteins(
         }
         for future in as_completed(futures):
             acc = futures[future]
-            data = future.result()
-            if data:
-                new_records = _parse_entry_minimal(data)
+            wrapped = future.result()
+            if wrapped:
+                new_records = _parse_entry_minimal(wrapped)
                 records.extend(new_records)
             done_accs.add(acc)
             completed += 1
@@ -202,61 +191,46 @@ def fetch_proteins(
     return records
 
 
-def _parse_entry_minimal(data: dict) -> list[EnrichmentRecord]:
-    """Minimal parser — extracts just enough for enrich.py summary stats."""
+def _parse_entry_minimal(wrapped: dict) -> list[EnrichmentRecord]:
+    """
+    Minimal parser — extracts just enough for enrich.py summary stats.
+    Full extraction is in interpro_extract.py used by consolidate.py.
+
+    Produces one record per signature found, distinguishing:
+      - INTERPRO_ENTRY for entries with source_database == "interpro" (IPR...)
+      - INTERPRO_UNINTEGRATED_SIGNATURE for member-db signatures (Pfam, etc.)
+    """
     records: list[EnrichmentRecord] = []
-    acc = data.get("accession", "")
+    acc = wrapped.get("accession", "")
     if not acc:
         return records
 
-    def _emit(etype: EnrichmentType, value: str, label: str | None = None,
-              extras: dict | None = None) -> None:
-        if not value:
-            return
+    data = wrapped.get("data") or {}
+    results = data.get("results") or []
+
+    for result in results:
+        meta = result.get("metadata") or {}
+        sig_acc = meta.get("accession", "")
+        if not sig_acc:
+            continue
+
+        source_db = (meta.get("source_database") or "").lower()
+        is_interpro = (source_db == "interpro")
+
+        etype = (EnrichmentType.INTERPRO_ENTRY if is_interpro
+                 else EnrichmentType.INTERPRO_UNINTEGRATED_SIGNATURE)
+
         records.append(EnrichmentRecord(
             uniprot_accession=acc,
             source=EnrichmentSource.INTERPRO,
             enrichment_type=etype,
-            value=value,
-            label=label,
-            extras=extras or {},
+            value=sig_acc,
+            label=meta.get("name") or None,
+            extras={
+                "type":              meta.get("type")           or None,
+                "source_database":   meta.get("source_database") or None,
+                "integrated_to":     meta.get("integrated")     or None,
+            },
         ))
-
-    # ── Integrated InterPro entries ─────────────────────────────────────
-    integrated = data.get("integrated", {}) or {}
-    for result in integrated.get("results", []):
-        meta = result.get("metadata", {}) or {}
-        ipr_id = meta.get("accession", "")
-        if not ipr_id:
-            continue
-        _emit(
-            EnrichmentType.INTERPRO_ENTRY,
-            ipr_id,
-            label=meta.get("name") or None,
-            extras={
-                "type":              meta.get("type")             or None,
-                "source_database":   meta.get("source_database")  or None,
-                "integrated_to":     meta.get("integrated")       or None,
-                "member_databases":  list((meta.get("member_databases") or {}).keys()),
-                "go_terms_count":    len(meta.get("go_terms") or []),
-            },
-        )
-
-    # ── Unintegrated member-database signatures ─────────────────────────
-    unintegrated = data.get("unintegrated", {}) or {}
-    for result in unintegrated.get("results", []):
-        meta = result.get("metadata", {}) or {}
-        sig_id = meta.get("accession", "")
-        if not sig_id:
-            continue
-        _emit(
-            EnrichmentType.INTERPRO_UNINTEGRATED_SIGNATURE,
-            sig_id,
-            label=meta.get("name") or None,
-            extras={
-                "type":            meta.get("type")            or None,
-                "source_database": meta.get("source_database") or None,
-            },
-        )
 
     return records
