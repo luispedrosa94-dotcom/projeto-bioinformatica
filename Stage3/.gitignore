@@ -1,0 +1,20 @@
+# Generated outputs (all output dirs: outputs/, outputs_v2/, outputs_v3/, outputs_test/, etc.)
+outputs/raw_responses/
+outputs/prompts/
+outputs/stage3_results.jsonl
+outputs/stage3_results.current.json
+outputs/review_sheet.csv
+
+outputs_*/raw_responses/
+outputs_*/prompts/
+outputs_*/stage3_results.jsonl
+outputs_*/stage3_results.current.json
+outputs_*/review_sheet.csv
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/

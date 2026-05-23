@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Protein profile information summary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protein_id",
+    "protein_name",
+    "organism",
+    "source_status",
+    "overall_profile_summary",
+    "identity_summary",
+    "reported_function_summary",
+    "go_annotation_summary",
+    "enzyme_and_reaction_summary",
+    "domain_family_and_feature_summary",
+    "pathway_and_context_summary",
+    "tool_prediction_summary",
+    "strong_or_curated_information",
+    "weak_predicted_or_indirect_information",
+    "conflicting_or_inconsistent_information",
+    "missing_or_limited_information",
+    "review_notes"
+  ],
+  "properties": {
+    "protein_id": {
+      "type": "string",
+      "description": "The accession/protein identifier from the input JSON."
+    },
+    "protein_name": {
+      "type": "string",
+      "description": "Protein name as reported in the input record, or a cautious note if absent."
+    },
+    "organism": {
+      "type": "string",
+      "description": "Organism information reported in the input record, or a cautious note if absent."
+    },
+    "source_status": {
+      "type": "string",
+      "description": "Brief status of the record, such as reviewed/unreviewed, annotation score, source databases, and protein-existence evidence if present."
+    },
+    "overall_profile_summary": {
+      "type": "string",
+      "description": "Short readable summary of all major information available for the protein, without making a final annotation decision."
+    },
+    "identity_summary": {
+      "type": "string",
+      "description": "Summary of accession, names, gene names, organism, and record metadata present in the input."
+    },
+    "reported_function_summary": {
+      "type": "string",
+      "description": "Summary of any function descriptions reported in the record, distinguishing curated/literature claims from predictions or absence of evidence."
+    },
+    "go_annotation_summary": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Summary of GO molecular function, biological process, and cellular component information present in the record."
+    },
+    "enzyme_and_reaction_summary": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Summary of EC numbers, catalytic activities, reactions, Rhea/CHEBI references, and enzyme predictions present in the record."
+    },
+    "domain_family_and_feature_summary": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Summary of Pfam/InterPro/COG/KOG/TIGRFAM/SMART/domain/family/sequence-feature information present in the record."
+    },
+    "pathway_and_context_summary": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Summary of pathway, KEGG, STRING, network, or contextual information present in the record."
+    },
+    "tool_prediction_summary": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Summary of outputs from computational tools such as eggNOG, reCOGnizer, DeepGO2, DeepFRI, CLEAN, InterPro, or similar tools when present."
+    },
+    "strong_or_curated_information": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Information supported by reviewed records, curated database entries, experimental/literature evidence, or strong multi-source agreement."
+    },
+    "weak_predicted_or_indirect_information": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Information that is automatic, ML-derived, homology-only, low-confidence, generic, or contextual."
+    },
+    "conflicting_or_inconsistent_information": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Any conflicting names, functions, EC numbers, GO terms, domains, localization hints, or tool disagreements; use an empty array if none are evident."
+    },
+    "missing_or_limited_information": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Important missing, sparse, unlabeled, generic, or unclear information in the input record."
+    },
+    "review_notes": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Short notes for a human reviewer about what to inspect, verify, or be careful with."
+    }
+  }
+}

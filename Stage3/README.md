@@ -1,0 +1,299 @@
+# Stage 3 Protein Profile Summarization Toolkit
+
+This folder implements a lightweight Stage 3 workflow:
+
+```text
+test_proteins.json
+        ↓
+one fresh Ollama request per protein
+        ↓
+structured protein information summary
+        ↓
+raw + parsed JSON outputs
+        ↓
+manual review CSV
+```
+
+## Goal
+
+The goal is **not** to make the LLM choose a final biological annotation.
+
+The goal is to test whether a local LLM can read one complete enriched protein profile and summarize all relevant information about that specific protein in a clear, cautious, reviewable way.
+
+The summary should cover what is present in the record:
+
+- identity and source status;
+- reported protein name, gene name, organism, and metadata;
+- curated or literature-backed function descriptions if present;
+- GO terms and their evidence/source types;
+- EC numbers, catalytic activities, reactions, Rhea/CHEBI references if present;
+- domains, families, motifs, binding sites, active sites, and sequence features;
+- pathways, KEGG, STRING, or contextual information;
+- computational predictions from tools such as eggNOG, reCOGnizer, DeepGO2, DeepFRI, CLEAN, InterPro, or similar tools;
+- strong/curated information;
+- weak, predicted, indirect, sparse, missing, or conflicting information.
+
+The output should help a supervisor or biologist inspect the protein faster. It should not replace biological curation.
+
+## Contents
+
+```text
+stage3_protein_profile_summarization/
+  test_proteins.json
+  prompt_template.txt
+  run_stage3.py
+  make_review_sheet.py
+  summarize_results.py
+  check_test_set.py
+  manual_review_rubric.csv
+  requirements.txt
+  schema/
+    protein_profile_summary.schema.json
+  docs/
+    methodology.md
+  outputs/
+    raw_responses/
+    prompts/
+```
+
+
+Expected design:
+
+```text
+25 proteins total
+5 reviewed UniProt proteins
+5 poorly annotated proteins
+5 proteins with EC predictions
+5 conflicting-evidence proteins
+5 ML-only / weak-evidence proteins
+```
+
+These groups are still useful, but now they test whether the LLM can summarize different types of protein profiles, not whether it can recommend an annotation.
+
+## Dry run
+
+This validates input handling and saves prompts without calling Ollama:
+
+```bash
+python run_stage3.py \
+  --input test_proteins.json \
+  --model llama3.1 \
+  --dry-run \
+  --save-prompts
+```
+
+## Run one protein first
+
+Recommended before the full run:
+
+```bash
+python run_stage3.py \
+  --input test_proteins.json \
+  --model llama3.1 \
+  --accession Q46505 \
+  --output-dir outputs_test \
+  --format-mode schema \
+  --save-prompts
+```
+
+## Run the full Stage 3 summarization experiment
+
+```bash
+python run_stage3.py \
+  --input test_proteins.json \
+  --model llama3.1 \
+  --output-dir outputs \
+  --format-mode schema \
+  --save-prompts
+```
+
+The runner saves after every protein:
+
+```text
+outputs/stage3_results.jsonl
+outputs/stage3_results.current.json
+outputs/raw_responses/<accession>.txt
+outputs/prompts/<accession>.txt
+```
+
+## Run one group only
+
+```bash
+python run_stage3.py \
+  --input test_proteins.json \
+  --model llama3.1 \
+  --group "ML-only / weak-evidence proteins" \
+  --output-dir outputs_ml_only
+```
+
+## If JSON schema mode fails
+
+Older Ollama versions or some models may behave better with plain JSON mode:
+
+```bash
+python run_stage3.py \
+  --input test_proteins.json \
+  --model llama3.1:8b \
+  --format-mode json
+```
+
+If needed, disable format control entirely:
+
+```bash
+python run_stage3.py \
+  --input test_proteins.json \
+  --model llama3.1:8b \
+  --format-mode none
+```
+
+## If the model context window is too small
+
+Default behavior sends the full protein JSON. If a model fails because the prompt is too long, try:
+
+```bash
+python run_stage3.py \
+  --input test_proteins.json \
+  --model llama3.1:8b \
+  --strip-empty
+```
+
+This removes only null values, empty strings, empty lists, and empty dictionaries. It does not intentionally remove biological evidence.
+
+
+## Create the manual review sheet
+
+```bash
+python make_review_sheet.py \
+  --results outputs/stage3_results.jsonl \
+  --output outputs/review_sheet.csv
+```
+
+Open `outputs/review_sheet.csv` in Excel, Google Sheets, LibreOffice, or similar.
+
+## Summarize results
+
+```bash
+python summarize_results.py --results outputs/stage3_results.jsonl
+```
+
+## Manual review rubric
+
+Use `manual_review_rubric.csv`.
+
+Suggested criteria:
+
+| Criterion | Question |
+|---|---|
+| Completeness | Did the summary cover the main information categories present in the profile? |
+| Faithfulness | Did the summary stay within the input JSON? |
+| Clarity | Is the profile easier to understand than the raw JSON? |
+| Evidence separation | Did it distinguish curated/reported evidence from predictions, weak evidence, and context? |
+| Caution | Did it avoid becoming a final annotation or overclaiming? |
+
+Suggested score:
+
+| Score | Meaning |
+|---:|---|
+| 0 | Poor / wrong / unsupported |
+| 1 | Weak / incomplete / vague |
+| 2 | Useful but needs correction |
+| 3 | Good, faithful, clear, and useful |
+
+## Recommended interpretation
+
+The outputs should be treated as **reviewable protein profile summaries**, not final biological annotations.
+
+---
+
+## Running on tesla server (project-specific notes)
+
+These notes apply to the bioinformatics pipeline server (`tesla.di.uminho.pt`).
+
+### Ollama port
+
+The default `--ollama-url` in `run_stage3.py` points to port `11435`. The Ollama
+container in this project listens on port **`11434`**. Use the explicit flag:
+
+```bash
+--ollama-url http://localhost:11434/api/generate
+```
+
+### Conda environment
+
+The required dependencies (`requests`) are already in the `stage3` conda
+environment used by Stages 1 and 2. Activate it before running:
+
+```bash
+conda activate stage3
+```
+
+If the environment is missing dependencies, install them locally:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Recommended first run (single protein)
+
+Quick sanity check before doing the full 25:
+
+```bash
+cd /home/lpedrosa/projeto-bioinformatica/Stage3
+
+python run_stage3.py \
+  --input test_proteins.json \
+  --model llama3.1 \
+  --ollama-url http://localhost:11434/api/generate \
+  --accession Q46505 \
+  --output-dir outputs_test \
+  --save-prompts
+```
+
+### Full 25-protein run
+
+After the single-protein run looks correct:
+
+```bash
+python run_stage3.py \
+  --input test_proteins.json \
+  --model llama3.1 \
+  --ollama-url http://localhost:11434/api/generate \
+  --output-dir outputs \
+  --save-prompts
+```
+
+The runner writes after each protein, so partial progress is preserved on
+SSH disconnects, server reboots, or timeouts.
+
+### Switching to llama3.3
+
+`llama3.3` (70B) is heavier and uses substantially more GPU memory. Before
+running, check GPU availability:
+
+```bash
+nvidia-smi
+```
+
+If GPUs are mostly free, swap the model name:
+
+```bash
+python run_stage3.py \
+  --input test_proteins.json \
+  --model llama3.3 \
+  --ollama-url http://localhost:11434/api/generate \
+  --output-dir outputs_llama3_3 \
+  --timeout 600 \
+  --save-prompts
+```
+
+The longer `--timeout 600` accounts for the slower 70B model — without it,
+larger prompts (such as `Q46505`) may time out at the default 300 seconds.
+
+### Resuming after a partial / failed run
+
+The runner skips successful accessions automatically. To also retry the
+records that failed, add `--rerun-failed`:
+
+```bash
+python run_stage3.py --input test_proteins.json --model llama3.1 --rerun-failed
+```
