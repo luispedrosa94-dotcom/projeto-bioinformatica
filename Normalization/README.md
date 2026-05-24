@@ -2,7 +2,20 @@
 
 Normalization layer for the protein annotation enrichment pipeline. Reads
 heterogeneous tool outputs and produces two JSON files in a canonical
-long-format schema, ready for the next stages (API enrichment → LLM harmonization).
+long-format schema, ready for Stage 2 (Enrichment) and Stage 3 (LLM summarization).
+
+## Where this fits in the pipeline
+
+Stage 1 is the entry point. It takes the raw output of six annotation
+tools (see `data/raw_outputs/`) and produces two JSON files used by
+every downstream stage:
+
+- `outputs/annotations.json` — long-format record of every annotation
+- `outputs/proteins.json` — one record per unique protein
+
+Stage 2 (`Enrichment/`) reads these files and adds UniProt + InterPro
+data. Stage 3 (`Stage3/`) consumes the consolidated profiles produced
+by Stage 2. See the root README for the full pipeline overview.
 
 ## Layout
 
@@ -31,10 +44,21 @@ long-format schema, ready for the next stages (API enrichment → LLM harmonizat
     └── test_parsers.py      # 60 unit tests
 ```
 
+## Setup
+
+This project uses a conda environment shared across all stages. From the
+repository root:
+
+```bash
+conda activate stage3
+pip install -r Normalization/requirements.txt
+```
+
+Dependencies: `pandas`, `pydantic`, `pyyaml`, `pytest`.
+
 ## Usage
 
 ```bash
-pip install pandas pydantic pyyaml pytest
 python -m pytest tests/ -v
 python scripts/normalize.py --config configs/default.yaml
 ```
