@@ -28,7 +28,7 @@ The summary should cover what is present in the record:
 - GO terms and their evidence/source types;
 - EC numbers, catalytic activities, reactions, Rhea/CHEBI references if present;
 - domains, families, motifs, binding sites, active sites, and sequence features;
-- pathways, KEGG, STRING, or contextual information;
+- pathways, KEGG, or contextual information;
 - computational predictions from tools such as eggNOG, reCOGnizer, DeepGO2, DeepFRI, CLEAN, InterPro, or similar tools;
 - strong/curated information;
 - weak, predicted, indirect, sparse, missing, or conflicting information.
@@ -38,8 +38,9 @@ The output should help a supervisor or biologist inspect the protein faster. It 
 ## Contents
 
 ```text
-stage3_protein_profile_summarization/
+Stage3/
   test_proteins.json
+  build_test_set.py
   prompt_template.txt
   run_stage3.py
   make_review_sheet.py
@@ -202,6 +203,39 @@ Suggested score:
 ## Recommended interpretation
 
 The outputs should be treated as **reviewable protein profile summaries**, not final biological annotations.
+
+## Results (latest run)
+
+The latest run (llama3.1 with `num_ctx=32768`, prompt template current, full
+25-protein test set with InterPro v2 input) produced:
+
+- **22/25** proteins completed successfully without warnings.
+- **3/25** completed with one minor warning each (empty
+  `reported_function_summary` on `H0UK06`, `W2LNG5`, `L0DDH1` — all ML-only
+  proteins where no curated function exists in the input record).
+- **0/25** errors or timeouts.
+- **0** structural hallucinations: every UniProt accession, GO id, EC
+  number, Pfam id, and KEGG identifier referenced in the summaries was
+  cross-checked against the input JSON and confirmed present.
+
+Average bullets per summary section across the 25 proteins:
+
+| Section | Bullets |
+|---|---:|
+| `go_annotation_summary` | 5.6 |
+| `enzyme_and_reaction_summary` | 1.5 |
+| `domain_family_and_feature_summary` | 2.4 |
+| `pathway_and_context_summary` | 1.5 |
+| `tool_prediction_summary` | 2.4 |
+| `strong_or_curated_information` | 1.4 |
+| `weak_predicted_or_indirect_information` | 1.7 |
+| `conflicting_or_inconsistent_information` | 0.9 |
+| `missing_or_limited_information` | 1.4 |
+| `review_notes` | 2.4 |
+
+Prompt token range: 5,188 (smallest, `I9KF72` — poorly annotated) to 28,697
+(largest, `P06131` — reviewed UniProt with full InterPro coverage). Maximum
+context usage: 88% of `num_ctx=32768` — no truncation.
 
 ---
 
