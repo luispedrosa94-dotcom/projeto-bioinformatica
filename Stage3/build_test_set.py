@@ -3,10 +3,16 @@ Builds test_proteins.json from a curated list of 25 accessions
 selected by the supervisor across 5 representative groups.
 
 Usage:
+    cd Stage3
     python build_test_set.py
-    (run from the same folder as protein_profiles.json)
-"""
 
+The script auto-discovers protein_profiles.json in (in order):
+  1. The current directory (Stage3/)
+  2. ../outputs/ (the default location for the consolidated pipeline output)
+  3. outputs/ (if launched from the project root)
+
+The output test_proteins.json is written to the current directory.
+"""
 import json
 from pathlib import Path
 

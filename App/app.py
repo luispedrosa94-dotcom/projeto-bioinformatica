@@ -1,10 +1,15 @@
 """
 Protein Profiles Explorer — Streamlit dashboard
-Reads protein_profiles.json and provides interactive exploration.
 
-Run with:
-    pip install streamlit pandas plotly
-    streamlit run app.py
+Reads protein_profiles.json (from ../outputs/) and provides interactive
+exploration of the protein dataset.
+
+Run from the project root:
+    cd /path/to/projeto-bioinformatica
+    streamlit run App/app.py --server.port 8501
+
+The app expects to be launched from the project root so it can find
+protein_profiles.json in ../outputs/ relative to its own location.
 """
 
 import json
@@ -17,6 +22,17 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
+
+# ── Default data file lookup paths ────────────────────────────────────────────
+# Resolved relative to this script, not to the current working directory,
+# so the app can be launched from anywhere (e.g. streamlit run App/app.py).
+SCRIPT_DIR = Path(__file__).parent
+DEFAULT_DATA_PATHS = [
+    SCRIPT_DIR / "protein_profiles.json",
+    SCRIPT_DIR / "protein_profiles.zip",
+    SCRIPT_DIR.parent / "outputs" / "protein_profiles.json",
+    SCRIPT_DIR.parent / "outputs" / "protein_profiles.zip",
+]
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -167,14 +183,13 @@ with st.sidebar:
         proteins_raw = uploaded.read()
         bundle_name  = uploaded.name
     else:
-        for candidate in ["protein_profiles.json", "protein_profiles.zip"]:
-            if Path(candidate).exists():
-                bundle_name = candidate
+        for candidate in DEFAULT_DATA_PATHS:
+            if candidate.exists():
+                bundle_name = candidate.name
                 with open(candidate, "rb") as f:
                     proteins_raw = f.read()
-                st.success(f"Loaded bundled file:\n{candidate}")
+                st.success(f"Loaded bundled file:\n{candidate.name}")
                 break
-
     if proteins_raw is None:
         st.info("Upload a protein_profiles.json or .zip file to begin.")
         st.stop()
