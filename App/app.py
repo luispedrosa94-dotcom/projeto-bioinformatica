@@ -10,6 +10,7 @@ Run from the project root:
 
 The app expects to be launched from the project root so it can find
 protein_profiles.json in ../outputs/ relative to its own location.
+
 """
 
 import json
@@ -33,6 +34,37 @@ DEFAULT_DATA_PATHS = [
     SCRIPT_DIR.parent / "outputs" / "protein_profiles.json",
     SCRIPT_DIR.parent / "outputs" / "protein_profiles.zip",
 ]
+
+# ── Stage 3 LLM results lookup paths ──────────────────────────────────────────
+DEFAULT_STAGE3_PATHS = [
+    SCRIPT_DIR / "stage3_results.jsonl",
+    SCRIPT_DIR.parent / "Stage3" / "outputs" / "stage3_results.jsonl",
+]
+
+
+@st.cache_data(show_spinner=False)
+def load_stage3_results() -> dict[str, dict]:
+    """Try to load Stage 3 LLM results from known paths.
+
+    Returns a dict accession -> record. Empty dict if no file found.
+    """
+    for candidate in DEFAULT_STAGE3_PATHS:
+        if candidate.exists():
+            index: dict[str, dict] = {}
+            try:
+                with open(candidate, encoding="utf-8") as f:
+                    for line in f:
+                        line = line.strip()
+                        if not line:
+                            continue
+                        rec = json.loads(line)
+                        acc = rec.get("accession")
+                        if acc:
+                            index[acc] = rec
+                return index
+            except Exception:
+                return {}
+    return {}
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -548,6 +580,94 @@ def _interpro_render_section(interpro: dict) -> None:
                 with st.expander("📚 Literature", expanded=False):
                     st.json(lit, expanded=False)
 
+
+
+
+# ── Stage 3 LLM Summary render ────────────────────────────────────────────────
+def _llm_summary_render_section(record: dict) -> None:
+    """Render the Stage 3 LLM summary for a given protein record."""
+    if not record:
+        return
+
+    parsed = record.get("llm_response_json") or {}
+    status = record.get("status", "")
+    model = record.get("model", "—")
+    group = record.get("_test_group") or record.get("test_group", "")
+    warnings = record.get("validation_warnings") or []
+    pt = record.get("ollama_prompt_eval_count")
+    rt = record.get("ollama_eval_count")
+    dur = record.get("ollama_total_duration_seconds")
+
+    st.markdown("### 🤖 Stage 3 LLM Summary")
+
+    meta_bits = []
+    if status:
+        meta_bits.append(f"**Status:** {status}")
+    if model:
+        meta_bits.append(f"**Model:** {model}")
+    if group:
+        meta_bits.append(f"**Group:** {group}")
+    if pt:
+        meta_bits.append(f"**Prompt:** {pt:,} tokens")
+    if rt:
+        meta_bits.append(f"**Response:** {rt:,} tokens")
+    if dur:
+        meta_bits.append(f"**Time:** {dur:.1f}s")
+    if meta_bits:
+        st.markdown(" · ".join(meta_bits))
+
+    if warnings:
+        st.warning("⚠ " + " ".join(warnings))
+
+    # Overall profile
+    overall = parsed.get("overall_profile_summary", "").strip()
+    if overall:
+        st.markdown("**Overall profile**")
+        st.markdown(overall)
+
+    # Identity + reported function side by side
+    identity = parsed.get("identity_summary", "").strip()
+    function = parsed.get("reported_function_summary", "").strip()
+    if identity or function:
+        c1, c2 = st.columns(2)
+        with c1:
+            if identity:
+                st.markdown("**Identity**")
+                st.markdown(identity)
+        with c2:
+            if function:
+                st.markdown("**Reported function**")
+                st.markdown(function)
+
+    # Bullet sections
+    list_sections = [
+        ("go_annotation_summary",                   "GO annotations"),
+        ("enzyme_and_reaction_summary",             "Enzyme & reactions"),
+        ("domain_family_and_feature_summary",       "Domains, families & features"),
+        ("pathway_and_context_summary",             "Pathways & context"),
+        ("tool_prediction_summary",                 "Tool predictions"),
+        ("strong_or_curated_information",           "Strong / curated information"),
+        ("weak_predicted_or_indirect_information",  "Weak / predicted / indirect information"),
+        ("conflicting_or_inconsistent_information", "Conflicting / inconsistent information"),
+        ("missing_or_limited_information",          "Missing / limited information"),
+    ]
+    for key, label in list_sections:
+        bullets = parsed.get(key) or []
+        if not bullets:
+            continue
+        with st.expander(f"{label} ({len(bullets)})", expanded=False):
+            for b in bullets:
+                st.markdown(f"- {b}")
+
+    # Review notes — always shown as a final highlighted list
+    review = parsed.get("review_notes") or []
+    if review:
+        st.markdown("**📝 Review notes**")
+        for r in review:
+            st.markdown(f"- {r}")
+
+
+
 # ── Header ────────────────────────────────────────────────────────────────────
 
 st.markdown("""
@@ -900,6 +1020,12 @@ with tab_detail:
 
             st.markdown("<br>", unsafe_allow_html=True)
 
+            # Stage 3 LLM summary (only for proteins in the test set)
+            _stage3_index = load_stage3_results()
+            _stage3_record = _stage3_index.get(sel_acc) if _stage3_index else None
+            if _stage3_record:
+                _llm_summary_render_section(_stage3_record)
+                st.markdown("<br>", unsafe_allow_html=True)
             # Sub-tabs
             st_sum, st_go, st_dom, st_ipro, st_seq, st_refs, st_origin, st_raw = st.tabs([
                 "Summary", "GO & enzyme", "Domains & pathways", "InterPro",
