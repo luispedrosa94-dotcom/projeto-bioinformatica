@@ -10,8 +10,8 @@ Stage 1 is the entry point. It takes the raw output of six annotation
 tools (see `data/raw_outputs/`) and produces two JSON files used by
 every downstream stage:
 
-- `outputs/annotations.json` — long-format record of every annotation
-- `outputs/proteins.json` — one record per unique protein
+- `outputs/01_normalization/annotations.json` — long-format record of every annotation
+- `outputs/01_normalization/proteins.json` — one record per unique protein
 
 Stage 2 (`Enrichment/`) reads these files and adds UniProt + InterPro
 data. Stage 3 (`Stage3/`) consumes the consolidated profiles produced
@@ -63,7 +63,7 @@ python -m pytest tests/ -v
 python scripts/normalize.py --config configs/default.yaml
 ```
 
-Outputs written to `../outputs/`:
+Outputs written to `../outputs/01_normalization/`:
 - `annotations.json` — one record per annotation (long format)
 - `proteins.json` — one record per unique protein
 

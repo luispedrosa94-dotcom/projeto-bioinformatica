@@ -2,8 +2,8 @@
 Stage 2 — Enrichment
 
 Fetches the complete UniProt entry for each protein and saves the raw JSON
-to outputs/uniprot_raw/{acc}.json. Also fetches InterPro coverage and saves
-to outputs/interpro_raw/{acc}.json. Resolves GO_unknown aspects using the
+to outputs/caches/uniprot_raw/{acc}.json. Also fetches InterPro coverage and saves
+to outputs/caches/interpro_raw/{acc}.json. Resolves GO_unknown aspects using the
 GO term → aspect map extracted from UniProt records.
 
 Usage:
@@ -66,8 +66,13 @@ def main() -> None:
     proteins_path    = resolve_path(base, cfg["proteins_path"])
     output_root      = resolve_path(base, cfg["output_root"])
     output_root.mkdir(parents=True, exist_ok=True)
+    (output_root / "01_normalization").mkdir(exist_ok=True)
+    (output_root / "02_enrichment").mkdir(exist_ok=True)
+    (output_root / "caches").mkdir(exist_ok=True)
+    (output_root / "caches" / "uniprot_raw").mkdir(exist_ok=True)
+    (output_root / "caches" / "interpro_raw").mkdir(exist_ok=True)
 
-    cp_dir = output_root / "checkpoints"
+    cp_dir = output_root / "caches/checkpoints"
     cp_dir.mkdir(exist_ok=True)
 
     scope = args.scope or cfg.get("scope", "all")
@@ -100,7 +105,7 @@ def main() -> None:
             accessions,
             max_workers=args.workers,
             checkpoint_path=cp_dir / "uniprot.json",
-            raw_dir=output_root / "uniprot_raw",
+            raw_dir=output_root / "caches/uniprot_raw",
         )
 
     # ── Step 2: Resolve GO_unknown aspects ───────────────────────────────
@@ -142,26 +147,26 @@ def main() -> None:
             accessions,
             max_workers=args.workers,
             checkpoint_path=cp_dir / "interpro.json",
-            raw_dir=output_root / "interpro_raw",
+            raw_dir=output_root / "caches/interpro_raw",
         )
 
     # ── Write outputs ─────────────────────────────────────────────────────
-    with open(output_root / "annotations.json", "w", encoding="utf-8") as f:
+    with open(output_root / "01_normalization/annotations.json", "w", encoding="utf-8") as f:
         json.dump(annotations, f, indent=2, ensure_ascii=False)
-    log.info("Updated annotations → %s", output_root / "annotations.json")
+    log.info("Updated annotations → %s", output_root / "01_normalization/annotations.json")
 
     uniprot_out = [r.model_dump() for r in uniprot_records]
-    with open(output_root / "uniprot_enrichment.json", "w", encoding="utf-8") as f:
+    with open(output_root / "02_enrichment/uniprot_enrichment.json", "w", encoding="utf-8") as f:
         json.dump(uniprot_out, f, indent=2, ensure_ascii=False)
     log.info("UniProt enrichment → %d records", len(uniprot_out))
 
-    with open(output_root / "go_aspect_map.json", "w", encoding="utf-8") as f:
+    with open(output_root / "02_enrichment/go_aspect_map.json", "w", encoding="utf-8") as f:
         json.dump(go_aspect_map, f, indent=2, ensure_ascii=False)
     log.info("GO aspect map → %d terms", len(go_aspect_map))
 
     if not args.skip_interpro:
         interpro_out = [r.model_dump() for r in interpro_records]
-        with open(output_root / "interpro_enrichment.json", "w", encoding="utf-8") as f:
+        with open(output_root / "02_enrichment/interpro_enrichment.json", "w", encoding="utf-8") as f:
             json.dump(interpro_out, f, indent=2, ensure_ascii=False)
         log.info("InterPro enrichment → %d records", len(interpro_out))
 
@@ -172,8 +177,8 @@ def main() -> None:
     print(f"UniProt records:          {len(uniprot_records)}")
     print(f"InterPro records:         {len(interpro_records)}")
     print(f"GO_unknown resolved:      {resolved_count} ({still_unknown} still unknown)")
-    print(f"Raw UniProt files:        {len(list((output_root / 'uniprot_raw').glob('*.json')))}")
-    print(f"Raw InterPro files:       {len(list((output_root / 'interpro_raw').glob('*.json')))}")
+    print(f"Raw UniProt files:        {len(list((output_root / 'caches/uniprot_raw').glob('*.json')))}")
+    print(f"Raw InterPro files:       {len(list((output_root / 'caches/interpro_raw').glob('*.json')))}")
     if uniprot_records:
         print("\nUniProt records by type:")
         for t, n in sorted(Counter(r.enrichment_type.value for r in uniprot_records).items(), key=lambda x: -x[1]):

@@ -8,8 +8,10 @@ Usage:
 
 The script auto-discovers protein_profiles.json in (in order):
   1. The current directory (Stage3/)
-  2. ../outputs/ (the default location for the consolidated pipeline output)
-  3. outputs/ (if launched from the project root)
+  2. ../outputs/03_consolidated/ (the canonical location after Stage 2)
+  3. ../outputs/ (legacy fallback)
+  4. outputs/03_consolidated/ (if launched from the project root)
+  5. outputs/ (legacy fallback if launched from the project root)
 
 The output test_proteins.json is written to the current directory.
 """
@@ -59,7 +61,9 @@ SELECTION = [
 
 candidates = [
     "protein_profiles.json",
+    "../outputs/03_consolidated/protein_profiles.json",
     "../outputs/protein_profiles.json",
+    "outputs/03_consolidated/protein_profiles.json",
     "outputs/protein_profiles.json",
 ]
 

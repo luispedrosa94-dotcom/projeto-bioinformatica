@@ -1,7 +1,7 @@
 """
 Parser for InterPro /entry/all/ raw JSON.
 
-Reads outputs/interpro_raw/{acc}.json (saved by interpro.py client) and
+Reads outputs/caches/interpro_raw/{acc}.json (saved by interpro.py client) and
 builds the 'interpro' section of one protein profile.
 
 Preserves ALL fields the API exposes:

@@ -2,7 +2,7 @@
 UniProt REST API client.
 
 Fetches the complete UniProt entry for each protein and saves the raw JSON
-response to outputs/uniprot_raw/{acc}.json — nothing is filtered or lost.
+response to outputs/caches/uniprot_raw/{acc}.json — nothing is filtered or lost.
 
 The raw JSON is the single source of truth. The consolidate.py script reads
 directly from these raw files and extracts whatever fields are needed.
@@ -71,7 +71,7 @@ def fetch_proteins(
     Also returns EnrichmentRecords for backward compatibility with enrich.py.
     """
     if raw_dir is None:
-        raw_dir = Path("outputs/uniprot_raw")
+        raw_dir = Path("outputs/caches/uniprot_raw")
     raw_dir.mkdir(parents=True, exist_ok=True)
 
     done_accs: set[str] = set()

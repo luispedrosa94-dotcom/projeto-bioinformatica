@@ -1,8 +1,8 @@
 # Enrichment stage configuration.
 
 # Input from Stage 1 — Normalization
-annotations_path: ../../outputs/annotations.json
-proteins_path: ../../outputs/proteins.json
+annotations_path: ../../outputs/01_normalization/annotations.json
+proteins_path: ../../outputs/01_normalization/proteins.json
 
 # Output directory (shared with Stage 1)
 output_root: ../../outputs

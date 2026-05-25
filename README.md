@@ -44,6 +44,10 @@ projeto-bioinformatica/
 ├── data/
 │   └── raw_outputs/           input from the six annotation tools
 ├── outputs/                   pipeline outputs (Stages 1 + 2)
+│   ├── 01_normalization/      Stage 1 outputs (annotations, proteins)
+│   ├── 02_enrichment/         Stage 2 API outputs (UniProt, InterPro, GO aspect map)
+│   ├── 03_consolidated/       Stage 2 consolidated profile (protein_profiles.json)
+│   └── caches/                raw API responses and checkpoints (gitignored)
 ├── article/                   intermediate report PDF
 └── .gitignore
 ```

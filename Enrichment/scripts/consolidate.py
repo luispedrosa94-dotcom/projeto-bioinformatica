@@ -1,7 +1,7 @@
 """
 Stage 2b — Consolidation
 
-Reads the raw UniProt JSON files (outputs/uniprot_raw/{acc}.json) saved by
+Reads the raw UniProt JSON files (outputs/caches/uniprot_raw/{acc}.json) saved by
 enrich.py and extracts ALL available fields — nothing is filtered or lost.
 
 This approach guarantees that if a new field is needed in the future, it can
@@ -808,9 +808,9 @@ def main() -> None:
     consolidate(
         proteins_path    = resolve_path(base, cfg["proteins_path"]),
         annotations_path = resolve_path(base, cfg["annotations_path"]),
-        raw_dir          = output_root / "uniprot_raw",
-        interpro_raw_dir = output_root / "interpro_raw",
-        output_path      = output_root / "protein_profiles.json",
+        raw_dir          = output_root / "caches/uniprot_raw",
+        interpro_raw_dir = output_root / "caches/interpro_raw",
+        output_path      = output_root / "03_consolidated/protein_profiles.json",
     )
 
 

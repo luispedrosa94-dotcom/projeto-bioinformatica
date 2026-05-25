@@ -46,7 +46,7 @@ Four top-level tabs:
 
 | Path | Required | Notes |
 |---|---|---|
-| `../outputs/protein_profiles.json` | yes | Consolidated profile from Stage 2 |
+| `../outputs/03_consolidated/protein_profiles.json` | yes | Consolidated profile from Stage 2 |
 | `../Stage3/outputs/stage3_results.jsonl` | optional | LLM summaries; if absent, the Stage 3 block is hidden |
 
 If `protein_profiles.json` is missing, the sidebar shows a file uploader

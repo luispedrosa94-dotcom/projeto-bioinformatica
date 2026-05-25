@@ -31,8 +31,8 @@ SCRIPT_DIR = Path(__file__).parent
 DEFAULT_DATA_PATHS = [
     SCRIPT_DIR / "protein_profiles.json",
     SCRIPT_DIR / "protein_profiles.zip",
-    SCRIPT_DIR.parent / "outputs" / "protein_profiles.json",
-    SCRIPT_DIR.parent / "outputs" / "protein_profiles.zip",
+    SCRIPT_DIR.parent / "outputs" / "03_consolidated" / "protein_profiles.json",
+    SCRIPT_DIR.parent / "outputs" / "03_consolidated" / "protein_profiles.zip",
 ]
 
 # ── Stage 3 LLM results lookup paths ──────────────────────────────────────────

@@ -11,7 +11,7 @@ This gives much richer coverage than the previous /entry/InterPro/ +
     dict showing which signatures they aggregate
   - Hierarchy, GO terms, cross_references are preserved
 
-The raw JSON is saved as outputs/interpro_raw/{acc}.json — single source
+The raw JSON is saved as outputs/caches/interpro_raw/{acc}.json — single source
 of truth. The consolidate.py parser reads directly from these files.
 
 Endpoint: https://www.ebi.ac.uk/interpro/api/entry/all/protein/uniprot/{acc}/
@@ -142,7 +142,7 @@ def fetch_proteins(
     Full extraction is done by interpro_extract.py reading raw JSON directly.
     """
     if raw_dir is None:
-        raw_dir = Path("outputs/interpro_raw")
+        raw_dir = Path("outputs/caches/interpro_raw")
     raw_dir.mkdir(parents=True, exist_ok=True)
 
     done_accs: set[str] = set()

@@ -78,9 +78,9 @@ python scripts/enrich.py --config configs/default.yaml --skip-interpro
 
 What it does:
 - Fetches the full UniProt JSON entry for each protein and caches it in
-  `outputs/uniprot_raw/{accession}.json`.
+  `outputs/caches/uniprot_raw/{accession}.json`.
 - Fetches the InterPro coverage for each protein and caches it in
-  `outputs/interpro_raw/{accession}.json`.
+  `outputs/caches/interpro_raw/{accession}.json`.
 - Resolves the `GO_unknown` records produced in Stage 1 by UPIMAPI and
   eggNOG (which do not distinguish GO aspects) using the GO term → aspect
   map extracted from the UniProt records.
@@ -95,10 +95,10 @@ python scripts/consolidate.py --config configs/default.yaml
 ```
 
 What it does:
-- Reads the raw UniProt files from `outputs/uniprot_raw/` and extracts
+- Reads the raw UniProt files from `outputs/caches/uniprot_raw/` and extracts
   every available field.
 - Merges them with the Stage 1 annotations and the InterPro section.
-- Writes a single `outputs/protein_profiles.json` with one record per
+- Writes a single `outputs/03_consolidated/protein_profiles.json` with one record per
   protein in a canonical schema (see below).
 
 The consolidation step intentionally extracts every available UniProt
@@ -113,22 +113,22 @@ python -m pytest tests/ -v
 
 ## Outputs
 
-All files are written to `../outputs/` (shared with Stage 1).
+All files are written under `../outputs/` (shared with Stage 1):
 
 | File | Description |
 |---|---|
-| `uniprot_enrichment.json` | UniProt enrichment records (long format) |
-| `interpro_enrichment.json` | InterPro entries (long format) |
-| `go_aspect_map.json` | GO term → aspect mapping used for resolution |
-| `annotations.json` | Stage 1 annotations with `GO_unknown` resolved |
-| `protein_profiles.json` | Consolidated per-protein profile (one entry per protein) |
-| `uniprot_raw/{acc}.json` | Cached raw UniProt JSON per protein |
-| `interpro_raw/{acc}.json` | Cached raw InterPro JSON per protein |
-| `checkpoints/` | Resume state for interrupted runs |
+| `01_normalization/annotations.json` | Stage 1 annotations with `GO_unknown` resolved by Stage 2 |
+| `02_enrichment/uniprot_enrichment.json` | UniProt enrichment records (long format) |
+| `02_enrichment/interpro_enrichment.json` | InterPro entries (long format) |
+| `02_enrichment/go_aspect_map.json` | GO term → aspect mapping used for resolution |
+| `03_consolidated/protein_profiles.json` | Consolidated per-protein profile (one entry per protein) |
+| `caches/uniprot_raw/{acc}.json` | Cached raw UniProt JSON per protein |
+| `caches/interpro_raw/{acc}.json` | Cached raw InterPro JSON per protein |
+| `caches/checkpoints/` | Resume state for interrupted runs |
 
-The `uniprot_raw/`, `interpro_raw/`, and `checkpoints/` directories are
-not versioned (regenerable by re-running the pipeline). The consolidated
-`protein_profiles.json` is also gitignored due to its size (~120 MB).
+The `caches/` directory is not versioned (regenerable by re-running the
+pipeline). The consolidated `03_consolidated/protein_profiles.json` is
+also gitignored due to its size (~120 MB).
 
 ## Current numbers (full dataset, 1802 proteins)
 
