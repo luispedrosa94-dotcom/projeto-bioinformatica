@@ -206,36 +206,58 @@ The outputs should be treated as **reviewable protein profile summaries**, not f
 
 ## Results (latest run)
 
-The latest run (llama3.1 with `num_ctx=32768`, prompt template current, full
+The latest run (llama3.1 with `num_ctx=32768`, current prompt template, full
 25-protein test set with InterPro v2 input) produced:
 
-- **22/25** proteins completed successfully without warnings.
-- **3/25** completed with one minor warning each (empty
-  `reported_function_summary` on `H0UK06`, `W2LNG5`, `L0DDH1` — all ML-only
+- **23/25** proteins completed successfully without warnings.
+- **2/25** completed with one minor warning each (empty
+  `reported_function_summary` on `H0UK06`, `W2LNG5` — both ML-only
   proteins where no curated function exists in the input record).
 - **0/25** errors or timeouts.
-- **0** structural hallucinations: every UniProt accession, GO id, EC
-  number, Pfam id, and KEGG identifier referenced in the summaries was
-  cross-checked against the input JSON and confirmed present.
 
-Average bullets per summary section across the 25 proteins:
+### Prompt iteration — removing concrete examples
+
+An earlier version of the prompt (rules 12–14) included six concrete example
+IDs (`PF01257`, `EC 1.12.1.3`, `EC 1.6.5.3`, `GO:0051539`, `GO:0016491`,
+`IPR036188`, `K18330`, `PubMed PMID`) intended to illustrate the format of
+review notes and conflict descriptions. Systematic validation against the
+input JSONs revealed that the model was copying these IDs into outputs of
+proteins where the IDs did not appear in the input: **35 leaks across the
+25 proteins**.
+
+The most affected example was `PubMed PMID`, which leaked into nearly every
+review note (20 of 25 proteins) regardless of whether the input contained
+literature references at all. `PF01257` leaked into all 5 poorly annotated
+proteins.
+
+The prompt was revised to replace concrete examples with abstract
+descriptions (e.g. *"a specific EC number reported in the input"* instead
+of *"EC 1.12.1.3"*). Re-running with the revised prompt eliminated all
+leaks — **35 → 0** — confirmed by the same cross-check script.
+
+### Average bullets per summary section
 
 | Section | Bullets |
 |---|---:|
-| `go_annotation_summary` | 5.6 |
-| `enzyme_and_reaction_summary` | 1.5 |
+| `go_annotation_summary` | 4.6 |
+| `enzyme_and_reaction_summary` | 1.8 |
 | `domain_family_and_feature_summary` | 2.4 |
-| `pathway_and_context_summary` | 1.5 |
-| `tool_prediction_summary` | 2.4 |
-| `strong_or_curated_information` | 1.4 |
-| `weak_predicted_or_indirect_information` | 1.7 |
-| `conflicting_or_inconsistent_information` | 0.9 |
-| `missing_or_limited_information` | 1.4 |
-| `review_notes` | 2.4 |
+| `pathway_and_context_summary` | 1.8 |
+| `tool_prediction_summary` | 2.2 |
+| `strong_or_curated_information` | 1.7 |
+| `weak_predicted_or_indirect_information` | 1.9 |
+| `conflicting_or_inconsistent_information` | 0.2 |
+| `missing_or_limited_information` | 1.8 |
+| `review_notes` | 3.2 |
 
-Prompt token range: 5,188 (smallest, `I9KF72` — poorly annotated) to 28,697
-(largest, `P06131` — reviewed UniProt with full InterPro coverage). Maximum
-context usage: 88% of `num_ctx=32768` — no truncation.
+The drop in `conflicting_or_inconsistent_information` (0.9 → 0.2) is
+explained by the leak removal: most "conflicts" reported in the previous
+run referenced leaked example IDs and were therefore not real conflicts.
+The remaining 0.2 are real conflicts present in the input.
+
+Prompt token range: ~5,200 (smallest, `I9KF72` — poorly annotated) to
+~28,700 (largest, `P06131` — reviewed UniProt with full InterPro coverage).
+Maximum context usage: 88% of `num_ctx=32768` — no truncation.
 
 ---
 

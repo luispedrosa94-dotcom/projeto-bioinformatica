@@ -1,50 +1,52 @@
 {
   "protein_id": "U6EF83",
   "protein_name": "SPFH domain/Band 7 family protein (Slipin family protein)",
-  "organism": "Uncharacterized organism with no scientific name, common name, taxon ID, or lineage provided.",
-  "source_status": "UniProtKB entry of type Inactive, reviewed status is unreviewed",
-  "overall_profile_summary": "Uncharacterized protein from an unknown organism with predicted SPFH domain/Band 7 family protein function and various GO terms annotated by DeepGO2 and other tools.",
-  "identity_summary": "No curated or literature-based information available for this protein. Predicted functions are based on tool predictions only.",
-  "reported_function_summary": "None",
+  "organism": "null",
+  "source_status": "unreviewed",
+  "overall_profile_summary": "Uncharacterized protein from organism X with no curated function but predicted Y domains by Z tools.",
+  "identity_summary": "No gene name, no reviewed status, entry type: Inactive, annotation score: 0.0",
+  "reported_function_summary": "None reported in the record",
   "go_annotation_summary": [
-    "GO:0005488 - ATPase activity (high from deepgo2)",
-    "GO:0005515 - SH3/SH2 domain binding (high from deepgo2)",
-    "GO:0042802 - identical protein binding (medium from deepgo2)",
-    "GO:0015078 - proton transmembrane transporter activity (low from deepfri)",
-    "GO:0016874 - ligase activity (low from deepfri)"
+    "GO:0005488 - binding (confidence: high from deepgo2)",
+    "GO:0005515 - protein binding (confidence: high from deepgo2)",
+    "GO:0042802 - identical protein binding (confidence: medium from deepgo2)"
   ],
   "enzyme_and_reaction_summary": [
-    "EC 3.4.-.- (high confidence from recognizer)",
-    "EC 2.7.7.6, EC 2.7.13.3, and EC 2.4.1.198 (low confidence from clean)"
+    "EC:3.4.-.- (confidence: high from recognizer)",
+    "EC:2.7.7.6 (confidence: low from clean)",
+    "EC:2.7.13.3 (confidence: low from clean)",
+    "EC:2.4.1.198 (confidence: low from clean)"
   ],
   "domain_family_and_feature_summary": [
-    "COG0330 - Regulator of protease activity HflC, stomatin/prohibitin superfamily (high confidence from recognizer)",
-    "KOG2621 - Prohibitins and stomatins of the PID superfamily (high confidence from recognizer)",
-    "PF01145 - SPFH domain / Band 7 family (Provisional) (high confidence from upimapi)"
+    "COG0330 - Regulator of protease activity HflC, stomatin/prohibitin superfamily (confidence: high from recognizer)",
+    "KOG2621 - Prohibitins and stomatins of the PID superfamily (confidence: high from recognizer)",
+    "PF01145 - SPFH domain / Band 7 family (Provisional) (confidence: high from upimapi)"
   ],
   "pathway_and_context_summary": [
-    "KEGG KO K01423, K04088"
+    "K01423,K04088 (KEGG KO)"
   ],
   "tool_prediction_summary": [
-    "DeepGO2: predicted various GO terms with high to low confidence",
-    "DeepFRI: predicted proton transmembrane transporter activity and ligase activity with low confidence",
-    "Recognizer: identified EC numbers and COG domains with high confidence",
-    "Clean: identified EC numbers with low confidence"
+    "GO:0005488 - binding (confidence: high from deepgo2)",
+    "GO:0005515 - protein binding (confidence: high from deepgo2)",
+    "GO:0042802 - identical protein binding (confidence: medium from deepgo2)"
   ],
   "strong_or_curated_information": [
-    "No curated or literature-based information available for this protein."
+    "EC:3.4.-.- (confidence: high from recognizer)",
+    "COG0330 - Regulator of protease activity HflC, stomatin/prohibitin superfamily (confidence: high from recognizer)",
+    "KOG2621 - Prohibitins and stomatins of the PID superfamily (confidence: high from recognizer)"
   ],
   "weak_predicted_or_indirect_information": [
-    "Predicted functions are based on tool predictions only, no direct evidence from literature or databases."
+    "EC:2.7.7.6 (confidence: low from clean)",
+    "EC:2.7.13.3 (confidence: low from clean)",
+    "EC:2.4.1.198 (confidence: low from clean)"
   ],
   "conflicting_or_inconsistent_information": [],
   "missing_or_limited_information": [
-    "No scientific name, common name, taxon ID, or lineage provided for the organism.",
-    "No curated function or literature-based information available for this protein."
+    "Organism not specified",
+    "No gene name, no reviewed status"
   ],
   "review_notes": [
-    "Verify EC numbers against UniProtKB and literature: PubMed PMID listed in record.",
-    "Check whether Pfam PF01145 covers the full sequence or only a partial region.",
-    "Confirm whether GO terms predicted by DeepGO2 match the curated function (if any)."
+    "Verify EC number 3.4.-.- against literature references.",
+    "Check if Pfam PF01145 covers the full sequence or only a partial region."
   ]
 }

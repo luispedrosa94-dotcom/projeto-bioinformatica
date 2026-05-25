@@ -2,47 +2,50 @@
   "protein_id": "G3F6H2",
   "protein_name": "Methyl coenzyme M reductase alpha subunit",
   "organism": "Unspecified",
-  "source_status": "UniProtKB entry, unreviewed",
-  "overall_profile_summary": "Uncharacterized protein from an unspecified organism with predicted methyl-coenzyme M reductase activity and various other functions.",
-  "identity_summary": "No curated function or gene name available; inferred gene name is mcrA based on homology to tools.",
-  "reported_function_summary": "None",
+  "source_status": "unreviewed",
+  "overall_profile_summary": "Uncharacterized protein from unspecified organism with predicted methyl-coenzyme M reductase activity and various other functions.",
+  "identity_summary": "No curated function, but gene name inferred by homology as mcrA.",
+  "reported_function_summary": "None reported in the record.",
   "go_annotation_summary": [
-    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high from upimapi, high from eggnog)",
-    "GO:0003824 - catalytic activity (high from eggnog, high from deepgo2)",
-    "GO:0016740 - transferase activity (high from eggnog)",
-    "GO:0043169 - transition metal ion binding (low from deepfri)",
-    "GO:0046872 - electron carrier activity (low from deepfri)"
+    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high confidence from upimapi and eggnog)",
+    "GO:0003824 - catalytic activity (high confidence from eggnog and deepgo2)",
+    "GO:0016740 - transferase activity, transferring acyl groups (high confidence from eggnog)",
+    "GO:0043169 - transition metal ion binding (low confidence from deepfri)"
   ],
   "enzyme_and_reaction_summary": [
-    "EC 2.8.4.1 - methyl coenzyme M reductase (high confidence from eggnog, clean, and recognizer)"
+    "EC:2.8.4.1 - methyl coenzyme M reductase (high confidence from eggnog, clean, and recognizer)"
   ],
   "domain_family_and_feature_summary": [
     "COG4058 - Methyl coenzyme M reductase, alpha subunit (high confidence from recognizer)",
     "PF02249 - Methyl-coenzyme M reductase alpha subunit, C-terminal domain (Provisional) (high confidence from upimapi and eggnog)"
   ],
   "pathway_and_context_summary": [
-    "KEGG KO K00399 - methanogenesis (no specific pathway information available)",
-    "KEGG pathways: ko00680, ko01100, ko01120, ko01200, map00680, map01100, map01120, map01200"
+    "K00399 - Methanogenesis (KEGG KO)",
+    "ko00680",
+    "ko01100",
+    "ko01120",
+    "ko01200"
   ],
   "tool_prediction_summary": [
-    "Upimapi: predicted coenzyme-B sulfoethylthiotransferase activity (high confidence)",
-    "Eggnog: predicted catalytic activity and transferase activity (high confidence)",
-    "Deepgo2: predicted various functions including transition metal ion binding and electron carrier activity (low to medium confidence)"
+    "upimapi: GO:0050524, GO:0015948 (high confidence)",
+    "eggnog: GO:0003824, GO:0016740, GO:0043169 (high confidence)"
   ],
   "strong_or_curated_information": [
-    "Curated in the record: no specific function or gene name available; inferred gene name is mcrA based on homology to tools."
+    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity",
+    "EC:2.8.4.1 - methyl coenzyme M reductase"
   ],
   "weak_predicted_or_indirect_information": [
-    "Predicted functions from various tools, including upimapi, eggnog, deepgo2, and deepfri"
+    "GO:0003824 - catalytic activity (predicted by eggnog and deepgo2)",
+    "GO:0016740 - transferase activity, transferring acyl groups (predicted by eggnog)"
   ],
   "conflicting_or_inconsistent_information": [],
   "missing_or_limited_information": [
-    "No curated function or gene name available; organism is unspecified",
-    "Limited information on pathways and context"
+    "Organism not specified",
+    "No curated function reported"
   ],
   "review_notes": [
-    "Verify EC 2.8.4.1 against literature: PubMed PMID listed in record.",
-    "Check whether Pfam PF02249 covers the full sequence or only a partial region.",
-    "Confirm whether DeepGO2 predictions match the curated function (if any)."
+    "Verify EC number 2.8.4.1 against literature references.",
+    "Check if Pfam PF02249 covers the full sequence or only a partial region.",
+    "Confirm whether high-confidence ML predictions match the curated function."
   ]
 }

@@ -4,44 +4,46 @@
   "organism": "Methanobacterium formicicum",
   "source_status": "UniProtKB reviewed (Swiss-Prot)",
   "overall_profile_summary": "Uncharacterized protein from Methanobacterium formicicum with reported function as F420-dependent formate dehydrogenase subunit alpha.",
-  "identity_summary": "Protein name: F420-dependent formate dehydrogenase subunit alpha; Gene name: fdhA; Organism: Methanobacterium formicicum",
-  "reported_function_summary": "Catalyzes the oxidation of formate to carbon dioxide, with coenzyme F420 as the electron acceptor (PubMed:2661536, PubMed:3801411, PubMed:3944055, PubMed:6874636, PubMed:7061389). In vitro can also use methyl viologen, 7,8-didemethyl-8-hydroxy-5-deazariboflavin (or FO, a hydrolytic derivative of coenzyme F420), FMN and FAD as electron acceptors, but not NAD(+) or NADP(+).",
+  "identity_summary": "The protein is a subunit of the F420-dependent formate dehydrogenase enzyme, which catalyzes the oxidation of formate to carbon dioxide using coenzyme F420 as the electron acceptor. The protein has been identified in Methanobacterium formicicum and has a molecular weight of 75717.",
+  "reported_function_summary": "The reported function is F420-dependent formate dehydrogenase subunit alpha, which catalyzes the oxidation of formate to carbon dioxide using coenzyme F420 as the electron acceptor. The protein has been identified in Methanobacterium formicicum and has a molecular weight of 75717.",
   "go_annotation_summary": [
-    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high from upimapi, low from deepfri)",
-    "GO:0008863 - formate dehydrogenase (NAD+) activity (high from upimapi, uniprot)",
-    "GO:0046872 - metal ion binding (high from upimapi, deepgo2, uniprot)",
-    "GO:0043546 - molybdopterin cofactor binding (high from upimapi, uniprot)",
-    "GO:0003954 - NADH dehydrogenase activity (high from upimapi, uniprot)"
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)",
+    "GO:0008863 - formate dehydrogenase (NAD+) activity (high confidence from uniprot)",
+    "GO:0046872 - metal ion binding (high confidence from upimapi)",
+    "GO:0043546 - molybdopterin cofactor binding (high confidence from uniprot)"
   ],
   "enzyme_and_reaction_summary": [
-    "EC 1.17.98.3 - oxidation of formate to carbon dioxide with coenzyme F420 as electron acceptor"
+    "EC:1.17.98.3 - formate dehydrogenase (coenzyme F420) activity"
   ],
   "domain_family_and_feature_summary": [
-    "PF04879 - Molybdop_Fe4S4 (high from upimapi)",
-    "PF00384 - Molybdopterin (high from upimapi)",
-    "Molydop_binding - Molydopterin dinucleotide binding domain (high from eggnog)",
-    "pfam00384 - molybdopterin-dependent oxidoreductase (high from recognizer)"
+    "PF04879 - Molybdop_Fe4S4",
+    "PF00384 - Molybdopterin",
+    "PF01568 - Molydop_binding",
+    "TIGR01591 - formate dehydrogenase subunit alpha"
   ],
   "pathway_and_context_summary": [
-    "KEGG pathway: formate metabolism",
-    "KEGG module: formate dehydrogenase"
+    "KEGG pathway: ko00630, ko00680, ko01100, ko01120, ko01200"
   ],
   "tool_prediction_summary": [
-    "upimapi: GO:0051539, GO:0008863, GO:0046872, GO:0043546, GO:0003954 (high confidence)",
-    "deepgo2: GO:0016491, GO:0003824, GO:0043794 (high confidence)",
-    "deepfri: GO:0051912, GO:0046914 (low confidence)"
+    "GO:0016491 - oxidoreductase activity (high confidence from deepgo2)",
+    "GO:0003824 - catalytic activity (high confidence from deepgo2)"
   ],
   "strong_or_curated_information": [
-    "Curated function: F420-dependent formate dehydrogenase subunit alpha",
-    "EC 1.17.98.3 - oxidation of formate to carbon dioxide with coenzyme F420 as electron acceptor"
+    "The protein is a subunit of the F420-dependent formate dehydrogenase enzyme, which catalyzes the oxidation of formate to carbon dioxide using coenzyme F420 as the electron acceptor.",
+    "The protein has been identified in Methanobacterium formicicum and has a molecular weight of 75717."
   ],
-  "weak_predicted_or_indirect_information": [],
-  "conflicting_or_inconsistent_information": [
-    "GO:0051539 annotated with different confidence levels by upimapi (high) and deepfri (low)"
+  "weak_predicted_or_indirect_information": [
+    "GO:0043167 - transition metal ion binding (low confidence from deepgo2)",
+    "GO:0016053 - electron transport chain (low confidence from deepgo2)"
   ],
-  "missing_or_limited_information": [],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "The protein's subcellular location is not specified.",
+    "The protein's catalytic activity is not fully described."
+  ],
   "review_notes": [
-    "Verify EC 1.17.98.3 against literature: PubMed PMID listed in record.",
-    "Check whether Pfam PF04879 covers the full sequence or only a partial region."
+    "Verify the EC number reported in the input against the literature references also listed in the input.",
+    "Check whether the Pfam (or other domain) reported in the input covers the full sequence or only a partial region.",
+    "Confirm whether high-confidence ML predictions match the curated function reported in the input."
   ]
 }

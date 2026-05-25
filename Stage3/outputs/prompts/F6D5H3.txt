@@ -20,21 +20,27 @@ Rules:
 10. Be concise but complete enough for a supervisor/biologist to inspect the protein quickly.
 11. Return valid JSON only. Do not include Markdown, commentary, or text outside the JSON object.
 12. For "conflicting_or_inconsistent_information", consider the following situations as conflicts that MUST be reported when present in the input:
-    a. The same GO term annotated with different confidence levels by different tools (e.g., GO:0051539 marked as "high" by upimapi but "low" by deepfri).
-    b. Different EC numbers assigned to the same protein by different tools (e.g., EC 1.12.1.3 from clean/uniprot but EC 1.6.5.3 from recognizer).
+    a. The same GO term annotated with different confidence levels by different tools in the input.
+    b. Different EC numbers assigned to the same protein by different tools in the input.
     c. Tool predictions that contradict the curated UniProt function.
     d. Domain hits from different databases that imply incompatible biological functions.
     e. Mismatch between organism/taxonomy data and the predicted function (e.g., bacterial protein predicted as eukaryotic-specific function).
     When you find any of these, list them explicitly with the conflicting IDs and sources. If no conflicts are present, leave the list empty.
-13. For "review_notes", always include 1 to 4 short suggestions to help a human reviewer prioritize what to check. These are NOT new annotations — they are pointers to what should be validated. Examples of valid review_notes:
-    - "Verify EC 1.12.1.3 against literature: PubMed PMID listed in record."
-    - "Check whether Pfam PF01257 covers the full sequence or only a partial region."
-    - "Confirm whether GO:0016491 high-confidence prediction by DeepGO2 matches the curated function."
-    - "Investigate why DeepFRI reports low confidence on GO:0051539 while upimapi reports high."
-    - "Review InterPro hierarchy for IPR036188 to confirm parent-child relationships."
-    - "Cross-reference the reported KEGG KO K18330 with the curated reaction."
+13. For "review_notes", always include 1 to 4 short suggestions to help a human reviewer prioritize what to check. These are NOT new annotations — they are pointers to what should be validated.
+    Types of review notes you may write (use the actual identifiers from the input,
+    never invent or copy IDs):
+    - Suggest verifying a specific EC number reported in the input against the
+      literature references also listed in the input.
+    - Suggest checking whether a Pfam (or other domain) reported in the input
+      covers the full sequence or only a partial region.
+    - Suggest confirming whether a high-confidence ML prediction matches the
+      curated function reported in the input.
+    - Suggest investigating why two tools report different confidence levels
+      for the same GO term in the input.
+    - Suggest reviewing an InterPro entry hierarchy or cross-referencing a
+      KEGG identifier reported in the input with the curated reaction.
     Always produce at least 1 review_note unless the protein has NO usable information at all.
-14. When confidence levels are explicitly listed in the input (e.g., "confidence": "high" in source_details), include them in the summary bullets in parentheses. Example: "GO:0051539 - 4 iron, 4 sulfur cluster binding (high from upimapi, low from deepfri)".
+14. When confidence levels are explicitly listed in the input (e.g., "confidence": "high" in source_details), include them in the summary bullets in parentheses. Format: "GO_ID - term name (confidence-level from tool-name)". When multiple tools report the same item with different confidence levels, list each in the same parentheses.
 15. Final reminder: the goal is to help a human curator quickly understand: (a) what is known with confidence, (b) what is predicted but uncertain, (c) what is contradictory, and (d) what needs further checking. Filling "conflicting_or_inconsistent_information" and "review_notes" with concrete content is essential for this task.
 16. "overall_profile_summary" MUST always be a single non-empty sentence (between 10 and 50 words) describing what this protein is: its name, organism, and main function or family if known. This field is required and cannot be left blank — even for poorly annotated proteins, write a brief sentence summarizing what little is known (e.g., "Uncharacterized protein from organism X with no curated function but predicted Y domains by Z tools"). Do NOT leave this field empty.
 Required JSON fields:

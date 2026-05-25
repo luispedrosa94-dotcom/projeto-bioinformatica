@@ -119,7 +119,7 @@ enums retain entries for future re-inclusion without migration.
 | InterPro enrichment records (Stage 2) | 19,919 |
 | GO terms in aspect map | 900 |
 | Stage 3 test set proteins | 25 |
-| Stage 3 success rate (latest run) | 22/25 |
+| Stage 3 success rate (latest run) | 23/25 |
 
 ## Design decisions
 

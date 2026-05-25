@@ -3,24 +3,23 @@
   "protein_name": "Methyl-coenzyme M reductase subunit beta (EC 2.8.4.1) (Coenzyme-B sulfoethylthiotransferase beta)",
   "organism": "Unspecified",
   "source_status": "unreviewed",
-  "overall_profile_summary": "Uncharacterized protein from an unspecified organism with predicted methyl-coenzyme M reductase activity and coenzyme-B sulfoethylthiotransferase activity.",
-  "identity_summary": "The protein has a reviewed status of 'unreviewed' and is annotated as inactive. The gene name is inferred by homology from tools, but not directly from UniProt for this protein.",
-  "reported_function_summary": "No curated function reported in the record.",
+  "overall_profile_summary": "Uncharacterized protein from unspecified organism with reported coenzyme-B sulfoethylthiotransferase activity and predicted methyl-coenzyme M reductase subunit beta function.",
+  "identity_summary": "Protein name: Methyl-coenzyme M reductase subunit beta (EC 2.8.4.1) (Coenzyme-B sulfoethylthiotransferase beta). Gene name inferred by homology from tools — not directly from UniProt for this protein.",
+  "reported_function_summary": "Reported function: coenzyme-B sulfoethylthiotransferase activity (GO:0050524).",
   "go_annotation_summary": [
-    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high from upimapi)",
-    "GO:0003824 - catalytic activity (medium from deepgo2)",
-    "GO:0005488 - binding transcription factor activity, RNA polymerase II-specific (medium from deepgo2)",
-    "GO:0042802 - lyase activity (low from deepfri)",
-    "GO:0016491 - oxidoreductase activity (low from deepfri)",
-    "GO:0097367 - carbohydrate derivative binding (low from deepfri)"
+    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high confidence from upimapi)",
+    "GO:0003824 - catalytic activity (medium confidence from deepgo2)",
+    "GO:0005488 - binding transcription factor activity, RNA polymerase II-specific (medium confidence from deepgo2)",
+    "GO:0042802 - lyase activity (low confidence from deepfri)",
+    "GO:0097367 - carbohydrate derivative binding (low confidence from deepfri)"
   ],
   "enzyme_and_reaction_summary": [
-    "EC 2.8.4.1 - methyl-coenzyme M reductase activity"
+    "EC 2.8.4.1 - coenzyme-B sulfoethylthiotransferase"
   ],
   "domain_family_and_feature_summary": [
-    "COG4054 - Methyl coenzyme M reductase, beta subunit (high from recognizer)",
-    "PF02241 - Methyl-coenzyme M reductase beta subunit, C-terminal domain (Provisional) (high from upimapi)",
-    "PF02783 - Methyl-coenzyme M reductase beta subunit, N-terminal domain (Provisional) (high from upimapi)"
+    "COG4054 - Methyl coenzyme M reductase, beta subunit (high confidence from recognizer)",
+    "PF02241 - Methyl-coenzyme M reductase beta subunit, C-terminal domain (Provisional) (high confidence from upimapi)",
+    "PF02783 - Methyl-coenzyme M reductase beta subunit, N-terminal domain (Provisional) (high confidence from upimapi)"
   ],
   "pathway_and_context_summary": [
     "ko:K00401",
@@ -34,34 +33,23 @@
     "map01200"
   ],
   "tool_prediction_summary": [
-    "upimapi - high confidence on GO:0050524 and GO:0015948",
-    "deepgo2 - medium confidence on GO:0003824, GO:0005488, GO:0042802, GO:0016491, GO:0097367",
-    "deepfri - low confidence on GO:0042802, GO:0016491, GO:0097367"
+    "upimapi: coenzyme-B sulfoethylthiotransferase activity (GO:0050524) with high confidence",
+    "deepgo2: catalytic activity (GO:0003824), binding transcription factor activity, RNA polymerase II-specific (GO:0005488), lyase activity (GO:0042802), carbohydrate derivative binding (GO:0097367) with medium to low confidence"
   ],
   "strong_or_curated_information": [
-    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high from upimapi)",
-    "EC 2.8.4.1 - methyl-coenzyme M reductase activity",
-    "COG4054 - Methyl coenzyme M reductase, beta subunit (high from recognizer)"
+    "coenzyme-B sulfoethylthiotransferase activity (GO:0050524)"
   ],
   "weak_predicted_or_indirect_information": [
-    "GO:0003824 - catalytic activity (medium from deepgo2)",
-    "GO:0005488 - binding transcription factor activity, RNA polymerase II-specific (medium from deepgo2)",
-    "GO:0042802 - lyase activity (low from deepfri)",
-    "GO:0016491 - oxidoreductase activity (low from deepfri)",
-    "GO:0097367 - carbohydrate derivative binding (low from deepfri)"
+    "catalytic activity (GO:0003824), binding transcription factor activity, RNA polymerase II-specific (GO:0005488), lyase activity (GO:0042802), carbohydrate derivative binding (GO:0097367)"
   ],
-  "conflicting_or_inconsistent_information": [
-    "GO:0042802 annotated with different confidence levels by upimapi and deepfri",
-    "EC numbers assigned to the same protein by different tools (upimapi, eggnog, clean, recognizer)",
-    "Tool predictions that contradict the curated UniProt function"
-  ],
+  "conflicting_or_inconsistent_information": [],
   "missing_or_limited_information": [
-    "Organism is unspecified",
-    "Gene name not directly reported in UniProt for this protein"
+    "Organism not specified",
+    "No literature references provided"
   ],
   "review_notes": [
-    "Verify EC 2.8.4.1 against literature: PubMed PMID listed in record.",
-    "Check whether Pfam PF02241 covers the full sequence or only a partial region.",
-    "Confirm whether GO:0050524 high-confidence prediction by upimapi matches the curated function."
+    "Verify EC number 2.8.4.1 against literature references.",
+    "Check if Pfam domains cover the full sequence or only a partial region.",
+    "Confirm whether high-confidence ML predictions match the curated function reported in the record."
   ]
 }

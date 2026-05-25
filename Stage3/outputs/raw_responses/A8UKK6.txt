@@ -7,42 +7,48 @@
   "identity_summary": "Protein name: methylmalonyl-CoA mutase (EC 5.4.99.2), Gene name inferred by homology from tools — not directly from UniProt for this protein",
   "reported_function_summary": "No curated function reported in the record.",
   "go_annotation_summary": [
-    "GO:0031419 - cobalamin binding (high from upimapi, low from deepfri)",
-    "GO:0046872 - metal ion binding (high from upimapi and eggnog)",
-    "GO:0004494 - methylmalonyl-CoA mutase activity (high from upimapi, eggnog, and deepgo2)",
-    "GO:0016491 - oxidoreductase activity (medium from deepgo2)"
+    "GO:0031419 - cobalamin binding (high confidence from upimapi, eggnog)",
+    "GO:0046872 - metal ion binding (high confidence from upimapi, eggnog)",
+    "GO:0004494 - methylmalonyl-CoA mutase activity (high confidence from upimapi, eggnog, deepgo2)"
   ],
   "enzyme_and_reaction_summary": [
-    "EC 5.4.99.2 - methylmalonyl-CoA mutase"
+    "EC 5.4.99.2 - Methylmalonyl-CoA mutase"
   ],
   "domain_family_and_feature_summary": [
-    "COG1884 - Methylmalonyl-CoA mutase, N-terminal domain/subunit (high from recognizer)",
-    "COG2185 - Methylmalonyl-CoA mutase, C-terminal domain/subunit (cobalamin-binding) (high from recognizer)",
-    "PF02310 - cobalamin-dependent protein (medium from recognizer)"
+    "COG1884 - Methylmalonyl-CoA mutase, N-terminal domain/subunit (high confidence from recognizer)",
+    "COG2185 - Methylmalonyl-CoA mutase, C-terminal domain/subunit (cobalamin-binding) (high confidence from recognizer)",
+    "PF02310 - cobalamin-dependent protein (medium confidence from recognizer)"
   ],
   "pathway_and_context_summary": [
-    "KEGG KO K18330 - methylmalonyl-CoA mutase"
+    "Ko:K01847",
+    "ko00280",
+    "ko00630",
+    "ko00640",
+    "ko00720",
+    "ko01100",
+    "ko01120",
+    "ko01200"
   ],
   "tool_prediction_summary": [
-    "Upimapi: predicted methylmalonyl-CoA mutase activity and cobalamin-binding domains",
-    "Eggnog: predicted methylmalonyl-CoA mutase activity and cobalamin-binding domains",
-    "Deepgo2: predicted oxidoreductase activity"
+    "upimapi - high confidence predictions for GO:0031419, GO:0046872, and GO:0004494",
+    "eggnog - high confidence predictions for GO:0031419, GO:0046872, and GO:0004494",
+    "deepgo2 - low confidence predictions for various GO terms"
   ],
   "strong_or_curated_information": [
-    "EC 5.4.99.2 - methylmalonyl-CoA mutase (curated in UniProt)",
-    "GO:0031419 - cobalamin binding (high from upimapi)"
+    "EC 5.4.99.2 - Methylmalonyl-CoA mutase (curated in the record)",
+    "GO:0031419 - cobalamin binding (curated in the record)"
   ],
   "weak_predicted_or_indirect_information": [
-    "GO:0046872 - metal ion binding (low from deepfri)",
-    "GO:0016491 - oxidoreductase activity (medium from deepgo2)"
+    "Predicted methylmalonyl-CoA mutase activity and cobalamin-binding domains"
   ],
   "conflicting_or_inconsistent_information": [],
   "missing_or_limited_information": [
     "Organism taxonomy data is missing or limited",
-    "No literature/curated evidence reported in the record"
+    "No literature references provided in the record"
   ],
   "review_notes": [
-    "Verify EC 5.4.99.2 against literature: PubMed PMID listed in record.",
-    "Check whether Pfam PF02310 covers the full sequence or only a partial region."
+    "Verify EC number 5.4.99.2 against literature references",
+    "Check if Pfam PF02310 covers the full sequence or only a partial region",
+    "Confirm whether high-confidence ML predictions match curated function reported in the record"
   ]
 }

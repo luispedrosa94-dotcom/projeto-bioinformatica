@@ -2,44 +2,46 @@
   "protein_id": "P11560",
   "protein_name": "Methyl-coenzyme M reductase I subunit beta",
   "organism": "Methanothermobacter marburgensis (strain ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg)",
-  "source_status": "UniProtKB reviewed (Swiss-Prot)",
+  "source_status": "reviewed",
   "overall_profile_summary": "Uncharacterized protein from Methanothermobacter marburgensis with reported methyl-coenzyme M reductase activity and predicted coenzyme-B sulfoethylthiotransferase activity.",
-  "identity_summary": "The protein is a subunit of the methyl-coenzyme M reductase enzyme, which catalyzes the final step in methanogenesis. It has been identified as a beta subunit of this enzyme.",
-  "reported_function_summary": "Component of the methyl-coenzyme M reductase (MCR) I that catalyzes the reductive cleavage of methyl-coenzyme M (CoM-S-CH3 or 2-(methylthio)ethanesulfonate) using coenzyme B (CoB or 7-mercaptoheptanoylthreonine phosphate) as reductant which results in the production of methane and the mixed heterodisulfide of CoB and CoM (CoM-S-S-CoB).",
+  "identity_summary": "The protein has a sequence length of 443 amino acids, a molecular weight of 47240 Da, and a CRC64 checksum of 1237E83E405E6D6B. The MD5 checksum is F92CDFEF78D3BDDE4935A89222FF04C9.",
+  "reported_function_summary": "The protein has been reported to have methyl-coenzyme M reductase activity, catalyzing the reductive cleavage of methyl-coenzyme M (CoM-S-CH3 or 2-(methylthio)ethanesulfonate) using coenzyme B (CoB or 7-mercaptoheptanoylthreonine phosphate) as reductant.",
   "go_annotation_summary": [
-    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high from upimapi, curated in UniProtKB)",
-    "GO:0003824 - catalytic activity (medium from deepgo2)",
-    "GO:0016491 - oxidoreductase activity (low from deepgo2)"
+    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity",
+    "GO:0015948 - methanogenesis"
   ],
   "enzyme_and_reaction_summary": [
-    "EC 2.8.4.1 - methyl-coenzyme M reductase (high confidence from multiple sources)"
+    "EC:2.8.4.1 - methyl-coenzyme M reductase (component C)"
   ],
   "domain_family_and_feature_summary": [
-    "PF02241 - Methyl-coenzyme M reductase beta subunit, C-terminal domain (high confidence from upimapi)",
-    "PF02783 - Methyl-coenzyme M reductase beta subunit, N-terminal domain (high confidence from upimapi)"
+    "COG4054 - Methyl coenzyme M reductase, beta subunit",
+    "PF02241 - MCR_beta",
+    "PF02783 - MCR_beta_N"
   ],
   "pathway_and_context_summary": [
     "One-carbon metabolism; methyl-coenzyme M reduction; methane from methyl-coenzyme M: step 1/1"
   ],
   "tool_prediction_summary": [
-    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high confidence from upimapi)",
-    "GO:0003824 - catalytic activity (medium confidence from deepgo2)"
+    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high confidence)",
+    "GO:0015948 - methanogenesis (high confidence)"
   ],
   "strong_or_curated_information": [
-    "Component of the methyl-coenzyme M reductase (MCR) I that catalyzes the reductive cleavage of methyl-coenzyme M (CoM-S-CH3 or 2-(methylthio)ethanesulfonate) using coenzyme B (CoB or 7-mercaptoheptanoylthreonine phosphate) as reductant which results in the production of methane and the mixed heterodisulfide of CoB and CoM (CoM-S-S-CoB).",
-    "EC 2.8.4.1 - methyl-coenzyme M reductase (high confidence from multiple sources)"
+    "The protein has been reported to have methyl-coenzyme M reductase activity, catalyzing the reductive cleavage of methyl-coenzyme M (CoM-S-CH3 or 2-(methylthio)ethanesulfonate) using coenzyme B (CoB or 7-mercaptoheptanoylthreonine phosphate) as reductant.",
+    "The protein has been reported to have coenzyme-B sulfoethylthiotransferase activity."
   ],
   "weak_predicted_or_indirect_information": [
-    "GO:0016491 - oxidoreductase activity (low confidence from deepgo2)",
-    "GO:0005488 - binding (medium confidence from deepgo2)"
+    "GO:0016491 - oxidoreductase activity (low confidence)",
+    "GO:0042802 - lyase activity (low confidence)"
   ],
   "conflicting_or_inconsistent_information": [],
   "missing_or_limited_information": [
-    "Subunit structure and organization",
-    "Catalytic mechanism"
+    "The protein's subcellular location is not specified.",
+    "The protein's catalytic activity is not fully understood."
   ],
   "review_notes": [
-    "Verify EC 2.8.4.1 against literature: PubMed PMID listed in record.",
-    "Check whether Pfam PF02241 covers the full sequence or only a partial region."
+    "Verify the reported EC number (2.8.4.1) against literature references.",
+    "Check whether the Pfam domains cover the full sequence or only a partial region.",
+    "Confirm whether high-confidence ML predictions match the curated function reported in the record.",
+    "Investigate why two tools report different confidence levels for the same GO term."
   ]
 }

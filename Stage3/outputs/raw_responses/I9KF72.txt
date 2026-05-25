@@ -3,37 +3,35 @@
   "protein_name": "Uncharacterized protein",
   "organism": "null",
   "source_status": "unreviewed",
-  "overall_profile_summary": "Uncharacterized protein from organism with no curated function but predicted GO:0005488, GO:0005515, and GO:0042802 by DeepGO2.",
-  "identity_summary": "No gene name or scientific name available. UniProt ID: UPI000269BC86",
-  "reported_function_summary": "None reported in the record.",
+  "overall_profile_summary": "Uncharacterized protein from organism with no curated function but predicted GO terms by DeepGO2 and DeepFRI tools.",
+  "identity_summary": "No gene name, reviewed status: unreviewed, entry type: Inactive, annotation score: 0.0",
+  "reported_function_summary": "No reported functions in the record.",
   "go_annotation_summary": [
-    "GO:0005488 - binding (medium from deepgo2)",
-    "GO:0005515 - protein binding (medium from deepgo2)",
-    "GO:0042802 - identical protein binding (medium from deepgo2)",
-    "GO:0003677 - DNA binding (low from deepfri)",
-    "GO:0016788 - hydrolase activity, acting on ester bonds (low from deepfri)"
+    "GO:0005488 - binding (medium confidence from DeepGO2)",
+    "GO:0005515 - binding (medium confidence from DeepGO2)",
+    "GO:0042802 - binding (medium confidence from DeepGO2)",
+    "GO:0003677 - DNA binding (low confidence from DeepFRI)",
+    "GO:0016788 - hydrolase activity, acting on ester bonds (low confidence from DeepFRI)"
   ],
   "enzyme_and_reaction_summary": [
-    "EC 3.4.24.33 - low confidence from clean"
+    "EC:3.4.24.33 - predicted by CLEAN tool"
   ],
   "domain_family_and_feature_summary": [],
   "pathway_and_context_summary": [],
   "tool_prediction_summary": [
-    "DeepGO2: GO:0005488, GO:0005515, GO:0042802 (medium)",
-    "DeepFRI: GO:0003677, GO:0016788 (low)"
+    "DeepGO2 predictions for GO terms with medium to low confidence",
+    "DeepFRI predictions for GO terms with low confidence"
   ],
   "strong_or_curated_information": [],
-  "weak_predicted_or_indirect_information": [
-    "Predicted to be involved in biological processes such as GO:0019068 and GO:0019058 by DeepGO2."
-  ],
+  "weak_predicted_or_indirect_information": [],
   "conflicting_or_inconsistent_information": [],
   "missing_or_limited_information": [
-    "No gene name or scientific name available.",
-    "No curated function reported in the record."
+    "Organism taxonomy data is missing.",
+    "No curated function or EC numbers in the record."
   ],
   "review_notes": [
-    "Verify EC 3.4.24.33 against literature: PubMed PMID listed in record.",
-    "Check whether Pfam PF01257 covers the full sequence or only a partial region.",
-    "Confirm whether GO:0016491 high-confidence prediction by DeepGO2 matches the curated function."
+    "Verify the predicted EC number (3.4.24.33) against literature references.",
+    "Check if Pfam domains cover the full sequence or only partial regions.",
+    "Confirm whether high-confidence ML predictions match the curated function reported in the input."
   ]
 }

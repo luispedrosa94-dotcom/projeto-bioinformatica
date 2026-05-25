@@ -3,44 +3,43 @@
   "protein_name": "Peptidase U49",
   "organism": "Rhizobium leguminosarum bv. trifolii WSM597",
   "source_status": "UniProtKB unreviewed (TrEMBL)",
-  "overall_profile_summary": "Uncharacterized peptidase from Rhizobium leguminosarum bv. trifolii WSM597 with predicted Zn-dependent peptidase ImmA, M78 family domain by recognizer.",
-  "identity_summary": "Peptidase U49 (J0HCT8) is a protein of length 490 amino acids from Rhizobium leguminosarum bv. trifolii WSM597.",
+  "overall_profile_summary": "Uncharacterized peptidase from Rhizobium leguminosarum bv. trifolii WSM597 with predicted Zn-dependent peptidase ImmA, M78 family domain by recognizer tool.",
+  "identity_summary": "Peptidase U49 (J0HCT8) is a protein of length 490 amino acids from Rhizobium leguminosarum bv. trifolii WSM597 with no curated function but predicted Zn-dependent peptidase ImmA, M78 family domain by recognizer tool.",
   "reported_function_summary": "No curated function reported in the record.",
   "go_annotation_summary": [
-    "GO:0003824 - catalytic activity (high from deepgo2)",
-    "GO:0016787 - hydrolase activity (medium from deepgo2)",
-    "GO:0016740 - transferase activity (medium from deepgo2)",
-    "GO:0005488 - ATP binding (low from deepfri)"
+    "GO:0003824 - catalytic activity (high confidence from deepgo2)",
+    "GO:0016787 - hydrolase activity (medium confidence from deepgo2)",
+    "GO:0016740 - transferase activity (medium confidence from deepgo2)"
   ],
   "enzyme_and_reaction_summary": [
-    "EC 3.4.24.- (low from recognizer)"
+    "EC:2.7.7.n6 - predicted by clean tool with low confidence",
+    "EC:3.4.24.- - predicted by recognizer tool with low confidence"
   ],
   "domain_family_and_feature_summary": [
-    "COG2856 - Zn-dependent peptidase ImmA, M78 family (low from recognizer)",
-    "PF10463 - Peptidase U49 (representative model with score 3.6e-07)"
+    "COG2856 - Zn-dependent peptidase ImmA, M78 family (low confidence from recognizer)"
   ],
   "pathway_and_context_summary": [
-    "KEGG KO K01486"
+    "K01486 - predicted pathway in KEGG database"
   ],
   "tool_prediction_summary": [
-    "DeepGO2: GO:0003824, GO:0016787, GO:0016740 (high, medium, medium)",
-    "DeepFRI: GO:0005488, GO:0071704, GO:0044237 (low, high, high)"
+    "deepgo2: GO:0003824 - catalytic activity (high confidence), GO:0016787 - hydrolase activity (medium confidence), GO:0016740 - transferase activity (medium confidence)",
+    "deepfri: GO:0071704 - purine nucleotide binding (low confidence), GO:0032553 - ribonucleotide binding (low confidence), GO:0032555 - purine ribonucleotide binding (low confidence)"
   ],
   "strong_or_curated_information": [
-    "No curated function reported in the record."
+    "Peptidase U49 is a protein from Rhizobium leguminosarum bv. trifolii WSM597 with no curated function reported in the record."
   ],
   "weak_predicted_or_indirect_information": [
-    "EC 3.4.24.- (low from recognizer)",
-    "COG2856 - Zn-dependent peptidase ImmA, M78 family (low from recognizer)"
+    "Predicted Zn-dependent peptidase ImmA, M78 family domain by recognizer tool.",
+    "Predicted pathway K01486 in KEGG database"
   ],
   "conflicting_or_inconsistent_information": [],
   "missing_or_limited_information": [
-    "No curated function reported in the record.",
-    "Limited information available for this protein."
+    "No curated function reported in the record."
   ],
   "review_notes": [
-    "Verify EC 3.4.24.- against literature: PubMed PMID listed in record.",
-    "Check whether Pfam PF10463 covers the full sequence or only a partial region.",
-    "Confirm whether GO:0003824 high-confidence prediction by DeepGO2 matches the curated function."
+    "Suggest verifying EC number 2.7.7.n6 against literature references.",
+    "Check if Pfam domain PF10463 covers full sequence or only a partial region.",
+    "Confirm whether high-confidence ML prediction matches curated function (none available).",
+    "Investigate why two tools report different confidence levels for the same GO term."
   ]
 }
