@@ -1,0 +1,41 @@
+{
+  "protein_id": "Q2RI41",
+  "protein_name": "Oxalate oxidoreductase subunit alpha",
+  "organism": "Moorella thermoacetica (strain ATCC 39073 / JCM 9320)",
+  "source_status": "UniProtKB reviewed (Swiss-Prot)",
+  "overall_profile_summary": "Uncharacterized protein from Moorella thermoacetica with predicted oxalate oxidoreductase activity and involvement in anaerobic growth on oxalate.",
+  "identity_summary": "Protein name: Oxalate oxidoreductase subunit alpha; Gene name: porA (inferred by homology); UniProt ID: UPI000054158A",
+  "reported_function_summary": "Catalyzes the anaerobic oxidation of oxalate using a broad range of electron acceptors, including ferredoxin and the nickel-dependent carbon monoxide dehydrogenase.",
+  "go_annotation_summary": [
+    "GO:0016491 - oxidoreductase activity (high from upimapi, medium from deepgo2)",
+    "GO:0003824 - catalytic activity (high from eggnog, deepgo2)",
+    "GO:0016625 - iron-sulfur protein binding (high from eggnog, deepgo2, uniprot)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.2.7.10 - oxalate oxidoreductase activity"
+  ],
+  "domain_family_and_feature_summary": [
+    "PF17147 - Pyruvate:ferredoxin oxidoreductase core domain II (high from upimapi)",
+    "PF01855 - Pyruvate flavodoxin/ferredoxin oxidoreductase, thiamine diP-bdg (high from upimapi)"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG KO: K00169, K19070; Pathways: ko00010, ko00020, ko00620"
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predictions: GO:0016491 (oxidoreductase activity), GO:0003824 (catalytic activity); DeepFRI predictions: GO:0097159 (carbohydrate derivative binding)"
+  ],
+  "strong_or_curated_information": [
+    "UniProt curated function: Catalyzes the anaerobic oxidation of oxalate using a broad range of electron acceptors, including ferredoxin and the nickel-dependent carbon monoxide dehydrogenase."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Predicted involvement in anaerobic growth on oxalate"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "Limited information available for subcellular location and catalytic activity"
+  ],
+  "review_notes": [
+    "Verify EC 1.2.7.10 against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF01855 covers the full sequence or only a partial region."
+  ]
+}

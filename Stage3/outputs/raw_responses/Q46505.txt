@@ -1,0 +1,50 @@
+{
+  "protein_id": "Q46505",
+  "protein_name": "NADP-reducing hydrogenase subunit HndA",
+  "organism": "Solidesulfovibrio fructosivorans (Desulfovibrio fructosivorans)",
+  "source_status": "UniProtKB reviewed (Swiss-Prot)",
+  "overall_profile_summary": "Uncharacterized protein from Solidesulfovibrio fructosivorans with reported NADP-reducing hydrogenase activity and predicted iron-sulfur cluster binding.",
+  "identity_summary": "Protein name: NADP-reducing hydrogenase subunit HndA; Gene name: hndA; Organism: Solidesulfovibrio fructosivorans (Desulfovibrio fructosivorans); UniProt ID: UPI00000B40FE",
+  "reported_function_summary": "Catalyzes the reduction of NADP in the presence of molecular H(2) to yield NADPH.",
+  "go_annotation_summary": [
+    "GO:0051537 - 2 iron, 2 sulfur cluster binding (high from upimapi)",
+    "GO:0046872 - metal ion binding (high from upimapi)",
+    "GO:0016491 - oxidoreductase activity (high from upimapi and deepgo2)",
+    "GO:0050583 - hydrogen dehydrogenase (NADP+) activity (high from uniprot and deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.12.1.3 - NADP-reducing hydrogenase (curated in the record)",
+    "H2 + NADP(+) = NADPH + H(+)"
+  ],
+  "domain_family_and_feature_summary": [
+    "PF01257 - Thioredoxin-like [2Fe-2S] ferredoxin (high from upimapi)",
+    "[2Fe-2S] cluster binding site"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG KO K18330 - NADH:ubiquinone oxidoreductase complex",
+    "KEGG pathway: glycolysis/gluconeogenesis"
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predictions: GO:0051537, GO:0046872, GO:0016491, GO:0050583 (high confidence)",
+    "DeepFRI predictions: GO:0051539, GO:0016695, GO:0043167, GO:0043169, GO:0016667, GO:0005515, GO:0046914, GO:0016829, GO:0009055"
+  ],
+  "strong_or_curated_information": [
+    "Curated function: NADP-reducing hydrogenase activity",
+    "EC 1.12.1.3 - NADP-reducing hydrogenase (curated in the record)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "DeepGO2 predictions: GO:0051537, GO:0046872, GO:0016491, GO:0050583 (high confidence)",
+    "DeepFRI predictions: GO:0051539, GO:0016695, GO:0043167, GO:0043169, GO:0016667, GO:0005515, GO:0046914, GO:0016829, GO:0009055"
+  ],
+  "conflicting_or_inconsistent_information": [
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high from upimapi, low from deepfri)",
+    "EC numbers: EC 1.12.1.3 (curated in the record), EC 1.6.5.3 (predicted by recognizer)"
+  ],
+  "missing_or_limited_information": [
+    "No information on subcellular location or catalytic activity"
+  ],
+  "review_notes": [
+    "Verify EC 1.12.1.3 against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF01257 covers the full sequence or only a partial region."
+  ]
+}

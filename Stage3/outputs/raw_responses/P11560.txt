@@ -1,0 +1,45 @@
+{
+  "protein_id": "P11560",
+  "protein_name": "Methyl-coenzyme M reductase I subunit beta",
+  "organism": "Methanothermobacter marburgensis (strain ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg)",
+  "source_status": "UniProtKB reviewed (Swiss-Prot)",
+  "overall_profile_summary": "Uncharacterized protein from Methanothermobacter marburgensis with reported methyl-coenzyme M reductase activity and predicted coenzyme-B sulfoethylthiotransferase activity.",
+  "identity_summary": "The protein is a subunit of the methyl-coenzyme M reductase enzyme, which catalyzes the final step in methanogenesis. It has been identified as a beta subunit of this enzyme.",
+  "reported_function_summary": "Component of the methyl-coenzyme M reductase (MCR) I that catalyzes the reductive cleavage of methyl-coenzyme M (CoM-S-CH3 or 2-(methylthio)ethanesulfonate) using coenzyme B (CoB or 7-mercaptoheptanoylthreonine phosphate) as reductant which results in the production of methane and the mixed heterodisulfide of CoB and CoM (CoM-S-S-CoB).",
+  "go_annotation_summary": [
+    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high from upimapi, curated in UniProtKB)",
+    "GO:0003824 - catalytic activity (medium from deepgo2)",
+    "GO:0016491 - oxidoreductase activity (low from deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 2.8.4.1 - methyl-coenzyme M reductase (high confidence from multiple sources)"
+  ],
+  "domain_family_and_feature_summary": [
+    "PF02241 - Methyl-coenzyme M reductase beta subunit, C-terminal domain (high confidence from upimapi)",
+    "PF02783 - Methyl-coenzyme M reductase beta subunit, N-terminal domain (high confidence from upimapi)"
+  ],
+  "pathway_and_context_summary": [
+    "One-carbon metabolism; methyl-coenzyme M reduction; methane from methyl-coenzyme M: step 1/1"
+  ],
+  "tool_prediction_summary": [
+    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high confidence from upimapi)",
+    "GO:0003824 - catalytic activity (medium confidence from deepgo2)"
+  ],
+  "strong_or_curated_information": [
+    "Component of the methyl-coenzyme M reductase (MCR) I that catalyzes the reductive cleavage of methyl-coenzyme M (CoM-S-CH3 or 2-(methylthio)ethanesulfonate) using coenzyme B (CoB or 7-mercaptoheptanoylthreonine phosphate) as reductant which results in the production of methane and the mixed heterodisulfide of CoB and CoM (CoM-S-S-CoB).",
+    "EC 2.8.4.1 - methyl-coenzyme M reductase (high confidence from multiple sources)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "GO:0016491 - oxidoreductase activity (low confidence from deepgo2)",
+    "GO:0005488 - binding (medium confidence from deepgo2)"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "Subunit structure and organization",
+    "Catalytic mechanism"
+  ],
+  "review_notes": [
+    "Verify EC 2.8.4.1 against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF02241 covers the full sequence or only a partial region."
+  ]
+}

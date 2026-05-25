@@ -1,0 +1,68 @@
+{
+  "protein_id": "H1XYF8",
+  "protein_name": "Por secretion system C-terminal sorting domain-containing protein",
+  "organism": "Caldithrix abyssi DSM 13497",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Caldithrix abyssi with predicted domains by various tools.",
+  "identity_summary": "The protein has a single name: Por secretion system C-terminal sorting domain-containing protein. It is annotated as 'unreviewed' in UniProtKB.",
+  "reported_function_summary": "No curated function reported in the record.",
+  "go_annotation_summary": [
+    "GO:0004386 - helicase activity (high-confidence prediction by upimapi and uniprot)",
+    "GO:0003824 - hydrolase activity (high-confidence prediction by eggnog and deepgo2)",
+    "GO:0016787 - purine ribonucleotide binding (high-confidence prediction by eggnog)",
+    "GO:0016788 - purine nucleotide binding (high-confidence prediction by eggnog)",
+    "GO:0005488 - ATP binding (medium-confidence prediction by deepgo2)",
+    "GO:0097367 - carbohydrate derivative binding (medium-confidence prediction by deepfri)",
+    "GO:0032553 - ribonucleotide binding (medium-confidence prediction by deepfri)",
+    "GO:0032555 - purine ribonucleotide binding (medium-confidence prediction by deepfri)",
+    "GO:0035639 - purine ribonucleoside triphosphate binding (medium-confidence prediction by deepfri)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.15.1.1 - catalase activity (high-confidence prediction by eggnog)",
+    "EC 2.7.11.1 - protein kinase activity (high-confidence prediction by eggnog and recognizer)",
+    "EC 3.1.1.17 - phosphatidylserine phospholipase A1 activity (high-confidence prediction by eggnog)",
+    "EC 3.1.1.2 - phosphatidylcholine phospholipase C activity (high-confidence prediction by eggnog)",
+    "EC 3.1.3.8 - phosphatidylinositol-specific phospholipase C activity (high-confidence prediction by eggnog)",
+    "EC 3.1.8.1 - phosphatidylserine phosphodiesterase activity (high-confidence prediction by eggnog)",
+    "EC 3.2.1.4 - exodeoxyribonuclease V activity (high-confidence prediction by eggnog)",
+    "EC 4.3.3.2 - phospholipase C activity (high-confidence prediction by eggnog)"
+  ],
+  "domain_family_and_feature_summary": [
+    "PF18942 - predicted domain by upimapi",
+    "PF18962 - predicted domain by upimapi and recognizer",
+    "SGL - predicted domain by eggnog",
+    "Str_synth - predicted domain by eggnog",
+    "pfam18962 - predicted domain by recognizer (medium-confidence)",
+    "pfam18942 - predicted domain by recognizer (low-confidence)"
+  ],
+  "pathway_and_context_summary": [
+    "ko:K01045, ko:K01053, ko:K01083, ko:K01179, ko:K01757, ko:K02057, ko:K04565, ko:K08884, ko:K13735 - predicted pathways by KEGG",
+    "map00030, map00053, map00500, map00562, map00901, map00930, map01100, map01110, map01120, map01130, map01200, map01220, map04146, map04213, map05014, map05016, map05020, map05100 - predicted pathways by KEGG"
+  ],
+  "tool_prediction_summary": [
+    "upimapi: high-confidence predictions for GO:0004386 and GO:0003824",
+    "eggnog: high-confidence predictions for EC 1.15.1.1, EC 2.7.11.1, EC 3.1.1.17, EC 3.1.1.2, EC 3.1.3.8, EC 3.1.8.1, and EC 3.2.1.4",
+    "deepgo2: medium-confidence predictions for GO:0005488, GO:0097367, GO:0032553, GO:0032555, and GO:0035639"
+  ],
+  "strong_or_curated_information": [
+    "GO:0004386 - helicase activity (curated in the record)",
+    "EC 1.15.1.1 - catalase activity (curated in the record)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "GO:0097367 - carbohydrate derivative binding (medium-confidence prediction by deepfri)",
+    "GO:0032553 - ribonucleotide binding (medium-confidence prediction by deepfri)",
+    "GO:0032555 - purine ribonucleotide binding (medium-confidence prediction by deepfri)"
+  ],
+  "conflicting_or_inconsistent_information": [
+    "EC 1.15.1.1 and EC 2.7.11.1 have different confidence levels from eggnog and recognizer",
+    "GO:0004386 has high-confidence predictions from upimapi and uniprot, but medium-confidence prediction from deepgo2"
+  ],
+  "missing_or_limited_information": [
+    "No curated function reported in the record",
+    "Limited information available for this protein"
+  ],
+  "review_notes": [
+    "Verify EC 1.15.1.1 against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF18942 covers the full sequence or only a partial region."
+  ]
+}

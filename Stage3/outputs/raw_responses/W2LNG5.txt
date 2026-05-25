@@ -1,0 +1,50 @@
+{
+  "protein_id": "W2LNG5",
+  "protein_name": "BRO1 domain-containing protein",
+  "organism": "Phytophthora nicotianae (Potato buckeye rot agent)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Phytophthora nicotianae with predicted BRO1 domain by multiple tools.",
+  "identity_summary": "Protein name: BRO1 domain-containing protein; Alternative names: L917_04620; Gene name: L917_04620 (orf_name); Protein existence: Inferred from homology",
+  "reported_function_summary": "",
+  "go_annotation_summary": [
+    "GO:0005488 - binding (high from deepgo2)",
+    "GO:0005515 - protein binding (high from deepgo2)",
+    "GO:0003824 - catalytic activity (medium from deepgo2)",
+    "GO:0140096 - catalytic activity (medium from deepgo2)",
+    "GO:0019899 - electron carrier activity (low from deepgo2)",
+    "GO:0016787 - transferase activity (low from deepgo2)",
+    "GO:0098772 - transferase activity (low from deepgo2)",
+    "GO:0097159 - transferase activity (low from deepgo2)",
+    "GO:0030234 - transition metal ion binding (low from deepgo2)",
+    "GO:1901363 - zinc ion binding (low from deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 3.2.2.22 - glycosidase activity (low from clean)"
+  ],
+  "domain_family_and_feature_summary": [
+    "BRO1 domain (high from upimapi, eggnog)",
+    "Predicted signal transduction protein (low from recognizer)",
+    "Domain: BRO1-like domain (Provisional) (low from recognizer)"
+  ],
+  "pathway_and_context_summary": [],
+  "tool_prediction_summary": [
+    "DeepGO2 predictions: GO:0005488, GO:0005515, GO:0003824, GO:0140096, GO:0019899, GO:0016787, GO:0098772, GO:0097159, GO:0030234, GO:1901363 (high confidence)",
+    "DeepFRI predictions: GO:0003677, GO:0046914, GO:0008270 (low confidence)"
+  ],
+  "strong_or_curated_information": [
+    "Protein name: BRO1 domain-containing protein; Alternative names: L917_04620"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Predicted signal transduction protein (low from recognizer)",
+    "Domain: BRO1-like domain (Provisional) (low from recognizer)"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "No curated function reported",
+    "Limited information on enzymatic activity"
+  ],
+  "review_notes": [
+    "Verify EC 3.2.2.22 against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF03097 covers the full sequence or only a partial region."
+  ]
+}

@@ -1,0 +1,1455 @@
+You are a protein profile summarization assistant.
+Your task:
+Given the complete JSON profile for ONE protein, write a structured summary of the information contained in that profile.
+Important framing:
+- You are NOT predicting protein function from sequence or from your own knowledge.
+- You are NOT choosing a final biological annotation.
+- You are NOT acting as a curator who decides the correct function.
+- You are summarizing what the record contains: identity, source status, reported functions, GO terms, EC numbers, domains, features, pathways, tool predictions, literature/curated evidence, weak evidence, missing information, and conflicts.
+- The output should help a human quickly understand what is known, predicted, uncertain, or absent for this specific protein.
+Rules:
+1. Use only information present in the input JSON.
+2. Do not invent functions, pathways, EC numbers, organisms, locations, domains, gene names, scores, or references.
+3. Do not produce a "recommended annotation" or claim that one function is the final correct answer.
+4. If the input contains a curated/reviewed function, describe it as "reported" or "curated in the record", not as your own conclusion.
+5. If the input contains EC numbers, GO terms, pathways, domains, or protein names, summarize them as information present in the record.
+6. Keep evidence provenance visible: distinguish curated/literature/database evidence from homology evidence, domain evidence, automatic annotations, ML predictions, and contextual/network evidence.
+7. Treat ML predictions from tools such as DeepGO2, DeepFRI, CLEAN, or similar tools as predictions, not confirmed facts.
+8. Treat STRING, enrichment, pathway, or network information as context only, not direct proof of individual protein function.
+9. Mention sparse, missing, generic, low-confidence, or conflicting information explicitly.
+10. Be concise but complete enough for a supervisor/biologist to inspect the protein quickly.
+11. Return valid JSON only. Do not include Markdown, commentary, or text outside the JSON object.
+12. For "conflicting_or_inconsistent_information", consider the following situations as conflicts that MUST be reported when present in the input:
+    a. The same GO term annotated with different confidence levels by different tools (e.g., GO:0051539 marked as "high" by upimapi but "low" by deepfri).
+    b. Different EC numbers assigned to the same protein by different tools (e.g., EC 1.12.1.3 from clean/uniprot but EC 1.6.5.3 from recognizer).
+    c. Tool predictions that contradict the curated UniProt function.
+    d. Domain hits from different databases that imply incompatible biological functions.
+    e. Mismatch between organism/taxonomy data and the predicted function (e.g., bacterial protein predicted as eukaryotic-specific function).
+    When you find any of these, list them explicitly with the conflicting IDs and sources. If no conflicts are present, leave the list empty.
+13. For "review_notes", always include 1 to 4 short suggestions to help a human reviewer prioritize what to check. These are NOT new annotations — they are pointers to what should be validated. Examples of valid review_notes:
+    - "Verify EC 1.12.1.3 against literature: PubMed PMID listed in record."
+    - "Check whether Pfam PF01257 covers the full sequence or only a partial region."
+    - "Confirm whether GO:0016491 high-confidence prediction by DeepGO2 matches the curated function."
+    - "Investigate why DeepFRI reports low confidence on GO:0051539 while upimapi reports high."
+    - "Review InterPro hierarchy for IPR036188 to confirm parent-child relationships."
+    - "Cross-reference the reported KEGG KO K18330 with the curated reaction."
+    Always produce at least 1 review_note unless the protein has NO usable information at all.
+14. When confidence levels are explicitly listed in the input (e.g., "confidence": "high" in source_details), include them in the summary bullets in parentheses. Example: "GO:0051539 - 4 iron, 4 sulfur cluster binding (high from upimapi, low from deepfri)".
+15. Final reminder: the goal is to help a human curator quickly understand: (a) what is known with confidence, (b) what is predicted but uncertain, (c) what is contradictory, and (d) what needs further checking. Filling "conflicting_or_inconsistent_information" and "review_notes" with concrete content is essential for this task.
+16. "overall_profile_summary" MUST always be a single non-empty sentence (between 10 and 50 words) describing what this protein is: its name, organism, and main function or family if known. This field is required and cannot be left blank — even for poorly annotated proteins, write a brief sentence summarizing what little is known (e.g., "Uncharacterized protein from organism X with no curated function but predicted Y domains by Z tools"). Do NOT leave this field empty.
+Required JSON fields:
+{
+  "protein_id": "string",
+  "protein_name": "string",
+  "organism": "string",
+  "source_status": "string",
+  "overall_profile_summary": "string",
+  "identity_summary": "string",
+  "reported_function_summary": "string",
+  "go_annotation_summary": ["string"],
+  "enzyme_and_reaction_summary": ["string"],
+  "domain_family_and_feature_summary": ["string"],
+  "pathway_and_context_summary": ["string"],
+  "tool_prediction_summary": ["string"],
+  "strong_or_curated_information": ["string"],
+  "weak_predicted_or_indirect_information": ["string"],
+  "conflicting_or_inconsistent_information": ["string"],
+  "missing_or_limited_information": ["string"],
+  "review_notes": ["string"]
+}
+Protein profile JSON:
+{
+  "accession": "G3F6H2",
+  "identity": {
+    "protein_name": "Methyl coenzyme M reductase alpha subunit",
+    "protein_name_evidences": [],
+    "alternative_names": [],
+    "gene_name": null,
+    "gene_name_inferred": {
+      "value": "mcrA",
+      "note": "inferred by homology from tools — not directly from UniProt for this protein"
+    },
+    "gene_name_synonyms": [],
+    "gene_name_synonym_details": [],
+    "reviewed_status": "unreviewed",
+    "entry_type": "Inactive",
+    "annotation_score": 0.0,
+    "protein_existence": "",
+    "entry_name": "G3F6H2_UNCAX",
+    "entry_version": null,
+    "sequence_version": null,
+    "first_public_date": null,
+    "last_annotation_update": null,
+    "last_sequence_update": null,
+    "organism": {
+      "scientific_name": null,
+      "common_name": null,
+      "taxon_id": null,
+      "lineage": [],
+      "evidences": []
+    },
+    "uniprot_id": "UPI00022A5959"
+  },
+  "function": {
+    "description": [],
+    "keywords": [],
+    "subcellular_location": [],
+    "catalytic_activity": [],
+    "pathway": [],
+    "subunit": [],
+    "similarity": []
+  },
+  "go_annotations": {
+    "molecular_function": [
+      {
+        "go_id": "GO:0050524",
+        "label": "coenzyme-B sulfoethylthiotransferase activity",
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "upimapi",
+          "eggnog"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 4.27e-109
+          },
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.21e-63
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0003824",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.21e-63
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.888
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0016740",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.21e-63
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0043169",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.21e-63
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.209
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0046872",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.21e-63
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.192
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0016787",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.749
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0016788",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.715
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0005488",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.64
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005515",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.262
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016298",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.242
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043167",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.201
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0052689",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.18
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0004620",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.177
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016491",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.16
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0097159",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.126
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0042578",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.119
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901363",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.117
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0140096",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2",
+          "deepfri"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.116
+          },
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.18293
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0008233",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2",
+          "deepfri"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.104
+          },
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.11633
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0046914",
+        "label": "transition metal ion binding",
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepfri"
+        ],
+        "source_details": {
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.12667
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0009055",
+        "label": "electron transfer activity",
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepfri"
+        ],
+        "source_details": {
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.11954
+          }
+        },
+        "confidence": "low"
+      }
+    ],
+    "biological_process": [
+      {
+        "go_id": "GO:0015948",
+        "label": "methanogenesis",
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "upimapi",
+          "eggnog"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 4.27e-109
+          },
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.21e-63
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0006091",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.21e-63
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0009061",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.21e-63
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0045333",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.21e-63
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0009987",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.629
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0008152",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.376
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0071704",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.343
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0044238",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.3
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0044237",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.279
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0065007",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.271
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044419",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.237
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0050896",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.209
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043170",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.186
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0050789",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.179
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016032",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.167
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006810",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.16
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006807",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.156
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0071840",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.152
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0051179",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.151
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044403",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.145
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016043",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.142
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0051234",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.137
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006950",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.135
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0009605",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.132
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0050794",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.126
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0051701",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.12
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901564",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.114
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0009058",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.11
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0009607",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.106
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0019058",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.104
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043207",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.104
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0051707",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.103
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006793",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.101
+          }
+        },
+        "confidence": "low"
+      }
+    ],
+    "cellular_component": [
+      {
+        "go_id": "GO:0110165",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.954
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0016020",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.355
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005622",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.341
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005737",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.305
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0043227",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.256
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043226",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.245
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043231",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.244
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043229",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.229
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005576",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.152
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044423",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.129
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0032991",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.107
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0018995",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.104
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043657",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.104
+          }
+        },
+        "confidence": "low"
+      }
+    ]
+  },
+  "enzymatic": {
+    "ec_numbers": [
+      {
+        "ec_id": "2.8.4.1",
+        "sources": [
+          "eggnog",
+          "clean",
+          "recognizer"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology"
+          },
+          "clean": {
+            "source_type": "ml_enzyme"
+          },
+          "recognizer": {
+            "source_type": "domain_search"
+          }
+        },
+        "confidence": "high"
+      }
+    ]
+  },
+  "domains": {
+    "cog": [
+      {
+        "id": "COG4058",
+        "label": "Methyl coenzyme M reductase, alpha subunit",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "kog": [],
+    "pfam": [
+      {
+        "id": "PF02249",
+        "label": null,
+        "sources": [
+          "upimapi"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "MCR_alpha",
+        "label": null,
+        "sources": [
+          "eggnog"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "MCR_alpha_N",
+        "label": null,
+        "sources": [
+          "eggnog"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "pfam02249",
+        "label": "Methyl-coenzyme M reductase alpha subunit, C-terminal domain (Provisional)",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "tigrfam": [
+      {
+        "id": "TIGR03256",
+        "label": "coenzyme-B sulfoethylthiotransferase subunit alpha",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "smart": [],
+    "cog_categories": [
+      "H",
+      "Coenzyme transport and metabolism"
+    ]
+  },
+  "features": {
+    "domains": [],
+    "active_sites": [],
+    "binding_sites": [],
+    "other_features": []
+  },
+  "pathways": {
+    "kegg_ko": [
+      "ko:K00399"
+    ],
+    "kegg_pathways": [
+      "ko00680",
+      "ko01100",
+      "ko01120",
+      "ko01200",
+      "map00680",
+      "map01100",
+      "map01120",
+      "map01200"
+    ],
+    "kegg_modules": [
+      "M00356",
+      "M00357",
+      "M00563",
+      "M00567"
+    ]
+  },
+  "sequence": null,
+  "references": [],
+  "cross_references": {},
+  "extra_attributes": {
+    "count_by_comment_type": {},
+    "count_by_feature_type": {}
+  },
+  "interpro": {
+    "entries": [],
+    "summary": {
+      "total_entries": 0,
+      "total_interpro_integrated": 0,
+      "total_unintegrated": 0,
+      "by_source_database": {},
+      "by_type": {},
+      "member_databases_used": [],
+      "go_terms_count": {
+        "molecular_function": 0,
+        "biological_process": 0,
+        "cellular_component": 0
+      },
+      "go_terms_list": [],
+      "interpro_integrated_ids": [],
+      "unintegrated_ids": []
+    }
+  },
+  "evidence_summary": {
+    "tools": [
+      "upimapi",
+      "eggnog",
+      "clean",
+      "deepgo2",
+      "deepfri",
+      "recognizer"
+    ],
+    "annotation_count": 133,
+    "confidence_distribution": {
+      "high": 73,
+      "low": 52,
+      "medium": 8
+    },
+    "overall_confidence": "high",
+    "in_poorly_annotated_subset": false
+  },
+  "provenance": {
+    "source": "UniProtKB",
+    "uniprot_url": "https://www.uniprot.org/uniprotkb/G3F6H2/entry",
+    "db_source": "tr",
+    "raw_file": "G3F6H2.json"
+  },
+  "_test_group": "Proteins with EC predictions"
+}

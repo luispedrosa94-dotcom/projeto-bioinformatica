@@ -1,0 +1,45 @@
+{
+  "protein_id": "Q01Q37",
+  "protein_name": "Uncharacterized protein",
+  "organism": "Solibacter usitatus (strain Ellin6076)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Solibacter usitatus with predicted domains by eggnog and tool predictions for various GO terms.",
+  "identity_summary": "Protein name: Uncharacterized protein; Gene name: null; Alternative names: []; Organism: Solibacter usitatus (strain Ellin6076); UniProt ID: UPI0000E57DEA",
+  "reported_function_summary": "No curated function reported.",
+  "go_annotation_summary": [
+    "GO:0005488 - molecular function, acting on a molecule by binding (medium from deepgo2)",
+    "GO:0005515 - molecular function, protein binding (medium from deepgo2)",
+    "GO:0042802 - molecular function, structural molecule activity (medium from deepgo2)",
+    "GO:0003824 - molecular function, catalytic activity (low from deepgo2)",
+    "GO:0016787 - molecular function, transferase activity (low from deepgo2)",
+    "GO:0030246 - molecular function, hydrolase activity, acting on glycosyl bonds (low from deepfri)",
+    "GO:0008233 - molecular function, peptidase activity (low from deepfri)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 3.2.2.22 - enzymatic reaction (low from clean)"
+  ],
+  "domain_family_and_feature_summary": [
+    "PFAM: Big_3_5 and VCBS - predicted domains by eggnog",
+    "Signal - predicted feature by SignalP"
+  ],
+  "pathway_and_context_summary": [],
+  "tool_prediction_summary": [
+    "DeepGO2 predictions for various GO terms with medium to low confidence",
+    "DeepFRI predictions for hydrolase and peptidase activities with low confidence"
+  ],
+  "strong_or_curated_information": [],
+  "weak_predicted_or_indirect_information": [
+    "Predicted domains by eggnog",
+    "Tool predictions for various GO terms and enzymatic reactions"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "No curated function reported",
+    "Limited information on organism taxonomy"
+  ],
+  "review_notes": [
+    "Verify EC 3.2.2.22 against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF01257 covers the full sequence or only a partial region.",
+    "Confirm whether DeepGO2 predictions for GO:0005488 match the predicted domains by eggnog."
+  ]
+}

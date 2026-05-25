@@ -1,0 +1,47 @@
+{
+  "protein_id": "F0T7S9",
+  "protein_name": "CoB--CoM heterodisulfide reductase iron-sulfur subunit A",
+  "organism": "Methanobacterium lacus (strain AL-21)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Methanobacterium lacus with predicted iron-sulfur binding and oxidoreductase activity.",
+  "identity_summary": "Protein name: CoB--CoM heterodisulfide reductase iron-sulfur subunit A; Protein ID: F0T7S9; Organism: Methanobacterium lacus (strain AL-21); Source status: UniProtKB unreviewed (TrEMBL).",
+  "reported_function_summary": "Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM (coenzyme M) and H-S-CoB (coenzyme B); Involved in methanogenesis.",
+  "go_annotation_summary": [
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high from upimapi, low from deepfri)",
+    "GO:0046872 - metal ion binding (high from upimapi, uniprot)",
+    "GO:0016491 - oxidoreductase activity (high from upimapi, deepgo2, uniprot)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.8.-.- (high from upimapi), EC 1.8.7.3 (high from eggnog), EC 1.8.98.4 (high from eggnog), EC 1.8.98.5 (high from eggnog, clean), EC 1.8.98.6 (high from eggnog, clean), EC 1.2.7.8 (medium from recognizer), EC 1.5.99.15 (low from recognizer)"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG1148 - Heterodisulfide reductase, subunit A (polyferredoxin) (high from recognizer)",
+    "PF12831 - FAD dependent oxidoreductase (high from upimapi), PF00037 - 4Fe-4S binding domain (high from upimapi), PF13237 - 4Fe-4S dicluster domain (high from upimapi)"
+  ],
+  "pathway_and_context_summary": [
+    "Cofactor metabolism; coenzyme M-coenzyme B heterodisulfide reduction; coenzyme B and coenzyme M from coenzyme M-coenzyme B heterodisulfide: step 1/1",
+    "KEGG KO K18330 - methanogenesis"
+  ],
+  "tool_prediction_summary": [
+    "upimapi: GO:0051539 (high), GO:0046872 (high), GO:0016491 (high); eggnog: EC 1.8.7.3 (high), EC 1.8.98.4 (high), EC 1.8.98.5 (high), EC 1.8.98.6 (high); deepgo2: GO:0051539 (medium), GO:0016491 (high); deepfri: GO:0051539 (high), GO:0046872 (low); recognizer: COG1148 (high), PF12831 (high)"
+  ],
+  "strong_or_curated_information": [
+    "Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM (coenzyme M) and H-S-CoB (coenzyme B); Involved in methanogenesis.",
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high from upimapi, uniprot)",
+    "GO:0046872 - metal ion binding (high from upimapi, uniprot)",
+    "GO:0016491 - oxidoreductase activity (high from upimapi, deepgo2, uniprot)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "EC 1.8.-.- (high from upimapi), EC 1.8.7.3 (high from eggnog), EC 1.8.98.4 (high from eggnog), EC 1.8.98.5 (high from eggnog, clean), EC 1.8.98.6 (high from eggnog, clean)",
+    "COG1148 - Heterodisulfide reductase, subunit A (polyferredoxin) (high from recognizer)"
+  ],
+  "conflicting_or_inconsistent_information": [
+    "GO:0051539 annotated with different confidence levels by upimapi and deepfri",
+    "EC numbers assigned to the same protein by eggnog and clean differ"
+  ],
+  "missing_or_limited_information": [],
+  "review_notes": [
+    "Verify EC 1.8.-.- against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF12831 covers the full sequence or only a partial region."
+  ]
+}

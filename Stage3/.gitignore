@@ -1,10 +1,4 @@
-# Generated outputs (all output dirs: outputs/, outputs_v2/, outputs_v3/, outputs_test/, etc.)
-outputs/raw_responses/
-outputs/prompts/
-outputs/stage3_results.jsonl
-outputs/stage3_results.current.json
-outputs/review_sheet.csv
-
+# Generated outputs from alternative runs (e.g. outputs_test/, outputs_llama3_3/)
 outputs_*/raw_responses/
 outputs_*/prompts/
 outputs_*/stage3_results.jsonl

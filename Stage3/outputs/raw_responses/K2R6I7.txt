@@ -1,0 +1,48 @@
+{
+  "protein_id": "K2R6I7",
+  "protein_name": "CoB--CoM heterodisulfide reductase iron-sulfur subunit A",
+  "organism": "Methanobacterium formicicum (strain DSM 3637 / PP1)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Methanobacterium formicicum with predicted iron-sulfur binding and oxidoreductase activity.",
+  "identity_summary": "Protein identity: CoB--CoM heterodisulfide reductase iron-sulfur subunit A (K2R6I7) from Methanobacterium formicicum (strain DSM 3637 / PP1).",
+  "reported_function_summary": "Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM and H-S-CoB.",
+  "go_annotation_summary": [
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high from upimapi, low from deepfri)",
+    "GO:0046872 - metal ion binding (high from upimapi, high from uniprot)",
+    "GO:0016491 - oxidoreductase activity (high from upimapi, high from deepgo2, high from uniprot)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.8.-.- (high from upimapi), EC 1.8.7.3 (high from eggnog), EC 1.8.98.4 (high from eggnog), EC 1.8.98.5 (high from eggnog and clean), EC 1.8.98.6 (high from eggnog and clean), EC 1.2.7.8 (medium from recognizer), EC 1.5.99.15 (low from recognizer), EC 1.14.99.- (low from recognizer)"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG1148 - Heterodisulfide reductase, subunit A (polyferredoxin) (high from recognizer)",
+    "PF12831 - FAD dependent oxidoreductase (high from upimapi), PF13237 - 4Fe-4S dicluster domain (high from upimapi)"
+  ],
+  "pathway_and_context_summary": [
+    "Cofactor metabolism; coenzyme M-coenzyme B heterodisulfide reduction; coenzyme B and coenzyme M from coenzyme M-coenzyme B heterodisulfide: step 1/1"
+  ],
+  "tool_prediction_summary": [
+    "upimapi - predicted iron-sulfur binding, oxidoreductase activity, and 4Fe-4S dicluster domain",
+    "deepgo2 - predicted oxidoreductase activity and 4Fe-4S dicluster domain",
+    "deepfri - predicted iron-sulfur binding and oxidoreductase activity"
+  ],
+  "strong_or_curated_information": [
+    "Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM and H-S-CoB (curated in the record)",
+    "4 iron, 4 sulfur cluster binding (high from upimapi), metal ion binding (high from upimapi and uniprot), oxidoreductase activity (high from upimapi, deepgo2, and uniprot)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "EC 1.8.-.- (high from upimapi), EC 1.8.7.3 (high from eggnog), EC 1.8.98.4 (high from eggnog), EC 1.8.98.5 (high from eggnog and clean), EC 1.8.98.6 (high from eggnog and clean)"
+  ],
+  "conflicting_or_inconsistent_information": [
+    "GO:0051539 annotated with different confidence levels by upimapi (high) and deepfri (low)",
+    "EC numbers assigned to the same protein by different tools: EC 1.8.-.- from upimapi, EC 1.8.7.3 from eggnog, EC 1.8.98.4 from eggnog, EC 1.8.98.5 from eggnog and clean, EC 1.8.98.6 from eggnog and clean"
+  ],
+  "missing_or_limited_information": [
+    "No curated function or pathway information available for this protein."
+  ],
+  "review_notes": [
+    "Verify the accuracy of the predicted iron-sulfur binding and oxidoreductase activity against literature evidence.",
+    "Check whether the COG1148 domain is consistent with the predicted function.",
+    "Confirm whether the upimapi predictions are supported by other tools, such as deepgo2 and deepfri."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "protein_id": "U6EF42",
+  "protein_name": "CoB--CoM heterodisulfide reductase iron-sulfur subunit A (EC 1.8.-.-)",
+  "organism": "Unspecified",
+  "source_status": "unreviewed",
+  "overall_profile_summary": "Uncharacterized protein from an unspecified organism with predicted functions related to metal ion binding and redox reactions.",
+  "identity_summary": "No curated function, but predicted by multiple tools as a heterodisulfide reductase iron-sulfur subunit A.",
+  "reported_function_summary": "Curated in the record: No reported function available.",
+  "go_annotation_summary": [
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high from upimapi, low from deepfri)",
+    "GO:0046872 - metal ion binding (high from upimapi)",
+    "GO:0016491 - oxidoreductase activity (high from upimapi and deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.8.-.- - predicted by multiple tools, but no curated EC number available.",
+    "EC 1.8.7.3 - predicted by eggnog",
+    "EC 1.8.98.4 - predicted by eggnog",
+    "EC 1.8.98.5 - predicted by eggnog and clean",
+    "EC 1.8.98.6 - predicted by eggnog and clean"
+  ],
+  "domain_family_and_feature_summary": [
+    "PF12831, PF00037, PF13187 - predicted by upimapi",
+    "Fer4, Fer4_4, Pyr_redox_2 - predicted by eggnog",
+    "pfam12838, pfam13187 - predicted by recognizer"
+  ],
+  "pathway_and_context_summary": [
+    "ko:K03388, K00345,K00443, K04090 - predicted by multiple tools",
+    "ko00680, ko01100, ko01120, ko01200, map00680, map01100, map01120, map01200 - predicted by multiple tools"
+  ],
+  "tool_prediction_summary": [
+    "upimapi: heterodisulfide reductase iron-sulfur subunit A",
+    "eggnog: heterodisulfide reductase iron-sulfur subunit A",
+    "clean: heterodisulfide reductase iron-sulfur subunit A",
+    "deepgo2: oxidoreductase activity, metal ion binding",
+    "deepfri: 4 iron, 4 sulfur cluster binding"
+  ],
+  "strong_or_curated_information": [
+    "Curated in the record: No reported function available."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Predicted by multiple tools as a heterodisulfide reductase iron-sulfur subunit A, but no curated EC number or function available."
+  ],
+  "conflicting_or_inconsistent_information": [
+    "GO:0051539 annotated with different confidence levels by upimapi (high) and deepfri (low)",
+    "EC numbers assigned to the same protein by different tools: EC 1.8.-.- from multiple tools, but no curated EC number available."
+  ],
+  "missing_or_limited_information": [
+    "No organism or taxonomy data available",
+    "No literature or curated evidence available"
+  ],
+  "review_notes": [
+    "Verify the predicted function against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF12831 covers the full sequence or only a partial region."
+  ]
+}

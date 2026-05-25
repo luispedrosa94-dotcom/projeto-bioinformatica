@@ -1,0 +1,4331 @@
+You are a protein profile summarization assistant.
+Your task:
+Given the complete JSON profile for ONE protein, write a structured summary of the information contained in that profile.
+Important framing:
+- You are NOT predicting protein function from sequence or from your own knowledge.
+- You are NOT choosing a final biological annotation.
+- You are NOT acting as a curator who decides the correct function.
+- You are summarizing what the record contains: identity, source status, reported functions, GO terms, EC numbers, domains, features, pathways, tool predictions, literature/curated evidence, weak evidence, missing information, and conflicts.
+- The output should help a human quickly understand what is known, predicted, uncertain, or absent for this specific protein.
+Rules:
+1. Use only information present in the input JSON.
+2. Do not invent functions, pathways, EC numbers, organisms, locations, domains, gene names, scores, or references.
+3. Do not produce a "recommended annotation" or claim that one function is the final correct answer.
+4. If the input contains a curated/reviewed function, describe it as "reported" or "curated in the record", not as your own conclusion.
+5. If the input contains EC numbers, GO terms, pathways, domains, or protein names, summarize them as information present in the record.
+6. Keep evidence provenance visible: distinguish curated/literature/database evidence from homology evidence, domain evidence, automatic annotations, ML predictions, and contextual/network evidence.
+7. Treat ML predictions from tools such as DeepGO2, DeepFRI, CLEAN, or similar tools as predictions, not confirmed facts.
+8. Treat STRING, enrichment, pathway, or network information as context only, not direct proof of individual protein function.
+9. Mention sparse, missing, generic, low-confidence, or conflicting information explicitly.
+10. Be concise but complete enough for a supervisor/biologist to inspect the protein quickly.
+11. Return valid JSON only. Do not include Markdown, commentary, or text outside the JSON object.
+12. For "conflicting_or_inconsistent_information", consider the following situations as conflicts that MUST be reported when present in the input:
+    a. The same GO term annotated with different confidence levels by different tools (e.g., GO:0051539 marked as "high" by upimapi but "low" by deepfri).
+    b. Different EC numbers assigned to the same protein by different tools (e.g., EC 1.12.1.3 from clean/uniprot but EC 1.6.5.3 from recognizer).
+    c. Tool predictions that contradict the curated UniProt function.
+    d. Domain hits from different databases that imply incompatible biological functions.
+    e. Mismatch between organism/taxonomy data and the predicted function (e.g., bacterial protein predicted as eukaryotic-specific function).
+    When you find any of these, list them explicitly with the conflicting IDs and sources. If no conflicts are present, leave the list empty.
+13. For "review_notes", always include 1 to 4 short suggestions to help a human reviewer prioritize what to check. These are NOT new annotations — they are pointers to what should be validated. Examples of valid review_notes:
+    - "Verify EC 1.12.1.3 against literature: PubMed PMID listed in record."
+    - "Check whether Pfam PF01257 covers the full sequence or only a partial region."
+    - "Confirm whether GO:0016491 high-confidence prediction by DeepGO2 matches the curated function."
+    - "Investigate why DeepFRI reports low confidence on GO:0051539 while upimapi reports high."
+    - "Review InterPro hierarchy for IPR036188 to confirm parent-child relationships."
+    - "Cross-reference the reported KEGG KO K18330 with the curated reaction."
+    Always produce at least 1 review_note unless the protein has NO usable information at all.
+14. When confidence levels are explicitly listed in the input (e.g., "confidence": "high" in source_details), include them in the summary bullets in parentheses. Example: "GO:0051539 - 4 iron, 4 sulfur cluster binding (high from upimapi, low from deepfri)".
+15. Final reminder: the goal is to help a human curator quickly understand: (a) what is known with confidence, (b) what is predicted but uncertain, (c) what is contradictory, and (d) what needs further checking. Filling "conflicting_or_inconsistent_information" and "review_notes" with concrete content is essential for this task.
+16. "overall_profile_summary" MUST always be a single non-empty sentence (between 10 and 50 words) describing what this protein is: its name, organism, and main function or family if known. This field is required and cannot be left blank — even for poorly annotated proteins, write a brief sentence summarizing what little is known (e.g., "Uncharacterized protein from organism X with no curated function but predicted Y domains by Z tools"). Do NOT leave this field empty.
+Required JSON fields:
+{
+  "protein_id": "string",
+  "protein_name": "string",
+  "organism": "string",
+  "source_status": "string",
+  "overall_profile_summary": "string",
+  "identity_summary": "string",
+  "reported_function_summary": "string",
+  "go_annotation_summary": ["string"],
+  "enzyme_and_reaction_summary": ["string"],
+  "domain_family_and_feature_summary": ["string"],
+  "pathway_and_context_summary": ["string"],
+  "tool_prediction_summary": ["string"],
+  "strong_or_curated_information": ["string"],
+  "weak_predicted_or_indirect_information": ["string"],
+  "conflicting_or_inconsistent_information": ["string"],
+  "missing_or_limited_information": ["string"],
+  "review_notes": ["string"]
+}
+Protein profile JSON:
+{
+  "accession": "P06131",
+  "identity": {
+    "protein_name": "F420-dependent formate dehydrogenase subunit alpha",
+    "protein_name_evidences": [
+      {
+        "code": "ECO:0000305",
+        "source": "",
+        "id": ""
+      }
+    ],
+    "alternative_names": [],
+    "gene_name": "fdhA",
+    "gene_name_inferred": null,
+    "gene_name_synonyms": [],
+    "gene_name_synonym_details": [],
+    "reviewed_status": "reviewed",
+    "entry_type": "UniProtKB reviewed (Swiss-Prot)",
+    "annotation_score": 5.0,
+    "protein_existence": "1: Evidence at protein level",
+    "entry_name": "FDHA_METFO",
+    "entry_version": 112,
+    "sequence_version": 1,
+    "first_public_date": "1988-01-01",
+    "last_annotation_update": "2026-01-28",
+    "last_sequence_update": "1988-01-01",
+    "organism": {
+      "scientific_name": "Methanobacterium formicicum",
+      "common_name": null,
+      "taxon_id": "2162",
+      "lineage": [
+        "Archaea",
+        "Methanobacteriati",
+        "Methanobacteriota",
+        "Methanomada group",
+        "Methanobacteria",
+        "Methanobacteriales",
+        "Methanobacteriaceae",
+        "Methanobacterium"
+      ],
+      "evidences": []
+    },
+    "uniprot_id": "UPI000012A5DB"
+  },
+  "function": {
+    "description": [
+      {
+        "value": "Catalyzes the oxidation of formate to carbon dioxide, with coenzyme F420 as the electron acceptor (PubMed:2661536, PubMed:3801411, PubMed:3944055, PubMed:6874636, PubMed:7061389). In vitro can also use methyl viologen, 7,8-didemethyl-8-hydroxy-5-deazariboflavin (or FO, a hydrolytic derivative of coenzyme F420), FMN and FAD as electron acceptors, but not NAD(+) or NADP(+) (PubMed:2661536, PubMed:3944055, PubMed:6874636, PubMed:7061389)",
+        "evidences": [
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "2661536"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "3801411"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "3944055"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "6874636"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "7061389"
+          }
+        ]
+      }
+    ],
+    "keywords": [
+      {
+        "id": "KW-0004",
+        "name": "4Fe-4S",
+        "category": "Ligand",
+        "evidences": []
+      },
+      {
+        "id": "KW-0903",
+        "name": "Direct protein sequencing",
+        "category": "Technical term",
+        "evidences": []
+      },
+      {
+        "id": "KW-0408",
+        "name": "Iron",
+        "category": "Ligand",
+        "evidences": []
+      },
+      {
+        "id": "KW-0411",
+        "name": "Iron-sulfur",
+        "category": "Ligand",
+        "evidences": []
+      },
+      {
+        "id": "KW-0479",
+        "name": "Metal-binding",
+        "category": "Ligand",
+        "evidences": []
+      },
+      {
+        "id": "KW-0500",
+        "name": "Molybdenum",
+        "category": "Ligand",
+        "evidences": []
+      },
+      {
+        "id": "KW-0560",
+        "name": "Oxidoreductase",
+        "category": "Molecular function",
+        "evidences": []
+      },
+      {
+        "id": "KW-0862",
+        "name": "Zinc",
+        "category": "Ligand",
+        "evidences": []
+      }
+    ],
+    "subcellular_location": [],
+    "catalytic_activity": [
+      {
+        "reaction": "oxidized coenzyme F420-(gamma-L-Glu)(n) + formate + 2 H(+) = reduced coenzyme F420-(gamma-L-Glu)(n) + CO2",
+        "ec_number": "1.17.98.3",
+        "rhea_ids": [
+          "RHEA:42764",
+          "RHEA-COMP:12939",
+          "RHEA-COMP:14378"
+        ],
+        "chebi_ids": [
+          "CHEBI:15378",
+          "CHEBI:15740",
+          "CHEBI:16526",
+          "CHEBI:133980",
+          "CHEBI:139511"
+        ],
+        "evidences": [
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "2661536"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "3801411"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "3944055"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "6874636"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "7061389"
+          }
+        ]
+      }
+    ],
+    "pathway": [],
+    "subunit": [
+      {
+        "value": "Dimer of an alpha (FdhA) and a beta (FdhB) subunit",
+        "evidences": [
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "3531194"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "3944055"
+          }
+        ]
+      }
+    ],
+    "similarity": [
+      {
+        "value": "Belongs to the prokaryotic molybdopterin-containing oxidoreductase family",
+        "evidences": [
+          {
+            "code": "ECO:0000305",
+            "source": "",
+            "id": ""
+          }
+        ]
+      }
+    ]
+  },
+  "go_annotations": {
+    "molecular_function": [
+      {
+        "go_id": "GO:0051539",
+        "label": "4 iron, 4 sulfur cluster binding",
+        "evidence_code": "IEA",
+        "evidence_source": "UniProtKB-KW",
+        "sources": [
+          "upimapi",
+          "deepgo2",
+          "deepfri",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 0.0
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.156
+          },
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "high",
+            "score": 0.84177
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "UniProtKB-KW"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0008863",
+        "label": "formate dehydrogenase (NAD+) activity",
+        "evidence_code": "IEA",
+        "evidence_source": "InterPro",
+        "sources": [
+          "upimapi",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 0.0
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "InterPro"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0046872",
+        "label": "metal ion binding",
+        "evidence_code": "IEA",
+        "evidence_source": "UniProtKB-KW",
+        "sources": [
+          "upimapi",
+          "deepgo2",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 0.0
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.138
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "UniProtKB-KW"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0043546",
+        "label": "molybdopterin cofactor binding",
+        "evidence_code": "IEA",
+        "evidence_source": "InterPro",
+        "sources": [
+          "upimapi",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 0.0
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "InterPro"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0003954",
+        "label": "NADH dehydrogenase activity",
+        "evidence_code": "IEA",
+        "evidence_source": "TreeGrafter",
+        "sources": [
+          "upimapi",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 0.0
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "TreeGrafter"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0016491",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.92
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0003824",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.912
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0043794",
+        "label": "formate dehydrogenase (coenzyme F420) activity",
+        "evidence_code": "IDA",
+        "evidence_source": "MENGO",
+        "sources": [
+          "deepgo2",
+          "uniprot"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.379
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IDA",
+            "evidence_source": "MENGO"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0051540",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2",
+          "deepfri"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.248
+          },
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "high",
+            "score": 0.86331
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0051536",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2",
+          "deepfri"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.242
+          },
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "high",
+            "score": 0.8632
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0005488",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.387
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0043167",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.197
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0009055",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.178
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016725",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.148
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016695",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.135
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043169",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.135
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016903",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.12
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0051912",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.118
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0046914",
+        "label": "transition metal ion binding",
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepfri"
+        ],
+        "source_details": {
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.21924
+          }
+        },
+        "confidence": "low"
+      }
+    ],
+    "biological_process": [
+      {
+        "go_id": "GO:0015942",
+        "label": "formate metabolic process",
+        "evidence_code": "IEA",
+        "evidence_source": "InterPro",
+        "sources": [
+          "upimapi",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 0.0
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "InterPro"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0022904",
+        "label": "respiratory electron transport chain",
+        "evidence_code": "IEA",
+        "evidence_source": "TreeGrafter",
+        "sources": [
+          "upimapi",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 0.0
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "TreeGrafter"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0009987",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.892
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0008152",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.871
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0071704",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.779
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0044237",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.765
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0044238",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.526
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0044281",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.456
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0006082",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.425
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0019752",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.409
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0043436",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.408
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0006807",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.358
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:1901564",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.335
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0009058",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.291
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0050896",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.267
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0009056",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.263
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006091",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.248
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901576",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.244
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901575",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.237
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044249",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.235
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0032787",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.217
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044248",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.18
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901360",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.162
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044282",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.16
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0034641",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.159
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044283",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.159
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016053",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.154
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006520",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.149
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0042221",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.144
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006725",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.14
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901605",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.14
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0046394",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.134
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005975",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.132
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0051259",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.13
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0051716",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.127
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901565",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.119
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016054",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.118
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044255",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.114
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0046395",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.114
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006629",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.113
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0046483",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.11
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0051262",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.109
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043170",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.104
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0051289",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.104
+          }
+        },
+        "confidence": "low"
+      }
+    ],
+    "cellular_component": [
+      {
+        "go_id": "GO:0016020",
+        "label": "membrane",
+        "evidence_code": "IEA",
+        "evidence_source": "TreeGrafter",
+        "sources": [
+          "upimapi",
+          "deepgo2",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 0.0
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.874
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "TreeGrafter"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0110165",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.962
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:1990204",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.667
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0071944",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.641
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005886",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.638
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0032991",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.608
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005622",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.599
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:1902494",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.598
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005737",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.558
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:1902495",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.397
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:1990351",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.354
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0031224",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.33
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0016021",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.292
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043226",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.246
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0009986",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.228
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005829",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.206
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043229",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.194
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0098796",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.178
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005618",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.172
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0070469",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.166
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043227",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.158
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005739",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.134
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0098803",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.133
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0098797",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.13
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0070470",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.129
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043231",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.124
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0031226",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.119
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0030964",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.113
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0030312",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.112
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0097478",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.105
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0098552",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.105
+          }
+        },
+        "confidence": "low"
+      }
+    ]
+  },
+  "enzymatic": {
+    "ec_numbers": [
+      {
+        "ec_id": "1.2.1.2",
+        "sources": [
+          "upimapi",
+          "recognizer"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology"
+          },
+          "recognizer": {
+            "source_type": "domain_search"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "ec_id": "1.17.1.9",
+        "sources": [
+          "eggnog",
+          "clean",
+          "recognizer"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology"
+          },
+          "clean": {
+            "source_type": "ml_enzyme"
+          },
+          "recognizer": {
+            "source_type": "domain_search"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "ec_id": "1.17.98.3",
+        "sources": [
+          "uniprot"
+        ],
+        "source_details": {
+          "uniprot": {
+            "source_type": "curated"
+          }
+        },
+        "confidence": "high"
+      }
+    ]
+  },
+  "domains": {
+    "cog": [
+      {
+        "id": "COG3383",
+        "label": "Predicted molibdopterin-dependent oxidoreductase YjgC",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "kog": [
+      {
+        "id": "KOG2282",
+        "label": "NADH-ubiquinone oxidoreductase, NDUFS1/75 kDa subunit",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "medium"
+      }
+    ],
+    "pfam": [
+      {
+        "id": "PF04879",
+        "label": null,
+        "sources": [
+          "upimapi"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "PF00384",
+        "label": null,
+        "sources": [
+          "upimapi"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "PF01568",
+        "label": null,
+        "sources": [
+          "upimapi"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "Molybdop_Fe4S4",
+        "label": null,
+        "sources": [
+          "eggnog"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "Molybdopterin",
+        "label": null,
+        "sources": [
+          "eggnog"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "Molydop_binding",
+        "label": null,
+        "sources": [
+          "eggnog"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "pfam00384",
+        "label": "molybdopterin-dependent oxidoreductase",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "pfam01568",
+        "label": "Molydopterin dinucleotide binding domain (Provisional)",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "medium"
+      },
+      {
+        "id": "pfam04879",
+        "label": "Molybdopterin oxidoreductase Fe4S4 domain (Provisional)",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "medium"
+      }
+    ],
+    "tigrfam": [
+      {
+        "id": "TIGR01591",
+        "label": "formate dehydrogenase subunit alpha",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "smart": [
+      {
+        "id": "smart00926",
+        "label": "Molybdopterin oxidoreductase Fe4S4 domain",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "medium"
+      }
+    ],
+    "cog_categories": [
+      "C",
+      "General function prediction only",
+      "Energy production and conversion"
+    ]
+  },
+  "features": {
+    "domains": [
+      {
+        "type": "Domain",
+        "description": "4Fe-4S Mo/W bis-MGD-type",
+        "position_start": 3,
+        "position_end": 59,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": null,
+        "evidences": [
+          {
+            "code": "ECO:0000255",
+            "source": "PROSITE-ProRule",
+            "id": "PRU01004"
+          }
+        ]
+      }
+    ],
+    "active_sites": [],
+    "binding_sites": [
+      {
+        "type": "Binding site",
+        "description": null,
+        "position_start": 10,
+        "position_end": 10,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": null,
+        "evidences": [
+          {
+            "code": "ECO:0000255",
+            "source": "PROSITE-ProRule",
+            "id": "PRU01004"
+          }
+        ],
+        "ligand_name": "[4Fe-4S] cluster",
+        "ligand_id": "ChEBI:CHEBI:49883",
+        "ligand_note": null,
+        "ligand_chebi": [
+          "CHEBI:49883"
+        ]
+      },
+      {
+        "type": "Binding site",
+        "description": null,
+        "position_start": 13,
+        "position_end": 13,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": null,
+        "evidences": [
+          {
+            "code": "ECO:0000255",
+            "source": "PROSITE-ProRule",
+            "id": "PRU01004"
+          }
+        ],
+        "ligand_name": "[4Fe-4S] cluster",
+        "ligand_id": "ChEBI:CHEBI:49883",
+        "ligand_note": null,
+        "ligand_chebi": [
+          "CHEBI:49883"
+        ]
+      },
+      {
+        "type": "Binding site",
+        "description": null,
+        "position_start": 17,
+        "position_end": 17,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": null,
+        "evidences": [
+          {
+            "code": "ECO:0000255",
+            "source": "PROSITE-ProRule",
+            "id": "PRU01004"
+          }
+        ],
+        "ligand_name": "[4Fe-4S] cluster",
+        "ligand_id": "ChEBI:CHEBI:49883",
+        "ligand_note": null,
+        "ligand_chebi": [
+          "CHEBI:49883"
+        ]
+      },
+      {
+        "type": "Binding site",
+        "description": null,
+        "position_start": 45,
+        "position_end": 45,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": null,
+        "evidences": [
+          {
+            "code": "ECO:0000255",
+            "source": "PROSITE-ProRule",
+            "id": "PRU01004"
+          }
+        ],
+        "ligand_name": "[4Fe-4S] cluster",
+        "ligand_id": "ChEBI:CHEBI:49883",
+        "ligand_note": null,
+        "ligand_chebi": [
+          "CHEBI:49883"
+        ]
+      }
+    ],
+    "other_features": [
+      {
+        "type": "Chain",
+        "description": "F420-dependent formate dehydrogenase subunit alpha",
+        "position_start": 1,
+        "position_end": 684,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": "PRO_0000063225",
+        "evidences": []
+      }
+    ]
+  },
+  "pathways": {
+    "kegg_ko": [
+      "ko:K00123",
+      "K00123,K00532,K00336"
+    ],
+    "kegg_pathways": [
+      "ko00630",
+      "ko00680",
+      "ko01100",
+      "ko01120",
+      "ko01200",
+      "map00630",
+      "map00680",
+      "map01100",
+      "map01120",
+      "map01200"
+    ],
+    "kegg_modules": []
+  },
+  "sequence": {
+    "value": "MDIKYVPTICPYCGVGCGMNLVVKDEKVVGVEPWKRHPVNEGKLCPKGNFCYEIIHREDRLTTPLIKENGEFREATWDEAYDLIASKLGAYDPNEIGFFCCARSPNENIYVNQKFARIVVGTHNIDHCARLCHGPTVAGLAASFGSGAMTNSYASFEDADLIFSIGANSLEAHPLVGRKLMRAKMNGAYFIVADPRYTPTAKQADQYIPFKTGTDVALMNAMMNVIISEGLEDKEFIEKRTKNYEELKEVVSKYTPEMAEEITQVPADVIRDIAIKYAKADKAAIVYSLGITEHSHGVDNVMQTANLAMLTGNIGRLGTGVNPLRGQNNVQGACDMGALPTDYPGYRKVADQEVMEDVTCTWGCSDLGCEPGLKIPEMIDAAAKGDLKVLYITGEDPVISDPDTHHVEEALNNLDFFVVQDIFMTDTAEFADVVLPAACWAEQEGTFTNGERRVQLIRKAVDAPGESKYDWEIFCDLAKKMGADPEMFTYESAQDIFEEVRTVTPQYAGMNRERLDRPEALHWPCPSEDHPGTAMMHIEKFAHPDGLGIFMPLEEQGPMETPDDEYPLILTTTRLLFHYHAAMTRRAATLDREVPTGYVEINTEDAAELGIANKEKVKVKSRRGEIEIAARVTDDIVKGIVNIPMHFRECSANILTNAAAIDPKSGMPEYKACAVAISKMEGSK",
+    "length": 684,
+    "mol_weight": 75717,
+    "crc64": "38D37CF86BFF06E2",
+    "md5": "C1C9E80473C0CAA8D384862738590EB0"
+  },
+  "references": [
+    {
+      "reference_number": 1,
+      "id": "3531194",
+      "pmid": "3531194",
+      "citation_type": "journal article",
+      "title": "Cloning, expression, and nucleotide sequence of the formate dehydrogenase genes from Methanobacterium formicicum.",
+      "authors": [
+        "Shuber A.P.",
+        "Orr E.C.",
+        "Recny M.A.",
+        "Schendel P.F.",
+        "May H.D.",
+        "Schauer N.L.",
+        "Ferry J.G."
+      ],
+      "authoring_group": [],
+      "date": "1986",
+      "journal": "J. Biol. Chem.",
+      "volume": "261",
+      "pages": "12942",
+      "reference_positions": [
+        "NUCLEOTIDE SEQUENCE [GENOMIC DNA]",
+        "PROTEIN SEQUENCE OF 1-26",
+        "SUBUNIT"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "JF-1",
+          "evidences": []
+        }
+      ],
+      "submission_database": null,
+      "evidences": []
+    },
+    {
+      "reference_number": 2,
+      "id": "1378430",
+      "pmid": "1378430",
+      "citation_type": "journal article",
+      "title": "Identification of formate dehydrogenase-specific mRNA species and nucleotide sequence of the fdhC gene of Methanobacterium formicicum.",
+      "authors": [
+        "White W.B.",
+        "Ferry J.G."
+      ],
+      "authoring_group": [],
+      "date": "1992",
+      "journal": "J. Bacteriol.",
+      "volume": "174",
+      "pages": "4997",
+      "reference_positions": [
+        "NUCLEOTIDE SEQUENCE [GENOMIC DNA] OF 1-20"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "JF-1",
+          "evidences": []
+        }
+      ],
+      "submission_database": null,
+      "evidences": []
+    },
+    {
+      "reference_number": 3,
+      "id": "7061389",
+      "pmid": "7061389",
+      "citation_type": "journal article",
+      "title": "Properties of formate dehydrogenase in Methanobacterium formicicum.",
+      "authors": [
+        "Schauer N.L.",
+        "Ferry J.G."
+      ],
+      "authoring_group": [],
+      "date": "1982",
+      "journal": "J. Bacteriol.",
+      "volume": "150",
+      "pages": "1",
+      "reference_positions": [
+        "FUNCTION",
+        "CATALYTIC ACTIVITY",
+        "ACTIVITY REGULATION",
+        "BIOPHYSICOCHEMICAL PROPERTIES"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "JF-1",
+          "evidences": []
+        }
+      ],
+      "submission_database": null,
+      "evidences": []
+    },
+    {
+      "reference_number": 4,
+      "id": "CI-4PLRDAJ6FRG7D",
+      "pmid": "CI-4PLRDAJ6FRG7D",
+      "citation_type": "journal article",
+      "title": null,
+      "authors": [
+        "Schauer N.L.",
+        "Ferry J.G."
+      ],
+      "authoring_group": [],
+      "date": "1982",
+      "journal": "J. Bacteriol.",
+      "volume": "151",
+      "pages": "1642",
+      "reference_positions": [
+        "ERRATUM OF PUBMED:7061389"
+      ],
+      "reference_comments": [],
+      "submission_database": null,
+      "evidences": []
+    },
+    {
+      "reference_number": 5,
+      "id": "6874636",
+      "pmid": "6874636",
+      "citation_type": "journal article",
+      "title": "FAD requirement for the reduction of coenzyme F420 by formate dehydrogenase from Methanobacterium formicicum.",
+      "authors": [
+        "Schauer N.L.",
+        "Ferry J.G."
+      ],
+      "authoring_group": [],
+      "date": "1983",
+      "journal": "J. Bacteriol.",
+      "volume": "155",
+      "pages": "467",
+      "reference_positions": [
+        "FUNCTION",
+        "CATALYTIC ACTIVITY"
+      ],
+      "reference_comments": [],
+      "submission_database": null,
+      "evidences": []
+    },
+    {
+      "reference_number": 6,
+      "id": "3801411",
+      "pmid": "3801411",
+      "citation_type": "journal article",
+      "title": "Mechanistic studies of the coenzyme F420 reducing formate dehydrogenase from Methanobacterium formicicum.",
+      "authors": [
+        "Schauer N.L.",
+        "Ferry J.G.",
+        "Honek J.F.",
+        "Orme-Johnson W.H.",
+        "Walsh C."
+      ],
+      "authoring_group": [],
+      "date": "1986",
+      "journal": "Biochemistry",
+      "volume": "25",
+      "pages": "7163",
+      "reference_positions": [
+        "FUNCTION",
+        "CATALYTIC ACTIVITY",
+        "BIOPHYSICOCHEMICAL PROPERTIES"
+      ],
+      "reference_comments": [],
+      "submission_database": null,
+      "evidences": []
+    },
+    {
+      "reference_number": 7,
+      "id": "3944055",
+      "pmid": "3944055",
+      "citation_type": "journal article",
+      "title": "Composition of the coenzyme F420-dependent formate dehydrogenase from Methanobacterium formicicum.",
+      "authors": [
+        "Schauer N.L.",
+        "Ferry J.G."
+      ],
+      "authoring_group": [],
+      "date": "1986",
+      "journal": "J. Bacteriol.",
+      "volume": "165",
+      "pages": "405",
+      "reference_positions": [
+        "FUNCTION",
+        "CATALYTIC ACTIVITY",
+        "COFACTOR",
+        "SUBUNIT"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "JF-1",
+          "evidences": []
+        }
+      ],
+      "submission_database": null,
+      "evidences": []
+    },
+    {
+      "reference_number": 8,
+      "id": "2661536",
+      "pmid": "2661536",
+      "citation_type": "journal article",
+      "title": "Reconstitution and properties of a coenzyme F420-mediated formate hydrogenlyase system in Methanobacterium formicicum.",
+      "authors": [
+        "Baron S.F.",
+        "Ferry J.G."
+      ],
+      "authoring_group": [],
+      "date": "1989",
+      "journal": "J. Bacteriol.",
+      "volume": "171",
+      "pages": "3854",
+      "reference_positions": [
+        "FUNCTION",
+        "CATALYTIC ACTIVITY"
+      ],
+      "reference_comments": [],
+      "submission_database": null,
+      "evidences": []
+    },
+    {
+      "reference_number": 9,
+      "id": "CI-F09QD8C2Q06CP",
+      "pmid": "CI-F09QD8C2Q06CP",
+      "citation_type": "journal article",
+      "title": null,
+      "authors": [
+        "Baron S.F.",
+        "Ferry J.G."
+      ],
+      "authoring_group": [],
+      "date": "1989",
+      "journal": "J. Bacteriol.",
+      "volume": "171",
+      "pages": "5237",
+      "reference_positions": [
+        "ERRATUM OF PUBMED:2661536"
+      ],
+      "reference_comments": [],
+      "submission_database": null,
+      "evidences": []
+    }
+  ],
+  "cross_references": {
+    "EMBL": [
+      {
+        "id": "J02581",
+        "properties": {
+          "ProteinId": "AAA72182.1",
+          "Status": "-",
+          "MoleculeType": "Genomic_DNA"
+        }
+      }
+    ],
+    "PIR": [
+      {
+        "id": "A24698",
+        "properties": {
+          "EntryName": "A24698"
+        }
+      }
+    ],
+    "RefSeq": [
+      {
+        "id": "WP_048072979.1",
+        "properties": {
+          "NucleotideSequenceId": "NZ_CP006933.1"
+        }
+      }
+    ],
+    "AlphaFoldDB": [
+      {
+        "id": "P06131",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "SMR": [
+      {
+        "id": "P06131",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "STRING": [
+      {
+        "id": "2162.BRM9_0168",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "GeneID": [
+      {
+        "id": "26738401",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "OrthoDB": [
+      {
+        "id": "23466at2157",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "SABIO-RK": [
+      {
+        "id": "P06131",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "CDD": [
+      {
+        "id": "cd02790",
+        "properties": {
+          "EntryName": "MopB_CT_Formate-Dh_H",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "cd02753",
+        "properties": {
+          "EntryName": "MopB_Formate-Dh-H",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "FunFam": [
+      {
+        "id": "2.20.25.90:FF:000006",
+        "properties": {
+          "EntryName": "Formate dehydrogenase alpha subunit",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "3.40.228.10:FF:000002",
+        "properties": {
+          "EntryName": "Formate dehydrogenase subunit alpha",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "2.40.40.20:FF:000005",
+        "properties": {
+          "EntryName": "Periplasmic nitrate reductase",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "Gene3D": [
+      {
+        "id": "2.40.40.20",
+        "properties": {
+          "EntryName": "-",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "3.40.50.740",
+        "properties": {
+          "EntryName": "-",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "2.20.25.90",
+        "properties": {
+          "EntryName": "ADC-like domains",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "3.40.228.10",
+        "properties": {
+          "EntryName": "Dimethylsulfoxide Reductase, domain 2",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "InterPro": [
+      {
+        "id": "IPR009010",
+        "properties": {
+          "EntryName": "Asp_de-COase-like_dom_sf"
+        }
+      },
+      {
+        "id": "IPR041925",
+        "properties": {
+          "EntryName": "CT_Formate-Dh_H"
+        }
+      },
+      {
+        "id": "IPR041924",
+        "properties": {
+          "EntryName": "Formate_Dh-H_N"
+        }
+      },
+      {
+        "id": "IPR006478",
+        "properties": {
+          "EntryName": "Formate_DH_asu"
+        }
+      },
+      {
+        "id": "IPR006657",
+        "properties": {
+          "EntryName": "MoPterin_dinucl-bd_dom"
+        }
+      },
+      {
+        "id": "IPR006656",
+        "properties": {
+          "EntryName": "Mopterin_OxRdtase"
+        }
+      },
+      {
+        "id": "IPR006963",
+        "properties": {
+          "EntryName": "Mopterin_OxRdtase_4Fe-4S_dom"
+        }
+      },
+      {
+        "id": "IPR006655",
+        "properties": {
+          "EntryName": "Mopterin_OxRdtase_prok_CS"
+        }
+      },
+      {
+        "id": "IPR027467",
+        "properties": {
+          "EntryName": "MopterinOxRdtase_cofactor_BS"
+        }
+      },
+      {
+        "id": "IPR050123",
+        "properties": {
+          "EntryName": "Prok_molybdopt-oxidoreductase"
+        }
+      }
+    ],
+    "NCBIfam": [
+      {
+        "id": "TIGR01591",
+        "properties": {
+          "EntryName": "Fdh-alpha",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "PANTHER": [
+      {
+        "id": "PTHR43105:SF14",
+        "properties": {
+          "EntryName": "FORMATE DEHYDROGENASE H",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "PTHR43105",
+        "properties": {
+          "EntryName": "RESPIRATORY NITRATE REDUCTASE",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "Pfam": [
+      {
+        "id": "PF04879",
+        "properties": {
+          "EntryName": "Molybdop_Fe4S4",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "PF00384",
+        "properties": {
+          "EntryName": "Molybdopterin",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "PF01568",
+        "properties": {
+          "EntryName": "Molydop_binding",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "SMART": [
+      {
+        "id": "SM00926",
+        "properties": {
+          "EntryName": "Molybdop_Fe4S4",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "SUPFAM": [
+      {
+        "id": "SSF50692",
+        "properties": {
+          "EntryName": "ADC-like",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "SSF53706",
+        "properties": {
+          "EntryName": "Formate dehydrogenase/DMSO reductase, domains 1-3",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "PROSITE": [
+      {
+        "id": "PS51669",
+        "properties": {
+          "EntryName": "4FE4S_MOW_BIS_MGD",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "PS00551",
+        "properties": {
+          "EntryName": "MOLYBDOPTERIN_PROK_1",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "PS00490",
+        "properties": {
+          "EntryName": "MOLYBDOPTERIN_PROK_2",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "PS00932",
+        "properties": {
+          "EntryName": "MOLYBDOPTERIN_PROK_3",
+          "MatchStatus": "1"
+        }
+      }
+    ]
+  },
+  "extra_attributes": {
+    "count_by_comment_type": {
+      "FUNCTION": 1,
+      "CATALYTIC ACTIVITY": 1,
+      "COFACTOR": 3,
+      "ACTIVITY REGULATION": 1,
+      "BIOPHYSICOCHEMICAL PROPERTIES": 1,
+      "SUBUNIT": 1,
+      "SIMILARITY": 1
+    },
+    "count_by_feature_type": {
+      "Chain": 1,
+      "Domain": 1,
+      "Binding site": 4
+    }
+  },
+  "interpro": {
+    "entries": [
+      {
+        "accession": "cd02753",
+        "name": "MopB_Formate-Dh-H",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "cdd",
+        "integrated": "IPR041924",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 7,
+                    "end": 554,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "cd02753",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "cd02790",
+        "name": "MopB_CT_Formate-Dh_H",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "cdd",
+        "integrated": "IPR041925",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 564,
+                    "end": 679,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "cd02790",
+                "score": 1.31137e-56
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "G3DSA:2.20.25.90",
+        "name": "ADC-like domains",
+        "short_name": null,
+        "description": [],
+        "type": "homologous_superfamily",
+        "source_database": "cathgene3d",
+        "integrated": null,
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 1,
+                    "end": 61,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "2vpzA01",
+                "score": 3.3e-21
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "G3DSA:2.40.40.20",
+        "name": null,
+        "short_name": null,
+        "description": [],
+        "type": "homologous_superfamily",
+        "source_database": "cathgene3d",
+        "integrated": null,
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 558,
+                    "end": 680,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": true,
+                "model": "1ogyA04",
+                "score": 1.8e-39
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "G3DSA:3.40.228.10",
+        "name": "Dimethylsulfoxide Reductase, domain 2",
+        "short_name": null,
+        "description": [],
+        "type": "homologous_superfamily",
+        "source_database": "cathgene3d",
+        "integrated": null,
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 132,
+                    "end": 326,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "2napA03",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "G3DSA:3.40.50.740",
+        "name": null,
+        "short_name": null,
+        "description": [],
+        "type": "homologous_superfamily",
+        "source_database": "cathgene3d",
+        "integrated": null,
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 69,
+                    "end": 131,
+                    "dc-status": "C_TERMINAL_DISC"
+                  },
+                  {
+                    "start": 327,
+                    "end": 525,
+                    "dc-status": "N_TERMINAL_DISC"
+                  }
+                ],
+                "representative": false,
+                "model": "2napA02",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR006478",
+        "name": "Formate dehydrogenase, alpha subunit",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "ncbifam": [
+            {
+              "accession": "TIGR01591",
+              "name": "formate dehydrogenase subunit alpha"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0008863",
+              "name": "formate dehydrogenase (NAD+) activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ],
+          "biological_process": [
+            {
+              "go_id": "GO:0015942",
+              "name": "formate metabolic process",
+              "category": "biological_process",
+              "category_raw": "P"
+            }
+          ],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 8,
+                    "end": 677,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR006655",
+        "name": "Molybdopterin oxidoreductase, prokaryotic, conserved site",
+        "short_name": null,
+        "description": [],
+        "type": "conserved_site",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "prosite": [
+            {
+              "accession": "PS00490",
+              "name": "Prokaryotic molybdopterin oxidoreductases signature 2"
+            },
+            {
+              "accession": "PS00932",
+              "name": "Prokaryotic molybdopterin oxidoreductases signature 3"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0016491",
+              "name": "oxidoreductase activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 425,
+                    "end": 442,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              },
+              {
+                "fragments": [
+                  {
+                    "start": 606,
+                    "end": 633,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR006656",
+        "name": "Molybdopterin oxidoreductase",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "pfam": [
+            {
+              "accession": "PF00384",
+              "name": "Molybdopterin oxidoreductase"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0016491",
+              "name": "oxidoreductase activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 60,
+                    "end": 480,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR006657",
+        "name": "Molybdopterin dinucleotide-binding domain",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "pfam": [
+            {
+              "accession": "PF01568",
+              "name": "Molydopterin dinucleotide binding domain"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0016491",
+              "name": "oxidoreductase activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            },
+            {
+              "go_id": "GO:0043546",
+              "name": "molybdopterin cofactor binding",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 568,
+                    "end": 674,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR006963",
+        "name": "Molybdopterin oxidoreductase, 4Fe-4S domain",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "pfam": [
+            {
+              "accession": "PF22151",
+              "name": "NADH-ubiquinone oxidoreductase NDSU1/NuoG-like, 4Fe-4S domain"
+            },
+            {
+              "accession": "PF04879",
+              "name": "Molybdopterin oxidoreductase Fe4S4 domain"
+            }
+          ],
+          "profile": [
+            {
+              "accession": "PS51669",
+              "name": "Prokaryotic molybdopterin oxidoreductases 4Fe-4S domain profile"
+            }
+          ],
+          "smart": [
+            {
+              "accession": "SM00926",
+              "name": "Molybdopterin oxidoreductase Fe4S4 domain"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0016491",
+              "name": "oxidoreductase activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 3,
+                    "end": 59,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR009010",
+        "name": "Aspartate decarboxylase-like domain superfamily",
+        "short_name": null,
+        "description": [],
+        "type": "homologous_superfamily",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "ssf": [
+            {
+              "accession": "SSF50692",
+              "name": "ADC-like"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 529,
+                    "end": 679,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR027467",
+        "name": "Molybdopterin oxidoreductase, molybdopterin cofactor binding site",
+        "short_name": null,
+        "description": [],
+        "type": "binding_site",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "prosite": [
+            {
+              "accession": "PS00551",
+              "name": "Prokaryotic molybdopterin oxidoreductases signature 1"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0051539",
+              "name": "4 iron, 4 sulfur cluster binding",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 8,
+                    "end": 26,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR041924",
+        "name": "Formate dehydrogenase H, N-terminal",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "cdd": [
+            {
+              "accession": "cd02753",
+              "name": "MopB_Formate-Dh-H"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 7,
+                    "end": 554,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR041925",
+        "name": "Formate dehydrogenase H, molybdopterin-binding domain",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "cdd": [
+            {
+              "accession": "cd02790",
+              "name": "MopB_CT_Formate-Dh_H"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 564,
+                    "end": 679,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PF00384",
+        "name": "Molybdopterin oxidoreductase",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "pfam",
+        "integrated": "IPR006656",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 60,
+                    "end": 480,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "PF00384",
+                "score": 2.5e-95
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PF01568",
+        "name": "Molydopterin dinucleotide binding domain",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "pfam",
+        "integrated": "IPR006657",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 568,
+                    "end": 674,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "PF01568",
+                "score": 1.8e-23
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PF04879",
+        "name": "Molybdopterin oxidoreductase Fe4S4 domain",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "pfam",
+        "integrated": "IPR006963",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 4,
+                    "end": 56,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "PF04879",
+                "score": 2.4e-20
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PS00490",
+        "name": "Prokaryotic molybdopterin oxidoreductases signature 2",
+        "short_name": null,
+        "description": [],
+        "type": "conserved_site",
+        "source_database": "prosite",
+        "integrated": "IPR006655",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 425,
+                    "end": 442,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "PS00490",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PS00551",
+        "name": "Prokaryotic molybdopterin oxidoreductases signature 1",
+        "short_name": null,
+        "description": [],
+        "type": "conserved_site",
+        "source_database": "prosite",
+        "integrated": "IPR027467",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 8,
+                    "end": 26,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "PS00551",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PS00932",
+        "name": "Prokaryotic molybdopterin oxidoreductases signature 3",
+        "short_name": null,
+        "description": [],
+        "type": "conserved_site",
+        "source_database": "prosite",
+        "integrated": "IPR006655",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 606,
+                    "end": 633,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "PS00932",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PS51669",
+        "name": "Prokaryotic molybdopterin oxidoreductases 4Fe-4S domain profile",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "profile",
+        "integrated": "IPR006963",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 3,
+                    "end": 59,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "PS51669",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PTHR43105",
+        "name": "Prokaryotic molybdopterin-containing oxidoreductase",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "panther",
+        "integrated": null,
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 5,
+                    "end": 680,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": true,
+                "model": "PTHR43105:SF14",
+                "score": 0,
+                "subfamily": {
+                  "accession": "PTHR43105:SF14",
+                  "name": "FORMATE DEHYDROGENASE H"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "SM00926",
+        "name": "Molybdopterin oxidoreductase Fe4S4 domain",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "smart",
+        "integrated": "IPR006963",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 3,
+                    "end": 57,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "SM00926",
+                "score": 2.5e-23
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "SSF50692",
+        "name": "ADC-like",
+        "short_name": null,
+        "description": [],
+        "type": "homologous_superfamily",
+        "source_database": "ssf",
+        "integrated": "IPR009010",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 529,
+                    "end": 679,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "0047857",
+                "score": 1.7e-46
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "SSF53706",
+        "name": "Formate dehydrogenase/DMSO reductase, domains 1-3",
+        "short_name": null,
+        "description": [],
+        "type": "homologous_superfamily",
+        "source_database": "ssf",
+        "integrated": null,
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 2,
+                    "end": 570,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": true,
+                "model": "0040209",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "TIGR01591",
+        "name": "formate dehydrogenase subunit alpha",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "ncbifam",
+        "integrated": "IPR006478",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "p06131",
+            "protein_length": 684,
+            "source_database": "reviewed",
+            "organism": "2162",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 8,
+                    "end": 677,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "TIGR01591",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "total_entries": 27,
+      "total_interpro_integrated": 9,
+      "total_unintegrated": 6,
+      "by_source_database": {
+        "cdd": 2,
+        "cathgene3d": 4,
+        "interpro": 9,
+        "pfam": 3,
+        "prosite": 3,
+        "profile": 1,
+        "panther": 1,
+        "smart": 1,
+        "ssf": 2,
+        "ncbifam": 1
+      },
+      "by_type": {
+        "domain": 12,
+        "homologous_superfamily": 7,
+        "family": 3,
+        "conserved_site": 4,
+        "binding_site": 1
+      },
+      "member_databases_used": [
+        "cdd",
+        "ncbifam",
+        "pfam",
+        "profile",
+        "prosite",
+        "smart",
+        "ssf"
+      ],
+      "go_terms_count": {
+        "molecular_function": 4,
+        "biological_process": 1,
+        "cellular_component": 0
+      },
+      "go_terms_list": [
+        {
+          "go_id": "GO:0008863",
+          "name": "formate dehydrogenase (NAD+) activity",
+          "category": "molecular_function",
+          "sources": [
+            "IPR006478"
+          ]
+        },
+        {
+          "go_id": "GO:0015942",
+          "name": "formate metabolic process",
+          "category": "biological_process",
+          "sources": [
+            "IPR006478"
+          ]
+        },
+        {
+          "go_id": "GO:0016491",
+          "name": "oxidoreductase activity",
+          "category": "molecular_function",
+          "sources": [
+            "IPR006655",
+            "IPR006656",
+            "IPR006657",
+            "IPR006963"
+          ]
+        },
+        {
+          "go_id": "GO:0043546",
+          "name": "molybdopterin cofactor binding",
+          "category": "molecular_function",
+          "sources": [
+            "IPR006657"
+          ]
+        },
+        {
+          "go_id": "GO:0051539",
+          "name": "4 iron, 4 sulfur cluster binding",
+          "category": "molecular_function",
+          "sources": [
+            "IPR027467"
+          ]
+        }
+      ],
+      "interpro_integrated_ids": [
+        "IPR006478",
+        "IPR006655",
+        "IPR006656",
+        "IPR006657",
+        "IPR006963",
+        "IPR009010",
+        "IPR027467",
+        "IPR041924",
+        "IPR041925"
+      ],
+      "unintegrated_ids": [
+        "G3DSA:2.20.25.90",
+        "G3DSA:2.40.40.20",
+        "G3DSA:3.40.228.10",
+        "G3DSA:3.40.50.740",
+        "PTHR43105",
+        "SSF53706"
+      ]
+    }
+  },
+  "evidence_summary": {
+    "tools": [
+      "upimapi",
+      "eggnog",
+      "clean",
+      "deepgo2",
+      "deepfri",
+      "recognizer"
+    ],
+    "annotation_count": 153,
+    "confidence_distribution": {
+      "high": 63,
+      "medium": 28,
+      "low": 62
+    },
+    "overall_confidence": "medium",
+    "in_poorly_annotated_subset": false
+  },
+  "provenance": {
+    "source": "UniProtKB",
+    "uniprot_url": "https://www.uniprot.org/uniprotkb/P06131/entry",
+    "db_source": "sp",
+    "raw_file": "P06131.json"
+  },
+  "_test_group": "Reviewed UniProt proteins"
+}

@@ -1,0 +1,43 @@
+{
+  "protein_id": "H0UK06",
+  "protein_name": "Adenosine specific kinase",
+  "organism": "Jonquetella anthropi DSM 22815",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Jonquetella anthropi with predicted adenosine/AMP kinase function by COG1839 and Pfam PF04008.",
+  "identity_summary": "Protein name: Adenosine specific kinase; Gene name synonyms: JonanDRAFT_0621",
+  "reported_function_summary": "",
+  "go_annotation_summary": [
+    "GO:0005488 - ATP binding (high from deepgo2)",
+    "GO:0005515 - protein binding (medium from deepgo2)",
+    "GO:0003824 - catalytic activity (medium from deepgo2)",
+    "GO:0042802 - transition metal ion binding (low from deepfri)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 6.2.1.14 - adenosine kinase (low from clean)"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG1839 - Adenosine/AMP kinase (high from recognizer)",
+    "Pfam PF04008 - Adenosine specific kinase (high from upimapi)",
+    "PF04008 - Adenosine specific kinase (Provisional) (high from recognizer)"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG KO K09129 - adenosine kinase (no confidence level provided)"
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2: GO:0005488, GO:0005515, GO:0003824, GO:0042802",
+    "DeepFRI: GO:0042802"
+  ],
+  "strong_or_curated_information": [],
+  "weak_predicted_or_indirect_information": [
+    "KEGG KO K09129 - adenosine kinase (no confidence level provided)"
+  ],
+  "conflicting_or_inconsistent_information": [
+    "GO:0005488 annotated with different confidence levels by DeepGO2 and DeepFRI",
+    "EC numbers assigned to the same protein by Clean/UniProt and Recognizer"
+  ],
+  "missing_or_limited_information": [],
+  "review_notes": [
+    "Verify EC 6.2.1.14 against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF04008 covers the full sequence or only a partial region."
+  ]
+}

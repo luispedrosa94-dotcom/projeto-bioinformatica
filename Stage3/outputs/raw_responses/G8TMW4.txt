@@ -1,0 +1,43 @@
+{
+  "protein_id": "G8TMW4",
+  "protein_name": "Uncharacterized protein",
+  "organism": "Niastella koreensis (strain DSM 17620 / KACC 11465 / NBRC 106392 / GR20-10)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Niastella koreensis with predicted molecular functions and cellular components by DeepGO2.",
+  "identity_summary": "Protein name: Uncharacterized protein; Gene name: None; Alternative names: []; Organism: Niastella koreensis (strain DSM 17620 / KACC 11465 / NBRC 106392 / GR20-10); UniProt ID: UPI00023F6DB9.",
+  "reported_function_summary": "No curated function reported in the record.",
+  "go_annotation_summary": [
+    "GO:0005488 - binding (medium from deepgo2)",
+    "GO:0005515 - protein binding (medium from deepgo2)",
+    "GO:0042802 - identical protein binding (low from deepgo2)",
+    "GO:0046812 - protein homodimerization activity (low from deepgo2)",
+    "GO:0030247 - protein heterodimerization activity (low from deepgo2)",
+    "GO:0030246 - protein complex binding (low from deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 3.2.2.22 - glycosylase activity (low from clean)"
+  ],
+  "domain_family_and_feature_summary": [
+    "Disordered region (1-22) with no domain hits."
+  ],
+  "pathway_and_context_summary": [
+    "No KEGG pathways or modules reported in the record."
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predictions: molecular function - binding, protein binding; cellular component - integral to membrane, cytoplasmic side."
+  ],
+  "strong_or_curated_information": [],
+  "weak_predicted_or_indirect_information": [
+    "Predicted molecular functions and cellular components by DeepGO2."
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "No curated function reported in the record.",
+    "No KEGG pathways or modules reported in the record."
+  ],
+  "review_notes": [
+    "Verify EC 3.2.2.22 against literature: PubMed PMID listed in reference.",
+    "Check whether Pfam PF01257 covers the full sequence or only a partial region.",
+    "Confirm whether DeepGO2 predictions match the predicted molecular functions and cellular components."
+  ]
+}

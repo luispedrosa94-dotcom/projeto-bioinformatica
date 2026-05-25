@@ -1,0 +1,48 @@
+{
+  "protein_id": "H1YXH1",
+  "protein_name": "Tetrahydromethanopterin S-methyltransferase, subunit H",
+  "organism": "Methanoplanus limicola DSM 2279",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Methanoplanus limicola with predicted methyltransferase activity and tetrahydromethanopterin S-methyltransferase subunit H function.",
+  "identity_summary": "Protein name: Tetrahydromethanopterin S-methyltransferase, subunit H; Gene name: mtrH (inferred by homology); Alternative names: Metlim_2874",
+  "reported_function_summary": "Curated in the record: methyltransferase activity (UniProtKB-KW), one-carbon metabolic process (InterPro)",
+  "go_annotation_summary": [
+    "GO:0008168 - methyltransferase activity (high from upimapi, low from deepfri)",
+    "GO:0006730 - one-carbon metabolic process (high from upimapi, high from uniprot)"
+  ],
+  "enzyme_and_reaction_summary": ["EC 2.1.1.86 - Tetrahydromethanopterin S-methyltransferase"],
+  "domain_family_and_feature_summary": [
+    "COG1962 - Tetrahydromethanopterin S-methyltransferase, subunit H (high from recognizer)",
+    "PF02007 - Tetrahydromethanopterin S-methyltransferase MtrH subunit (high from upimapi)"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG KO K00584 - tetrahydrofolate biosynthesis",
+    "KEGG pathways: ko00680, ko01100, ko01120, ko01200, map00680, map01100, map01120, map01200"
+  ],
+  "tool_prediction_summary": [
+    "upimapi: GO:0008168 (high), GO:0006730 (high)",
+    "eggnog: GO:0008168 (high), GO:0006730 (high)",
+    "deepgo2: GO:0016740, GO:0030269, GO:0018492, GO:0005488, GO:0046912, GO:0016903, GO:0005515, GO:0008172, GO:0043169, GO:0016829, GO:0006725, GO:1901360, GO:1901576, GO:0046483, GO:0044249, GO:0044283, GO:0044271, GO:0016053, GO:0006520, GO:0046394, GO:1901605, GO:1901575, GO:0050896, GO:0006139, GO:0006097, GO:0018130, GO:0009056 (low)",
+    "deepfri: GO:0016829 (low)"
+  ],
+  "strong_or_curated_information": [
+    "Curated in the record: methyltransferase activity (UniProtKB-KW), one-carbon metabolic process (InterPro)",
+    "GO:0008168 - methyltransferase activity (high from upimapi, low from deepfri)",
+    "GO:0006730 - one-carbon metabolic process (high from upimapi, high from uniprot)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "upimapi: GO:0016741, GO:0018492, GO:0005488, GO:0046912, GO:0016903, GO:0005515, GO:0008172, GO:0043169 (medium)",
+    "eggnog: GO:0016740, GO:0030269, GO:0018492, GO:0005488, GO:0046912, GO:0016903, GO:0005515, GO:0008172, GO:0043169 (high)",
+    "deepgo2: GO:0016741, GO:0018492, GO:0005488, GO:0046912, GO:0016903, GO:0005515, GO:0008172, GO:0043169, GO:0016829, GO:0006725, GO:1901360, GO:1901576, GO:0046483, GO:0044249, GO:0044283, GO:0044271, GO:0016053, GO:0006520, GO:0046394, GO:1901605, GO:1901575, GO:0050896, GO:0006139, GO:0006097, GO:0018130, GO:0009056 (low)",
+    "deepfri: GO:0016829 (low)"
+  ],
+  "conflicting_or_inconsistent_information": [
+    "GO:0016741 - predicted by deepgo2 with medium confidence but not curated",
+    "EC 2.1.1.86 - assigned by upimapi, eggnog, clean, and recognizer"
+  ],
+  "missing_or_limited_information": ["Subcellular location", "Catalytic activity"],
+  "review_notes": [
+    "Verify EC 2.1.1.86 against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF02007 covers the full sequence or only a partial region."
+  ]
+}

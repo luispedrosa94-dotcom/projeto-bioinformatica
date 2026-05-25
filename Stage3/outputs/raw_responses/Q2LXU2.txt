@@ -1,0 +1,44 @@
+{
+  "protein_id": "Q2LXU2",
+  "protein_name": "6-oxocyclohex-1-ene-1-carbonyl-CoA hydrolase",
+  "organism": "Syntrophus aciditrophicus (strain SB)",
+  "source_status": "UniProtKB reviewed (Swiss-Prot)",
+  "overall_profile_summary": "Uncharacterized protein from Syntrophus aciditrophicus with reported function in central benzoyl-CoA catabolism.",
+  "identity_summary": "Protein name: 6-oxocyclohex-1-ene-1-carbonyl-CoA hydrolase; Gene name: bamA; Synonyms: SYN_01654",
+  "reported_function_summary": "Involved in central benzoyl-CoA catabolism. Catalyzes the addition of one molecule of water to the double bond and the hydrolytic cleavage of C-C bond in the alicyclic ring, 6-oxocyclohex-1-ene-1-carbonyl-CoA (6-OCH-CoA) to yield 3-hydroxypimelyl-CoA.",
+  "go_annotation_summary": [
+    "GO:0018807 - 6-hydroxycyclohex-1-ene-1-carboxyl-CoA hydratase activity (high from upimapi, uniprot)",
+    "GO:0016823 - hydrolase activity, acting on acid carbon-carbon bonds, in ketonic substances (high from upimapi, eggnog, deepgo2, uniprot)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 3.7.1.21 - 6-oxocyclohex-1-ene-1-carbonyl-CoA + 2 H2O = 3-hydroxy-6-carboxyhexanoyl-CoA + H(+)"
+  ],
+  "domain_family_and_feature_summary": [
+    "PF00378 - Enoyl-CoA hydratase/isomerase (high from upimapi)",
+    "ECH_1 - Enoyl-CoA hydratase/isomerase (high from eggnog)",
+    "COG1024 - Enoyl-CoA hydratase/carnithine racemase (medium from recognizer)"
+  ],
+  "pathway_and_context_summary": [
+    "Aromatic compound metabolism; benzoyl-CoA degradation"
+  ],
+  "tool_prediction_summary": [
+    "GO:0018807 - 6-hydroxycyclohex-1-ene-1-carboxyl-CoA hydratase activity (high from upimapi, uniprot)",
+    "GO:0016823 - hydrolase activity, acting on acid carbon-carbon bonds, in ketonic substances (high from upimapi, eggnog, deepgo2, uniprot)"
+  ],
+  "strong_or_curated_information": [
+    "Involved in central benzoyl-CoA catabolism. Catalyzes the addition of one molecule of water to the double bond and the hydrolytic cleavage of C-C bond in the alicyclic ring, 6-oxocyclohex-1-ene-1-carbonyl-CoA (6-OCH-CoA) to yield 3-hydroxypimelyl-CoA.",
+    "EC 3.7.1.21 - 6-oxocyclohex-1-ene-1-carbonyl-CoA + 2 H2O = 3-hydroxy-6-carboxyhexanoyl-CoA + H(+)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "GO:0016829 - hydrolase activity, acting on acid carbon-carbon bonds (low from deepgo2)",
+    "GO:0005488 - hydrolase activity (low from deepgo2)"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "Subcellular location"
+  ],
+  "review_notes": [
+    "Verify EC 3.7.1.21 against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF00378 covers the full sequence or only a partial region."
+  ]
+}

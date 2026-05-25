@@ -1,0 +1,47 @@
+{
+  "protein_id": "H2EIF6",
+  "protein_name": "Homocysteine s-methytransferase",
+  "organism": "Malus domestica (Apple)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Malus domestica with predicted homocysteine S-methyltransferase activity and zinc ion binding.",
+  "identity_summary": "Homocysteine s-methytransferase (HMT) from Malus domestica, accession H2EIF6, with a sequence length of 324 amino acids.",
+  "reported_function_summary": "Curated function: Homocysteine S-methyltransferase activity and zinc ion binding. Reported in UniProtKB-KW.",
+  "go_annotation_summary": [
+    "GO:0008898 - S-adenosylmethionine-homocysteine S-methyltransferase activity (high from upimapi, high from eggnog)",
+    "GO:0008270 - zinc ion binding (high from upimapi, high from eggnog)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 2.1.1.10 - S-adenosylmethionine-homocysteine S-methyltransferase"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG2040 - Homocysteine/selenocysteine methylase (S-methylmethionine-dependent)",
+    "KOG1579 - Homocysteine S-methyltransferase",
+    "PF02574 - Homocysteine S-methyltransferase family protein"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG KO K00547 - Methionine metabolism",
+    "KEGG Pathways: ko00270, ko01100, ko01110, map00270, map01100, map01110"
+  ],
+  "tool_prediction_summary": [
+    "Upimapi: GO:0008898 (high), GO:0008270 (high)",
+    "Eggnog: GO:0008898 (high), GO:0008270 (high)",
+    "DeepGO2: GO:0008168, GO:0016741"
+  ],
+  "strong_or_curated_information": [
+    "Curated function: Homocysteine S-methyltransferase activity and zinc ion binding. Reported in UniProtKB-KW.",
+    "EC 2.1.1.10 - S-adenosylmethionine-homocysteine S-methyltransferase"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Upimapi: GO:0008168 (medium), GO:0016741 (high)",
+    "Eggnog: GO:0008168 (high), GO:0016741 (high)"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "No literature or curated evidence for this protein."
+  ],
+  "review_notes": [
+    "Verify EC 2.1.1.10 against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF02574 covers the full sequence or only a partial region.",
+    "Confirm whether GO:0008898 high-confidence prediction by Upimapi matches the curated function."
+  ]
+}

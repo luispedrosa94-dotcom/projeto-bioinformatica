@@ -1,0 +1,47 @@
+{
+  "protein_id": "P06131",
+  "protein_name": "F420-dependent formate dehydrogenase subunit alpha",
+  "organism": "Methanobacterium formicicum",
+  "source_status": "UniProtKB reviewed (Swiss-Prot)",
+  "overall_profile_summary": "Uncharacterized protein from Methanobacterium formicicum with reported function as F420-dependent formate dehydrogenase subunit alpha.",
+  "identity_summary": "Protein name: F420-dependent formate dehydrogenase subunit alpha; Gene name: fdhA; Organism: Methanobacterium formicicum",
+  "reported_function_summary": "Catalyzes the oxidation of formate to carbon dioxide, with coenzyme F420 as the electron acceptor (PubMed:2661536, PubMed:3801411, PubMed:3944055, PubMed:6874636, PubMed:7061389). In vitro can also use methyl viologen, 7,8-didemethyl-8-hydroxy-5-deazariboflavin (or FO, a hydrolytic derivative of coenzyme F420), FMN and FAD as electron acceptors, but not NAD(+) or NADP(+).",
+  "go_annotation_summary": [
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high from upimapi, low from deepfri)",
+    "GO:0008863 - formate dehydrogenase (NAD+) activity (high from upimapi, uniprot)",
+    "GO:0046872 - metal ion binding (high from upimapi, deepgo2, uniprot)",
+    "GO:0043546 - molybdopterin cofactor binding (high from upimapi, uniprot)",
+    "GO:0003954 - NADH dehydrogenase activity (high from upimapi, uniprot)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.17.98.3 - oxidation of formate to carbon dioxide with coenzyme F420 as electron acceptor"
+  ],
+  "domain_family_and_feature_summary": [
+    "PF04879 - Molybdop_Fe4S4 (high from upimapi)",
+    "PF00384 - Molybdopterin (high from upimapi)",
+    "Molydop_binding - Molydopterin dinucleotide binding domain (high from eggnog)",
+    "pfam00384 - molybdopterin-dependent oxidoreductase (high from recognizer)"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG pathway: formate metabolism",
+    "KEGG module: formate dehydrogenase"
+  ],
+  "tool_prediction_summary": [
+    "upimapi: GO:0051539, GO:0008863, GO:0046872, GO:0043546, GO:0003954 (high confidence)",
+    "deepgo2: GO:0016491, GO:0003824, GO:0043794 (high confidence)",
+    "deepfri: GO:0051912, GO:0046914 (low confidence)"
+  ],
+  "strong_or_curated_information": [
+    "Curated function: F420-dependent formate dehydrogenase subunit alpha",
+    "EC 1.17.98.3 - oxidation of formate to carbon dioxide with coenzyme F420 as electron acceptor"
+  ],
+  "weak_predicted_or_indirect_information": [],
+  "conflicting_or_inconsistent_information": [
+    "GO:0051539 annotated with different confidence levels by upimapi (high) and deepfri (low)"
+  ],
+  "missing_or_limited_information": [],
+  "review_notes": [
+    "Verify EC 1.17.98.3 against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF04879 covers the full sequence or only a partial region."
+  ]
+}

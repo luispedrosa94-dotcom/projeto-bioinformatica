@@ -1,0 +1,42 @@
+{
+  "protein_id": "F6D5H3",
+  "protein_name": "CoB--CoM heterodisulfide reductase iron-sulfur subunit A",
+  "organism": "Methanobacterium paludis (strain DSM 25820 / JCM 18151 / SWAN1)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Methanobacterium paludis with predicted iron-sulfur binding and oxidoreductase activity.",
+  "identity_summary": "Protein name: CoB--CoM heterodisulfide reductase iron-sulfur subunit A; Protein ID: F6D5H3; Organism: Methanobacterium paludis (strain DSM 25820 / JCM 18151 / SWAN1); Source status: UniProtKB unreviewed (TrEMBL).",
+  "reported_function_summary": "Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM (coenzyme M) and H-S-CoB (coenzyme B); Belongs to the HdrA family.",
+  "go_annotation_summary": [
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high from upimapi, low from deepfri)",
+    "GO:0046872 - metal ion binding (high from upimapi, uniprot)",
+    "GO:0016491 - oxidoreductase activity (high from upimapi, deepgo2, uniprot)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.8.-.- (high from upimapi), EC 1.8.7.3 (high from eggnog), EC 1.8.98.4 (high from eggnog), EC 1.8.98.5 (high from eggnog, clean), EC 1.8.98.6 (high from eggnog, clean), EC 1.2.7.8 (medium from recognizer), EC 1.12.-.- (medium from recognizer), EC 1.14.99.- (low from recognizer)"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG1148 - Heterodisulfide reductase, subunit A (polyferredoxin) (high from recognizer)",
+    "PF12831 - FAD dependent oxidoreductase (high from upimapi), PF00037 - 4Fe-4S binding domain (high from upimapi), PF13187 - 4Fe-4S dicluster domain (high from upimapi)"
+  ],
+  "pathway_and_context_summary": [
+    "Cofactor metabolism; coenzyme M-coenzyme B heterodisulfide reduction; coenzyme B and coenzyme M from coenzyme M-coenzyme B heterodisulfide: step 1/1"
+  ],
+  "tool_prediction_summary": [
+    "upimapi - predicted iron-sulfur binding, oxidoreductase activity (high confidence), deepgo2 - predicted oxidoreductase activity (high confidence), deepfri - predicted iron-sulfur binding (high confidence)"
+  ],
+  "strong_or_curated_information": [
+    "Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM (coenzyme M) and H-S-CoB (coenzyme B); Belongs to the HdrA family."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Predicted iron-sulfur binding, oxidoreductase activity"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "EC numbers: EC 1.8.-.- (high from upimapi), EC 1.2.7.8 (medium from recognizer) - conflicting with curated function",
+    "Pathway information: Cofactor metabolism; coenzyme M-coenzyme B heterodisulfide reduction; coenzyme B and coenzyme M from coenzyme M-coenzyme B heterodisulfide: step 1/1"
+  ],
+  "review_notes": [
+    "Verify EC 1.8.-.- against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF12831 covers the full sequence or only a partial region."
+  ]
+}

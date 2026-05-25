@@ -1,0 +1,46 @@
+{
+  "protein_id": "J0HCT8",
+  "protein_name": "Peptidase U49",
+  "organism": "Rhizobium leguminosarum bv. trifolii WSM597",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized peptidase from Rhizobium leguminosarum bv. trifolii WSM597 with predicted Zn-dependent peptidase ImmA, M78 family domain by recognizer.",
+  "identity_summary": "Peptidase U49 (J0HCT8) is a protein of length 490 amino acids from Rhizobium leguminosarum bv. trifolii WSM597.",
+  "reported_function_summary": "No curated function reported in the record.",
+  "go_annotation_summary": [
+    "GO:0003824 - catalytic activity (high from deepgo2)",
+    "GO:0016787 - hydrolase activity (medium from deepgo2)",
+    "GO:0016740 - transferase activity (medium from deepgo2)",
+    "GO:0005488 - ATP binding (low from deepfri)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 3.4.24.- (low from recognizer)"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG2856 - Zn-dependent peptidase ImmA, M78 family (low from recognizer)",
+    "PF10463 - Peptidase U49 (representative model with score 3.6e-07)"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG KO K01486"
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2: GO:0003824, GO:0016787, GO:0016740 (high, medium, medium)",
+    "DeepFRI: GO:0005488, GO:0071704, GO:0044237 (low, high, high)"
+  ],
+  "strong_or_curated_information": [
+    "No curated function reported in the record."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "EC 3.4.24.- (low from recognizer)",
+    "COG2856 - Zn-dependent peptidase ImmA, M78 family (low from recognizer)"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "No curated function reported in the record.",
+    "Limited information available for this protein."
+  ],
+  "review_notes": [
+    "Verify EC 3.4.24.- against literature: PubMed PMID listed in record.",
+    "Check whether Pfam PF10463 covers the full sequence or only a partial region.",
+    "Confirm whether GO:0003824 high-confidence prediction by DeepGO2 matches the curated function."
+  ]
+}
