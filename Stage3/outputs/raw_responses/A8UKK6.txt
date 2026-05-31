@@ -1,0 +1,54 @@
+{
+  "protein_id": "A8UKK6",
+  "protein_name": "methylmalonyl-CoA mutase (EC 5.4.99.2)",
+  "organism": "Uncharacterized protein from organism X",
+  "source_status": "unreviewed",
+  "overall_profile_summary": "Uncharacterized protein with predicted methylmalonyl-CoA mutase activity and cobalamin-binding domains.",
+  "identity_summary": "Protein name: methylmalonyl-CoA mutase (EC 5.4.99.2), Gene name inferred by homology from tools — not directly from UniProt for this protein",
+  "reported_function_summary": "No curated function reported in the record.",
+  "go_annotation_summary": [
+    "GO:0031419 - cobalamin binding (high confidence from upimapi, eggnog)",
+    "GO:0046872 - metal ion binding (high confidence from upimapi, eggnog)",
+    "GO:0004494 - methylmalonyl-CoA mutase activity (high confidence from upimapi, eggnog, deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 5.4.99.2 - Methylmalonyl-CoA mutase"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG1884 - Methylmalonyl-CoA mutase, N-terminal domain/subunit (high confidence from recognizer)",
+    "COG2185 - Methylmalonyl-CoA mutase, C-terminal domain/subunit (cobalamin-binding) (high confidence from recognizer)",
+    "PF02310 - cobalamin-dependent protein (medium confidence from recognizer)"
+  ],
+  "pathway_and_context_summary": [
+    "Ko:K01847",
+    "ko00280",
+    "ko00630",
+    "ko00640",
+    "ko00720",
+    "ko01100",
+    "ko01120",
+    "ko01200"
+  ],
+  "tool_prediction_summary": [
+    "upimapi - high confidence predictions for GO:0031419, GO:0046872, and GO:0004494",
+    "eggnog - high confidence predictions for GO:0031419, GO:0046872, and GO:0004494",
+    "deepgo2 - low confidence predictions for various GO terms"
+  ],
+  "strong_or_curated_information": [
+    "EC 5.4.99.2 - Methylmalonyl-CoA mutase (curated in the record)",
+    "GO:0031419 - cobalamin binding (curated in the record)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Predicted methylmalonyl-CoA mutase activity and cobalamin-binding domains"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "Organism taxonomy data is missing or limited",
+    "No literature references provided in the record"
+  ],
+  "review_notes": [
+    "Verify EC number 5.4.99.2 against literature references",
+    "Check if Pfam PF02310 covers the full sequence or only a partial region",
+    "Confirm whether high-confidence ML predictions match curated function reported in the record"
+  ]
+}

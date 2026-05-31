@@ -1,0 +1,14 @@
+# Generated outputs from alternative runs (e.g. outputs_test/, outputs_llama3_3/)
+outputs_*/raw_responses/
+outputs_*/prompts/
+outputs_*/stage3_results.jsonl
+outputs_*/stage3_results.current.json
+outputs_*/review_sheet.csv
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/

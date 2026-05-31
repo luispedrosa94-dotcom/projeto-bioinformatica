@@ -1,0 +1,47 @@
+{
+  "protein_id": "Q2RI41",
+  "protein_name": "Oxalate oxidoreductase subunit alpha",
+  "organism": "Moorella thermoacetica (strain ATCC 39073 / JCM 9320)",
+  "source_status": "reviewed",
+  "overall_profile_summary": "Uncharacterized protein from Moorella thermoacetica with reported function as oxalate oxidoreductase subunit alpha, predicted to have oxidoreductase activity and be involved in response to oxidative stress.",
+  "identity_summary": "Protein name: Oxalate oxidoreductase subunit alpha; Gene name: porA (inferred by homology); UniProtKB reviewed entry with high annotation score.",
+  "reported_function_summary": "Catalyzes the anaerobic oxidation of oxalate using a broad range of electron acceptors, including ferredoxin and the nickel-dependent carbon monoxide dehydrogenase. Enables anaerobic growth on oxalate which is used as energy source by the bacteria.",
+  "go_annotation_summary": [
+    "GO:0016491 - oxidoreductase activity (high confidence from eggnog and deepgo2)",
+    "GO:0016625 - oxidoreductase activity, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor (high confidence from eggnog, deepgo2, and UniProtKB)",
+    "GO:0005488 - binding transcription factor activity (medium confidence from deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:1.2.7.10 - oxalate oxidoreductase (high confidence from eggnog, clean, and UniProtKB)"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG0674 - Pyruvate:ferredoxin oxidoreductase or related 2-oxoacid:ferredoxin oxidoreductase, alpha subunit (high confidence from recognizer)",
+    "PF17147 - Pyruvate:ferredoxin oxidoreductase core domain II (medium confidence from recognizer)"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG pathway: ko00010, ko00020, ko00620, ko00633, ko00640, ko00650, ko00680, ko00720, ko01100, ko01120, ko01130, ko01200 (no confidence level specified)"
+  ],
+  "tool_prediction_summary": [
+    "GO:0016491 - oxidoreductase activity (high confidence from eggnog and deepgo2)",
+    "GO:0016625 - oxidoreductase activity, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor (high confidence from eggnog, deepgo2, and UniProtKB)"
+  ],
+  "strong_or_curated_information": [
+    "Catalyzes the anaerobic oxidation of oxalate using a broad range of electron acceptors, including ferredoxin and the nickel-dependent carbon monoxide dehydrogenase. Enables anaerobic growth on oxalate which is used as energy source by the bacteria.",
+    "GO:0016491 - oxidoreductase activity (high confidence from eggnog and deepgo2)",
+    "GO:0016625 - oxidoreductase activity, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor (high confidence from eggnog, deepgo2, and UniProtKB)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "GO:0005488 - binding transcription factor activity (medium confidence from deepgo2)",
+    "KEGG pathway: ko00010, ko00020, ko00620, ko00633, ko00640, ko00650, ko00680, ko00720, ko01100, ko01120, ko01130, ko01200 (no confidence level specified)"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "EC:1.2.7.10 - oxalate oxidoreductase (high confidence from eggnog, clean, and UniProtKB) has no literature references listed in the input",
+    "KEGG pathway: ko00010, ko00020, ko00620, ko00633, ko00640, ko00650, ko00680, ko00720, ko01100, ko01120, ko01130, ko01200 (no confidence level specified) has no literature references listed in the input"
+  ],
+  "review_notes": [
+    "Suggest verifying EC:1.2.7.10 against literature references",
+    "Check if Pfam PF17147 covers the full sequence or only a partial region",
+    "Confirm whether high-confidence ML prediction matches curated function reported in the record"
+  ]
+}

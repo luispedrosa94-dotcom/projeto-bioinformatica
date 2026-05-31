@@ -1,0 +1,43 @@
+{
+  "protein_id": "H2EIF6",
+  "protein_name": "Homocysteine s-methyltransferase",
+  "organism": "Malus domestica (Apple)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Malus domestica with reported homocysteine S-methyltransferase activity and zinc ion binding.",
+  "identity_summary": "Protein name: Homocysteine s-methyltransferase; Protein ID: H2EIF6; Organism: Malus domestica (Apple); Source status: UniProtKB unreviewed (TrEMBL)",
+  "reported_function_summary": "Homocysteine S-methyltransferase activity, zinc ion binding",
+  "go_annotation_summary": [
+    "GO:0008898 - S-adenosylmethionine-homocysteine S-methyltransferase activity (high confidence from upimapi)",
+    "GO:0008270 - zinc ion binding (high confidence from upimapi)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:2.1.1.10 - Homocysteine S-methyltransferase"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG2040 - Homocysteine/selenocysteine methylase (S-methylmethionine-dependent)",
+    "KOG1579 - Homocysteine S-methyltransferase",
+    "PF02574 - Homocysteine S-methyltransferase family protein"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG pathway: ko00270, ko01100, ko01110; KEGG module: none"
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predictions: GO:0008168 - methyltransferase activity (high confidence), GO:0008270 - zinc ion binding (high confidence)"
+  ],
+  "strong_or_curated_information": [
+    "Curated function: Homocysteine S-methyltransferase activity",
+    "Curated evidence code: IEA"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "DeepGO2 predictions: GO:0008168 - methyltransferase activity (medium confidence), GO:0008270 - zinc ion binding (high confidence)"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "No subcellular location information available"
+  ],
+  "review_notes": [
+    "Verify the accuracy of EC number 2.1.1.10 against literature references.",
+    "Check if Pfam domain PF02574 covers the full sequence or only a partial region.",
+    "Confirm whether high-confidence ML predictions match the curated function reported in the record."
+  ]
+}

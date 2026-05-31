@@ -1,0 +1,48 @@
+{
+  "protein_id": "Q01Q37",
+  "protein_name": "Uncharacterized protein",
+  "organism": "Solibacter usitatus (strain Ellin6076)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Solibacter usitatus with predicted domains by eggnog and tool predictions for various GO terms.",
+  "identity_summary": "Protein name: Uncharacterized protein; Gene name: null; Alternative names: []; Organism: Solibacter usitatus (strain Ellin6076); UniProt ID: UPI0000E57DEA",
+  "reported_function_summary": "No curated function reported in the record.",
+  "go_annotation_summary": [
+    "GO:0005488 - hydrolase activity, acting on glycosyl bonds (medium confidence from deepgo2)",
+    "GO:0005515 - protein binding (medium confidence from deepgo2)",
+    "GO:0042802 - identical protein binding (medium confidence from deepgo2)",
+    "GO:0003824 - catalytic activity (low confidence from deepgo2)",
+    "GO:0016787 - molecular function unknown (low confidence from deepgo2)",
+    "GO:0030246 - molecular function unknown (low confidence from deepgo2)",
+    "GO:0016798 - hydrolase activity, acting on glycosyl bonds (low confidence from deepfri)",
+    "GO:0008233 - peptidase activity (low confidence from deepfri)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC: 3.2.2.22 - glycosyl hydrolase (low confidence from clean)"
+  ],
+  "domain_family_and_feature_summary": [
+    "PFAM: Big_3_5, VCBS (high confidence from eggnog)",
+    "Signal: Signal (EXACT position start: 1, EXACT position end: 23) (evidenced by SAM: SignalP)"
+  ],
+  "pathway_and_context_summary": [],
+  "tool_prediction_summary": [
+    "DeepGO2 predictions for various GO terms with medium to low confidence",
+    "DeepFRI predictions for hydrolase activity and peptidase activity with low confidence"
+  ],
+  "strong_or_curated_information": [
+    "No curated function reported in the record."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Predicted domains by eggnog",
+    "Tool predictions for various GO terms with medium to low confidence"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "No curated function reported in the record.",
+    "Limited information on protein function and pathways."
+  ],
+  "review_notes": [
+    "Verify EC number 3.2.2.22 against literature references (CI-9MICB7K26JNDR).",
+    "Check if Pfam domains cover full sequence or only partial regions.",
+    "Confirm if high-confidence ML predictions match curated function reported in the record."
+  ]
+}

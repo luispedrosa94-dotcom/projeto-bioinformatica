@@ -1,0 +1,56 @@
+{
+  "protein_id": "H1XYF8",
+  "protein_name": "Por secretion system C-terminal sorting domain-containing protein",
+  "organism": "Caldithrix abyssi DSM 13497",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Caldithrix abyssi with predicted hydrolase and helicase activities, and secretion system C-terminal sorting domain.",
+  "identity_summary": "Protein name: Por secretion system C-terminal sorting domain-containing protein; Gene names: Cabys_2571, Calab_3627",
+  "reported_function_summary": "No curated function reported in the record.",
+  "go_annotation_summary": [
+    "GO:0004386 - helicase activity (high confidence from upimapi and uniprot)",
+    "GO:0003824 - hydrolase activity (high confidence from eggnog and deepgo2)",
+    "GO:0016787 - purine ribonucleotide binding (high confidence from eggnog)",
+    "GO:0016788 - purine nucleotide binding (high confidence from eggnog)",
+    "GO:0005488 - ATP binding (medium confidence from deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:1.15.1.1 - catalase activity (high confidence from eggnog)",
+    "EC:2.7.11.1 - protein kinase activity (high confidence from eggnog and recognizer)",
+    "EC:3.1.1.17 - phosphatidylserine phospholipase C activity (high confidence from eggnog)",
+    "EC:3.1.1.2 - phosphatidylcholine phospholipase C activity (high confidence from eggnog)",
+    "EC:3.1.3.8 - phosphatidylinositol 4,5-bisphosphate phosphodiesterase activity (high confidence from eggnog)"
+  ],
+  "domain_family_and_feature_summary": [
+    "PF18942 - secretion system C-terminal sorting domain (high confidence from upimapi)",
+    "PF18962 - secretion system C-terminal sorting domain (high confidence from upimapi and recognizer)",
+    "SGL - secretion system C-terminal sorting domain (high confidence from eggnog)"
+  ],
+  "pathway_and_context_summary": [
+    "ko:K01045, ko:K01053, ko:K01083, ko:K01179, ko:K01757, ko:K02057, ko:K04565, ko:K08884, ko:K13735 - various metabolic pathways (KEGG)",
+    "map00030, map00053, map00500, map00562, map00901, map00930, map01100, map01110, map01120, map01130, map01200, map01220, map04146, map04213, map05014, map05016, map05020, map05100 - various metabolic pathways (KEGG)"
+  ],
+  "tool_prediction_summary": [
+    "GO:0097367 - carbohydrate derivative binding (medium confidence from deepfri)",
+    "GO:0032553 - ribonucleotide binding (medium confidence from deepfri)",
+    "GO:0032555 - purine ribonucleotide binding (medium confidence from deepfri)",
+    "GO:0035639 - purine ribonucleoside triphosphate binding (medium confidence from deepfri)"
+  ],
+  "strong_or_curated_information": [
+    "GO:0004386 - helicase activity (curated in the record)",
+    "EC:1.15.1.1 - catalase activity (high confidence from eggnog)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "GO:0097159 - purine nucleotide binding (low confidence from deepfri)",
+    "GO:0030554 - adenyl nucleotide binding (low confidence from deepfri)"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "Curated function not reported in the record.",
+    "EC numbers for hydrolase and helicase activities are predicted but not confirmed."
+  ],
+  "review_notes": [
+    "Verify EC number 1.15.1.1 against literature references.",
+    "Check whether Pfam PF18942 covers the full sequence or only a partial region.",
+    "Confirm whether high-confidence ML prediction matches curated function reported in the record."
+  ]
+}

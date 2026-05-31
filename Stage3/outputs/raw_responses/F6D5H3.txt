@@ -1,0 +1,53 @@
+{
+  "protein_id": "F6D5H3",
+  "protein_name": "CoB--CoM heterodisulfide reductase iron-sulfur subunit A",
+  "organism": "Methanobacterium paludis (strain DSM 25820 / JCM 18151 / SWAN1)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Methanobacterium paludis with predicted iron-sulfur binding and oxidoreductase activity.",
+  "identity_summary": "The protein is a heterodisulfide reductase iron-sulfur subunit A, with no curated function but reported to be part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to H-S-CoM and H-S-CoB.",
+  "reported_function_summary": "Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM (coenzyme M) and H-S-CoB (coenzyme B).",
+  "go_annotation_summary": [
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)",
+    "GO:0046872 - metal ion binding (high confidence from upimapi)",
+    "GO:0016491 - oxidoreductase activity (high confidence from deepgo2 and uniprot)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:1.8.-.- (high confidence from upimapi)",
+    "EC:1.8.7.3 (high confidence from eggnog)",
+    "EC:1.8.98.4 (high confidence from eggnog)",
+    "EC:1.8.98.5 (high confidence from eggnog and clean)"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG1148 - Heterodisulfide reductase, subunit A (polyferredoxin) (high confidence from recognizer)",
+    "PF12831 - FAD dependent oxidoreductase (high confidence from upimapi)",
+    "PF00037 - 4Fe-4S binding domain (high confidence from upimapi)"
+  ],
+  "pathway_and_context_summary": [
+    "Cofactor metabolism; coenzyme M-coenzyme B heterodisulfide reduction; coenzyme B and coenzyme M from coenzyme M-coenzyme B heterodisulfide: step 1/1"
+  ],
+  "tool_prediction_summary": [
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)",
+    "GO:0046872 - metal ion binding (high confidence from upimapi)",
+    "GO:0016491 - oxidoreductase activity (high confidence from deepgo2 and uniprot)"
+  ],
+  "strong_or_curated_information": [
+    "Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM (coenzyme M) and H-S-CoB (coenzyme B).",
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)",
+    "GO:0046872 - metal ion binding (high confidence from upimapi)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "EC:1.8.-.- (high confidence from upimapi)",
+    "EC:1.8.7.3 (high confidence from eggnog)",
+    "EC:1.8.98.4 (high confidence from eggnog)"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "Curated function is not available for this protein.",
+    "No literature references are provided for the predicted functions."
+  ],
+  "review_notes": [
+    "Verify EC number 1.8.-.- against literature references.",
+    "Check if Pfam PF12831 covers the full sequence or only a partial region.",
+    "Confirm whether high-confidence ML predictions match the curated function reported in the record."
+  ]
+}

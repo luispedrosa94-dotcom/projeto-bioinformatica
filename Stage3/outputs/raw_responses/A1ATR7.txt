@@ -1,0 +1,46 @@
+{
+  "protein_id": "A1ATR7",
+  "protein_name": "Uncharacterized protein",
+  "organism": "Pelobacter propionicus (strain DSM 2379 / NBRC 103807 / OttBd1)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Pelobacter propionicus with predicted molecular functions and cellular components by DeepGO2, but no curated function.",
+  "identity_summary": "Protein name: Uncharacterized protein; Alternative names: []; Gene name: null; Gene name inferred: null; Gene name synonyms: []; Gene name synonym details: []; Reviewed status: unreviewed; Entry type: UniProtKB unreviewed (TrEMBL); Annotation score: 1.0; Protein existence: Predicted.",
+  "reported_function_summary": "No curated function reported in the record.",
+  "go_annotation_summary": [
+    "GO:0003824 - catalytic activity (high confidence from DeepGO2)",
+    "GO:0005488 - binding (medium confidence from DeepGO2)",
+    "GO:0016829 - electron transfer activity (low confidence from DeepGO2)",
+    "GO:0043167 - transition metal ion binding (low confidence from DeepGO2)",
+    "GO:0046872 - metal ion binding (low confidence from DeepGO2)",
+    "GO:0016491 - oxidoreductase activity (low confidence from DeepGO2)",
+    "GO:0046914 - transition metal ion binding (low confidence from DeepFRI)",
+    "GO:0009055 - electron transfer activity (low confidence from DeepFRI)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:1.3.7.15 - NADH dehydrogenase (low confidence from CLEAN)"
+  ],
+  "domain_family_and_feature_summary": [],
+  "pathway_and_context_summary": [],
+  "tool_prediction_summary": [
+    "DeepGO2 predicted molecular functions and cellular components with high, medium, and low confidence.",
+    "DeepFRI predicted transition metal ion binding and electron transfer activity with low confidence."
+  ],
+  "strong_or_curated_information": [
+    "No curated function reported in the record."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Predicted molecular functions and cellular components by DeepGO2.",
+    "Predicted transition metal ion binding and electron transfer activity by DeepFRI."
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "No gene name or synonyms reported in the record.",
+    "No subcellular location, catalytic activity, pathway, or similarity information reported in the record."
+  ],
+  "review_notes": [
+    "Verify EC:1.3.7.15 against literature references (CI-4AF5IFHSPBG3R).",
+    "Check if Pfam domains cover full sequence or only partial regions.",
+    "Confirm high-confidence ML predictions match curated function (none reported).",
+    "Investigate why two tools report different confidence levels for the same GO term."
+  ]
+}

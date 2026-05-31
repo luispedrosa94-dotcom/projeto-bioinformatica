@@ -96,6 +96,7 @@ def main() -> None:
         log.info("Scope: %d accessions (mode=%s)", len(scope), cfg.scope_mode)
 
     cfg.output_root.mkdir(parents=True, exist_ok=True)
+    (cfg.output_root / "01_normalization").mkdir(exist_ok=True)
 
     # Run each enabled parser
     all_records: list = []
@@ -129,7 +130,7 @@ def main() -> None:
     # raw_extras stays as native dict — JSON serializes it as a nested object,
     # which is more readable than a stringified JSON inside a string field.
 
-    annotations_path = cfg.output_root / "annotations.json"
+    annotations_path = cfg.output_root / "01_normalization/annotations.json"
     annotations_df.to_json(
         annotations_path,
         orient="records",
@@ -160,7 +161,7 @@ def main() -> None:
         )
 
     proteins_df = pd.DataFrame([p.model_dump() for p in proteins.values()])
-    proteins_path = cfg.output_root / "proteins.json"
+    proteins_path = cfg.output_root / "01_normalization/proteins.json"
     proteins_df.to_json(
         proteins_path,
         orient="records",

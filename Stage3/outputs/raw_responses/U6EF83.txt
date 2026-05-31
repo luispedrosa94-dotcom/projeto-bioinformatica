@@ -1,0 +1,52 @@
+{
+  "protein_id": "U6EF83",
+  "protein_name": "SPFH domain/Band 7 family protein (Slipin family protein)",
+  "organism": "null",
+  "source_status": "unreviewed",
+  "overall_profile_summary": "Uncharacterized protein from organism X with no curated function but predicted Y domains by Z tools.",
+  "identity_summary": "No gene name, no reviewed status, entry type: Inactive, annotation score: 0.0",
+  "reported_function_summary": "None reported in the record",
+  "go_annotation_summary": [
+    "GO:0005488 - binding (confidence: high from deepgo2)",
+    "GO:0005515 - protein binding (confidence: high from deepgo2)",
+    "GO:0042802 - identical protein binding (confidence: medium from deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:3.4.-.- (confidence: high from recognizer)",
+    "EC:2.7.7.6 (confidence: low from clean)",
+    "EC:2.7.13.3 (confidence: low from clean)",
+    "EC:2.4.1.198 (confidence: low from clean)"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG0330 - Regulator of protease activity HflC, stomatin/prohibitin superfamily (confidence: high from recognizer)",
+    "KOG2621 - Prohibitins and stomatins of the PID superfamily (confidence: high from recognizer)",
+    "PF01145 - SPFH domain / Band 7 family (Provisional) (confidence: high from upimapi)"
+  ],
+  "pathway_and_context_summary": [
+    "K01423,K04088 (KEGG KO)"
+  ],
+  "tool_prediction_summary": [
+    "GO:0005488 - binding (confidence: high from deepgo2)",
+    "GO:0005515 - protein binding (confidence: high from deepgo2)",
+    "GO:0042802 - identical protein binding (confidence: medium from deepgo2)"
+  ],
+  "strong_or_curated_information": [
+    "EC:3.4.-.- (confidence: high from recognizer)",
+    "COG0330 - Regulator of protease activity HflC, stomatin/prohibitin superfamily (confidence: high from recognizer)",
+    "KOG2621 - Prohibitins and stomatins of the PID superfamily (confidence: high from recognizer)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "EC:2.7.7.6 (confidence: low from clean)",
+    "EC:2.7.13.3 (confidence: low from clean)",
+    "EC:2.4.1.198 (confidence: low from clean)"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "Organism not specified",
+    "No gene name, no reviewed status"
+  ],
+  "review_notes": [
+    "Verify EC number 3.4.-.- against literature references.",
+    "Check if Pfam PF01145 covers the full sequence or only a partial region."
+  ]
+}

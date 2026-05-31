@@ -1,0 +1,49 @@
+{
+  "protein_id": "P06131",
+  "protein_name": "F420-dependent formate dehydrogenase subunit alpha",
+  "organism": "Methanobacterium formicicum",
+  "source_status": "UniProtKB reviewed (Swiss-Prot)",
+  "overall_profile_summary": "Uncharacterized protein from Methanobacterium formicicum with reported function as F420-dependent formate dehydrogenase subunit alpha.",
+  "identity_summary": "The protein is a subunit of the F420-dependent formate dehydrogenase enzyme, which catalyzes the oxidation of formate to carbon dioxide using coenzyme F420 as the electron acceptor. The protein has been identified in Methanobacterium formicicum and has a molecular weight of 75717.",
+  "reported_function_summary": "The reported function is F420-dependent formate dehydrogenase subunit alpha, which catalyzes the oxidation of formate to carbon dioxide using coenzyme F420 as the electron acceptor. The protein has been identified in Methanobacterium formicicum and has a molecular weight of 75717.",
+  "go_annotation_summary": [
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)",
+    "GO:0008863 - formate dehydrogenase (NAD+) activity (high confidence from uniprot)",
+    "GO:0046872 - metal ion binding (high confidence from upimapi)",
+    "GO:0043546 - molybdopterin cofactor binding (high confidence from uniprot)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:1.17.98.3 - formate dehydrogenase (coenzyme F420) activity"
+  ],
+  "domain_family_and_feature_summary": [
+    "PF04879 - Molybdop_Fe4S4",
+    "PF00384 - Molybdopterin",
+    "PF01568 - Molydop_binding",
+    "TIGR01591 - formate dehydrogenase subunit alpha"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG pathway: ko00630, ko00680, ko01100, ko01120, ko01200"
+  ],
+  "tool_prediction_summary": [
+    "GO:0016491 - oxidoreductase activity (high confidence from deepgo2)",
+    "GO:0003824 - catalytic activity (high confidence from deepgo2)"
+  ],
+  "strong_or_curated_information": [
+    "The protein is a subunit of the F420-dependent formate dehydrogenase enzyme, which catalyzes the oxidation of formate to carbon dioxide using coenzyme F420 as the electron acceptor.",
+    "The protein has been identified in Methanobacterium formicicum and has a molecular weight of 75717."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "GO:0043167 - transition metal ion binding (low confidence from deepgo2)",
+    "GO:0016053 - electron transport chain (low confidence from deepgo2)"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "The protein's subcellular location is not specified.",
+    "The protein's catalytic activity is not fully described."
+  ],
+  "review_notes": [
+    "Verify the EC number reported in the input against the literature references also listed in the input.",
+    "Check whether the Pfam (or other domain) reported in the input covers the full sequence or only a partial region.",
+    "Confirm whether high-confidence ML predictions match the curated function reported in the input."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "protein_id": "J0HCT8",
+  "protein_name": "Peptidase U49",
+  "organism": "Rhizobium leguminosarum bv. trifolii WSM597",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized peptidase from Rhizobium leguminosarum bv. trifolii WSM597 with predicted Zn-dependent peptidase ImmA, M78 family domain by recognizer tool.",
+  "identity_summary": "Peptidase U49 (J0HCT8) is a protein of length 490 amino acids from Rhizobium leguminosarum bv. trifolii WSM597 with no curated function but predicted Zn-dependent peptidase ImmA, M78 family domain by recognizer tool.",
+  "reported_function_summary": "No curated function reported in the record.",
+  "go_annotation_summary": [
+    "GO:0003824 - catalytic activity (high confidence from deepgo2)",
+    "GO:0016787 - hydrolase activity (medium confidence from deepgo2)",
+    "GO:0016740 - transferase activity (medium confidence from deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:2.7.7.n6 - predicted by clean tool with low confidence",
+    "EC:3.4.24.- - predicted by recognizer tool with low confidence"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG2856 - Zn-dependent peptidase ImmA, M78 family (low confidence from recognizer)"
+  ],
+  "pathway_and_context_summary": [
+    "K01486 - predicted pathway in KEGG database"
+  ],
+  "tool_prediction_summary": [
+    "deepgo2: GO:0003824 - catalytic activity (high confidence), GO:0016787 - hydrolase activity (medium confidence), GO:0016740 - transferase activity (medium confidence)",
+    "deepfri: GO:0071704 - purine nucleotide binding (low confidence), GO:0032553 - ribonucleotide binding (low confidence), GO:0032555 - purine ribonucleotide binding (low confidence)"
+  ],
+  "strong_or_curated_information": [
+    "Peptidase U49 is a protein from Rhizobium leguminosarum bv. trifolii WSM597 with no curated function reported in the record."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Predicted Zn-dependent peptidase ImmA, M78 family domain by recognizer tool.",
+    "Predicted pathway K01486 in KEGG database"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "No curated function reported in the record."
+  ],
+  "review_notes": [
+    "Suggest verifying EC number 2.7.7.n6 against literature references.",
+    "Check if Pfam domain PF10463 covers full sequence or only a partial region.",
+    "Confirm whether high-confidence ML prediction matches curated function (none available).",
+    "Investigate why two tools report different confidence levels for the same GO term."
+  ]
+}

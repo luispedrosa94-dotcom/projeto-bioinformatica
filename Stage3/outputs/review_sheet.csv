@@ -1,0 +1,352 @@
+accession,group,status,input_protein_name,input_reviewed_status,summary_protein_name,summary_organism,source_status,overall_profile_summary,identity_summary,reported_function_summary,go_annotation_summary,enzyme_and_reaction_summary,domain_family_and_feature_summary,pathway_and_context_summary,tool_prediction_summary,strong_or_curated_information,weak_predicted_or_indirect_information,conflicting_or_inconsistent_information,missing_or_limited_information,review_notes,validation_warnings,completeness_0_3,faithfulness_0_3,clarity_0_3,evidence_separation_0_3,caution_0_3,reviewer_missing_information,reviewer_overclaims_or_errors,reviewer_notes
+Q46505,Reviewed UniProt proteins,success,NADP-reducing hydrogenase subunit HndA,reviewed,NADP-reducing hydrogenase subunit HndA,Solidesulfovibrio fructosivorans (Desulfovibrio fructosivorans),UniProtKB reviewed (Swiss-Prot),Uncharacterized protein from Solidesulfovibrio fructosivorans with reported NADP-reducing hydrogenase activity and predicted iron-sulfur cluster binding.,Protein name: NADP-reducing hydrogenase subunit HndA; Gene name: hndA; Organism: Solidesulfovibrio fructosivorans (Desulfovibrio fructosivorans); UniProt ID: UPI00000B40FE,Catalyzes the reduction of NADP in the presence of molecular H(2) to yield NADPH.,"GO:0051537 - 2 iron, 2 sulfur cluster binding (high confidence from upimapi)
+GO:0046872 - metal ion binding (high confidence from upimapi)
+GO:0016491 - oxidoreductase activity (high confidence from deepgo2)
+GO:0050583 - hydrogen dehydrogenase (NADP+) activity (high confidence from uniprot and deepgo2)","EC: 1.12.1.3 - NADPH:proton oxidoreductase
+Reaction: H2 + NADP(+) = NADPH + H(+)","PF01257 - Thioredoxin-like [2Fe-2S] ferredoxin (high confidence from upimapi)
+[2Fe-2S] cluster binding site at position 98
+Chain: NADP-reducing hydrogenase subunit HndA (1-171)","KEGG KO: K18330 - NADH dehydrogenase (ubiquinone)
+KEGG Pathways: none
+KEGG Modules: none","DeepGO2 predictions: GO:0051537, GO:0046872, GO:0016491, GO:0050583
+DeepFRI predictions: GO:0051536, GO:0051540, GO:0005488, GO:0016696","Curated function: Catalyzes the reduction of NADP in the presence of molecular H(2) to yield NADPH.
+EC number: 1.12.1.3
+GO term: GO:0051537 - 2 iron, 2 sulfur cluster binding","DeepGO2 predictions: GO:0016491 (high confidence), GO:0050583 (high confidence)
+DeepFRI predictions: GO:0051536 (medium confidence), GO:0051540 (medium confidence)",,"No information on subcellular location or catalytic activity
+Limited information on pathways and context","Verify the EC number 1.12.1.3 against literature references.
+Check whether the Pfam domain PF01257 covers the full sequence or only a partial region.
+Confirm whether high-confidence ML predictions match the curated function reported in the record.",,,,,,,,,
+Q2LXU2,Reviewed UniProt proteins,success,6-oxocyclohex-1-ene-1-carbonyl-CoA hydrolase,reviewed,6-oxocyclohex-1-ene-1-carbonyl-CoA hydrolase,Syntrophus aciditrophicus (strain SB),UniProtKB reviewed (Swiss-Prot),Uncharacterized protein from Syntrophus aciditrophicus with reported function in central benzoyl-CoA catabolism and predicted hydrolase activity.,Protein name: 6-oxocyclohex-1-ene-1-carbonyl-CoA hydrolase; Gene name: bamA; Synonyms: SYN_01654,"Involved in central benzoyl-CoA catabolism. Catalyzes the addition of one molecule of water to the double bond and the hydrolytic cleavage of C-C bond in the alicyclic ring, 6-oxocyclohex-1-ene-1-carbonyl-CoA (6-OCH-CoA) to yield 3-hydroxypimelyl-CoA.","GO:0018807 - 6-hydroxycyclohex-1-ene-1-carboxyl-CoA hydratase activity (high confidence from upimapi and uniprot)
+GO:0016823 - hydrolase activity, acting on acid carbon-carbon bonds, in ketonic substances (high confidence from upimapi, eggnog, deepgo2, and uniprot)",EC: 3.7.1.21 - 6-oxocyclohex-1-ene-1-carbonyl-CoA + 2 H2O = 3-hydroxy-6-carboxyhexanoyl-CoA + H(+),"PF00378 - Enoyl-CoA hydratase/isomerase (high confidence from upimapi)
+ECH_1 - Enoyl-CoA hydratase (high confidence from eggnog)
+COG1024 - Enoyl-CoA hydratase/carnithine racemase (medium confidence from recognizer)",Aromatic compound metabolism; benzoyl-CoA degradation,"DeepGO2: GO:0016823 - hydrolase activity, acting on acid carbon-carbon bonds, in ketonic substances (medium confidence)
+DeepGO2: GO:0018807 - 6-hydroxycyclohex-1-ene-1-carboxyl-CoA hydratase activity (high confidence)","Curated function: Involved in central benzoyl-CoA catabolism. Catalyzes the addition of one molecule of water to the double bond and the hydrolytic cleavage of C-C bond in the alicyclic ring, 6-oxocyclohex-1-ene-1-carbonyl-CoA (6-OCH-CoA) to yield 3-hydroxypimelyl-CoA.",Predicted hydrolase activity by DeepGO2,,Limited information on subcellular location and catalytic activity,"Verify the EC number reported in the input against literature references
+Check whether Pfam PF00378 covers the full sequence or only a partial region
+Confirm whether high-confidence ML predictions match the curated function reported in the input",,,,,,,,,
+Q2RI41,Reviewed UniProt proteins,success,Oxalate oxidoreductase subunit alpha,reviewed,Oxalate oxidoreductase subunit alpha,Moorella thermoacetica (strain ATCC 39073 / JCM 9320),reviewed,"Uncharacterized protein from Moorella thermoacetica with reported function as oxalate oxidoreductase subunit alpha, predicted to have oxidoreductase activity and be involved in response to oxidative stress.",Protein name: Oxalate oxidoreductase subunit alpha; Gene name: porA (inferred by homology); UniProtKB reviewed entry with high annotation score.,"Catalyzes the anaerobic oxidation of oxalate using a broad range of electron acceptors, including ferredoxin and the nickel-dependent carbon monoxide dehydrogenase. Enables anaerobic growth on oxalate which is used as energy source by the bacteria.","GO:0016491 - oxidoreductase activity (high confidence from eggnog and deepgo2)
+GO:0016625 - oxidoreductase activity, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor (high confidence from eggnog, deepgo2, and UniProtKB)
+GO:0005488 - binding transcription factor activity (medium confidence from deepgo2)","EC:1.2.7.10 - oxalate oxidoreductase (high confidence from eggnog, clean, and UniProtKB)","COG0674 - Pyruvate:ferredoxin oxidoreductase or related 2-oxoacid:ferredoxin oxidoreductase, alpha subunit (high confidence from recognizer)
+PF17147 - Pyruvate:ferredoxin oxidoreductase core domain II (medium confidence from recognizer)","KEGG pathway: ko00010, ko00020, ko00620, ko00633, ko00640, ko00650, ko00680, ko00720, ko01100, ko01120, ko01130, ko01200 (no confidence level specified)","GO:0016491 - oxidoreductase activity (high confidence from eggnog and deepgo2)
+GO:0016625 - oxidoreductase activity, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor (high confidence from eggnog, deepgo2, and UniProtKB)","Catalyzes the anaerobic oxidation of oxalate using a broad range of electron acceptors, including ferredoxin and the nickel-dependent carbon monoxide dehydrogenase. Enables anaerobic growth on oxalate which is used as energy source by the bacteria.
+GO:0016491 - oxidoreductase activity (high confidence from eggnog and deepgo2)
+GO:0016625 - oxidoreductase activity, acting on the aldehyde or oxo group of donors, iron-sulfur protein as acceptor (high confidence from eggnog, deepgo2, and UniProtKB)","GO:0005488 - binding transcription factor activity (medium confidence from deepgo2)
+KEGG pathway: ko00010, ko00020, ko00620, ko00633, ko00640, ko00650, ko00680, ko00720, ko01100, ko01120, ko01130, ko01200 (no confidence level specified)",,"EC:1.2.7.10 - oxalate oxidoreductase (high confidence from eggnog, clean, and UniProtKB) has no literature references listed in the input
+KEGG pathway: ko00010, ko00020, ko00620, ko00633, ko00640, ko00650, ko00680, ko00720, ko01100, ko01120, ko01130, ko01200 (no confidence level specified) has no literature references listed in the input","Suggest verifying EC:1.2.7.10 against literature references
+Check if Pfam PF17147 covers the full sequence or only a partial region
+Confirm whether high-confidence ML prediction matches curated function reported in the record",,,,,,,,,
+P11560,Reviewed UniProt proteins,success,Methyl-coenzyme M reductase I subunit beta,reviewed,Methyl-coenzyme M reductase I subunit beta,Methanothermobacter marburgensis (strain ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg),reviewed,Uncharacterized protein from Methanothermobacter marburgensis with reported methyl-coenzyme M reductase activity and predicted coenzyme-B sulfoethylthiotransferase activity.,"The protein has a sequence length of 443 amino acids, a molecular weight of 47240 Da, and a CRC64 checksum of 1237E83E405E6D6B. The MD5 checksum is F92CDFEF78D3BDDE4935A89222FF04C9.","The protein has been reported to have methyl-coenzyme M reductase activity, catalyzing the reductive cleavage of methyl-coenzyme M (CoM-S-CH3 or 2-(methylthio)ethanesulfonate) using coenzyme B (CoB or 7-mercaptoheptanoylthreonine phosphate) as reductant.","GO:0050524 - coenzyme-B sulfoethylthiotransferase activity
+GO:0015948 - methanogenesis",EC:2.8.4.1 - methyl-coenzyme M reductase (component C),"COG4054 - Methyl coenzyme M reductase, beta subunit
+PF02241 - MCR_beta
+PF02783 - MCR_beta_N",One-carbon metabolism; methyl-coenzyme M reduction; methane from methyl-coenzyme M: step 1/1,"GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high confidence)
+GO:0015948 - methanogenesis (high confidence)","The protein has been reported to have methyl-coenzyme M reductase activity, catalyzing the reductive cleavage of methyl-coenzyme M (CoM-S-CH3 or 2-(methylthio)ethanesulfonate) using coenzyme B (CoB or 7-mercaptoheptanoylthreonine phosphate) as reductant.
+The protein has been reported to have coenzyme-B sulfoethylthiotransferase activity.","GO:0016491 - oxidoreductase activity (low confidence)
+GO:0042802 - lyase activity (low confidence)",,"The protein's subcellular location is not specified.
+The protein's catalytic activity is not fully understood.","Verify the reported EC number (2.8.4.1) against literature references.
+Check whether the Pfam domains cover the full sequence or only a partial region.
+Confirm whether high-confidence ML predictions match the curated function reported in the record.
+Investigate why two tools report different confidence levels for the same GO term.",,,,,,,,,
+P06131,Reviewed UniProt proteins,success,F420-dependent formate dehydrogenase subunit alpha,reviewed,F420-dependent formate dehydrogenase subunit alpha,Methanobacterium formicicum,UniProtKB reviewed (Swiss-Prot),Uncharacterized protein from Methanobacterium formicicum with reported function as F420-dependent formate dehydrogenase subunit alpha.,"The protein is a subunit of the F420-dependent formate dehydrogenase enzyme, which catalyzes the oxidation of formate to carbon dioxide using coenzyme F420 as the electron acceptor. The protein has been identified in Methanobacterium formicicum and has a molecular weight of 75717.","The reported function is F420-dependent formate dehydrogenase subunit alpha, which catalyzes the oxidation of formate to carbon dioxide using coenzyme F420 as the electron acceptor. The protein has been identified in Methanobacterium formicicum and has a molecular weight of 75717.","GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)
+GO:0008863 - formate dehydrogenase (NAD+) activity (high confidence from uniprot)
+GO:0046872 - metal ion binding (high confidence from upimapi)
+GO:0043546 - molybdopterin cofactor binding (high confidence from uniprot)",EC:1.17.98.3 - formate dehydrogenase (coenzyme F420) activity,"PF04879 - Molybdop_Fe4S4
+PF00384 - Molybdopterin
+PF01568 - Molydop_binding
+TIGR01591 - formate dehydrogenase subunit alpha","KEGG pathway: ko00630, ko00680, ko01100, ko01120, ko01200","GO:0016491 - oxidoreductase activity (high confidence from deepgo2)
+GO:0003824 - catalytic activity (high confidence from deepgo2)","The protein is a subunit of the F420-dependent formate dehydrogenase enzyme, which catalyzes the oxidation of formate to carbon dioxide using coenzyme F420 as the electron acceptor.
+The protein has been identified in Methanobacterium formicicum and has a molecular weight of 75717.","GO:0043167 - transition metal ion binding (low confidence from deepgo2)
+GO:0016053 - electron transport chain (low confidence from deepgo2)",,"The protein's subcellular location is not specified.
+The protein's catalytic activity is not fully described.","Verify the EC number reported in the input against the literature references also listed in the input.
+Check whether the Pfam (or other domain) reported in the input covers the full sequence or only a partial region.
+Confirm whether high-confidence ML predictions match the curated function reported in the input.",,,,,,,,,
+B3E8W6,Poorly annotated proteins,success,Uncharacterized protein,unreviewed,Uncharacterized protein,Trichlorobacter lovleyi (strain ATCC BAA-1151 / DSM 17278 / SZ),UniProtKB unreviewed (TrEMBL),Uncharacterized protein from Trichlorobacter lovleyi with predicted molecular functions and cellular components by DeepGO2 tool.,Protein name: Uncharacterized protein; Gene name: None; Alternative names: []; Organism: Trichlorobacter lovleyi (strain ATCC BAA-1151 / DSM 17278 / SZ); UniProt ID: UPI000175D59C,No curated function reported in the record.,"GO:0005488 - binding (confidence-medium from deepgo2)
+GO:0005515 - protein binding (confidence-medium from deepgo2)
+GO:0042802 - identical protein binding (confidence-medium from deepgo2)
+GO:0046812 - catalytic activity, acting on a protein (confidence-low from deepfri)
+GO:0030246 - catalytic activity, acting on a protein (confidence-low from deepgo2)
+GO:0016787 - catalytic activity, acting on a protein (confidence-low from deepgo2)
+GO:0003824 - catalytic activity, acting on a protein (confidence-low from deepgo2)
+GO:0046790 - catalytic activity, acting on a protein (confidence-low from deepgo2)
+GO:0030247 - catalytic activity, acting on a protein (confidence-low from deepgo2)
+GO:0140096 - catalytic activity, acting on a protein (confidence-low from deepfri)",EC:4.2.2.17 - predicted enzyme by CLEAN tool,"Signal - predicted feature by SAM tool
+Chain - predicted feature by SAM tool",,"DeepGO2: Predicted molecular functions and cellular components with medium to low confidence.
+DeepFRI: Predicted catalytic activity, acting on a protein with low confidence.",,"Predicted enzyme by CLEAN tool
+Predicted feature by SAM tool",,"No curated function reported in the record.
+No EC numbers reported in the record.","Verify the predicted enzyme activity against literature references.
+Check if the Signal and Chain features cover the full sequence or only a partial region.
+Confirm whether high-confidence ML predictions match the curated function (none available).
+Investigate why two tools report different confidence levels for the same GO term.",,,,,,,,,
+I9KF72,Poorly annotated proteins,success,Uncharacterized protein,unreviewed,Uncharacterized protein,null,unreviewed,Uncharacterized protein from organism with no curated function but predicted GO terms by DeepGO2 and DeepFRI tools.,"No gene name, reviewed status: unreviewed, entry type: Inactive, annotation score: 0.0",No reported functions in the record.,"GO:0005488 - binding (medium confidence from DeepGO2)
+GO:0005515 - binding (medium confidence from DeepGO2)
+GO:0042802 - binding (medium confidence from DeepGO2)
+GO:0003677 - DNA binding (low confidence from DeepFRI)
+GO:0016788 - hydrolase activity, acting on ester bonds (low confidence from DeepFRI)",EC:3.4.24.33 - predicted by CLEAN tool,,,"DeepGO2 predictions for GO terms with medium to low confidence
+DeepFRI predictions for GO terms with low confidence",,,,"Organism taxonomy data is missing.
+No curated function or EC numbers in the record.","Verify the predicted EC number (3.4.24.33) against literature references.
+Check if Pfam domains cover the full sequence or only partial regions.
+Confirm whether high-confidence ML predictions match the curated function reported in the input.",,,,,,,,,
+G8TMW4,Poorly annotated proteins,success,Uncharacterized protein,unreviewed,Uncharacterized protein,Niastella koreensis (strain DSM 17620 / KACC 11465 / NBRC 106392 / GR20-10),UniProtKB unreviewed (TrEMBL),Uncharacterized protein from Niastella koreensis with predicted molecular functions by DeepGO2.,Protein name: Uncharacterized protein; Gene name: None; Alternative names: []; Organism: Niastella koreensis (strain DSM 17620 / KACC 11465 / NBRC 106392 / GR20-10); UniProt ID: UPI00023F6DB9.,No curated function reported in the record.,"GO:0005488 - binding (confidence: medium from DeepGO2)
+GO:0005515 - protein binding (confidence: medium from DeepGO2)
+GO:0042802 - identical protein binding (confidence: low from DeepGO2)
+GO:0046812 - phospholipid binding (confidence: low from DeepGO2)
+GO:0030247 - lipid binding (confidence: low from DeepGO2)
+GO:0030246 - glycerophospholipid binding (confidence: low from DeepGO2)",EC:3.2.2.22 - exo-alpha-sialidase activity (confidence: low from CLEAN),"Disordered region (position start: 1, position end: 22) with evidence from SAM",,"DeepGO2 predicted molecular functions: binding, protein binding, identical protein binding, phospholipid binding, lipid binding, glycerophospholipid binding (confidence levels: medium to low)",No curated function reported in the record.,Predicted molecular functions by DeepGO2 with confidence levels from medium to low,,Gene name: None,"Verify the EC number 3.2.2.22 against literature references.
+Check if the Pfam domain covers the full sequence or only a partial region.
+Confirm whether high-confidence ML predictions match the curated function (none reported).
+Investigate why two tools report different confidence levels for the same GO term.",,,,,,,,,
+Q01Q37,Poorly annotated proteins,success,Uncharacterized protein,unreviewed,Uncharacterized protein,Solibacter usitatus (strain Ellin6076),UniProtKB unreviewed (TrEMBL),Uncharacterized protein from Solibacter usitatus with predicted domains by eggnog and tool predictions for various GO terms.,Protein name: Uncharacterized protein; Gene name: null; Alternative names: []; Organism: Solibacter usitatus (strain Ellin6076); UniProt ID: UPI0000E57DEA,No curated function reported in the record.,"GO:0005488 - hydrolase activity, acting on glycosyl bonds (medium confidence from deepgo2)
+GO:0005515 - protein binding (medium confidence from deepgo2)
+GO:0042802 - identical protein binding (medium confidence from deepgo2)
+GO:0003824 - catalytic activity (low confidence from deepgo2)
+GO:0016787 - molecular function unknown (low confidence from deepgo2)
+GO:0030246 - molecular function unknown (low confidence from deepgo2)
+GO:0016798 - hydrolase activity, acting on glycosyl bonds (low confidence from deepfri)
+GO:0008233 - peptidase activity (low confidence from deepfri)",EC: 3.2.2.22 - glycosyl hydrolase (low confidence from clean),"PFAM: Big_3_5, VCBS (high confidence from eggnog)
+Signal: Signal (EXACT position start: 1, EXACT position end: 23) (evidenced by SAM: SignalP)",,"DeepGO2 predictions for various GO terms with medium to low confidence
+DeepFRI predictions for hydrolase activity and peptidase activity with low confidence",No curated function reported in the record.,"Predicted domains by eggnog
+Tool predictions for various GO terms with medium to low confidence",,"No curated function reported in the record.
+Limited information on protein function and pathways.","Verify EC number 3.2.2.22 against literature references (CI-9MICB7K26JNDR).
+Check if Pfam domains cover full sequence or only partial regions.
+Confirm if high-confidence ML predictions match curated function reported in the record.",,,,,,,,,
+A1ATR7,Poorly annotated proteins,success,Uncharacterized protein,unreviewed,Uncharacterized protein,Pelobacter propionicus (strain DSM 2379 / NBRC 103807 / OttBd1),UniProtKB unreviewed (TrEMBL),"Uncharacterized protein from Pelobacter propionicus with predicted molecular functions and cellular components by DeepGO2, but no curated function.",Protein name: Uncharacterized protein; Alternative names: []; Gene name: null; Gene name inferred: null; Gene name synonyms: []; Gene name synonym details: []; Reviewed status: unreviewed; Entry type: UniProtKB unreviewed (TrEMBL); Annotation score: 1.0; Protein existence: Predicted.,No curated function reported in the record.,"GO:0003824 - catalytic activity (high confidence from DeepGO2)
+GO:0005488 - binding (medium confidence from DeepGO2)
+GO:0016829 - electron transfer activity (low confidence from DeepGO2)
+GO:0043167 - transition metal ion binding (low confidence from DeepGO2)
+GO:0046872 - metal ion binding (low confidence from DeepGO2)
+GO:0016491 - oxidoreductase activity (low confidence from DeepGO2)
+GO:0046914 - transition metal ion binding (low confidence from DeepFRI)
+GO:0009055 - electron transfer activity (low confidence from DeepFRI)",EC:1.3.7.15 - NADH dehydrogenase (low confidence from CLEAN),,,"DeepGO2 predicted molecular functions and cellular components with high, medium, and low confidence.
+DeepFRI predicted transition metal ion binding and electron transfer activity with low confidence.",No curated function reported in the record.,"Predicted molecular functions and cellular components by DeepGO2.
+Predicted transition metal ion binding and electron transfer activity by DeepFRI.",,"No gene name or synonyms reported in the record.
+No subcellular location, catalytic activity, pathway, or similarity information reported in the record.","Verify EC:1.3.7.15 against literature references (CI-4AF5IFHSPBG3R).
+Check if Pfam domains cover full sequence or only partial regions.
+Confirm high-confidence ML predictions match curated function (none reported).
+Investigate why two tools report different confidence levels for the same GO term.",,,,,,,,,
+U6EEC5,Proteins with EC predictions,success,Methyl-coenzyme M reductase subunit beta (EC 2.8.4.1) (Coenzyme-B sulfoethylthiotransferase beta),unreviewed,Methyl-coenzyme M reductase subunit beta (EC 2.8.4.1) (Coenzyme-B sulfoethylthiotransferase beta),Unspecified,unreviewed,Uncharacterized protein from unspecified organism with reported coenzyme-B sulfoethylthiotransferase activity and predicted methyl-coenzyme M reductase subunit beta function.,Protein name: Methyl-coenzyme M reductase subunit beta (EC 2.8.4.1) (Coenzyme-B sulfoethylthiotransferase beta). Gene name inferred by homology from tools — not directly from UniProt for this protein.,Reported function: coenzyme-B sulfoethylthiotransferase activity (GO:0050524).,"GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high confidence from upimapi)
+GO:0003824 - catalytic activity (medium confidence from deepgo2)
+GO:0005488 - binding transcription factor activity, RNA polymerase II-specific (medium confidence from deepgo2)
+GO:0042802 - lyase activity (low confidence from deepfri)
+GO:0097367 - carbohydrate derivative binding (low confidence from deepfri)",EC 2.8.4.1 - coenzyme-B sulfoethylthiotransferase,"COG4054 - Methyl coenzyme M reductase, beta subunit (high confidence from recognizer)
+PF02241 - Methyl-coenzyme M reductase beta subunit, C-terminal domain (Provisional) (high confidence from upimapi)
+PF02783 - Methyl-coenzyme M reductase beta subunit, N-terminal domain (Provisional) (high confidence from upimapi)","ko:K00401
+ko00680
+ko01100
+ko01120
+ko01200
+map00680
+map01100
+map01120
+map01200","upimapi: coenzyme-B sulfoethylthiotransferase activity (GO:0050524) with high confidence
+deepgo2: catalytic activity (GO:0003824), binding transcription factor activity, RNA polymerase II-specific (GO:0005488), lyase activity (GO:0042802), carbohydrate derivative binding (GO:0097367) with medium to low confidence",coenzyme-B sulfoethylthiotransferase activity (GO:0050524),"catalytic activity (GO:0003824), binding transcription factor activity, RNA polymerase II-specific (GO:0005488), lyase activity (GO:0042802), carbohydrate derivative binding (GO:0097367)",,"Organism not specified
+No literature references provided","Verify EC number 2.8.4.1 against literature references.
+Check if Pfam domains cover the full sequence or only a partial region.
+Confirm whether high-confidence ML predictions match the curated function reported in the record.",,,,,,,,,
+G3F6H2,Proteins with EC predictions,success,Methyl coenzyme M reductase alpha subunit,unreviewed,Methyl coenzyme M reductase alpha subunit,Unspecified,unreviewed,Uncharacterized protein from unspecified organism with predicted methyl-coenzyme M reductase activity and various other functions.,"No curated function, but gene name inferred by homology as mcrA.",None reported in the record.,"GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high confidence from upimapi and eggnog)
+GO:0003824 - catalytic activity (high confidence from eggnog and deepgo2)
+GO:0016740 - transferase activity, transferring acyl groups (high confidence from eggnog)
+GO:0043169 - transition metal ion binding (low confidence from deepfri)","EC:2.8.4.1 - methyl coenzyme M reductase (high confidence from eggnog, clean, and recognizer)","COG4058 - Methyl coenzyme M reductase, alpha subunit (high confidence from recognizer)
+PF02249 - Methyl-coenzyme M reductase alpha subunit, C-terminal domain (Provisional) (high confidence from upimapi and eggnog)","K00399 - Methanogenesis (KEGG KO)
+ko00680
+ko01100
+ko01120
+ko01200","upimapi: GO:0050524, GO:0015948 (high confidence)
+eggnog: GO:0003824, GO:0016740, GO:0043169 (high confidence)","GO:0050524 - coenzyme-B sulfoethylthiotransferase activity
+EC:2.8.4.1 - methyl coenzyme M reductase","GO:0003824 - catalytic activity (predicted by eggnog and deepgo2)
+GO:0016740 - transferase activity, transferring acyl groups (predicted by eggnog)",,"Organism not specified
+No curated function reported","Verify EC number 2.8.4.1 against literature references.
+Check if Pfam PF02249 covers the full sequence or only a partial region.
+Confirm whether high-confidence ML predictions match the curated function.",,,,,,,,,
+H1YXH1,Proteins with EC predictions,success,"Tetrahydromethanopterin S-methyltransferase, subunit H",unreviewed,"Tetrahydromethanopterin S-methyltransferase, subunit H",Methanoplanus limicola DSM 2279,UniProtKB unreviewed (TrEMBL),Uncharacterized protein from Methanoplanus limicola with predicted methyltransferase activity and involvement in one-carbon metabolic process.,"Protein name: Tetrahydromethanopterin S-methyltransferase, subunit H; Gene name: mtrH (inferred by homology); Organism: Methanoplanus limicola DSM 2279",Methyltransferase activity and one-carbon metabolic process reported in the record.,"GO:0008168 - methyltransferase activity (high confidence from upimapi, eggnog, uniprot)
+GO:0006730 - one-carbon metabolic process (high confidence from upimapi, eggnog, uniprot)","EC:2.1.1.86 - Tetrahydromethanopterin S-methyltransferase activity (high confidence from upimapi, eggnog, clean, recognizer)","COG1962 - Tetrahydromethanopterin S-methyltransferase, subunit H (high confidence from recognizer)
+PF02007 - Tetrahydromethanopterin S-methyltransferase MtrH subunit (high confidence from upimapi)","KEGG KO: K00584
+KEGG Pathways: ko00680, ko01100, ko01120, ko01200, map00680, map01100, map01120, map01200","GO:0008168 - methyltransferase activity (medium confidence from deepgo2)
+GO:0006730 - one-carbon metabolic process (high confidence from eggnog, uniprot)","Methyltransferase activity and one-carbon metabolic process reported in the record.
+EC:2.1.1.86 - Tetrahydromethanopterin S-methyltransferase activity (high confidence from upimapi, eggnog, clean, recognizer)","GO:0008168 - methyltransferase activity (medium confidence from deepgo2)
+GO:0006730 - one-carbon metabolic process (high confidence from eggnog, uniprot)",,"Gene name not directly provided in the UniProt record for this protein
+No curated function or EC number explicitly listed in the UniProt record","Verify EC:2.1.1.86 against literature references (CI-48QM5ABN7MJ8O)
+Check if Pfam PF02007 covers full sequence or only partial region
+Confirm high-confidence ML predictions match curated function reported in the record",,,,,,,,,
+A8UKK6,Proteins with EC predictions,success,methylmalonyl-CoA mutase (EC 5.4.99.2),unreviewed,methylmalonyl-CoA mutase (EC 5.4.99.2),Uncharacterized protein from organism X,unreviewed,Uncharacterized protein with predicted methylmalonyl-CoA mutase activity and cobalamin-binding domains.,"Protein name: methylmalonyl-CoA mutase (EC 5.4.99.2), Gene name inferred by homology from tools — not directly from UniProt for this protein",No curated function reported in the record.,"GO:0031419 - cobalamin binding (high confidence from upimapi, eggnog)
+GO:0046872 - metal ion binding (high confidence from upimapi, eggnog)
+GO:0004494 - methylmalonyl-CoA mutase activity (high confidence from upimapi, eggnog, deepgo2)",EC 5.4.99.2 - Methylmalonyl-CoA mutase,"COG1884 - Methylmalonyl-CoA mutase, N-terminal domain/subunit (high confidence from recognizer)
+COG2185 - Methylmalonyl-CoA mutase, C-terminal domain/subunit (cobalamin-binding) (high confidence from recognizer)
+PF02310 - cobalamin-dependent protein (medium confidence from recognizer)","Ko:K01847
+ko00280
+ko00630
+ko00640
+ko00720
+ko01100
+ko01120
+ko01200","upimapi - high confidence predictions for GO:0031419, GO:0046872, and GO:0004494
+eggnog - high confidence predictions for GO:0031419, GO:0046872, and GO:0004494
+deepgo2 - low confidence predictions for various GO terms","EC 5.4.99.2 - Methylmalonyl-CoA mutase (curated in the record)
+GO:0031419 - cobalamin binding (curated in the record)",Predicted methylmalonyl-CoA mutase activity and cobalamin-binding domains,,"Organism taxonomy data is missing or limited
+No literature references provided in the record","Verify EC number 5.4.99.2 against literature references
+Check if Pfam PF02310 covers the full sequence or only a partial region
+Confirm whether high-confidence ML predictions match curated function reported in the record",,,,,,,,,
+H2EIF6,Proteins with EC predictions,success,Homocysteine s-methytransferase,unreviewed,Homocysteine s-methyltransferase,Malus domestica (Apple),UniProtKB unreviewed (TrEMBL),Uncharacterized protein from Malus domestica with reported homocysteine S-methyltransferase activity and zinc ion binding.,Protein name: Homocysteine s-methyltransferase; Protein ID: H2EIF6; Organism: Malus domestica (Apple); Source status: UniProtKB unreviewed (TrEMBL),"Homocysteine S-methyltransferase activity, zinc ion binding","GO:0008898 - S-adenosylmethionine-homocysteine S-methyltransferase activity (high confidence from upimapi)
+GO:0008270 - zinc ion binding (high confidence from upimapi)",EC:2.1.1.10 - Homocysteine S-methyltransferase,"COG2040 - Homocysteine/selenocysteine methylase (S-methylmethionine-dependent)
+KOG1579 - Homocysteine S-methyltransferase
+PF02574 - Homocysteine S-methyltransferase family protein","KEGG pathway: ko00270, ko01100, ko01110; KEGG module: none","DeepGO2 predictions: GO:0008168 - methyltransferase activity (high confidence), GO:0008270 - zinc ion binding (high confidence)","Curated function: Homocysteine S-methyltransferase activity
+Curated evidence code: IEA","DeepGO2 predictions: GO:0008168 - methyltransferase activity (medium confidence), GO:0008270 - zinc ion binding (high confidence)",,No subcellular location information available,"Verify the accuracy of EC number 2.1.1.10 against literature references.
+Check if Pfam domain PF02574 covers the full sequence or only a partial region.
+Confirm whether high-confidence ML predictions match the curated function reported in the record.",,,,,,,,,
+H1XYF8,Conflicting evidence proteins,success,Por secretion system C-terminal sorting domain-containing protein,unreviewed,Por secretion system C-terminal sorting domain-containing protein,Caldithrix abyssi DSM 13497,UniProtKB unreviewed (TrEMBL),"Uncharacterized protein from Caldithrix abyssi with predicted hydrolase and helicase activities, and secretion system C-terminal sorting domain.","Protein name: Por secretion system C-terminal sorting domain-containing protein; Gene names: Cabys_2571, Calab_3627",No curated function reported in the record.,"GO:0004386 - helicase activity (high confidence from upimapi and uniprot)
+GO:0003824 - hydrolase activity (high confidence from eggnog and deepgo2)
+GO:0016787 - purine ribonucleotide binding (high confidence from eggnog)
+GO:0016788 - purine nucleotide binding (high confidence from eggnog)
+GO:0005488 - ATP binding (medium confidence from deepgo2)","EC:1.15.1.1 - catalase activity (high confidence from eggnog)
+EC:2.7.11.1 - protein kinase activity (high confidence from eggnog and recognizer)
+EC:3.1.1.17 - phosphatidylserine phospholipase C activity (high confidence from eggnog)
+EC:3.1.1.2 - phosphatidylcholine phospholipase C activity (high confidence from eggnog)
+EC:3.1.3.8 - phosphatidylinositol 4,5-bisphosphate phosphodiesterase activity (high confidence from eggnog)","PF18942 - secretion system C-terminal sorting domain (high confidence from upimapi)
+PF18962 - secretion system C-terminal sorting domain (high confidence from upimapi and recognizer)
+SGL - secretion system C-terminal sorting domain (high confidence from eggnog)","ko:K01045, ko:K01053, ko:K01083, ko:K01179, ko:K01757, ko:K02057, ko:K04565, ko:K08884, ko:K13735 - various metabolic pathways (KEGG)
+map00030, map00053, map00500, map00562, map00901, map00930, map01100, map01110, map01120, map01130, map01200, map01220, map04146, map04213, map05014, map05016, map05020, map05100 - various metabolic pathways (KEGG)","GO:0097367 - carbohydrate derivative binding (medium confidence from deepfri)
+GO:0032553 - ribonucleotide binding (medium confidence from deepfri)
+GO:0032555 - purine ribonucleotide binding (medium confidence from deepfri)
+GO:0035639 - purine ribonucleoside triphosphate binding (medium confidence from deepfri)","GO:0004386 - helicase activity (curated in the record)
+EC:1.15.1.1 - catalase activity (high confidence from eggnog)","GO:0097159 - purine nucleotide binding (low confidence from deepfri)
+GO:0030554 - adenyl nucleotide binding (low confidence from deepfri)",,"Curated function not reported in the record.
+EC numbers for hydrolase and helicase activities are predicted but not confirmed.","Verify EC number 1.15.1.1 against literature references.
+Check whether Pfam PF18942 covers the full sequence or only a partial region.
+Confirm whether high-confidence ML prediction matches curated function reported in the record.",,,,,,,,,
+F6D5H3,Conflicting evidence proteins,success,CoB--CoM heterodisulfide reductase iron-sulfur subunit A,unreviewed,CoB--CoM heterodisulfide reductase iron-sulfur subunit A,Methanobacterium paludis (strain DSM 25820 / JCM 18151 / SWAN1),UniProtKB unreviewed (TrEMBL),Uncharacterized protein from Methanobacterium paludis with predicted iron-sulfur binding and oxidoreductase activity.,"The protein is a heterodisulfide reductase iron-sulfur subunit A, with no curated function but reported to be part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to H-S-CoM and H-S-CoB.",Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM (coenzyme M) and H-S-CoB (coenzyme B).,"GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)
+GO:0046872 - metal ion binding (high confidence from upimapi)
+GO:0016491 - oxidoreductase activity (high confidence from deepgo2 and uniprot)","EC:1.8.-.- (high confidence from upimapi)
+EC:1.8.7.3 (high confidence from eggnog)
+EC:1.8.98.4 (high confidence from eggnog)
+EC:1.8.98.5 (high confidence from eggnog and clean)","COG1148 - Heterodisulfide reductase, subunit A (polyferredoxin) (high confidence from recognizer)
+PF12831 - FAD dependent oxidoreductase (high confidence from upimapi)
+PF00037 - 4Fe-4S binding domain (high confidence from upimapi)",Cofactor metabolism; coenzyme M-coenzyme B heterodisulfide reduction; coenzyme B and coenzyme M from coenzyme M-coenzyme B heterodisulfide: step 1/1,"GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)
+GO:0046872 - metal ion binding (high confidence from upimapi)
+GO:0016491 - oxidoreductase activity (high confidence from deepgo2 and uniprot)","Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM (coenzyme M) and H-S-CoB (coenzyme B).
+GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)
+GO:0046872 - metal ion binding (high confidence from upimapi)","EC:1.8.-.- (high confidence from upimapi)
+EC:1.8.7.3 (high confidence from eggnog)
+EC:1.8.98.4 (high confidence from eggnog)",,"Curated function is not available for this protein.
+No literature references are provided for the predicted functions.","Verify EC number 1.8.-.- against literature references.
+Check if Pfam PF12831 covers the full sequence or only a partial region.
+Confirm whether high-confidence ML predictions match the curated function reported in the record.",,,,,,,,,
+U6EF42,Conflicting evidence proteins,success,CoB--CoM heterodisulfide reductase iron-sulfur subunit A (EC 1.8.-.-),unreviewed,CoB--CoM heterodisulfide reductase iron-sulfur subunit A (EC 1.8.-.-),Unspecified,unreviewed,Uncharacterized protein from organism X with predicted CoB-CoM heterodisulfide reductase activity and iron-sulfur cluster binding.,"Protein name: CoB--CoM heterodisulfide reductase iron-sulfur subunit A (EC 1.8.-.-), UniProt ID: UPI0003C9D36D",Curated function not available.,"GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)
+GO:0046872 - metal ion binding (high confidence from upimapi)
+GO:0016491 - oxidoreductase activity (high confidence from upimapi and deepgo2)","EC 1.8.-.- - CoB-CoM heterodisulfide reductase activity (high confidence from upimapi)
+EC 1.8.7.3 - CoB-CoM heterodisulfide reductase activity (high confidence from eggnog)
+EC 1.8.98.4 - CoB-CoM heterodisulfide reductase activity (high confidence from eggnog)","PF12831, PF00037, PF13187 - predicted domains
+Fer4, Fer4_4, Pyr_redox_2 - predicted domains","ko:K03388, K00345,K00443, K04090 - predicted pathways in KEGG
+ko00680, ko01100, ko01120, ko01200 - predicted pathways in KEGG","DeepGO2 predictions: GO:0051539 (high), GO:0046872 (high), GO:0016491 (high)
+DeepFRI predictions: GO:0051536 (high), GO:0051540 (high)","Curated function not available.
+EC 1.8.-.- - CoB-CoM heterodisulfide reductase activity (high confidence from upimapi)
+GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)","DeepGO2 predictions: GO:0016667 (medium), GO:0009055 (medium), GO:0005488 (low)
+DeepFRI predictions: GO:0046914 (low), GO:0005506 (low), GO:0016829 (low)","GO:0051539 annotated with different confidence levels by upimapi and deepgo2
+EC numbers assigned to the same protein by eggnog and recognizer","Organism not specified.
+Curated function not available.","Verify EC number 1.8.-.- against literature references.
+Check if Pfam domains cover the full sequence or only a partial region.
+Confirm if high-confidence ML predictions match curated function (not available).
+Investigate why two tools report different confidence levels for GO:0051539.",,,,,,,,,
+K2R6I7,Conflicting evidence proteins,success,CoB--CoM heterodisulfide reductase iron-sulfur subunit A,unreviewed,CoB--CoM heterodisulfide reductase iron-sulfur subunit A,Methanobacterium formicicum (strain DSM 3637 / PP1),UniProtKB unreviewed (TrEMBL),Uncharacterized protein from Methanobacterium formicicum with predicted iron-sulfur binding and oxidoreductase activity.,"The protein has a length of 658 amino acids, a molecular weight of 71799 Da, and a sequence version of 1.",Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM (coenzyme M) and H-S-CoB (coenzyme B).,"GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)
+GO:0046872 - metal ion binding (high confidence from upimapi)
+GO:0016491 - oxidoreductase activity (high confidence from upimapi and deepgo2)
+GO:0003824 - catalytic activity (high confidence from deepgo2)","EC:1.8.-.- (high confidence from upimapi)
+EC:1.8.7.3 (high confidence from eggnog)
+EC:1.8.98.4 (high confidence from eggnog)
+EC:1.8.98.5 (high confidence from eggnog and clean)","COG1148 - Heterodisulfide reductase, subunit A (polyferredoxin) (high confidence from recognizer)
+PF12831 - FAD dependent oxidoreductase (high confidence from upimapi)
+PF13237 - 4Fe-4S dicluster domain (high confidence from upimapi)","Cofactor metabolism; coenzyme M-coenzyme B heterodisulfide reduction; coenzyme B and coenzyme M from coenzyme M-coenzyme B heterodisulfide: step 1/1
+K03388, K00345,K00443, K04090","GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)
+GO:0046872 - metal ion binding (high confidence from upimapi)
+GO:0016491 - oxidoreductase activity (high confidence from upimapi and deepgo2)","Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM (coenzyme M) and H-S-CoB (coenzyme B)
+GO:0051539 - 4 iron, 4 sulfur cluster binding
+GO:0046872 - metal ion binding","EC:1.8.-.- (high confidence from upimapi)
+EC:1.8.7.3 (high confidence from eggnog)
+EC:1.8.98.4 (high confidence from eggnog)","GO:0016491 - oxidoreductase activity has different confidence levels from upimapi and deepgo2
+EC:1.8.-.-, EC:1.8.7.3, EC:1.8.98.4 have different sources",No curated function or pathway information available,"Verify the accuracy of the predicted iron-sulfur binding and oxidoreductase activity against literature references.
+Check if the Pfam domains cover the full sequence or only a partial region.
+Confirm whether high-confidence ML predictions match the curated function reported in the record.",,,,,,,,,
+F0T7S9,Conflicting evidence proteins,success,CoB--CoM heterodisulfide reductase iron-sulfur subunit A,unreviewed,CoB--CoM heterodisulfide reductase iron-sulfur subunit A,Methanobacterium lacus (strain AL-21),UniProtKB unreviewed (TrEMBL),Uncharacterized protein from Methanobacterium lacus with predicted iron-sulfur binding and oxidoreductase activity.,Protein name: CoB--CoM heterodisulfide reductase iron-sulfur subunit A; Protein ID: F0T7S9; Organism: Methanobacterium lacus (strain AL-21); Source status: UniProtKB unreviewed (TrEMBL).,Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM (coenzyme M) and H-S-CoB (coenzyme B); Belongs to the HdrA family.,"GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)
+GO:0046872 - metal ion binding (high confidence from upimapi)
+GO:0016491 - oxidoreductase activity (high confidence from deepgo2 and uniprot)","EC:1.8.-.- (high confidence from upimapi)
+EC:1.8.7.3 (high confidence from eggnog)
+EC:1.8.98.4 (high confidence from eggnog)
+EC:1.8.98.5 (high confidence from eggnog and clean)","PF12831 - FAD dependent oxidoreductase (high confidence from upimapi)
+PF00037 - 4Fe-4S binding domain (high confidence from upimapi)
+Fer4_10 - Ferredoxin:CoB-CoM heterodisulfide reductase subunit A (high confidence from eggnog)",Cofactor metabolism; coenzyme M-coenzyme B heterodisulfide reduction; coenzyme B and coenzyme M from coenzyme M-coenzyme B heterodisulfide: step 1/1,"GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)
+GO:0046872 - metal ion binding (high confidence from upimapi)
+GO:0016491 - oxidoreductase activity (high confidence from deepgo2 and uniprot)","Part of a complex that catalyzes the reversible reduction of CoM-S-S-CoB to the thiol-coenzymes H-S-CoM (coenzyme M) and H-S-CoB (coenzyme B); Belongs to the HdrA family.
+GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)
+GO:0046872 - metal ion binding (high confidence from upimapi)","EC:1.8.-.- (high confidence from upimapi)
+EC:1.8.7.3 (high confidence from eggnog)
+EC:1.8.98.4 (high confidence from eggnog)","GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi) vs GO:0046872 - metal ion binding (high confidence from upimapi)
+EC:1.8.-.- (high confidence from upimapi) vs EC:1.8.7.3 (high confidence from eggnog)","Subcellular location
+Catalytic activity","Verify the accuracy of the predicted iron-sulfur binding and oxidoreductase activity against literature references.
+Check if the Pfam domains cover the full sequence or only a partial region.
+Confirm whether high-confidence ML predictions match the curated function reported in the record.",,,,,,,,,
+U6EF83,ML-only / weak-evidence proteins,success,SPFH domain/Band 7 family protein (Slipin family protein),unreviewed,SPFH domain/Band 7 family protein (Slipin family protein),null,unreviewed,Uncharacterized protein from organism X with no curated function but predicted Y domains by Z tools.,"No gene name, no reviewed status, entry type: Inactive, annotation score: 0.0",None reported in the record,"GO:0005488 - binding (confidence: high from deepgo2)
+GO:0005515 - protein binding (confidence: high from deepgo2)
+GO:0042802 - identical protein binding (confidence: medium from deepgo2)","EC:3.4.-.- (confidence: high from recognizer)
+EC:2.7.7.6 (confidence: low from clean)
+EC:2.7.13.3 (confidence: low from clean)
+EC:2.4.1.198 (confidence: low from clean)","COG0330 - Regulator of protease activity HflC, stomatin/prohibitin superfamily (confidence: high from recognizer)
+KOG2621 - Prohibitins and stomatins of the PID superfamily (confidence: high from recognizer)
+PF01145 - SPFH domain / Band 7 family (Provisional) (confidence: high from upimapi)","K01423,K04088 (KEGG KO)","GO:0005488 - binding (confidence: high from deepgo2)
+GO:0005515 - protein binding (confidence: high from deepgo2)
+GO:0042802 - identical protein binding (confidence: medium from deepgo2)","EC:3.4.-.- (confidence: high from recognizer)
+COG0330 - Regulator of protease activity HflC, stomatin/prohibitin superfamily (confidence: high from recognizer)
+KOG2621 - Prohibitins and stomatins of the PID superfamily (confidence: high from recognizer)","EC:2.7.7.6 (confidence: low from clean)
+EC:2.7.13.3 (confidence: low from clean)
+EC:2.4.1.198 (confidence: low from clean)",,"Organism not specified
+No gene name, no reviewed status","Verify EC number 3.4.-.- against literature references.
+Check if Pfam PF01145 covers the full sequence or only a partial region.",,,,,,,,,
+H0UK06,ML-only / weak-evidence proteins,success_with_warnings,Adenosine specific kinase,unreviewed,Adenosine specific kinase,Jonquetella anthropi DSM 22815,UniProtKB unreviewed (TrEMBL),Uncharacterized protein from Jonquetella anthropi with predicted adenosine/AMP kinase function by DeepGO2 and COG1839 domain.,Protein name: Adenosine specific kinase; Gene name synonyms: JonanDRAFT_0621,,"GO:0005488 - binding (confidence: high from DeepGO2)
+GO:0005515 - protein binding (confidence: medium from DeepGO2)
+GO:0042802 - identical protein binding (confidence: medium from DeepGO2)",EC:6.2.1.14 - adenosine kinase activity (confidence: low from CLEAN),"COG1839 - Adenosine/AMP kinase (confidence: high from Recognizer)
+PF04008 - Adenosine specific kinase (confidence: high from UpIMAPI and Eggnog)
+Adenosine_kin - Adenosine specific kinase (confidence: high from Eggnog)",KEGG KO: K09129,"DeepGO2: GO:0005488, GO:0005515, GO:0042802; DeepFRI: GO:0097159, GO:0140640
+Clean: EC:6.2.1.14",Protein name: Adenosine specific kinase; Gene name synonyms: JonanDRAFT_0621,"GO:0005488 - binding (confidence: high from DeepGO2)
+GO:0005515 - protein binding (confidence: medium from DeepGO2)
+GO:0042802 - identical protein binding (confidence: medium from DeepGO2)",,Curated function not available,"Verify EC number 6.2.1.14 against literature references.
+Check if Pfam PF04008 covers the full sequence or only a partial region.
+Confirm if high-confidence ML predictions match curated function.",Field 'reported_function_summary' is empty.,,,,,,,,
+W2LNG5,ML-only / weak-evidence proteins,success_with_warnings,BRO1 domain-containing protein,unreviewed,BRO1 domain-containing protein,Phytophthora nicotianae (Potato buckeye rot agent),UniProtKB unreviewed (TrEMBL),Uncharacterized protein from Phytophthora nicotianae with predicted BRO1 domain by multiple tools.,Protein name: BRO1 domain-containing protein; Gene name synonyms: L917_04620,,"GO:0005488 - binding (confidence: high from deepgo2)
+GO:0005515 - protein binding (confidence: high from deepgo2)
+GO:0003824 - catalytic activity (confidence: medium from deepgo2)
+GO:0140096 - catalytic activity (confidence: medium from deepgo2)
+GO:0019899 - enzyme regulator activity (confidence: low from deepgo2)
+GO:0016787 - transferase activity, transferring groups other than rubredoxins (confidence: low from deepgo2)
+GO:0098772 - transferase activity, transferring acyl groups (confidence: low from deepgo2)
+GO:0097159 - transferase activity, transferring alkyl or aryl groups (confidence: low from deepgo2)
+GO:0030234 - transferase activity, transferring phosphorus-containing groups (confidence: low from deepgo2)
+GO:1901363 - transferase activity, transferring acyl groups (confidence: low from deepgo2)
+GO:0008234 - hydrolase activity (confidence: low from deepgo2)
+GO:0008289 - protein kinase activity (confidence: low from deepgo2)
+GO:0043167 - transferase activity, transferring acyl groups (confidence: low from deepgo2)
+GO:0003677 - DNA binding (confidence: low from deepfri)
+GO:0046914 - transition metal ion binding (confidence: low from deepfri)
+GO:0008270 - zinc ion binding (confidence: low from deepfri)",EC:3.2.2.22 - exo-alpha-sarkinosidase (confidence: low from clean),"PF03097 - BRO1-like domain (confidence: high from upimapi)
+BRO1 - BRO1 domain (confidence: high from eggnog)
+KOG2220 - Predicted signal transduction protein (confidence: low from recognizer)",,"DeepGO2: predicted molecular function GO:0005488, GO:0005515, GO:0003824, GO:0140096, GO:0019899, GO:0016787, GO:0098772, GO:0097159, GO:0030234, GO:1901363, GO:0008234, GO:0008289, GO:0043167 (confidence: high, medium, low)
+DeepFRI: predicted molecular function GO:0003677, GO:0046914, GO:0008270 (confidence: low)",,"Predicted signal transduction protein by KOG2220
+BRO1-like domain by PF03097",,"No curated function reported in the record.
+Limited information available for this protein.","Verify EC:3.2.2.22 against literature references (1).
+Check if Pfam PF03097 covers full sequence or only partial region.
+Confirm whether high-confidence ML predictions match curated function reported in the record.
+Investigate why two tools report different confidence levels for GO:0005488.",Field 'reported_function_summary' is empty.,,,,,,,,
+L0DDH1,ML-only / weak-evidence proteins,success,"Type VI secretion protein, EvpB/VC_A0108 family",unreviewed,"Type VI secretion protein, EvpB/VC_A0108 family",Singulisphaera acidiphila (strain ATCC BAA-1392 / DSM 18658 / VKM B-2454 / MOB10),UniProtKB unreviewed (TrEMBL),Uncharacterized protein from Singulisphaera acidiphila with predicted type VI secretion system components by various tools.,"Protein name: Type VI secretion protein, EvpB/VC_A0108 family. EMBL accession AGA26721.1 and Proteomes UP000010798 provide evidence for this name.",No curated function reported in the record.,"GO:0005488 - binding (deepgo2, high confidence)
+GO:0005515 - protein binding (deepgo2, medium confidence)
+GO:0042802 - identical protein binding (deepgo2, medium confidence)
+GO:0003824 - catalytic activity (deepgo2, medium confidence)
+GO:0043167 - purine nucleotide binding (deepgo2, low confidence)","EC:2.4.2.31 - glucosyltransferase (clean, low confidence)","COG3517 - Predicted component TssB of the type VI protein secretion system, VipA/VipB/TssB family (recognizer, high confidence)
+PF05943 - type VI secretion system contractile sheath large subunit (upimapi, high confidence)
+PF18945 - EvpB/VC_A0108, tail sheath gpW/gp25-like domain (upimapi, high confidence)","KEGG pathway: ko02025 - Type VI secretion system (Singulisphaera acidiphila)
+STRING ID: 886293.Sinac_2410","DeepGO2 predictions for GO terms with confidence levels
+DeepFRI predictions for GO terms with confidence levels",,Predicted type VI secretion system components by various tools.,,"No curated function reported in the record.
+Limited information available for this protein.","Verify EC number 2.4.2.31 against literature references.
+Check if Pfam PF05943 covers the full sequence or only a partial region.
+Confirm if high-confidence ML predictions match the curated function reported in the record (if any).",,,,,,,,,
+J0HCT8,ML-only / weak-evidence proteins,success,Peptidase U49,unreviewed,Peptidase U49,Rhizobium leguminosarum bv. trifolii WSM597,UniProtKB unreviewed (TrEMBL),"Uncharacterized peptidase from Rhizobium leguminosarum bv. trifolii WSM597 with predicted Zn-dependent peptidase ImmA, M78 family domain by recognizer tool.","Peptidase U49 (J0HCT8) is a protein of length 490 amino acids from Rhizobium leguminosarum bv. trifolii WSM597 with no curated function but predicted Zn-dependent peptidase ImmA, M78 family domain by recognizer tool.",No curated function reported in the record.,"GO:0003824 - catalytic activity (high confidence from deepgo2)
+GO:0016787 - hydrolase activity (medium confidence from deepgo2)
+GO:0016740 - transferase activity (medium confidence from deepgo2)","EC:2.7.7.n6 - predicted by clean tool with low confidence
+EC:3.4.24.- - predicted by recognizer tool with low confidence","COG2856 - Zn-dependent peptidase ImmA, M78 family (low confidence from recognizer)",K01486 - predicted pathway in KEGG database,"deepgo2: GO:0003824 - catalytic activity (high confidence), GO:0016787 - hydrolase activity (medium confidence), GO:0016740 - transferase activity (medium confidence)
+deepfri: GO:0071704 - purine nucleotide binding (low confidence), GO:0032553 - ribonucleotide binding (low confidence), GO:0032555 - purine ribonucleotide binding (low confidence)",Peptidase U49 is a protein from Rhizobium leguminosarum bv. trifolii WSM597 with no curated function reported in the record.,"Predicted Zn-dependent peptidase ImmA, M78 family domain by recognizer tool.
+Predicted pathway K01486 in KEGG database",,No curated function reported in the record.,"Suggest verifying EC number 2.7.7.n6 against literature references.
+Check if Pfam domain PF10463 covers full sequence or only a partial region.
+Confirm whether high-confidence ML prediction matches curated function (none available).
+Investigate why two tools report different confidence levels for the same GO term.",,,,,,,,,

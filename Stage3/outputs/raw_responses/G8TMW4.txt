@@ -1,0 +1,39 @@
+{
+  "protein_id": "G8TMW4",
+  "protein_name": "Uncharacterized protein",
+  "organism": "Niastella koreensis (strain DSM 17620 / KACC 11465 / NBRC 106392 / GR20-10)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Niastella koreensis with predicted molecular functions by DeepGO2.",
+  "identity_summary": "Protein name: Uncharacterized protein; Gene name: None; Alternative names: []; Organism: Niastella koreensis (strain DSM 17620 / KACC 11465 / NBRC 106392 / GR20-10); UniProt ID: UPI00023F6DB9.",
+  "reported_function_summary": "No curated function reported in the record.",
+  "go_annotation_summary": [
+    "GO:0005488 - binding (confidence: medium from DeepGO2)",
+    "GO:0005515 - protein binding (confidence: medium from DeepGO2)",
+    "GO:0042802 - identical protein binding (confidence: low from DeepGO2)",
+    "GO:0046812 - phospholipid binding (confidence: low from DeepGO2)",
+    "GO:0030247 - lipid binding (confidence: low from DeepGO2)",
+    "GO:0030246 - glycerophospholipid binding (confidence: low from DeepGO2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:3.2.2.22 - exo-alpha-sialidase activity (confidence: low from CLEAN)"
+  ],
+  "domain_family_and_feature_summary": [
+    "Disordered region (position start: 1, position end: 22) with evidence from SAM"
+  ],
+  "pathway_and_context_summary": [],
+  "tool_prediction_summary": [
+    "DeepGO2 predicted molecular functions: binding, protein binding, identical protein binding, phospholipid binding, lipid binding, glycerophospholipid binding (confidence levels: medium to low)"
+  ],
+  "strong_or_curated_information": ["No curated function reported in the record."],
+  "weak_predicted_or_indirect_information": [
+    "Predicted molecular functions by DeepGO2 with confidence levels from medium to low"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": ["Gene name: None"],
+  "review_notes": [
+    "Verify the EC number 3.2.2.22 against literature references.",
+    "Check if the Pfam domain covers the full sequence or only a partial region.",
+    "Confirm whether high-confidence ML predictions match the curated function (none reported).",
+    "Investigate why two tools report different confidence levels for the same GO term."
+  ]
+}

@@ -1,0 +1,877 @@
+You are a protein profile summarization assistant.
+Your task:
+Given the complete JSON profile for ONE protein, write a structured summary of the information contained in that profile.
+Important framing:
+- You are NOT predicting protein function from sequence or from your own knowledge.
+- You are NOT choosing a final biological annotation.
+- You are NOT acting as a curator who decides the correct function.
+- You are summarizing what the record contains: identity, source status, reported functions, GO terms, EC numbers, domains, features, pathways, tool predictions, literature/curated evidence, weak evidence, missing information, and conflicts.
+- The output should help a human quickly understand what is known, predicted, uncertain, or absent for this specific protein.
+Rules:
+1. Use only information present in the input JSON.
+2. Do not invent functions, pathways, EC numbers, organisms, locations, domains, gene names, scores, or references.
+3. Do not produce a "recommended annotation" or claim that one function is the final correct answer.
+4. If the input contains a curated/reviewed function, describe it as "reported" or "curated in the record", not as your own conclusion.
+5. If the input contains EC numbers, GO terms, pathways, domains, or protein names, summarize them as information present in the record.
+6. Keep evidence provenance visible: distinguish curated/literature/database evidence from homology evidence, domain evidence, automatic annotations, ML predictions, and contextual/network evidence.
+7. Treat ML predictions from tools such as DeepGO2, DeepFRI, CLEAN, or similar tools as predictions, not confirmed facts.
+8. Treat STRING, enrichment, pathway, or network information as context only, not direct proof of individual protein function.
+9. Mention sparse, missing, generic, low-confidence, or conflicting information explicitly.
+10. Be concise but complete enough for a supervisor/biologist to inspect the protein quickly.
+11. Return valid JSON only. Do not include Markdown, commentary, or text outside the JSON object.
+12. For "conflicting_or_inconsistent_information", consider the following situations as conflicts that MUST be reported when present in the input:
+    a. The same GO term annotated with different confidence levels by different tools in the input.
+    b. Different EC numbers assigned to the same protein by different tools in the input.
+    c. Tool predictions that contradict the curated UniProt function.
+    d. Domain hits from different databases that imply incompatible biological functions.
+    e. Mismatch between organism/taxonomy data and the predicted function (e.g., bacterial protein predicted as eukaryotic-specific function).
+    When you find any of these, list them explicitly with the conflicting IDs and sources. If no conflicts are present, leave the list empty.
+13. For "review_notes", always include 1 to 4 short suggestions to help a human reviewer prioritize what to check. These are NOT new annotations — they are pointers to what should be validated.
+    Types of review notes you may write (use the actual identifiers from the input,
+    never invent or copy IDs):
+    - Suggest verifying a specific EC number reported in the input against the
+      literature references also listed in the input.
+    - Suggest checking whether a Pfam (or other domain) reported in the input
+      covers the full sequence or only a partial region.
+    - Suggest confirming whether a high-confidence ML prediction matches the
+      curated function reported in the input.
+    - Suggest investigating why two tools report different confidence levels
+      for the same GO term in the input.
+    - Suggest reviewing an InterPro entry hierarchy or cross-referencing a
+      KEGG identifier reported in the input with the curated reaction.
+    Always produce at least 1 review_note unless the protein has NO usable information at all.
+14. When confidence levels are explicitly listed in the input (e.g., "confidence": "high" in source_details), include them in the summary bullets in parentheses. Format: "GO_ID - term name (confidence-level from tool-name)". When multiple tools report the same item with different confidence levels, list each in the same parentheses.
+15. Final reminder: the goal is to help a human curator quickly understand: (a) what is known with confidence, (b) what is predicted but uncertain, (c) what is contradictory, and (d) what needs further checking. Filling "conflicting_or_inconsistent_information" and "review_notes" with concrete content is essential for this task.
+16. "overall_profile_summary" MUST always be a single non-empty sentence (between 10 and 50 words) describing what this protein is: its name, organism, and main function or family if known. This field is required and cannot be left blank — even for poorly annotated proteins, write a brief sentence summarizing what little is known (e.g., "Uncharacterized protein from organism X with no curated function but predicted Y domains by Z tools"). Do NOT leave this field empty.
+Required JSON fields:
+{
+  "protein_id": "string",
+  "protein_name": "string",
+  "organism": "string",
+  "source_status": "string",
+  "overall_profile_summary": "string",
+  "identity_summary": "string",
+  "reported_function_summary": "string",
+  "go_annotation_summary": ["string"],
+  "enzyme_and_reaction_summary": ["string"],
+  "domain_family_and_feature_summary": ["string"],
+  "pathway_and_context_summary": ["string"],
+  "tool_prediction_summary": ["string"],
+  "strong_or_curated_information": ["string"],
+  "weak_predicted_or_indirect_information": ["string"],
+  "conflicting_or_inconsistent_information": ["string"],
+  "missing_or_limited_information": ["string"],
+  "review_notes": ["string"]
+}
+Protein profile JSON:
+{
+  "accession": "Q01Q37",
+  "identity": {
+    "protein_name": "Uncharacterized protein",
+    "protein_name_evidences": [
+      {
+        "code": "ECO:0000313",
+        "source": "EMBL",
+        "id": "ABJ88233.1"
+      }
+    ],
+    "alternative_names": [],
+    "gene_name": null,
+    "gene_name_inferred": null,
+    "gene_name_synonyms": [],
+    "gene_name_synonym_details": [],
+    "reviewed_status": "unreviewed",
+    "entry_type": "UniProtKB unreviewed (TrEMBL)",
+    "annotation_score": 1.0,
+    "protein_existence": "4: Predicted",
+    "entry_name": "Q01Q37_SOLUE",
+    "entry_version": 54,
+    "sequence_version": 1,
+    "first_public_date": "2006-11-14",
+    "last_annotation_update": "2025-04-02",
+    "last_sequence_update": "2006-11-14",
+    "organism": {
+      "scientific_name": "Solibacter usitatus (strain Ellin6076)",
+      "common_name": null,
+      "taxon_id": "234267",
+      "lineage": [
+        "Bacteria",
+        "Pseudomonadati",
+        "Acidobacteriota",
+        "Terriglobia",
+        "Bryobacterales",
+        "Solibacteraceae",
+        "Candidatus Solibacter"
+      ],
+      "evidences": [
+        {
+          "code": "ECO:0000313",
+          "source": "EMBL",
+          "id": "ABJ88233.1"
+        }
+      ]
+    },
+    "uniprot_id": "UPI0000E57DEA"
+  },
+  "function": {
+    "description": [],
+    "keywords": [
+      {
+        "id": "KW-0732",
+        "name": "Signal",
+        "category": "Domain",
+        "evidences": [
+          {
+            "code": "ECO:0000256",
+            "source": "SAM",
+            "id": "SignalP"
+          }
+        ]
+      }
+    ],
+    "subcellular_location": [],
+    "catalytic_activity": [],
+    "pathway": [],
+    "subunit": [],
+    "similarity": []
+  },
+  "go_annotations": {
+    "molecular_function": [
+      {
+        "go_id": "GO:0005488",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.342
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005515",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.33
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0042802",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.304
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0003824",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.207
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016787",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.172
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0030246",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.121
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016798",
+        "label": "hydrolase activity, acting on glycosyl bonds",
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepfri"
+        ],
+        "source_details": {
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.16078
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0008233",
+        "label": "peptidase activity",
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepfri"
+        ],
+        "source_details": {
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.13812
+          }
+        },
+        "confidence": "low"
+      }
+    ],
+    "biological_process": [
+      {
+        "go_id": "GO:0009987",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.499
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0019058",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.234
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016032",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.177
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0050896",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.174
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0051234",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.169
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044403",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.162
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006810",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.146
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0051179",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.14
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0055085",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.139
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044419",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.136
+          }
+        },
+        "confidence": "low"
+      }
+    ],
+    "cellular_component": [
+      {
+        "go_id": "GO:0110165",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.683
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0044423",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.536
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0019028",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.238
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016020",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.189
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0030312",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.186
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0009289",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.149
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005576",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.141
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0071944",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.133
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0019030",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.103
+          }
+        },
+        "confidence": "low"
+      }
+    ]
+  },
+  "enzymatic": {
+    "ec_numbers": [
+      {
+        "ec_id": "3.2.2.22",
+        "sources": [
+          "clean"
+        ],
+        "source_details": {
+          "clean": {
+            "source_type": "ml_enzyme"
+          }
+        },
+        "confidence": "low"
+      }
+    ]
+  },
+  "domains": {
+    "cog": [],
+    "kog": [],
+    "pfam": [
+      {
+        "id": "Big_3_5",
+        "label": null,
+        "sources": [
+          "eggnog"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "VCBS",
+        "label": null,
+        "sources": [
+          "eggnog"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "tigrfam": [],
+    "smart": [],
+    "cog_categories": [
+      "N"
+    ]
+  },
+  "features": {
+    "domains": [],
+    "active_sites": [],
+    "binding_sites": [],
+    "other_features": [
+      {
+        "type": "Signal",
+        "description": null,
+        "position_start": 1,
+        "position_end": 23,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": null,
+        "evidences": [
+          {
+            "code": "ECO:0000256",
+            "source": "SAM",
+            "id": "SignalP"
+          }
+        ]
+      },
+      {
+        "type": "Chain",
+        "description": null,
+        "position_start": 24,
+        "position_end": 669,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": "PRO_5004162950",
+        "evidences": [
+          {
+            "code": "ECO:0000256",
+            "source": "SAM",
+            "id": "SignalP"
+          }
+        ]
+      }
+    ]
+  },
+  "pathways": {
+    "kegg_ko": [],
+    "kegg_pathways": [],
+    "kegg_modules": []
+  },
+  "sequence": {
+    "value": "MVDFRRCITALAILALFAGLAAAQIGPQQQLVCATNVTVTPNLRGEGYTEQTGDITLNCTGGVTPTLGSVVPTVNITVFYNTQVTSRLLPQSASNSISEALLLIDEPGSGLPPTVPGYGPAAAQNLCATPTTGCTQFVSAANVSGAPIGGIPVATDTALGLFVPPGTPATNTRNVFQGVVSSNSVTFFGIPVLAPGTTASRVFRITNVRVNANPLAGGSASGASPVTASISISGATSLLITNATPTVGFVTNGLSAKVSTTTTFNQCATQTKSFATLVQFSENFGTAFKTRVAAQSNTSYAGQAGAPLSPPQNVPGGIYNSESNLVVPIATGQVAGLADYGTRLKATFNNIPAGVRIFVSTANVLNGNFPVVAPAVPGGSAANTGTTGYAQLVNGETTSDGASSGFFPSITATDNGPNNGNVPIAEVPITNGSGLAVWEVVNTNPSTSETFSFAVYTTYSANVAQNSPPAGTSTVNLSYAPTPPIFTASAGAAASSTLTIPRFISDPSAARNFAVIQICRTILLFPYVTNQAGFDTGLEIANTSLDPFTTGSNTTLAQAGSCRMTWYGGTTTAPTTPPGPSDTGSIAGGTIYVNTAQTLVPNFQGYMIAVCNFQYAHGFAFISDVGARNLAMGYLAVVLPDPGTNGRAAAPGACLGVTGCTSAGEQDAH",
+    "length": 669,
+    "mol_weight": 67578,
+    "crc64": "399C35EB6865BCD5",
+    "md5": "6362E65F76EF43DEA3306BC53B1E6DD9"
+  },
+  "references": [
+    {
+      "reference_number": 1,
+      "id": "CI-9MICB7K26JNDR",
+      "pmid": null,
+      "citation_type": "submission",
+      "title": "Complete sequence of Solibacter usitatus Ellin6076.",
+      "authors": [
+        "Copeland A.",
+        "Lucas S.",
+        "Lapidus A.",
+        "Barry K.",
+        "Detter J.C.",
+        "Glavina del Rio T.",
+        "Hammon N.",
+        "Israni S.",
+        "Dalin E.",
+        "Tice H.",
+        "Pitluck S.",
+        "Thompson L.S.",
+        "Brettin T.",
+        "Bruce D.",
+        "Han C.",
+        "Tapia R.",
+        "Gilna P.",
+        "Schmutz J.",
+        "Larimer F.",
+        "Land M.",
+        "Hauser L.",
+        "Kyrpides N.",
+        "Mikhailova N.",
+        "Janssen P.H.",
+        "Kuske C.R.",
+        "Richardson P."
+      ],
+      "authoring_group": [
+        "US DOE Joint Genome Institute"
+      ],
+      "date": "OCT-2006",
+      "journal": null,
+      "volume": null,
+      "pages": null,
+      "reference_positions": [
+        "NUCLEOTIDE SEQUENCE"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "Ellin6076",
+          "evidences": [
+            {
+              "code": "ECO:0000313",
+              "source": "EMBL",
+              "id": "ABJ88233.1"
+            }
+          ]
+        }
+      ],
+      "submission_database": "EMBL/GenBank/DDBJ databases",
+      "evidences": [
+        {
+          "code": "ECO:0000313",
+          "source": "EMBL",
+          "id": "ABJ88233.1"
+        }
+      ]
+    }
+  ],
+  "cross_references": {
+    "EMBL": [
+      {
+        "id": "CP000473",
+        "properties": {
+          "ProteinId": "ABJ88233.1",
+          "Status": "-",
+          "MoleculeType": "Genomic_DNA"
+        }
+      }
+    ],
+    "AlphaFoldDB": [
+      {
+        "id": "Q01Q37",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "STRING": [
+      {
+        "id": "234267.Acid_7322",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "KEGG": [
+      {
+        "id": "sus:Acid_7322",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "HOGENOM": [
+      {
+        "id": "CLU_410438_0_0_0",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "InParanoid": [
+      {
+        "id": "Q01Q37",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "OrthoDB": [
+      {
+        "id": "131998at2",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ]
+  },
+  "extra_attributes": {
+    "count_by_comment_type": {},
+    "count_by_feature_type": {
+      "Signal": 1,
+      "Chain": 1
+    }
+  },
+  "interpro": {
+    "entries": [],
+    "summary": {
+      "total_entries": 0,
+      "total_interpro_integrated": 0,
+      "total_unintegrated": 0,
+      "by_source_database": {},
+      "by_type": {},
+      "member_databases_used": [],
+      "go_terms_count": {
+        "molecular_function": 0,
+        "biological_process": 0,
+        "cellular_component": 0
+      },
+      "go_terms_list": [],
+      "interpro_integrated_ids": [],
+      "unintegrated_ids": []
+    }
+  },
+  "evidence_summary": {
+    "tools": [
+      "upimapi",
+      "eggnog",
+      "clean",
+      "deepgo2",
+      "deepfri"
+    ],
+    "annotation_count": 40,
+    "confidence_distribution": {
+      "high": 12,
+      "low": 22,
+      "medium": 6
+    },
+    "overall_confidence": "low",
+    "in_poorly_annotated_subset": true
+  },
+  "provenance": {
+    "source": "UniProtKB",
+    "uniprot_url": "https://www.uniprot.org/uniprotkb/Q01Q37/entry",
+    "db_source": "tr",
+    "raw_file": "Q01Q37.json"
+  },
+  "_test_group": "Poorly annotated proteins"
+}

@@ -38,8 +38,8 @@ def main() -> None:
     args = parser.parse_args()
 
     outputs = Path(args.outputs)
-    annot_path = outputs / "annotations.json"
-    prot_path = outputs / "proteins.json"
+    annot_path = outputs / "01_normalization" / "annotations.json"
+    prot_path = outputs / "01_normalization" / "proteins.json"
 
     if not annot_path.exists():
         print(f"ERROR: {annot_path} not found.", file=sys.stderr)

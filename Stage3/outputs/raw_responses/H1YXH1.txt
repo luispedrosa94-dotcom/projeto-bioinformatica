@@ -1,0 +1,46 @@
+{
+  "protein_id": "H1YXH1",
+  "protein_name": "Tetrahydromethanopterin S-methyltransferase, subunit H",
+  "organism": "Methanoplanus limicola DSM 2279",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Methanoplanus limicola with predicted methyltransferase activity and involvement in one-carbon metabolic process.",
+  "identity_summary": "Protein name: Tetrahydromethanopterin S-methyltransferase, subunit H; Gene name: mtrH (inferred by homology); Organism: Methanoplanus limicola DSM 2279",
+  "reported_function_summary": "Methyltransferase activity and one-carbon metabolic process reported in the record.",
+  "go_annotation_summary": [
+    "GO:0008168 - methyltransferase activity (high confidence from upimapi, eggnog, uniprot)",
+    "GO:0006730 - one-carbon metabolic process (high confidence from upimapi, eggnog, uniprot)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:2.1.1.86 - Tetrahydromethanopterin S-methyltransferase activity (high confidence from upimapi, eggnog, clean, recognizer)"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG1962 - Tetrahydromethanopterin S-methyltransferase, subunit H (high confidence from recognizer)",
+    "PF02007 - Tetrahydromethanopterin S-methyltransferase MtrH subunit (high confidence from upimapi)"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG KO: K00584",
+    "KEGG Pathways: ko00680, ko01100, ko01120, ko01200, map00680, map01100, map01120, map01200"
+  ],
+  "tool_prediction_summary": [
+    "GO:0008168 - methyltransferase activity (medium confidence from deepgo2)",
+    "GO:0006730 - one-carbon metabolic process (high confidence from eggnog, uniprot)"
+  ],
+  "strong_or_curated_information": [
+    "Methyltransferase activity and one-carbon metabolic process reported in the record.",
+    "EC:2.1.1.86 - Tetrahydromethanopterin S-methyltransferase activity (high confidence from upimapi, eggnog, clean, recognizer)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "GO:0008168 - methyltransferase activity (medium confidence from deepgo2)",
+    "GO:0006730 - one-carbon metabolic process (high confidence from eggnog, uniprot)"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "Gene name not directly provided in the UniProt record for this protein",
+    "No curated function or EC number explicitly listed in the UniProt record"
+  ],
+  "review_notes": [
+    "Verify EC:2.1.1.86 against literature references (CI-48QM5ABN7MJ8O)",
+    "Check if Pfam PF02007 covers full sequence or only partial region",
+    "Confirm high-confidence ML predictions match curated function reported in the record"
+  ]
+}

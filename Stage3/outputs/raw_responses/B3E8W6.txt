@@ -1,0 +1,49 @@
+{
+  "protein_id": "B3E8W6",
+  "protein_name": "Uncharacterized protein",
+  "organism": "Trichlorobacter lovleyi (strain ATCC BAA-1151 / DSM 17278 / SZ)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Trichlorobacter lovleyi with predicted molecular functions and cellular components by DeepGO2 tool.",
+  "identity_summary": "Protein name: Uncharacterized protein; Gene name: None; Alternative names: []; Organism: Trichlorobacter lovleyi (strain ATCC BAA-1151 / DSM 17278 / SZ); UniProt ID: UPI000175D59C",
+  "reported_function_summary": "No curated function reported in the record.",
+  "go_annotation_summary": [
+    "GO:0005488 - binding (confidence-medium from deepgo2)",
+    "GO:0005515 - protein binding (confidence-medium from deepgo2)",
+    "GO:0042802 - identical protein binding (confidence-medium from deepgo2)",
+    "GO:0046812 - catalytic activity, acting on a protein (confidence-low from deepfri)",
+    "GO:0030246 - catalytic activity, acting on a protein (confidence-low from deepgo2)",
+    "GO:0016787 - catalytic activity, acting on a protein (confidence-low from deepgo2)",
+    "GO:0003824 - catalytic activity, acting on a protein (confidence-low from deepgo2)",
+    "GO:0046790 - catalytic activity, acting on a protein (confidence-low from deepgo2)",
+    "GO:0030247 - catalytic activity, acting on a protein (confidence-low from deepgo2)",
+    "GO:0140096 - catalytic activity, acting on a protein (confidence-low from deepfri)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:4.2.2.17 - predicted enzyme by CLEAN tool"
+  ],
+  "domain_family_and_feature_summary": [
+    "Signal - predicted feature by SAM tool",
+    "Chain - predicted feature by SAM tool"
+  ],
+  "pathway_and_context_summary": [],
+  "tool_prediction_summary": [
+    "DeepGO2: Predicted molecular functions and cellular components with medium to low confidence.",
+    "DeepFRI: Predicted catalytic activity, acting on a protein with low confidence."
+  ],
+  "strong_or_curated_information": [],
+  "weak_predicted_or_indirect_information": [
+    "Predicted enzyme by CLEAN tool",
+    "Predicted feature by SAM tool"
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "No curated function reported in the record.",
+    "No EC numbers reported in the record."
+  ],
+  "review_notes": [
+    "Verify the predicted enzyme activity against literature references.",
+    "Check if the Signal and Chain features cover the full sequence or only a partial region.",
+    "Confirm whether high-confidence ML predictions match the curated function (none available).",
+    "Investigate why two tools report different confidence levels for the same GO term."
+  ]
+}

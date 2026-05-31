@@ -1,7 +1,7 @@
 """
 Rate limiting and retry utilities for API clients.
 
-Both UniProt and STRING have rate limits. This module provides a simple
+UniProt has rate limits. This module provides a simple
 throttle + exponential backoff wrapper so API clients don't have to
 implement it themselves.
 """

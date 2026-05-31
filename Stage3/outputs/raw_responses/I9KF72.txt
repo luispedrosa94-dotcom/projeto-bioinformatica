@@ -1,0 +1,37 @@
+{
+  "protein_id": "I9KF72",
+  "protein_name": "Uncharacterized protein",
+  "organism": "null",
+  "source_status": "unreviewed",
+  "overall_profile_summary": "Uncharacterized protein from organism with no curated function but predicted GO terms by DeepGO2 and DeepFRI tools.",
+  "identity_summary": "No gene name, reviewed status: unreviewed, entry type: Inactive, annotation score: 0.0",
+  "reported_function_summary": "No reported functions in the record.",
+  "go_annotation_summary": [
+    "GO:0005488 - binding (medium confidence from DeepGO2)",
+    "GO:0005515 - binding (medium confidence from DeepGO2)",
+    "GO:0042802 - binding (medium confidence from DeepGO2)",
+    "GO:0003677 - DNA binding (low confidence from DeepFRI)",
+    "GO:0016788 - hydrolase activity, acting on ester bonds (low confidence from DeepFRI)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:3.4.24.33 - predicted by CLEAN tool"
+  ],
+  "domain_family_and_feature_summary": [],
+  "pathway_and_context_summary": [],
+  "tool_prediction_summary": [
+    "DeepGO2 predictions for GO terms with medium to low confidence",
+    "DeepFRI predictions for GO terms with low confidence"
+  ],
+  "strong_or_curated_information": [],
+  "weak_predicted_or_indirect_information": [],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "Organism taxonomy data is missing.",
+    "No curated function or EC numbers in the record."
+  ],
+  "review_notes": [
+    "Verify the predicted EC number (3.4.24.33) against literature references.",
+    "Check if Pfam domains cover the full sequence or only partial regions.",
+    "Confirm whether high-confidence ML predictions match the curated function reported in the input."
+  ]
+}

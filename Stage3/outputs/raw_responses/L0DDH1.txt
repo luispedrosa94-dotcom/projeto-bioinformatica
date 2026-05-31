@@ -1,0 +1,46 @@
+{
+  "protein_id": "L0DDH1",
+  "protein_name": "Type VI secretion protein, EvpB/VC_A0108 family",
+  "organism": "Singulisphaera acidiphila (strain ATCC BAA-1392 / DSM 18658 / VKM B-2454 / MOB10)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Singulisphaera acidiphila with predicted type VI secretion system components by various tools.",
+  "identity_summary": "Protein name: Type VI secretion protein, EvpB/VC_A0108 family. EMBL accession AGA26721.1 and Proteomes UP000010798 provide evidence for this name.",
+  "reported_function_summary": "No curated function reported in the record.",
+  "go_annotation_summary": [
+    "GO:0005488 - binding (deepgo2, high confidence)",
+    "GO:0005515 - protein binding (deepgo2, medium confidence)",
+    "GO:0042802 - identical protein binding (deepgo2, medium confidence)",
+    "GO:0003824 - catalytic activity (deepgo2, medium confidence)",
+    "GO:0043167 - purine nucleotide binding (deepgo2, low confidence)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC:2.4.2.31 - glucosyltransferase (clean, low confidence)"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG3517 - Predicted component TssB of the type VI protein secretion system, VipA/VipB/TssB family (recognizer, high confidence)",
+    "PF05943 - type VI secretion system contractile sheath large subunit (upimapi, high confidence)",
+    "PF18945 - EvpB/VC_A0108, tail sheath gpW/gp25-like domain (upimapi, high confidence)"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG pathway: ko02025 - Type VI secretion system (Singulisphaera acidiphila)",
+    "STRING ID: 886293.Sinac_2410"
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predictions for GO terms with confidence levels",
+    "DeepFRI predictions for GO terms with confidence levels"
+  ],
+  "strong_or_curated_information": [],
+  "weak_predicted_or_indirect_information": [
+    "Predicted type VI secretion system components by various tools."
+  ],
+  "conflicting_or_inconsistent_information": [],
+  "missing_or_limited_information": [
+    "No curated function reported in the record.",
+    "Limited information available for this protein."
+  ],
+  "review_notes": [
+    "Verify EC number 2.4.2.31 against literature references.",
+    "Check if Pfam PF05943 covers the full sequence or only a partial region.",
+    "Confirm if high-confidence ML predictions match the curated function reported in the record (if any)."
+  ]
+}

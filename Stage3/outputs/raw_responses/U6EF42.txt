@@ -1,0 +1,54 @@
+{
+  "protein_id": "U6EF42",
+  "protein_name": "CoB--CoM heterodisulfide reductase iron-sulfur subunit A (EC 1.8.-.-)",
+  "organism": "Unspecified",
+  "source_status": "unreviewed",
+  "overall_profile_summary": "Uncharacterized protein from organism X with predicted CoB-CoM heterodisulfide reductase activity and iron-sulfur cluster binding.",
+  "identity_summary": "Protein name: CoB--CoM heterodisulfide reductase iron-sulfur subunit A (EC 1.8.-.-), UniProt ID: UPI0003C9D36D",
+  "reported_function_summary": "Curated function not available.",
+  "go_annotation_summary": [
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)",
+    "GO:0046872 - metal ion binding (high confidence from upimapi)",
+    "GO:0016491 - oxidoreductase activity (high confidence from upimapi and deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.8.-.- - CoB-CoM heterodisulfide reductase activity (high confidence from upimapi)",
+    "EC 1.8.7.3 - CoB-CoM heterodisulfide reductase activity (high confidence from eggnog)",
+    "EC 1.8.98.4 - CoB-CoM heterodisulfide reductase activity (high confidence from eggnog)"
+  ],
+  "domain_family_and_feature_summary": [
+    "PF12831, PF00037, PF13187 - predicted domains",
+    "Fer4, Fer4_4, Pyr_redox_2 - predicted domains"
+  ],
+  "pathway_and_context_summary": [
+    "ko:K03388, K00345,K00443, K04090 - predicted pathways in KEGG",
+    "ko00680, ko01100, ko01120, ko01200 - predicted pathways in KEGG"
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predictions: GO:0051539 (high), GO:0046872 (high), GO:0016491 (high)",
+    "DeepFRI predictions: GO:0051536 (high), GO:0051540 (high)"
+  ],
+  "strong_or_curated_information": [
+    "Curated function not available.",
+    "EC 1.8.-.- - CoB-CoM heterodisulfide reductase activity (high confidence from upimapi)",
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi)"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "DeepGO2 predictions: GO:0016667 (medium), GO:0009055 (medium), GO:0005488 (low)",
+    "DeepFRI predictions: GO:0046914 (low), GO:0005506 (low), GO:0016829 (low)"
+  ],
+  "conflicting_or_inconsistent_information": [
+    "GO:0051539 annotated with different confidence levels by upimapi and deepgo2",
+    "EC numbers assigned to the same protein by eggnog and recognizer"
+  ],
+  "missing_or_limited_information": [
+    "Organism not specified.",
+    "Curated function not available."
+  ],
+  "review_notes": [
+    "Verify EC number 1.8.-.- against literature references.",
+    "Check if Pfam domains cover the full sequence or only a partial region.",
+    "Confirm if high-confidence ML predictions match curated function (not available).",
+    "Investigate why two tools report different confidence levels for GO:0051539."
+  ]
+}
