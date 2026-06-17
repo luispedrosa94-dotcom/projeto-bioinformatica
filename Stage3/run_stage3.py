@@ -249,6 +249,7 @@ def call_ollama(
         "model": model,
         "prompt": prompt,
         "stream": False,
+        "think": False,
         "options": {
             "temperature": temperature,
         },
