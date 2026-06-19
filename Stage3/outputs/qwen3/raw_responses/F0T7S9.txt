@@ -1,0 +1,75 @@
+{
+  "protein_id": "F0T7S9",
+  "protein_name": "CoB--CoM heterodisulfide reductase iron-sulfur subunit A",
+  "organism": "Methanobacterium lacus (strain AL-21)",
+  "source_status": "unreviewed",
+  "overall_profile_summary": "Uncharacterized iron-sulfur subunit A from Methanobacterium lacus, reported as part of the CoB-CoM heterodisulfide reductase complex involved in methanogenesis, with strong domain evidence but conflicting EC numbers.",
+  "identity_summary": "UniProtKB unreviewed (TrEMBL) entry F0T7S9 from Methanobacterium lacus (taxon_id: 877455). Protein existence inferred from homology. Entry name METLA. Last updated 2025-10-08.",
+  "reported_function_summary": "Reported by RuleBase and ARBA as part of a complex catalyzing the reversible reduction of CoM-S-S-CoB to H-S-CoM and H-S-CoB. Belongs to the HdrA family. Subunit of the ferredoxin:CoB-CoM heterodisulfide reductase complex (HdrA, HdrB, HdrC).",
+  "go_annotation_summary": [
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding (high confidence from upimapi/homology, deepfri/ml_structure; low from deepgo2/ml_sequence)",
+    "GO:0046872 - metal ion binding (high confidence from upimapi/homology)",
+    "GO:0016491 - oxidoreductase activity (high confidence from upimapi/homology, deepgo2/ml_sequence)",
+    "GO:0015948 - methanogenesis (high confidence, curated)",
+    "Multiple other GO terms predicted by DeepGO2 and DeepFRI with varying confidence levels, mostly low to medium."
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.8.7.3 (ferredoxin:CoB-CoM heterodisulfide reductase) supported by eggnog/orthology and clean/ml_enzyme (high confidence)",
+    "EC 1.8.98.4 and 1.8.98.5 supported by eggnog/orthology (high confidence)",
+    "EC 1.8.98.1 supported by recognizer/domain_search (high confidence)",
+    "EC 1.2.7.8 and 1.5.99.15 supported by recognizer/domain_search with lower confidence",
+    "Note: Conflicting EC numbers suggest potential annotation ambiguity or multi-functionality."
+  ],
+  "domain_family_and_feature_summary": [
+    "Contains multiple 4Fe-4S ferredoxin-type iron-sulfur binding domains (positions 245-275, 293-322, 583-611, 612-641) confirmed by PROSITE PS51379 and PF00037/PF13237.",
+    "Contains FAD/NAD(P)-binding Rossmann-like domain (positions 149-204, 153-569) confirmed by CATH/Gene3D and InterPro.",
+    "COG1148 (Heterodisulfide reductase, subunit A) and COG4231 (TPP-dependent indolepyruvate ferredoxin oxidoreductase, alpha subunit) identified.",
+    "Pfam domains: PF12831 (FAD dependent oxidoreductase), PF00037 (4Fe-4S binding domain), PF13237 (4Fe-4S dicluster domain).",
+    "InterPro entries: IPR017896 (4Fe-4S ferredoxin-type), IPR017900 (4Fe-4S ferredoxin, conserved site), IPR036188 (FAD/NAD(P)-binding domain superfamily), IPR039650 (HdrA-like family)."
+  ],
+  "pathway_and_context_summary": [
+    "KEGG KO: K03388, K00345, K00443, K04090",
+    "KEGG Pathways: ko00680 (Methane metabolism), ko01100 (Metabolic pathways), ko01120 (Microbial metabolism in diverse environments), ko01200 (Carbon metabolism)",
+    "KEGG Modules: M00356, M00357, M00563, M00567",
+    "UniPathway: UPA00647",
+    "Part of the ferredoxin:CoB-CoM heterodisulfide reductase complex in methanogenesis."
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predicted multiple GO terms with medium to low confidence, including GO:0005634 (nucleus), GO:0005737 (cytoplasm), GO:0005829 (cytosol), GO:0005886 (plasma membrane), GO:0043226 (organelle membrane), etc.",
+    "DeepFRI predicted GO terms with high confidence for 4Fe-4S cluster binding and metal ion binding, and medium confidence for oxidoreductase activity.",
+    "Overall confidence of annotations is medium."
+  ],
+  "strong_or_curated_information": [
+    "Curated GO term: GO:0015948 (methanogenesis) with high confidence.",
+    "Curated EC number: EC 1.8.7.3 (ferredoxin:CoB-CoM heterodisulfide reductase) with high confidence from multiple sources.",
+    "Strong domain evidence for 4Fe-4S clusters and FAD/NAD(P)-binding domains from multiple databases (Pfam, PROSITE, InterPro, CATH/Gene3D).",
+    "AlphaFold model available for F0T7S9."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Many GO terms predicted by DeepGO2 with low confidence and no direct experimental evidence.",
+    "Conflicting EC numbers (1.8.98.1, 1.2.7.8, 1.5.99.15) with lower confidence or from domain search only.",
+    "Some cellular component predictions (e.g., nucleus, cytoplasm) from DeepGO2 are likely indirect or incorrect for a membrane-associated complex subunit.",
+    "Entry is unreviewed (TrEMBL), so annotations are primarily computational."
+  ],
+  "conflicting_or_inconsistent_information": [
+    "EC numbers: EC 1.8.7.3 is strongly supported, but EC 1.8.98.1, 1.2.7.8, and 1.5.99.15 are also present, suggesting potential annotation conflicts or multi-functionality.",
+    "Cellular location: DeepGO2 predicts multiple locations (nucleus, cytoplasm, plasma membrane, organelle membrane), which is inconsistent with the known role of HdrA as part of a membrane-associated complex in methanogens.",
+    "GO terms: Some predicted GO terms (e.g., GO:0005634 nucleus) are likely incorrect for this protein.",
+    "COG classification: COG1148 (HdrA) and COG4231 (indolepyruvate ferredoxin oxidoreductase) suggest different functional contexts, though both are oxidoreductases."
+  ],
+  "missing_or_limited_information": [
+    "No direct experimental evidence for enzymatic activity or substrate specificity.",
+    "Limited information on post-translational modifications or regulatory mechanisms.",
+    "No detailed structural data beyond AlphaFold prediction.",
+    "No information on protein-protein interaction partners beyond the complex membership.",
+    "No information on expression levels or tissue/cell type specificity (though likely ubiquitous in methanogens)."
+  ],
+  "review_notes": [
+    "The protein is a subunit of the ferredoxin:CoB-CoM heterodisulfide reductase complex, crucial for methanogenesis in Methanobacterium lacus.",
+    "Strong evidence for 4Fe-4S clusters and FAD/NAD(P)-binding domains supports its role in electron transfer.",
+    "Conflicting EC numbers should be resolved with caution; EC 1.8.7.3 is the most likely correct one based on complex membership.",
+    "Cellular component annotations from DeepGO2 are unreliable and should be disregarded in favor of known complex localization.",
+    "Further experimental validation is needed to confirm substrate specificity and exact role in the complex.",
+    "The entry is unreviewed; annotations are primarily computational and should be treated with appropriate caution."
+  ]
+}

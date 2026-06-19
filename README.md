@@ -91,6 +91,14 @@ python run_stage3.py \
   --model llama3.1 \
   --num-ctx 32768 \
   --save-prompts
+
+# Run with Qwen3.6-35B (non-thinking mode)
+python run_stage3.py \
+  --input test_proteins.json \
+  --model qwen3.6:35b \
+  --num-ctx 32768 \
+  --output-dir outputs/qwen3 \
+  --save-prompts
 cd ..
 
 # App — Streamlit dashboard

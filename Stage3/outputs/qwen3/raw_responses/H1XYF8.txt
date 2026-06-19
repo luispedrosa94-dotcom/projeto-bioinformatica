@@ -1,0 +1,119 @@
+{
+  "protein_id": "H1XYF8",
+  "protein_name": "Por secretion system C-terminal sorting domain-containing protein",
+  "organism": "Caldithrix abyssi DSM 13497",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized protein from Caldithrix abyssi containing a Por secretion system C-terminal sorting domain, with conflicting enzymatic annotations and multiple domain predictions suggesting hydrolase or nuclease activity.",
+  "identity_summary": "Protein H1XYF8 from Caldithrix abyssi (TaxID: 880073), entry type TrEMBL, protein existence predicted (PE4). Gene name inferred as 'gnl' by homology; synonyms include Cabys_2571 and Calab_3627. Last updated 2026-01-28.",
+  "reported_function_summary": "No curated function description is present in the record. Keywords indicate ATP-binding, helicase, and hydrolase activities, with subcellular locations reported as cell projection/cilium and cytoplasm by ARBA.",
+  "go_annotation_summary": [
+    "GO:0004386 (helicase activity) - high confidence from UniProtKB-KW (curated) and upimapi (homology); medium confidence from deepgo2 (ml_sequence).",
+    "GO:0003824 (catalytic activity) - high confidence from eggnog (orthology); medium confidence from deepgo2 (ml_sequence).",
+    "GO:0016787 (hydrolase activity) - high confidence from eggnog (orthology); medium confidence from deepgo2 (ml_sequence).",
+    "GO:0016788 (nucleotidyltransferase activity) - high confidence from eggnog (orthology).",
+    "GO:0005515 (protein binding) - medium confidence from deepgo2 (ml_sequence).",
+    "GO:0097367 (carbohydrate derivative binding) - medium confidence from deepfri (ml_structure).",
+    "GO:0032553 (ribonucleotide binding) - medium confidence from deepfri (ml_structure).",
+    "GO:0032555 (purine ribonucleotide binding) - medium confidence from deepfri (ml_structure).",
+    "GO:0035639 (purine ribonucleoside triphosphate binding) - medium confidence from deepfri (ml_structure).",
+    "GO:0017076 (purine nucleotide binding) - low confidence from deepfri (ml_structure).",
+    "GO:0032559 (adenyl ribonucleotide binding) - low confidence from deepfri (ml_structure).",
+    "GO:0005524 (ATP binding) - low confidence from deepfri (ml_structure).",
+    "GO:0030554 (adenyl nucleotide binding) - low confidence from deepfri (ml_structure).",
+    "GO:0005975 (cellular component organization) - high confidence from eggnog (orthology); low confidence from deepgo2 (ml_sequence).",
+    "GO:0006082 (cellular carbohydrate metabolic process) - high confidence from eggnog (orthology).",
+    "GO:0016051 (carbohydrate metabolic process) - high confidence from eggnog (orthology).",
+    "GO:0019752 (carboxylic acid metabolic process) - high confidence from eggnog (orthology).",
+    "GO:0044281 (small molecule metabolic process) - high confidence from eggnog (orthology).",
+    "GO:0009987 (cell surface) - medium confidence from deepgo2 (ml_sequence).",
+    "GO:0071704 (organelle organization) - medium confidence from deepgo2 (ml_sequence).",
+    "GO:0008152 (metabolic process) - medium confidence from deepgo2 (ml_sequence).",
+    "GO:0044238 (primary metabolic process) - medium confidence from deepgo2 (ml_sequence).",
+    "GO:0043170 (response to organic substance) - medium confidence from deepgo2 (ml_sequence).",
+    "GO:0044260 (cellular macromolecule metabolic process) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0006807 (nitrogen compound metabolic process) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0051703 (multicellular organismal process) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0050896 (organelle organization) - low confidence from deepgo2 (ml_sequence).",
+    "GO:1901575 (cellular component organization) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0022610 (biological adhesion) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0071840 (cellular component organization or biogenesis) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0016052 (carbohydrate catabolic process) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0044260 (cellular macromolecule metabolic process) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0009056 (biosynthetic process) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0042597 (extracellular region) - high confidence from eggnog (orthology).",
+    "GO:0110165 (cellular anatomical entity) - high confidence from deepgo2 (ml_sequence).",
+    "GO:0005622 (intracellular) - medium confidence from deepgo2 (ml_sequence).",
+    "GO:0016020 (membrane) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0098015 (external side of plasma membrane) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0071944 (plasma membrane raft) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0005737 (cytoplasm) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0032991 (protein-containing complex) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0005829 (cytosol) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0030312 (regulation of cellular component organization) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0005886 (plasma membrane) - low confidence from deepgo2 (ml_sequence).",
+    "GO:0005576 (protein binding) - low confidence from deepgo2 (ml_sequence)."
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.15.1.1 (superoxide dismutase) - high confidence from eggnog (orthology).",
+    "EC 2.7.11.1 (non-specific serine/threonine protein kinase) - high confidence from eggnog (orthology) and recognizer (domain_search).",
+    "EC 3.1.1.17 (acyltransferase) - high confidence from eggnog (orthology).",
+    "EC 3.1.1.2 (carboxylic ester hydrolase) - high confidence from eggnog (orthology).",
+    "EC 3.1.3.8 (phosphorothioate diesterase) - high confidence from eggnog (orthology).",
+    "EC 3.1.8.1 (phosphodiesterase I) - high confidence from eggnog (orthology).",
+    "EC 3.2.1.4 (exodeoxyribonuclease III) - high confidence from eggnog (orthology).",
+    "EC 4.3.3.2 (phosphoric monoester hydrolase) - high confidence from eggnog (orthology).",
+    "EC 5.2.1.8 (phosphoglycerate mutase) - low confidence from clean (ml_enzyme).",
+    "EC 3.1.3.5 (phosphatase) - low confidence from recognizer (domain_search)."
+  ],
+  "domain_family_and_feature_summary": [
+    "Pfam PF18942 and PF18962 (high confidence from upimapi).",
+    "Pfam SGL and Str_synth (high confidence from eggnog).",
+    "Pfam pfam18962 (medium confidence from recognizer).",
+    "Pfam pfam18942 and pfam15416 (DUF4623) (low confidence from recognizer).",
+    "TIGRfam TIGR04183 (T9SS type A sorting domain) (low confidence from recognizer).",
+    "COG4257 (Streptogramin lyase), COG3391 (DNA-binding beta-propeller), COG4085 (DNA/RNA endonuclease) (low confidence from recognizer).",
+    "InterPro IPR011042 (Six-bladed beta-propeller, TolB-like), IPR013783 (Immunoglobulin-like fold), IPR026444 (Secretion system C-terminal sorting domain), IPR053879 (HYDIN/VesB/CFA65-like Ig-like domain).",
+    "Features: Signal peptide (1-20), Chain (21-1657), HYDIN/VesB/CFA65-like Ig-like domain (964-1047), Secretion system C-terminal sorting domain (1579-1654)."
+  ],
+  "pathway_and_context_summary": [
+    "KEGG KOs: K01045, K01053, K01083, K01179, K01757, K02057, K04565, K08884, K13735, K07004/K01376, K01741/K01081/K07004.",
+    "KEGG Pathways: ko00030, ko00053, ko00500, ko00562, ko00901, ko00930, ko01100, ko01110, ko01120, ko01130, ko01200, ko01220, ko04146, ko04213, ko05014, ko05016, ko05020, ko05100, map00030, map00053, map00500, map00562, map00901, map00930, map01100, map01110, map01120, map01130, map01200, map01220, map04146, map04213, map05014, map05016, map05020, map05100.",
+    "KEGG Modules: M00129, M00221."
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predicts GO terms with varying confidence (high to low) primarily via ml_sequence.",
+    "DeepFRI predicts binding and catalytic GO terms via ml_structure with medium to low confidence.",
+    "CLEAN predicts EC 5.2.1.8 with low confidence.",
+    "STRING and PaxDb provide context links but no direct functional evidence.",
+    "EGGNog provides high-confidence orthology-based GO and EC annotations."
+  ],
+  "strong_or_curated_information": [
+    "UniProtKB-KW keywords (ATP-binding, Helicase, Hydrolase) are reported as curated/IEA evidence.",
+    "ARBA reports subcellular locations (Cell projection, cilium; Cytoplasm) with ECO:0000256.",
+    "High-confidence orthology annotations from EGGNog for multiple GO terms and EC numbers."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Low-confidence ML predictions from DeepGO2 and DeepFRI for various binding and catalytic activities.",
+    "Low-confidence domain hits from COG and Pfam (pfam18942, pfam15416).",
+    "Low-confidence EC prediction from CLEAN.",
+    "Contextual pathway mappings from KEGG without specific reaction validation."
+  ],
+  "conflicting_or_inconsistent_information": [
+    "Different EC numbers assigned by different tools: EC 1.15.1.1 (superoxide dismutase) and EC 2.7.11.1 (protein kinase) are both reported with high confidence from EGGNog, which is biologically incompatible for a single protein.",
+    "Different EC numbers assigned by different tools: EC 3.1.1.17 (acyltransferase), EC 3.1.1.2 (ester hydrolase), EC 3.1.3.8 (phosphorothioate diesterase), EC 3.1.8.1 (phosphodiesterase), EC 3.2.1.4 (exodeoxyribonuclease), and EC 4.3.3.2 (phosphoric monoester hydrolase) are all reported with high confidence from EGGNog, representing a wide range of incompatible enzymatic activities.",
+    "Domain hits imply incompatible functions: COG4257 (Streptogramin lyase) and COG4085 (DNA/RNA endonuclease) suggest distinct enzymatic roles, while TIGR04183 suggests a sorting domain function.",
+    "Mismatch between organism/taxonomy data and predicted function: The protein is from a bacterium (Caldithrix abyssi), but ARBA reports subcellular location 'cilium', which is a eukaryotic-specific structure."
+  ],
+  "missing_or_limited_information": [
+    "No curated function description is available in the UniProt record.",
+    "No specific literature references (PMID) are linked to functional annotations; evidence is primarily from submissions and automated tools.",
+    "Gene name is not directly assigned (inferred as 'gnl').",
+    "No active sites or binding sites are explicitly defined in the features section."
+  ],
+  "review_notes": [
+    "Verify the high-confidence EC numbers (e.g., 1.15.1.1, 2.7.11.1, 3.1.1.17) reported by EGGNog against the original genomic submission or homologous proteins, as they represent incompatible enzymatic activities.",
+    "Check whether the TIGR04183 (T9SS type A sorting domain) and PF18962 (Por secretion system C-terminal sorting domain) hits cover the full C-terminal region or are partial matches, given the conflicting enzymatic predictions.",
+    "Investigate why ARBA reports 'cilium' as a subcellular location for a bacterial protein, as this is likely an annotation error or misinterpretation of a similar structure.",
+    "Confirm whether the 'helicase activity' keyword is supported by specific domain evidence (e.g., RecA-like or helicase domains) or is solely inferred from homology keywords."
+  ]
+}

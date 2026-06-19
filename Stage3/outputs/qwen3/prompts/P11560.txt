@@ -1,0 +1,3372 @@
+/no_think
+You are a protein profile summarization assistant.
+Your task:
+Given the complete JSON profile for ONE protein, write a structured summary of the information contained in that profile.
+Important framing:
+- You are NOT predicting protein function from sequence or from your own knowledge.
+- You are NOT choosing a final biological annotation.
+- You are NOT acting as a curator who decides the correct function.
+- You are summarizing what the record contains: identity, source status, reported functions, GO terms, EC numbers, domains, features, pathways, tool predictions, literature/curated evidence, weak evidence, missing information, and conflicts.
+- The output should help a human quickly understand what is known, predicted, uncertain, or absent for this specific protein.
+Rules:
+1. Use only information present in the input JSON.
+2. Do not invent functions, pathways, EC numbers, organisms, locations, domains, gene names, scores, or references.
+3. Do not produce a "recommended annotation" or claim that one function is the final correct answer.
+4. If the input contains a curated/reviewed function, describe it as "reported" or "curated in the record", not as your own conclusion.
+5. If the input contains EC numbers, GO terms, pathways, domains, or protein names, summarize them as information present in the record.
+6. Keep evidence provenance visible: distinguish curated/literature/database evidence from homology evidence, domain evidence, automatic annotations, ML predictions, and contextual/network evidence.
+7. Treat ML predictions from tools such as DeepGO2, DeepFRI, CLEAN, or similar tools as predictions, not confirmed facts.
+8. Treat STRING, enrichment, pathway, or network information as context only, not direct proof of individual protein function.
+9. Mention sparse, missing, generic, low-confidence, or conflicting information explicitly.
+10. Be concise but complete enough for a supervisor/biologist to inspect the protein quickly.
+11. Return valid JSON only. Do not include Markdown, commentary, or text outside the JSON object.
+12. For "conflicting_or_inconsistent_information", consider the following situations as conflicts that MUST be reported when present in the input:
+    a. The same GO term annotated with different confidence levels by different tools in the input.
+    b. Different EC numbers assigned to the same protein by different tools in the input.
+    c. Tool predictions that contradict the curated UniProt function.
+    d. Domain hits from different databases that imply incompatible biological functions.
+    e. Mismatch between organism/taxonomy data and the predicted function (e.g., bacterial protein predicted as eukaryotic-specific function).
+    When you find any of these, list them explicitly with the conflicting IDs and sources. If no conflicts are present, leave the list empty.
+13. For "review_notes", always include 1 to 4 short suggestions to help a human reviewer prioritize what to check. These are NOT new annotations — they are pointers to what should be validated.
+    Types of review notes you may write (use the actual identifiers from the input,
+    never invent or copy IDs):
+    - Suggest verifying a specific EC number reported in the input against the
+      literature references also listed in the input.
+    - Suggest checking whether a Pfam (or other domain) reported in the input
+      covers the full sequence or only a partial region.
+    - Suggest confirming whether a high-confidence ML prediction matches the
+      curated function reported in the input.
+    - Suggest investigating why two tools report different confidence levels
+      for the same GO term in the input.
+    - Suggest reviewing an InterPro entry hierarchy or cross-referencing a
+      KEGG identifier reported in the input with the curated reaction.
+    Always produce at least 1 review_note unless the protein has NO usable information at all.
+14. When confidence levels are explicitly listed in the input (e.g., "confidence": "high" in source_details), include them in the summary bullets in parentheses. Format: "GO_ID - term name (confidence-level from tool-name)". When multiple tools report the same item with different confidence levels, list each in the same parentheses.
+15. Final reminder: the goal is to help a human curator quickly understand: (a) what is known with confidence, (b) what is predicted but uncertain, (c) what is contradictory, and (d) what needs further checking. Filling "conflicting_or_inconsistent_information" and "review_notes" with concrete content is essential for this task.
+16. "overall_profile_summary" MUST always be a single non-empty sentence (between 10 and 50 words) describing what this protein is: its name, organism, and main function or family if known. This field is required and cannot be left blank — even for poorly annotated proteins, write a brief sentence summarizing what little is known (e.g., "Uncharacterized protein from organism X with no curated function but predicted Y domains by Z tools"). Do NOT leave this field empty.
+Required JSON fields:
+{
+  "protein_id": "string",
+  "protein_name": "string",
+  "organism": "string",
+  "source_status": "string",
+  "overall_profile_summary": "string",
+  "identity_summary": "string",
+  "reported_function_summary": "string",
+  "go_annotation_summary": ["string"],
+  "enzyme_and_reaction_summary": ["string"],
+  "domain_family_and_feature_summary": ["string"],
+  "pathway_and_context_summary": ["string"],
+  "tool_prediction_summary": ["string"],
+  "strong_or_curated_information": ["string"],
+  "weak_predicted_or_indirect_information": ["string"],
+  "conflicting_or_inconsistent_information": ["string"],
+  "missing_or_limited_information": ["string"],
+  "review_notes": ["string"]
+}
+Protein profile JSON:
+{
+  "accession": "P11560",
+  "identity": {
+    "protein_name": "Methyl-coenzyme M reductase I subunit beta",
+    "protein_name_evidences": [
+      {
+        "code": "ECO:0000303",
+        "source": "PubMed",
+        "id": "2269306"
+      }
+    ],
+    "alternative_names": [
+      {
+        "name": "Coenzyme-B sulfoethylthiotransferase beta"
+      }
+    ],
+    "gene_name": "mcrB",
+    "reviewed_status": "reviewed",
+    "entry_type": "UniProtKB reviewed (Swiss-Prot)",
+    "annotation_score": 5.0,
+    "protein_existence": "1: Evidence at protein level",
+    "entry_name": "MCRB_METTM",
+    "entry_version": 148,
+    "sequence_version": 3,
+    "first_public_date": "1989-10-01",
+    "last_annotation_update": "2026-01-28",
+    "last_sequence_update": "2007-01-23",
+    "organism": {
+      "scientific_name": "Methanothermobacter marburgensis (strain ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg)",
+      "common_name": "Methanobacterium thermoautotrophicum",
+      "taxon_id": "79929",
+      "lineage": [
+        "Archaea",
+        "Methanobacteriati",
+        "Methanobacteriota",
+        "Methanomada group",
+        "Methanobacteria",
+        "Methanobacteriales",
+        "Methanobacteriaceae",
+        "Methanothermobacter"
+      ]
+    },
+    "uniprot_id": "UPI000016FBA7"
+  },
+  "function": {
+    "description": [
+      {
+        "value": "Component of the methyl-coenzyme M reductase (MCR) I that catalyzes the reductive cleavage of methyl-coenzyme M (CoM-S-CH3 or 2-(methylthio)ethanesulfonate) using coenzyme B (CoB or 7-mercaptoheptanoylthreonine phosphate) as reductant which results in the production of methane and the mixed heterodisulfide of CoB and CoM (CoM-S-S-CoB). This is the final step in methanogenesis (PubMed:2269306, PubMed:3350018). Neither N-6-mercaptohexanoylthreonine phosphate (H-S-HxoTP) nor N-8-mercaptooctanoylthreonine phosphate (H-SOcoTP) nor any other thiol compound such as CoA or CoM can substitute for CoB as the electron donor (PubMed:3350018)",
+        "evidences": [
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "2269306"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "3350018"
+          }
+        ]
+      }
+    ],
+    "keywords": [
+      {
+        "id": "KW-0002",
+        "name": "3D-structure",
+        "category": "Technical term"
+      },
+      {
+        "id": "KW-0963",
+        "name": "Cytoplasm",
+        "category": "Cellular component"
+      },
+      {
+        "id": "KW-0903",
+        "name": "Direct protein sequencing",
+        "category": "Technical term"
+      },
+      {
+        "id": "KW-0484",
+        "name": "Methanogenesis",
+        "category": "Biological process"
+      },
+      {
+        "id": "KW-1185",
+        "name": "Reference proteome",
+        "category": "Technical term"
+      },
+      {
+        "id": "KW-0808",
+        "name": "Transferase",
+        "category": "Molecular function"
+      }
+    ],
+    "subcellular_location": [
+      {
+        "location": "Cytoplasm",
+        "location_id": "SL-0086",
+        "evidences": [
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "23533332"
+          }
+        ]
+      }
+    ],
+    "catalytic_activity": [
+      {
+        "reaction": "coenzyme B + methyl-coenzyme M = methane + coenzyme M-coenzyme B heterodisulfide",
+        "ec_number": "2.8.4.1",
+        "rhea_ids": [
+          "RHEA:12532"
+        ],
+        "chebi_ids": [
+          "CHEBI:16183",
+          "CHEBI:58286",
+          "CHEBI:58411",
+          "CHEBI:58596"
+        ],
+        "evidences": [
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "2269306"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "25691570"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "27140643"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "3350018"
+          }
+        ]
+      }
+    ],
+    "pathway": [
+      {
+        "value": "One-carbon metabolism; methyl-coenzyme M reduction; methane from methyl-coenzyme M: step 1/1",
+        "evidences": [
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "27140643"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "3350018"
+          }
+        ]
+      }
+    ],
+    "subunit": [
+      {
+        "value": "MCR is a hexamer of two alpha, two beta, and two gamma chains, forming a dimer of heterotrimers",
+        "evidences": [
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "2269306"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "3350018"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "9367957"
+          }
+        ]
+      }
+    ],
+    "similarity": [
+      {
+        "value": "Belongs to the methyl-coenzyme M reductase beta subunit family",
+        "evidences": [
+          {
+            "code": "ECO:0000305"
+          }
+        ]
+      }
+    ]
+  },
+  "go_annotations": {
+    "molecular_function": [
+      {
+        "go_id": "GO:0050524",
+        "label": "coenzyme-B sulfoethylthiotransferase activity",
+        "evidence_code": "IDA",
+        "evidence_source": "MENGO",
+        "sources": [
+          "upimapi",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 6.73e-307
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IDA",
+            "evidence_source": "MENGO"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0003824",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.619
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005488",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.445
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0042802",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.268
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016491",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.26
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005515",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.232
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0030269",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.124
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0042086",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.116
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0046872",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.107
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043169",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.106
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0097367",
+        "label": "carbohydrate derivative binding",
+        "sources": [
+          "deepfri"
+        ],
+        "source_details": {
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.17213
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0032553",
+        "label": "ribonucleotide binding",
+        "sources": [
+          "deepfri"
+        ],
+        "source_details": {
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.15178
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0032555",
+        "label": "purine ribonucleotide binding",
+        "sources": [
+          "deepfri"
+        ],
+        "source_details": {
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.12208
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0017076",
+        "label": "purine nucleotide binding",
+        "sources": [
+          "deepfri"
+        ],
+        "source_details": {
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.11852
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0035639",
+        "label": "purine ribonucleoside triphosphate binding",
+        "sources": [
+          "deepfri"
+        ],
+        "source_details": {
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.11709
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016829",
+        "label": "lyase activity",
+        "sources": [
+          "deepfri"
+        ],
+        "source_details": {
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.1112
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0046914",
+        "label": "transition metal ion binding",
+        "sources": [
+          "deepfri"
+        ],
+        "source_details": {
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.10527
+          }
+        },
+        "confidence": "low"
+      }
+    ],
+    "biological_process": [
+      {
+        "go_id": "GO:0015948",
+        "label": "methanogenesis",
+        "evidence_code": "IEA",
+        "evidence_source": "UniProtKB-KW",
+        "sources": [
+          "upimapi",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 6.73e-307
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "UniProtKB-KW"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0009987",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.394
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0016043",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.118
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0019058",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.115
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0071840",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.109
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0008152",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.107
+          }
+        },
+        "confidence": "low"
+      }
+    ],
+    "cellular_component": [
+      {
+        "go_id": "GO:0110165",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.785
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0005737",
+        "label": "cytoplasm",
+        "evidence_code": "IEA",
+        "evidence_source": "UniProtKB-SubCell",
+        "sources": [
+          "deepgo2",
+          "uniprot"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.303
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "UniProtKB-SubCell"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0005622",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.306
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0032991",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.177
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043226",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.14
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005576",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.131
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005829",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.107
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043229",
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.107
+          }
+        },
+        "confidence": "low"
+      }
+    ]
+  },
+  "enzymatic": {
+    "ec_numbers": [
+      {
+        "ec_id": "2.8.4.1",
+        "sources": [
+          "upimapi",
+          "eggnog",
+          "clean",
+          "recognizer",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology"
+          },
+          "eggnog": {
+            "source_type": "orthology"
+          },
+          "clean": {
+            "source_type": "ml_enzyme"
+          },
+          "recognizer": {
+            "source_type": "domain_search"
+          },
+          "uniprot": {
+            "source_type": "curated"
+          }
+        },
+        "confidence": "high"
+      }
+    ]
+  },
+  "domains": {
+    "cog": [
+      {
+        "id": "COG4054",
+        "label": "Methyl coenzyme M reductase, beta subunit",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "pfam": [
+      {
+        "id": "PF02241",
+        "sources": [
+          "upimapi"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "PF02783",
+        "sources": [
+          "upimapi"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "MCR_beta",
+        "sources": [
+          "eggnog"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "MCR_beta_N",
+        "sources": [
+          "eggnog"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "pfam02241",
+        "label": "Methyl-coenzyme M reductase beta subunit, C-terminal domain (Provisional)",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "pfam02783",
+        "label": "Methyl-coenzyme M reductase beta subunit, N-terminal domain (Provisional)",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "tigrfam": [
+      {
+        "id": "TIGR03257",
+        "label": "coenzyme-B sulfoethylthiotransferase subunit beta",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "cog_categories": [
+      "H",
+      "Coenzyme transport and metabolism"
+    ]
+  },
+  "features": {
+    "binding_sites": [
+      {
+        "type": "Binding site",
+        "position_start": 367,
+        "position_end": 367,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "11491299"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "20707311"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "21438550"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "27467699"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "9367957"
+          },
+          {
+            "code": "ECO:0007744",
+            "source": "PDB",
+            "id": "1HBN"
+          },
+          {
+            "code": "ECO:0007744",
+            "source": "PDB",
+            "id": "1MRO"
+          },
+          {
+            "code": "ECO:0007744",
+            "source": "PDB",
+            "id": "3M1V"
+          },
+          {
+            "code": "ECO:0007744",
+            "source": "PDB",
+            "id": "3POT"
+          },
+          {
+            "code": "ECO:0007744",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ],
+        "ligand_name": "coenzyme M",
+        "ligand_id": "ChEBI:CHEBI:58319",
+        "ligand_chebi": [
+          "CHEBI:58319"
+        ]
+      },
+      {
+        "type": "Binding site",
+        "position_start": 369,
+        "position_end": 369,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "11491299"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "20707311"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "21438550"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "27140643"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "27467699"
+          },
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "9367957"
+          },
+          {
+            "code": "ECO:0007744",
+            "source": "PDB",
+            "id": "1HBN"
+          },
+          {
+            "code": "ECO:0007744",
+            "source": "PDB",
+            "id": "1MRO"
+          },
+          {
+            "code": "ECO:0007744",
+            "source": "PDB",
+            "id": "3M1V"
+          },
+          {
+            "code": "ECO:0007744",
+            "source": "PDB",
+            "id": "3POT"
+          },
+          {
+            "code": "ECO:0007744",
+            "source": "PDB",
+            "id": "5A0Y"
+          },
+          {
+            "code": "ECO:0007744",
+            "source": "PDB",
+            "id": "5G0R"
+          }
+        ],
+        "ligand_name": "coenzyme B",
+        "ligand_id": "ChEBI:CHEBI:58596",
+        "ligand_chebi": [
+          "CHEBI:58596"
+        ]
+      }
+    ],
+    "other_features": [
+      {
+        "type": "Initiator methionine",
+        "description": "Removed",
+        "position_start": 1,
+        "position_end": 1,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0000269",
+            "source": "PubMed",
+            "id": "2269306"
+          }
+        ]
+      },
+      {
+        "type": "Chain",
+        "description": "Methyl-coenzyme M reductase I subunit beta",
+        "position_start": 2,
+        "position_end": 443,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": "PRO_0000147468"
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 7,
+        "position_end": 11,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 13,
+        "position_end": 15,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "7B2H"
+          }
+        ]
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 17,
+        "position_end": 23,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 24,
+        "position_end": 27,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Turn",
+        "position_start": 29,
+        "position_end": 31,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 33,
+        "position_end": 44,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 45,
+        "position_end": 49,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 50,
+        "position_end": 59,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 79,
+        "position_end": 81,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 82,
+        "position_end": 93,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 102,
+        "position_end": 106,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 107,
+        "position_end": 109,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 111,
+        "position_end": 115,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 118,
+        "position_end": 122,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 124,
+        "position_end": 127,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 129,
+        "position_end": 146,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Turn",
+        "position_start": 150,
+        "position_end": 152,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 153,
+        "position_end": 161,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Turn",
+        "position_start": 162,
+        "position_end": 166,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 167,
+        "position_end": 169,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 174,
+        "position_end": 176,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 182,
+        "position_end": 184,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 191,
+        "position_end": 193,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 197,
+        "position_end": 203,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Turn",
+        "position_start": 204,
+        "position_end": 206,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 208,
+        "position_end": 225,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Turn",
+        "position_start": 226,
+        "position_end": 229,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 231,
+        "position_end": 233,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 234,
+        "position_end": 245,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 248,
+        "position_end": 250,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 251,
+        "position_end": 259,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Turn",
+        "position_start": 260,
+        "position_end": 262,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 265,
+        "position_end": 278,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 283,
+        "position_end": 288,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 291,
+        "position_end": 295,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 299,
+        "position_end": 321,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 324,
+        "position_end": 326,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 327,
+        "position_end": 342,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 347,
+        "position_end": 350,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 351,
+        "position_end": 361,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 364,
+        "position_end": 368,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 372,
+        "position_end": 374,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Turn",
+        "position_start": 380,
+        "position_end": 382,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Beta strand",
+        "position_start": 384,
+        "position_end": 389,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 390,
+        "position_end": 398,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 408,
+        "position_end": 411,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 413,
+        "position_end": 419,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 423,
+        "position_end": 426,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 428,
+        "position_end": 439,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      },
+      {
+        "type": "Helix",
+        "position_start": 440,
+        "position_end": 442,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "evidences": [
+          {
+            "code": "ECO:0007829",
+            "source": "PDB",
+            "id": "5A0Y"
+          }
+        ]
+      }
+    ]
+  },
+  "pathways": {
+    "kegg_ko": [
+      "ko:K00401"
+    ],
+    "kegg_pathways": [
+      "ko00680",
+      "ko01100",
+      "ko01120",
+      "ko01200",
+      "map00680",
+      "map01100",
+      "map01120",
+      "map01200"
+    ],
+    "kegg_modules": [
+      "M00356",
+      "M00357",
+      "M00563",
+      "M00567"
+    ]
+  },
+  "sequence": {
+    "value": "MAKFEDKVDLYDDRGNLVEEQVPLEALSPLRNPAIKSIVQGIKRTVAVNLEGIENALKTAKVGGPACKIMGRELDLDIVGNAESIAAAAKEMIQVTEDDDTNVELLGGGKRALVQVPSARFDVAAEYSAAPLVTATAFVQAIINEFDVSMYDANMVKAAVLGRYPQSVEYMGANIATMLDIPQKLEGPGYALRNIMVNHVVAATLKNTLQAAALSTILEQTAMFEMGDAVGAFERMHLLGLAYQGMNADNLVFDLVKANGKEGTVGSVIADLVERALEDGVIKVEKELTDYKVYGTDDLAMWNAYAAAGLMAATMVNQGAARAAQGVSSTLLYYNDLIEFETGLPSVDFGKVEGTAVGFSFFSHSIYGGGGPGIFNGNHIVTRHSKGFAIPCVAAAMALDAGTQMFSPEATSGLIKEVFSQVDEFREPLKYVVEAAAEIKNEI",
+    "length": 443,
+    "mol_weight": 47240,
+    "crc64": "1237E83E405E6D6B",
+    "md5": "F92CDFEF78D3BDDE4935A89222FF04C9"
+  },
+  "references": [
+    {
+      "reference_number": 1,
+      "id": "2448287",
+      "pmid": "2448287",
+      "citation_type": "journal article",
+      "title": "Cloning and characterization of the methyl coenzyme M reductase genes from Methanobacterium thermoautotrophicum.",
+      "authors": [
+        "Bokranz M.",
+        "Baeumner G.",
+        "Allmansberger R.",
+        "Ankel-Fuchs D.",
+        "Klein A."
+      ],
+      "date": "1988",
+      "journal": "J. Bacteriol.",
+      "volume": "170",
+      "pages": "568",
+      "reference_positions": [
+        "NUCLEOTIDE SEQUENCE [GENOMIC DNA]"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ]
+    },
+    {
+      "reference_number": 2,
+      "id": "20802048",
+      "pmid": "20802048",
+      "citation_type": "journal article",
+      "title": "Complete genome sequence of Methanothermobacter marburgensis, a methanoarchaeon model organism.",
+      "authors": [
+        "Liesegang H.",
+        "Kaster A.K.",
+        "Wiezer A.",
+        "Goenrich M.",
+        "Wollherr A.",
+        "Seedorf H.",
+        "Gottschalk G.",
+        "Thauer R.K."
+      ],
+      "date": "2010",
+      "journal": "J. Bacteriol.",
+      "volume": "192",
+      "pages": "5850",
+      "reference_positions": [
+        "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ]
+    },
+    {
+      "reference_number": 3,
+      "id": "2269306",
+      "pmid": "2269306",
+      "citation_type": "journal article",
+      "title": "Two genetically distinct methyl-coenzyme M reductases in Methanobacterium thermoautotrophicum strain Marburg and delta H.",
+      "authors": [
+        "Rospert S.",
+        "Linder D.",
+        "Ellermann J.",
+        "Thauer R.K."
+      ],
+      "date": "1990",
+      "journal": "Eur. J. Biochem.",
+      "volume": "194",
+      "pages": "871",
+      "reference_positions": [
+        "PROTEIN SEQUENCE OF 2-21",
+        "FUNCTION",
+        "CATALYTIC ACTIVITY",
+        "SUBUNIT",
+        "DEVELOPMENTAL STAGE"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ]
+    },
+    {
+      "reference_number": 4,
+      "id": "3350018",
+      "pmid": "3350018",
+      "citation_type": "journal article",
+      "title": "The final step in methane formation. Investigations with highly purified methyl-CoM reductase (component C) from Methanobacterium thermoautotrophicum (strain Marburg).",
+      "authors": [
+        "Ellermann J.",
+        "Hedderich R.",
+        "Boecher R.",
+        "Thauer R.K."
+      ],
+      "date": "1988",
+      "journal": "Eur. J. Biochem.",
+      "volume": "172",
+      "pages": "669",
+      "reference_positions": [
+        "FUNCTION",
+        "CATALYTIC ACTIVITY",
+        "SUBSTRATE SPECIFICITY",
+        "COFACTOR",
+        "ACTIVITY REGULATION",
+        "PATHWAY",
+        "SUBUNIT"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ]
+    },
+    {
+      "reference_number": 5,
+      "id": "9030728",
+      "pmid": "9030728",
+      "citation_type": "journal article",
+      "title": "Purified methyl-coenzyme-M reductase is activated when the enzyme-bound coenzyme F430 is reduced to the nickel(I) oxidation state by titanium(III) citrate.",
+      "authors": [
+        "Goubeaud M.",
+        "Schreiner G.",
+        "Thauer R.K."
+      ],
+      "date": "1997",
+      "journal": "Eur. J. Biochem.",
+      "volume": "243",
+      "pages": "110",
+      "reference_positions": [
+        "COFACTOR"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ]
+    },
+    {
+      "reference_number": 6,
+      "id": "23533332",
+      "pmid": "23533332",
+      "citation_type": "journal article",
+      "title": "Localization of methyl-Coenzyme M reductase as metabolic marker for diverse methanogenic Archaea.",
+      "authors": [
+        "Wrede C.",
+        "Walbaum U.",
+        "Ducki A.",
+        "Heieren I.",
+        "Hoppert M."
+      ],
+      "date": "2013",
+      "journal": "Archaea",
+      "volume": "2013",
+      "pages": "920241",
+      "reference_positions": [
+        "SUBCELLULAR LOCATION"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ]
+    },
+    {
+      "reference_number": 7,
+      "id": "25691570",
+      "pmid": "25691570",
+      "citation_type": "journal article",
+      "title": "The reaction mechanism of methyl-coenzyme M reductase: how an enzyme enforces strict binding order.",
+      "authors": [
+        "Wongnate T.",
+        "Ragsdale S.W."
+      ],
+      "date": "2015",
+      "journal": "J. Biol. Chem.",
+      "volume": "290",
+      "pages": "9322",
+      "reference_positions": [
+        "CATALYTIC ACTIVITY",
+        "REACTION MECHANISM"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ]
+    },
+    {
+      "reference_number": 8,
+      "id": "9367957",
+      "pmid": "9367957",
+      "citation_type": "journal article",
+      "title": "Crystal structure of methyl-coenzyme M reductase: the key enzyme of biological methane formation.",
+      "authors": [
+        "Ermler U.",
+        "Grabarse W.",
+        "Shima S.",
+        "Goubeaud M.",
+        "Thauer R.K."
+      ],
+      "date": "1997",
+      "journal": "Science",
+      "volume": "278",
+      "pages": "1457",
+      "reference_positions": [
+        "X-RAY CRYSTALLOGRAPHY (1.16 ANGSTROMS) OF 2-443 IN COMPLEX WITH COENZYME F430; COENZYME B; COENZYME M AND MCR SUBUNITS ALPHA AND GAMMA",
+        "COFACTOR",
+        "SUBUNIT"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ],
+      "evidences": [
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "1MRO"
+        }
+      ]
+    },
+    {
+      "reference_number": 9,
+      "id": "11491299",
+      "pmid": "11491299",
+      "citation_type": "journal article",
+      "title": "On the mechanism of biological methane formation: structural evidence for conformational changes in methyl-coenzyme M reductase upon substrate binding.",
+      "authors": [
+        "Grabarse W.",
+        "Mahlert F.",
+        "Duin E.C.",
+        "Goubeaud M.",
+        "Shima S.",
+        "Thauer R.K.",
+        "Lamzin V.",
+        "Ermler U."
+      ],
+      "date": "2001",
+      "journal": "J. Mol. Biol.",
+      "volume": "309",
+      "pages": "315",
+      "reference_positions": [
+        "X-RAY CRYSTALLOGRAPHY (1.16 ANGSTROMS) OF 2-443 IN COMPLEXES WITH COM-S-S-COB; COENZYME B; COENZYME F430; COENZYME M AND MCR SUBUNITS ALPHA AND GAMMA"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ],
+      "evidences": [
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "1HBM"
+        },
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "1HBN"
+        },
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "1HBO"
+        },
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "1HBU"
+        }
+      ]
+    },
+    {
+      "reference_number": 10,
+      "id": "20707311",
+      "pmid": "20707311",
+      "citation_type": "journal article",
+      "title": "Structural insight into methyl-coenzyme M reductase chemistry using coenzyme B analogues.",
+      "authors": [
+        "Cedervall P.E.",
+        "Dey M.",
+        "Pearson A.R.",
+        "Ragsdale S.W.",
+        "Wilmot C.M."
+      ],
+      "date": "2010",
+      "journal": "Biochemistry",
+      "volume": "49",
+      "pages": "7683",
+      "reference_positions": [
+        "X-RAY CRYSTALLOGRAPHY (1.30 ANGSTROMS) OF 2-443 IN COMPLEXES WITH COM-S-S-COB; COENZYME B; COENZYME F430; COENZYME M; COENZYME B ANALOGS AND MCR SUBUNITS ALPHA AND GAMMA"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ],
+      "evidences": [
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "3M1V"
+        },
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "3M2R"
+        },
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "3M2U"
+        },
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "3M2V"
+        },
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "3M30"
+        },
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "3M32"
+        }
+      ]
+    },
+    {
+      "reference_number": 11,
+      "id": "21438550",
+      "pmid": "21438550",
+      "citation_type": "journal article",
+      "title": "Structural analysis of a Ni-methyl species in methyl-coenzyme M reductase from Methanothermobacter marburgensis.",
+      "authors": [
+        "Cedervall P.E.",
+        "Dey M.",
+        "Li X.",
+        "Sarangi R.",
+        "Hedman B.",
+        "Ragsdale S.W.",
+        "Wilmot C.M."
+      ],
+      "date": "2011",
+      "journal": "J. Am. Chem. Soc.",
+      "volume": "133",
+      "pages": "5626",
+      "reference_positions": [
+        "X-RAY CRYSTALLOGRAPHY (1.20 ANGSTROMS) IN COMPLEX WITH COENZYME F430; COENZYME B; COENZYME M AND MCR SUBUNITS ALPHA AND GAMMA"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ],
+      "evidences": [
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "3POT"
+        }
+      ]
+    },
+    {
+      "reference_number": 12,
+      "id": "27467699",
+      "pmid": "27467699",
+      "citation_type": "journal article",
+      "title": "Didehydroaspartate Modification in Methyl-CoenzymeM Reductase Catalyzing Methane Formation.",
+      "authors": [
+        "Wagner T.",
+        "Kahnt J.",
+        "Ermler U.",
+        "Shima S."
+      ],
+      "date": "2016",
+      "journal": "Angew. Chem. Int. Ed. Engl.",
+      "volume": "55",
+      "pages": "10630",
+      "reference_positions": [
+        "X-RAY CRYSTALLOGRAPHY (1.10 ANGSTROMS) IN COMPLEX WITH COENZYME F430; COENZYME B; COENZYME M AND MCR SUBUNITS ALPHA AND GAMMA"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ],
+      "evidences": [
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "5A0Y"
+        }
+      ]
+    },
+    {
+      "reference_number": 13,
+      "id": "27140643",
+      "pmid": "27140643",
+      "citation_type": "journal article",
+      "title": "Mode of action uncovered for the specific reduction of methane emissions from ruminants by the small molecule 3-nitrooxypropanol.",
+      "authors": [
+        "Duin E.C.",
+        "Wagner T.",
+        "Shima S.",
+        "Prakash D.",
+        "Cronin B.",
+        "Yanez-Ruiz D.R.",
+        "Duval S.",
+        "Rumbeli R.",
+        "Stemmler R.T.",
+        "Thauer R.K.",
+        "Kindermann M."
+      ],
+      "date": "2016",
+      "journal": "Proc. Natl. Acad. Sci. U.S.A.",
+      "volume": "113",
+      "pages": "6172",
+      "reference_positions": [
+        "X-RAY CRYSTALLOGRAPHY (1.25 ANGSTROMS) IN COMPLEX WITH COENZYME B; COENZYME F430 AND MCR SUBUNITS ALPHA AND GAMMA",
+        "ACTIVITY REGULATION"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC BAA-927 / DSM 2133 / JCM 14651 / NBRC 100331 / OCM 82 / Marburg"
+        }
+      ],
+      "evidences": [
+        {
+          "code": "ECO:0007744",
+          "source": "PDB",
+          "id": "5G0R"
+        }
+      ]
+    }
+  ],
+  "cross_references": {
+    "EMBL": [
+      {
+        "id": "X07794",
+        "properties": {
+          "ProteinId": "CAA30635.1",
+          "Status": "-",
+          "MoleculeType": "Genomic_DNA"
+        }
+      },
+      {
+        "id": "CP001710",
+        "properties": {
+          "ProteinId": "ADL59131.1",
+          "Status": "-",
+          "MoleculeType": "Genomic_DNA"
+        }
+      }
+    ],
+    "PIR": [
+      {
+        "id": "A28544",
+        "properties": {
+          "EntryName": "A28544"
+        }
+      }
+    ],
+    "RefSeq": [
+      {
+        "id": "WP_013296341.1",
+        "properties": {
+          "NucleotideSequenceId": "NC_014408.1"
+        }
+      }
+    ],
+    "PDB": [
+      {
+        "id": "1HBM",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.80 A",
+          "Chains": "B/E=2-443"
+        }
+      },
+      {
+        "id": "1HBN",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.16 A",
+          "Chains": "B/E=2-443"
+        }
+      },
+      {
+        "id": "1HBO",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.78 A",
+          "Chains": "B/E=2-443"
+        }
+      },
+      {
+        "id": "1HBU",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.90 A",
+          "Chains": "B/E=2-443"
+        }
+      },
+      {
+        "id": "1MRO",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.16 A",
+          "Chains": "B/E=2-443"
+        }
+      },
+      {
+        "id": "3M1V",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.45 A",
+          "Chains": "B/E=2-443"
+        }
+      },
+      {
+        "id": "3M2R",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.30 A",
+          "Chains": "B/E=2-443"
+        }
+      },
+      {
+        "id": "3M2U",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.40 A",
+          "Chains": "B/E=2-443"
+        }
+      },
+      {
+        "id": "3M2V",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.80 A",
+          "Chains": "B/E=2-443"
+        }
+      },
+      {
+        "id": "3M30",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.45 A",
+          "Chains": "B/E=2-443"
+        }
+      },
+      {
+        "id": "3M32",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.35 A",
+          "Chains": "B/E=2-443"
+        }
+      },
+      {
+        "id": "3POT",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.20 A",
+          "Chains": "B/E=1-443"
+        }
+      },
+      {
+        "id": "5A0Y",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.10 A",
+          "Chains": "B/E=1-443"
+        }
+      },
+      {
+        "id": "5G0R",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.25 A",
+          "Chains": "B/E=1-443"
+        }
+      },
+      {
+        "id": "7B2H",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "2.12 A",
+          "Chains": "B/E=1-443"
+        }
+      },
+      {
+        "id": "7SUC",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "1.90 A",
+          "Chains": "B/b=2-443"
+        }
+      },
+      {
+        "id": "7SXM",
+        "properties": {
+          "Method": "X-ray",
+          "Resolution": "2.50 A",
+          "Chains": "B/E=2-443"
+        }
+      }
+    ],
+    "PDBsum": [
+      {
+        "id": "1HBM",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "1HBN",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "1HBO",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "1HBU",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "1MRO",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "3M1V",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "3M2R",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "3M2U",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "3M2V",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "3M30",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "3M32",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "3POT",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "5A0Y",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "5G0R",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "7B2H",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "7SUC",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "7SXM",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "AlphaFoldDB": [
+      {
+        "id": "P11560",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "SMR": [
+      {
+        "id": "P11560",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "STRING": [
+      {
+        "id": "79929.MTBMA_c15520",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "PaxDb": [
+      {
+        "id": "79929-MTBMA_c15520",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "GeneID": [
+      {
+        "id": "41327315",
+        "properties": {
+          "Description": "-"
+        }
+      },
+      {
+        "id": "9705261",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "KEGG": [
+      {
+        "id": "mmg:MTBMA_c15520",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "PATRIC": [
+      {
+        "id": "fig|79929.8.peg.1505",
+        "properties": {
+          "GeneDesignation": "-"
+        }
+      }
+    ],
+    "HOGENOM": [
+      {
+        "id": "CLU_617682_0_0_2",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "OrthoDB": [
+      {
+        "id": "52873at2157",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "BRENDA": [
+      {
+        "id": "2.8.4.1",
+        "properties": {
+          "OrganismId": "7427"
+        }
+      }
+    ],
+    "UniPathway": [
+      {
+        "id": "UPA00646",
+        "properties": {
+          "RectionId": "UER00699"
+        }
+      }
+    ],
+    "EvolutionaryTrace": [
+      {
+        "id": "P11560",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "Proteomes": [
+      {
+        "id": "UP000000345",
+        "properties": {
+          "Component": "Chromosome"
+        }
+      }
+    ],
+    "Gene3D": [
+      {
+        "id": "3.30.70.470",
+        "properties": {
+          "EntryName": "-",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "1.20.840.10",
+        "properties": {
+          "EntryName": "Methyl-coenzyme M reductase, alpha/beta subunit, C-terminal",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "InterPro": [
+      {
+        "id": "IPR008924",
+        "properties": {
+          "EntryName": "Me_CoM_Rdtase_asu/bsu_C"
+        }
+      },
+      {
+        "id": "IPR015823",
+        "properties": {
+          "EntryName": "Me_CoM_Rdtase_asu_N_sub2"
+        }
+      },
+      {
+        "id": "IPR003179",
+        "properties": {
+          "EntryName": "Me_CoM_Rdtase_bsu"
+        }
+      },
+      {
+        "id": "IPR022679",
+        "properties": {
+          "EntryName": "Me_CoM_Rdtase_bsu_C"
+        }
+      },
+      {
+        "id": "IPR022680",
+        "properties": {
+          "EntryName": "Me_CoM_Rdtase_bsu_N"
+        }
+      },
+      {
+        "id": "IPR009024",
+        "properties": {
+          "EntryName": "Me_CoM_Rdtase_Fd-like_fold"
+        }
+      }
+    ],
+    "NCBIfam": [
+      {
+        "id": "TIGR03257",
+        "properties": {
+          "EntryName": "met_CoM_red_bet",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "Pfam": [
+      {
+        "id": "PF02241",
+        "properties": {
+          "EntryName": "MCR_beta",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "PF02783",
+        "properties": {
+          "EntryName": "MCR_beta_N",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "PIRSF": [
+      {
+        "id": "PIRSF000263",
+        "properties": {
+          "EntryName": "Meth_CoM_rd_beta",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "SUPFAM": [
+      {
+        "id": "SSF48081",
+        "properties": {
+          "EntryName": "Methyl-coenzyme M reductase alpha and beta chain C-terminal domain",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "SSF55088",
+        "properties": {
+          "EntryName": "Methyl-coenzyme M reductase subunits",
+          "MatchStatus": "1"
+        }
+      }
+    ]
+  },
+  "extra_attributes": {
+    "count_by_comment_type": {
+      "FUNCTION": 1,
+      "CATALYTIC ACTIVITY": 1,
+      "COFACTOR": 1,
+      "ACTIVITY REGULATION": 1,
+      "PATHWAY": 1,
+      "SUBUNIT": 1,
+      "SUBCELLULAR LOCATION": 1,
+      "DEVELOPMENTAL STAGE": 1,
+      "MISCELLANEOUS": 1,
+      "SIMILARITY": 1
+    },
+    "count_by_feature_type": {
+      "Initiator methionine": 1,
+      "Chain": 1,
+      "Binding site": 2,
+      "Beta strand": 13,
+      "Helix": 30,
+      "Turn": 7
+    }
+  },
+  "interpro": {
+    "entries": [
+      {
+        "accession": "G3DSA:1.20.840.10",
+        "name": "Methyl-coenzyme M reductase, alpha/beta subunit, C-terminal",
+        "type": "homologous_superfamily",
+        "source_database": "cathgene3d",
+        "integrated": "IPR008924",
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 4,
+                    "end": 44,
+                    "dc-status": "C_TERMINAL_DISC"
+                  },
+                  {
+                    "start": 192,
+                    "end": 440,
+                    "dc-status": "N_TERMINAL_DISC"
+                  }
+                ],
+                "representative": false,
+                "model": "5a0yB01",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "G3DSA:3.30.70.470",
+        "type": "homologous_superfamily",
+        "source_database": "cathgene3d",
+        "integrated": "IPR015823",
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 45,
+                    "end": 191,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "5a0yB02",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR003179",
+        "name": "Methyl-coenzyme M reductase, beta subunit",
+        "type": "family",
+        "source_database": "interpro",
+        "member_databases": {
+          "pirsf": [
+            {
+              "accession": "PIRSF000263",
+              "name": "Methyl coenzyme M reductase, beta subunit"
+            }
+          ],
+          "ncbifam": [
+            {
+              "accession": "TIGR03257",
+              "name": "coenzyme-B sulfoethylthiotransferase subunit beta"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0050524",
+              "name": "coenzyme-B sulfoethylthiotransferase activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ],
+          "biological_process": [
+            {
+              "go_id": "GO:0015948",
+              "name": "methanogenesis",
+              "category": "biological_process",
+              "category_raw": "P"
+            }
+          ]
+        },
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 1,
+                    "end": 441,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR008924",
+        "name": "Methyl-coenzyme M reductase, alpha/beta subunit, C-terminal",
+        "type": "homologous_superfamily",
+        "source_database": "interpro",
+        "member_databases": {
+          "ssf": [
+            {
+              "accession": "SSF48081",
+              "name": "Methyl-coenzyme M reductase alpha and beta chain C-terminal domain"
+            }
+          ],
+          "cathgene3d": [
+            {
+              "accession": "G3DSA:1.20.840.10",
+              "name": "Methyl-coenzyme M reductase, alpha/beta subunit, C-terminal"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0050524",
+              "name": "coenzyme-B sulfoethylthiotransferase activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ],
+          "biological_process": [
+            {
+              "go_id": "GO:0015948",
+              "name": "methanogenesis",
+              "category": "biological_process",
+              "category_raw": "P"
+            }
+          ]
+        },
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 4,
+                    "end": 443,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR009024",
+        "name": "Methyl-coenzyme M reductase, ferredoxin-like fold",
+        "type": "homologous_superfamily",
+        "source_database": "interpro",
+        "member_databases": {
+          "ssf": [
+            {
+              "accession": "SSF55088",
+              "name": "Methyl-coenzyme M reductase subunits"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0050524",
+              "name": "coenzyme-B sulfoethylthiotransferase activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ],
+          "biological_process": [
+            {
+              "go_id": "GO:0015948",
+              "name": "methanogenesis",
+              "category": "biological_process",
+              "category_raw": "P"
+            }
+          ]
+        },
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 3,
+                    "end": 188,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR015823",
+        "name": "Methyl-coenzyme M reductase, alpha subunit, N-terminal subdomain 2",
+        "type": "homologous_superfamily",
+        "source_database": "interpro",
+        "member_databases": {
+          "cathgene3d": [
+            {
+              "accession": "G3DSA:3.30.70.470",
+              "name": "G3DSA:3.30.70.470"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0050524",
+              "name": "coenzyme-B sulfoethylthiotransferase activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ],
+          "biological_process": [
+            {
+              "go_id": "GO:0015948",
+              "name": "methanogenesis",
+              "category": "biological_process",
+              "category_raw": "P"
+            }
+          ]
+        },
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 45,
+                    "end": 191,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR022679",
+        "name": "Methyl-coenzyme M reductase, beta subunit, C-terminal",
+        "type": "domain",
+        "source_database": "interpro",
+        "member_databases": {
+          "pfam": [
+            {
+              "accession": "PF02241",
+              "name": "Methyl-coenzyme M reductase beta subunit, C-terminal domain"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0050524",
+              "name": "coenzyme-B sulfoethylthiotransferase activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ]
+        },
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 189,
+                    "end": 436,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR022680",
+        "name": "Methyl-coenzyme M reductase, beta subunit, N-terminal",
+        "type": "domain",
+        "source_database": "interpro",
+        "member_databases": {
+          "pfam": [
+            {
+              "accession": "PF02783",
+              "name": "Methyl-coenzyme M reductase beta subunit, N-terminal domain"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0050524",
+              "name": "coenzyme-B sulfoethylthiotransferase activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ]
+        },
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 6,
+                    "end": 187,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PF02241",
+        "name": "Methyl-coenzyme M reductase beta subunit, C-terminal domain",
+        "type": "domain",
+        "source_database": "pfam",
+        "integrated": "IPR022679",
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 189,
+                    "end": 436,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "PF02241",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PF02783",
+        "name": "Methyl-coenzyme M reductase beta subunit, N-terminal domain",
+        "type": "domain",
+        "source_database": "pfam",
+        "integrated": "IPR022680",
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 6,
+                    "end": 187,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "PF02783",
+                "score": 3.5e-81
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PIRSF000263",
+        "name": "Methyl coenzyme M reductase, beta subunit",
+        "type": "family",
+        "source_database": "pirsf",
+        "integrated": "IPR003179",
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 1,
+                    "end": 441,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": true,
+                "model": "PIRSF000263",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "SSF48081",
+        "name": "Methyl-coenzyme M reductase alpha and beta chain C-terminal domain",
+        "type": "homologous_superfamily",
+        "source_database": "ssf",
+        "integrated": "IPR008924",
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 189,
+                    "end": 443,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": true,
+                "model": "0041061",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "SSF55088",
+        "name": "Methyl-coenzyme M reductase subunits",
+        "type": "homologous_superfamily",
+        "source_database": "ssf",
+        "integrated": "IPR009024",
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 3,
+                    "end": 188,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": true,
+                "model": "0048213",
+                "score": 7.46e-81
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "TIGR03257",
+        "name": "coenzyme-B sulfoethylthiotransferase subunit beta",
+        "type": "family",
+        "source_database": "ncbifam",
+        "integrated": "IPR003179",
+        "proteins": [
+          {
+            "accession": "p11560",
+            "protein_length": 443,
+            "source_database": "reviewed",
+            "organism": "79929",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 5,
+                    "end": 435,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "TIGR03257",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "total_entries": 14,
+      "total_interpro_integrated": 6,
+      "total_unintegrated": 0,
+      "by_source_database": {
+        "cathgene3d": 2,
+        "interpro": 6,
+        "pfam": 2,
+        "pirsf": 1,
+        "ssf": 2,
+        "ncbifam": 1
+      },
+      "by_type": {
+        "homologous_superfamily": 7,
+        "family": 3,
+        "domain": 4
+      },
+      "member_databases_used": [
+        "cathgene3d",
+        "ncbifam",
+        "pfam",
+        "pirsf",
+        "ssf"
+      ],
+      "go_terms_count": {
+        "molecular_function": 1,
+        "biological_process": 1,
+        "cellular_component": 0
+      },
+      "go_terms_list": [
+        {
+          "go_id": "GO:0050524",
+          "name": "coenzyme-B sulfoethylthiotransferase activity",
+          "category": "molecular_function",
+          "sources": [
+            "IPR003179",
+            "IPR008924",
+            "IPR009024",
+            "IPR015823",
+            "IPR022679",
+            "IPR022680"
+          ]
+        },
+        {
+          "go_id": "GO:0015948",
+          "name": "methanogenesis",
+          "category": "biological_process",
+          "sources": [
+            "IPR003179",
+            "IPR008924",
+            "IPR009024",
+            "IPR015823"
+          ]
+        }
+      ],
+      "interpro_integrated_ids": [
+        "IPR003179",
+        "IPR008924",
+        "IPR009024",
+        "IPR015823",
+        "IPR022679",
+        "IPR022680"
+      ]
+    }
+  },
+  "evidence_summary": {
+    "tools": [
+      "upimapi",
+      "eggnog",
+      "clean",
+      "deepgo2",
+      "deepfri",
+      "recognizer"
+    ],
+    "annotation_count": 76,
+    "confidence_distribution": {
+      "high": 48,
+      "medium": 5,
+      "low": 23
+    },
+    "overall_confidence": "high",
+    "in_poorly_annotated_subset": false
+  },
+  "provenance": {
+    "source": "UniProtKB",
+    "uniprot_url": "https://www.uniprot.org/uniprotkb/P11560/entry",
+    "db_source": "sp",
+    "raw_file": "P11560.json"
+  },
+  "_test_group": "Reviewed UniProt proteins"
+}

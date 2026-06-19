@@ -1,0 +1,71 @@
+{
+  "protein_id": "W2LNG5",
+  "protein_name": "BRO1 domain-containing protein",
+  "organism": "Phytophthora nicotianae",
+  "source_status": "unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized BRO1 domain-containing protein from Phytophthora nicotianae, annotated only by homology and ML predictions with no curated function or specific enzymatic activity.",
+  "identity_summary": "UniProtKB unreviewed entry W2LNG5 from Phytophthora nicotianae (TaxID: 4792). Protein existence inferred from homology. Gene synonym L917_04620 from EMBL submission. No reviewed status or curated description available.",
+  "reported_function_summary": "No curated function or catalytic activity is reported in the record. The only functional similarity annotation states it belongs to the BROX family (ARBA00008901).",
+  "go_annotation_summary": [
+    "GO:0005488 (binding) - high confidence (deepgo2)",
+    "GO:0005515 (transition metal ion binding) - high confidence (deepgo2)",
+    "GO:0110165 (organic substance) - high confidence (deepgo2)",
+    "GO:0005622 (cellular component) - high confidence (deepgo2)",
+    "GO:0003824 (catalytic activity) - medium confidence (deepgo2)",
+    "GO:0003677 (DNA binding) - low confidence (deepfri)",
+    "GO:0008270 (zinc ion binding) - low confidence (deepfri)",
+    "GO:0009987 (cellular process) - high confidence (deepgo2)",
+    "GO:0051234 (cell differentiation) - medium confidence (deepgo2)",
+    "GO:0006810 (transport) - medium confidence (deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 3.2.2.22 (nucleoside-triphosphatase) predicted by CLEAN with low confidence."
+  ],
+  "domain_family_and_feature_summary": [
+    "BRO1 domain (PF03097/PS51180) detected by PROSITE, Pfam, and SMART with high confidence, covering residues 1-558.",
+    "BRO1-like domain (Provisional) detected by recognizer with low confidence.",
+    "KOG2220 (Predicted signal transduction protein) detected with low confidence.",
+    "Disordered region (270-299) and compositional bias (270-290) detected by MobiDB-lite.",
+    "Gene3D G3DSA:1.25.40.280 (alix/aip1 like domains) detected with fragments at 19-91, 135-247, and 299-522."
+  ],
+  "pathway_and_context_summary": [
+    "No KEGG pathways, modules, or KO entries are reported.",
+    "STRING or network context is not provided in the input.",
+    "OrthoDB ID 104504at2759 indicates orthologous relationships."
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predicts broad molecular functions (binding, catalytic activity) and cellular components (membrane, organelle) with high confidence.",
+    "DeepGO2 predicts biological processes related to cellular processes and transport with medium confidence.",
+    "DeepFRI predicts DNA binding and metal ion binding with low confidence.",
+    "CLEAN predicts EC 3.2.2.22 with low confidence.",
+    "Recognizer predicts KOG2220 signal transduction protein with low confidence."
+  ],
+  "strong_or_curated_information": [
+    "Identity and domain presence (BRO1) are supported by PROSITE (PS51180) and Pfam (PF03097) with high confidence.",
+    "Sequence and organism data are derived from EMBL submission (ETL98244.1)."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "All functional GO terms are ML predictions (DeepGO2/DeepFRI) with varying confidence, mostly low.",
+    "Enzymatic activity (EC 3.2.2.22) is a low-confidence ML prediction.",
+    "Protein existence is inferred from homology (PE3).",
+    "No experimental evidence or curated literature supports specific function."
+  ],
+  "conflicting_or_inconsistent_information": [
+    "DeepGO2 predicts GO:0003824 (catalytic activity) with medium confidence, while DeepFRI predicts GO:0003677 (DNA binding) and GO:0008270 (zinc ion binding) with low confidence; these functional categories are distinct and may imply different roles.",
+    "CLEAN predicts EC 3.2.2.22 (nucleoside-triphosphatase), which is a specific enzymatic function, whereas the domain annotation (BRO1) is typically associated with protein-protein interaction and signaling, not necessarily nucleotide hydrolysis.",
+    "DeepGO2 predicts high confidence for GO:0005488 (binding) and GO:0005515 (transition metal ion binding), while DeepFRI predicts low confidence for GO:0008270 (zinc ion binding); zinc is a transition metal, but the confidence levels differ significantly."
+  ],
+  "missing_or_limited_information": [
+    "No curated function or description is available.",
+    "No subcellular location is curated (only ML predicted).",
+    "No KEGG pathway or specific reaction details are provided.",
+    "No experimental validation or literature references for function exist.",
+    "GO term labels are null in the input, requiring external lookup for interpretation."
+  ],
+  "review_notes": [
+    "Verify if the BRO1 domain (PF03097) covers the full sequence or if the Gene3D fragments suggest a truncated or multi-domain structure.",
+    "Check if the predicted EC 3.2.2.22 by CLEAN is consistent with the BRO1 domain family, as BRO1 proteins are typically not nucleoside-triphosphatases.",
+    "Investigate why DeepGO2 assigns high confidence to general binding terms while DeepFRI assigns low confidence to specific metal ion binding.",
+    "Confirm if the organism Phytophthora nicotianae (oomycete) has known BRO1 proteins with nucleoside-triphosphatase activity to validate the CLEAN prediction."
+  ]
+}

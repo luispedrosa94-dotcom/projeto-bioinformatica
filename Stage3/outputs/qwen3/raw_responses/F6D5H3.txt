@@ -1,0 +1,103 @@
+{
+  "protein_id": "F6D5H3",
+  "protein_name": "CoB--CoM heterodisulfide reductase iron-sulfur subunit A",
+  "organism": "Methanobacterium paludis (strain DSM 25820 / JCM 18151 / SWAN1)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized iron-sulfur protein from Methanobacterium paludis, reported as part of the CoB-CoM heterodisulfide reductase complex involved in methanogenesis, with strong domain evidence but conflicting EC number predictions.",
+  "identity_summary": "Entry F6D5H3 from Methanobacterium paludis (Archaea). Reviewed status is unreviewed (TrEMBL). Protein existence is inferred from homology. Gene name is not provided. The entry is part of the reference proteome for this organism.",
+  "reported_function_summary": "The record reports that this protein is part of a complex catalyzing the reversible reduction of CoM-S-S-CoB to H-S-CoM and H-S-CoB. It is described as belonging to the HdrA family. Keywords indicate it is a flavoprotein with 4Fe-4S clusters and FAD, involved in methanogenesis.",
+  "go_annotation_summary": [
+    "GO:0051539 (4 iron, 4 sulfur cluster binding) - high confidence from upimapi (homology), deepfri (ml_structure), and uniprot (curated); low confidence from deepgo2 (ml_sequence)",
+    "GO:0046872 (metal ion binding) - high confidence from upimapi and uniprot",
+    "GO:0016491 (oxidoreductase activity) - high confidence from upimapi, deepgo2, and uniprot",
+    "GO:0015948 (methanogenesis) - high confidence from uniprot (curated) and deepgo2 (ml_sequence)",
+    "GO:0003824 (catalytic activity) - high confidence from deepgo2 only",
+    "GO:0051536 (oxidoreductase activity, acting on other nitrogenous compounds) - high confidence from deepfri; low from deepgo2",
+    "GO:0051540 (oxidoreductase activity, acting on the aldehyde or oxo group of donors) - high confidence from deepfri; low from deepgo2"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.8.7.3 reported by eggnog (orthology) with high confidence",
+    "EC 1.8.98.4 reported by eggnog (orthology) with high confidence",
+    "EC 1.8.98.5 reported by eggnog (orthology) and clean (ml_enzyme) with high confidence",
+    "EC 1.8.98.6 reported by eggnog (orthology) and clean (ml_enzyme) with high confidence",
+    "EC 1.8.-.- reported by upimapi (homology) with high confidence",
+    "EC 1.2.7.8 reported by recognizer (domain_search) with medium confidence",
+    "EC 1.12.-.- reported by recognizer (domain_search) with medium confidence",
+    "EC 1.14.99.- reported by recognizer (domain_search) with low confidence"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG1148: Heterodisulfide reductase, subunit A (polyferredoxin) - high confidence",
+    "COG4231: TPP-dependent indolepyruvate ferredoxin oxidoreductase, alpha subunit - medium confidence",
+    "KOG3256: NADH:ubiquinone oxidoreductase, NDUFS8/23 kDa subunit - low confidence",
+    "KOG1335: Dihydrolipoamide dehydrogenase - low confidence",
+    "PF12831: FAD dependent oxidoreductase - high confidence",
+    "PF00037: 4Fe-4S binding domain - high confidence",
+    "PF13187: 4Fe-4S dicluster domain - high confidence",
+    "Fer4: 4Fe-4S binding domain - high confidence",
+    "Fer4_4: 4Fe-4S binding domain - high confidence",
+    "Pyr_redox_2: FAD dependent oxidoreductase - high confidence",
+    "pfam12838: 4Fe-4S dicluster domain-containing protein - low confidence",
+    "pfam13187: 4Fe-4S dicluster domain (Provisional) - low confidence",
+    "TIGR04105: [FeFe] hydrogenase, group B1/B3 (Provisional) - medium confidence",
+    "TIGR02734: phytoene desaturase - low confidence",
+    "CATH domains: 3.30.70.20, 3.30.70.3270, 3.40.50.720 (NAD(P)-binding Rossmann-like Domain)",
+    "InterPro entries: IPR017896 (4Fe-4S ferredoxin-type), IPR017900 (4Fe-4S ferredoxin, conserved site), IPR036188 (FAD/NAD(P)-binding domain superfamily), IPR039650 (H(2):CoB-CoM heterodisulfide,ferredoxin reductase subunit A-like)",
+    "4x 4Fe-4S ferredoxin-type domains identified at positions 245-275, 293-322, 583-612, 613-641"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG KO: K03388, K00345, K00443, K04090",
+    "KEGG Pathways: ko00680 (Methane metabolism), ko01100 (Metabolic pathways), ko01120 (Microbial metabolism in diverse environments), ko01200 (Carbon metabolism)",
+    "KEGG Modules: M00356, M00357, M00563, M00567",
+    "UniPathway: UPA00647",
+    "Organism: Methanobacterium paludis sp. nov., isolated from northern peatlands (Cadillo-Quiroz et al., 2014)",
+    "Strain: DSM 25820 / JCM 18151 / SWAN1"
+  ],
+  "tool_prediction_summary": [
+    "deepgo2 (ml_sequence) predicted multiple GO terms with medium to low confidence, including GO:0051539, GO:0046872, GO:0016491, GO:0015948, GO:0003824, GO:0051536, GO:0051540",
+    "deepfri (ml_structure) predicted GO:0051539, GO:0046872, GO:0016491, GO:0015948, GO:0051536, GO:0051540 with high confidence",
+    "clean (ml_enzyme) predicted EC 1.8.98.5 and EC 1.8.98.6 with high confidence",
+    "recognizer (domain_search) predicted EC 1.8.98.1, EC 1.2.7.8, EC 1.12.-.-, EC 1.14.99.- and various COG/KOG/Pfam/TIGRfam domains"
+  ],
+  "strong_or_curated_information": [
+    "UniProtKB curated annotation: Part of a complex catalyzing the reversible reduction of CoM-S-S-CoB to H-S-CoM and H-S-CoB.",
+    "UniProtKB curated annotation: Belongs to the HdrA family.",
+    "UniProtKB curated annotation: Keywords: Flavoprotein, Iron, Metal-binding, Methanogenesis, Oxidoreductase.",
+    "UniProtKB curated annotation: Subunit of the CoB-CoM heterodisulfide reductase complex.",
+    "UniProtKB curated annotation: Cofactor: 4x [4Fe-4S] clusters.",
+    "UniProtKB curated annotation: Cofactor: FAD.",
+    "UniProtKB curated annotation: Pathway: Methanogenesis.",
+    "UniProtKB curated annotation: GO:0015948 (methanogenesis) - high confidence.",
+    "UniProtKB curated annotation: GO:0016491 (oxidoreductase activity) - high confidence.",
+    "UniProtKB curated annotation: GO:0051539 (4 iron, 4 sulfur cluster binding) - high confidence.",
+    "UniProtKB curated annotation: GO:0046872 (metal ion binding) - high confidence."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "deepgo2 (ml_sequence) predictions with low confidence scores (e.g., GO:0098797, GO:0098803, GO:0070469, etc.)",
+    "KOG3256 and KOG1335 annotations with low confidence",
+    "TIGR02734 (phytoene desaturase) annotation with low confidence",
+    "pfam12838 and pfam13187 annotations with low confidence",
+    "EC 1.14.99.- prediction with low confidence",
+    "EC 1.2.7.8 and EC 1.12.-.- predictions with medium confidence"
+  ],
+  "conflicting_or_inconsistent_information": [
+    "EC number predictions conflict: EC 1.8.7.3, 1.8.98.4, 1.8.98.5, 1.8.98.6 (oxidoreductases acting on sulfur group donors) vs. EC 1.2.7.8 (aldehyde-lyases) and EC 1.12.-.- (hydrogenases). The curated function (CoB-CoM heterodisulfide reductase) aligns with EC 1.8.7.3/1.8.98.x, making EC 1.2.7.8 and EC 1.12.-.- likely incorrect or non-specific domain-based artifacts.",
+    "Domain family conflicts: COG1148 (Heterodisulfide reductase) vs. COG4231 (TPP-dependent indolepyruvate ferredoxin oxidoreductase) vs. KOG1335 (Dihydrolipoamide dehydrogenase) vs. TIGR02734 (phytoene desaturase). The curated function and strong domain evidence (4Fe-4S, FAD, HdrA family) support COG1148 and the heterodisulfide reductase role, making the others likely false positives or distant homologs.",
+    "GO term confidence conflicts: GO:0051539 and GO:0016491 have high confidence from multiple sources (upimapi, deepfri, uniprot) but low confidence from deepgo2. The high-confidence sources are more reliable.",
+    "EC 1.8.-.- (upimapi) is a broad category, while EC 1.8.7.3 and 1.8.98.x are specific. The specific ones are more informative but require validation against the curated function."
+  ],
+  "missing_or_limited_information": [
+    "Exact EC number is not definitively assigned by UniProtKB curation; only the complex function is described.",
+    "Gene name is not provided.",
+    "Detailed kinetic parameters or specific substrate affinities are not available in this entry.",
+    "Structural details beyond domain presence are not provided (though AlphaFold model exists).",
+    "Experimental validation of the specific EC numbers predicted by tools is lacking in this entry."
+  ],
+  "review_notes": [
+    "The entry is from a newly described species (Methanobacterium paludis), so curation may be limited.",
+    "The protein is part of a complex, and its function is inferred from the complex's activity.",
+    "Multiple tools predict different EC numbers and domain families, highlighting the need for caution in interpreting automated annotations.",
+    "The strong evidence for 4Fe-4S clusters and FAD binding supports the role in redox chemistry, consistent with the heterodisulfide reductase function.",
+    "The conflicting EC numbers (1.8.x vs 1.2.x/1.12.x) suggest that domain-based predictions (recognizer) may be misleading for specific EC assignment in this case.",
+    "The high-confidence GO terms from uniprot and deepfri are the most reliable for functional inference."
+  ]
+}

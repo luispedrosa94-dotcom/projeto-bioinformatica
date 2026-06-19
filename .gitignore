@@ -16,7 +16,7 @@ venv/
 env/
 
 # Generated outputs (regenerable by running the pipeline)
-outputs/
+/outputs/
 
 # Ollama diagnostics
 ollama_diagnostics_*.txt
@@ -29,3 +29,7 @@ string_db.py
 Stage3/outputs/delete/
 Stage3/outputs_delete/
 Stage3/outputs/llama3.3_q46505_test/
+Stage3/outputs/llama3.3/
+Stage3/outputs/llama3.3_q46505_test/
+Stage3/outputs/delete/
+Stage3/outputs_delete/

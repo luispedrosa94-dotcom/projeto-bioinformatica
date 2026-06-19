@@ -1,0 +1,67 @@
+{
+  "protein_id": "P06131",
+  "protein_name": "Formate dehydrogenase H subunit",
+  "organism": "Methanobacterium formicicum",
+  "source_status": "Reviewed",
+  "overall_profile_summary": "This entry describes the H subunit of formate dehydrogenase from *Methanobacterium formicicum*. It is a molybdopterin-containing oxidoreductase involved in the oxidation of formate, coupled with the reduction of coenzyme F420. The protein contains multiple conserved domains including a molybdopterin oxidoreductase domain, a molybdopterin dinucleotide-binding domain, and a 4Fe-4S cluster binding domain.",
+  "identity_summary": "UniProtKB ID: P06131. Length: 684 amino acids. Molecular Weight: 75,717 Da. Organism: *Methanobacterium formicicum* (Strain JF-1).",
+  "reported_function_summary": "Catalyzes the oxidation of formate to carbon dioxide, transferring electrons to coenzyme F420. It is part of the formate hydrogenlyase system. Requires FAD and molybdopterin cofactors. Contains a 4Fe-4S cluster essential for electron transfer.",
+  "go_annotation_summary": [
+    "GO:0008863 - formate dehydrogenase (NAD+) activity",
+    "GO:0015942 - formate metabolic process",
+    "GO:0016491 - oxidoreductase activity",
+    "GO:0043546 - molybdopterin cofactor binding",
+    "GO:0051539 - 4 iron, 4 sulfur cluster binding"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.2.99.6: Formate dehydrogenase (coenzyme F420).",
+    "Reaction: Formate + Coenzyme F420 <=> CO2 + Reduced coenzyme F420."
+  ],
+  "domain_family_and_feature_summary": [
+    "Contains a Molybdopterin oxidoreductase domain (IPR006656, PF00384).",
+    "Contains a Molybdopterin dinucleotide-binding domain (IPR006657, PF01568).",
+    "Contains a Molybdopterin oxidoreductase, 4Fe-4S domain (IPR006963, PF04879).",
+    "Contains a Formate dehydrogenase H, N-terminal domain (IPR041924).",
+    "Contains a Formate dehydrogenase H, molybdopterin-binding domain (IPR041925).",
+    "Belongs to the Aspartate decarboxylase-like domain superfamily (IPR009010).",
+    "Contains conserved sites for molybdopterin binding (IPR006655, PS00490, PS00932) and cofactor binding (IPR027467, PS00551)."
+  ],
+  "pathway_and_context_summary": [
+    "Involved in formate metabolism.",
+    "Part of the formate hydrogenlyase complex in methanogenic archaea.",
+    "Associated with respiratory nitrate reductase family (PANTHER PTHR43105)."
+  ],
+  "tool_prediction_summary": [
+    "Annotation confidence: Medium.",
+    "Total annotations: 153.",
+    "Confidence distribution: High (63), Medium (28), Low (62).",
+    "Tools used: upimapi, eggnog, clean, deepgo2, deepfri, recognizer."
+  ],
+  "strong_or_curated_information": [
+    "UniProtKB (Swiss-Prot) reviewed entry P06131.",
+    "Organism: Methanobacterium formicicum (JF-1).",
+    "Function: Formate dehydrogenase (coenzyme F420) activity.",
+    "Cofactors: FAD, Molybdopterin, 4Fe-4S cluster.",
+    "Domain architecture: N-terminal 4Fe-4S domain, central Molybdopterin oxidoreductase domain, C-terminal Molybdopterin dinucleotide-binding domain."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Specific kinetic parameters (Km, Vmax) are not detailed in this summary but are referenced in literature (e.g., Schauer & Ferry, 1982; 1986).",
+    "Detailed structural interactions with other subunits of the formate hydrogenlyase complex are implied but not explicitly mapped in this protein-centric summary.",
+    "Predicted GO terms from tools like DeepGO2/DeepFRI may have lower confidence than the curated UniProt annotations."
+  ],
+  "conflicting_or_inconsistent_information": [
+    "No direct conflicts found. The curated UniProt information aligns with the domain predictions and GO terms.",
+    "Note: Some GO terms (e.g., 'formate dehydrogenase (NAD+) activity') might seem contradictory to the known F420 dependence, but this is a standard annotation for formate dehydrogenases in some databases, often referring to the general enzyme class or historical naming. The specific cofactor requirement (F420) is the key distinguishing feature here."
+  ],
+  "missing_or_limited_information": [
+    "Detailed post-translational modifications beyond cofactor binding are not specified.",
+    "Subcellular localization is not explicitly stated in this summary (though likely periplasmic or membrane-associated in archaea).",
+    "Specific interactions with other proteins in the formate hydrogenlyase complex are not detailed."
+  ],
+  "review_notes": [
+    "The protein is well-characterized in the literature (Shuber et al., 1986; White & Ferry, 1992; Schauer & Ferry, 1982-1989).",
+    "The domain architecture is consistent with other molybdopterin-containing oxidoreductases.",
+    "The UniProt entry is reviewed, providing high-confidence functional and structural information.",
+    "The tool predictions generally support the curated annotations, with the overall confidence rated as 'medium' likely due to the mix of high-confidence curated data and lower-confidence predicted annotations."
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "protein_id": "H0UK06",
+  "protein_name": "Adenosine specific kinase",
+  "organism": "Jonquetella anthropi DSM 22815",
+  "source_status": "unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized adenosine kinase from Jonquetella anthropi, annotated via ML predictions and domain hits, lacking curated functional evidence or specific reaction details.",
+  "identity_summary": "UniProtKB unreviewed entry H0UK06 from Jonquetella anthropi (TaxID: 885272). Protein existence is predicted (PE4). Gene name synonym JonanDRAFT_0621 is recorded. Entry is part of the reference proteome UP000003806.",
+  "reported_function_summary": "The record reports the protein name 'Adenosine specific kinase' with evidence from Google/ProtNLM. No curated catalytic activity, subcellular location, or specific biological function is provided in the UniProt record.",
+  "go_annotation_summary": [
+    "GO:0005488 (protein binding) - high confidence from deepgo2",
+    "GO:0009987 (cellular process) - high confidence from deepgo2",
+    "GO:0110165 (cellular anatomical entity) - high confidence from deepgo2",
+    "GO:0005515 (protein binding) - medium confidence from deepgo2",
+    "GO:0003824 (catalytic activity) - medium confidence from deepgo2",
+    "GO:0042802 (identical protein binding) - medium confidence from deepgo2",
+    "GO:0046983 (protein dimer activity) - low confidence from deepgo2",
+    "GO:0046914 (transition metal ion binding) - low confidence from deepfri",
+    "GO:0003723 (RNA binding) - low confidence from deepfri"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 6.2.1.14 (Acyl-CoA synthetase) predicted by CLEAN with low confidence"
+  ],
+  "domain_family_and_feature_summary": [
+    "COG1839 (Adenosine/AMP kinase) - high confidence from recognizer",
+    "PF04008 (Adenosine specific kinase) - high confidence from upimapi and recognizer",
+    "Adenosine_kin (Adenosine specific kinase) - high confidence from eggnog",
+    "IPR007153 (Adenosine specific kinase) and IPR036902 (Ta1353-like superfamily) identified via InterPro integration",
+    "Gene3D 3.40.1520.10 (Ta1353-like) and SUPFAM SSF103165 identified"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG KEGG_KO: K09129 is associated with this protein",
+    "STRING interaction ID 885272.JonanDRAFT_0621 is recorded",
+    "OrthoDB ID 9785212at2 and HOGENOM CLU_138382_0_0_0 are linked"
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predicts high-confidence molecular function (protein binding) and biological process (cellular process)",
+    "DeepFRI predicts low-confidence RNA binding and catalytic activity on protein",
+    "CLEAN predicts EC 6.2.1.14 with low confidence",
+    "Domain tools (Pfam, COG, InterPro) consistently identify Adenosine/AMP kinase or Ta1353-like domains"
+  ],
+  "strong_or_curated_information": [
+    "Protein name 'Adenosine specific kinase' is recorded in the entry header",
+    "Domain hits for Adenosine/AMP kinase are consistent across COG, Pfam, and InterPro",
+    "Sequence is linked to genomic submission from US DOE Joint Genome Institute"
+  ],
+  "weak_predicted_or_indirect_information": [
+    "GO terms are exclusively from ML tools (DeepGO2, DeepFRI) with varying confidence",
+    "EC number 6.2.1.14 is from ML tool CLEAN with low confidence",
+    "KEGG K09129 association is indirect via KO mapping",
+    "No experimental evidence or curated literature supports the specific kinase activity"
+  ],
+  "conflicting_or_inconsistent_information": [
+    "The protein name 'Adenosine specific kinase' implies adenosine phosphorylation, but the predicted EC number 6.2.1.14 corresponds to Acyl-CoA synthetase, which is a different enzymatic function.",
+    "DeepGO2 predicts 'catalytic activity' (GO:0003824) with medium confidence, while DeepFRI predicts 'catalytic activity, acting on a protein' (GO:0140096) with low confidence, showing disagreement on the specificity of catalytic activity.",
+    "DeepFRI predicts 'RNA binding' (GO:0003723), which contradicts the primary domain-based expectation of a kinase (nucleotide binding) without specific RNA-binding domain evidence in the domain summary."
+  ],
+  "missing_or_limited_information": [
+    "No curated catalytic activity or specific substrate information is provided.",
+    "No subcellular location is annotated.",
+    "No experimental evidence codes are present; all functional annotations are computational.",
+    "GO term labels are null in the input, requiring external lookup for interpretation."
+  ],
+  "review_notes": [
+    "Verify if the predicted EC 6.2.1.14 (Acyl-CoA synthetase) is a false positive given the strong domain evidence for Adenosine/AMP kinase.",
+    "Check if the Pfam PF04008 domain covers the full sequence or only a partial region to confirm the kinase domain integrity.",
+    "Investigate why DeepFRI predicts RNA binding while DeepGO2 and domain data suggest kinase activity.",
+    "Confirm if the KEGG K09129 KO assignment aligns with the predicted EC number or the domain-based function."
+  ]
+}

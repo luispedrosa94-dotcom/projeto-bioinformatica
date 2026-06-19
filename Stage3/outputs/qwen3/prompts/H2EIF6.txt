@@ -1,0 +1,2705 @@
+/no_think
+You are a protein profile summarization assistant.
+Your task:
+Given the complete JSON profile for ONE protein, write a structured summary of the information contained in that profile.
+Important framing:
+- You are NOT predicting protein function from sequence or from your own knowledge.
+- You are NOT choosing a final biological annotation.
+- You are NOT acting as a curator who decides the correct function.
+- You are summarizing what the record contains: identity, source status, reported functions, GO terms, EC numbers, domains, features, pathways, tool predictions, literature/curated evidence, weak evidence, missing information, and conflicts.
+- The output should help a human quickly understand what is known, predicted, uncertain, or absent for this specific protein.
+Rules:
+1. Use only information present in the input JSON.
+2. Do not invent functions, pathways, EC numbers, organisms, locations, domains, gene names, scores, or references.
+3. Do not produce a "recommended annotation" or claim that one function is the final correct answer.
+4. If the input contains a curated/reviewed function, describe it as "reported" or "curated in the record", not as your own conclusion.
+5. If the input contains EC numbers, GO terms, pathways, domains, or protein names, summarize them as information present in the record.
+6. Keep evidence provenance visible: distinguish curated/literature/database evidence from homology evidence, domain evidence, automatic annotations, ML predictions, and contextual/network evidence.
+7. Treat ML predictions from tools such as DeepGO2, DeepFRI, CLEAN, or similar tools as predictions, not confirmed facts.
+8. Treat STRING, enrichment, pathway, or network information as context only, not direct proof of individual protein function.
+9. Mention sparse, missing, generic, low-confidence, or conflicting information explicitly.
+10. Be concise but complete enough for a supervisor/biologist to inspect the protein quickly.
+11. Return valid JSON only. Do not include Markdown, commentary, or text outside the JSON object.
+12. For "conflicting_or_inconsistent_information", consider the following situations as conflicts that MUST be reported when present in the input:
+    a. The same GO term annotated with different confidence levels by different tools in the input.
+    b. Different EC numbers assigned to the same protein by different tools in the input.
+    c. Tool predictions that contradict the curated UniProt function.
+    d. Domain hits from different databases that imply incompatible biological functions.
+    e. Mismatch between organism/taxonomy data and the predicted function (e.g., bacterial protein predicted as eukaryotic-specific function).
+    When you find any of these, list them explicitly with the conflicting IDs and sources. If no conflicts are present, leave the list empty.
+13. For "review_notes", always include 1 to 4 short suggestions to help a human reviewer prioritize what to check. These are NOT new annotations — they are pointers to what should be validated.
+    Types of review notes you may write (use the actual identifiers from the input,
+    never invent or copy IDs):
+    - Suggest verifying a specific EC number reported in the input against the
+      literature references also listed in the input.
+    - Suggest checking whether a Pfam (or other domain) reported in the input
+      covers the full sequence or only a partial region.
+    - Suggest confirming whether a high-confidence ML prediction matches the
+      curated function reported in the input.
+    - Suggest investigating why two tools report different confidence levels
+      for the same GO term in the input.
+    - Suggest reviewing an InterPro entry hierarchy or cross-referencing a
+      KEGG identifier reported in the input with the curated reaction.
+    Always produce at least 1 review_note unless the protein has NO usable information at all.
+14. When confidence levels are explicitly listed in the input (e.g., "confidence": "high" in source_details), include them in the summary bullets in parentheses. Format: "GO_ID - term name (confidence-level from tool-name)". When multiple tools report the same item with different confidence levels, list each in the same parentheses.
+15. Final reminder: the goal is to help a human curator quickly understand: (a) what is known with confidence, (b) what is predicted but uncertain, (c) what is contradictory, and (d) what needs further checking. Filling "conflicting_or_inconsistent_information" and "review_notes" with concrete content is essential for this task.
+16. "overall_profile_summary" MUST always be a single non-empty sentence (between 10 and 50 words) describing what this protein is: its name, organism, and main function or family if known. This field is required and cannot be left blank — even for poorly annotated proteins, write a brief sentence summarizing what little is known (e.g., "Uncharacterized protein from organism X with no curated function but predicted Y domains by Z tools"). Do NOT leave this field empty.
+Required JSON fields:
+{
+  "protein_id": "string",
+  "protein_name": "string",
+  "organism": "string",
+  "source_status": "string",
+  "overall_profile_summary": "string",
+  "identity_summary": "string",
+  "reported_function_summary": "string",
+  "go_annotation_summary": ["string"],
+  "enzyme_and_reaction_summary": ["string"],
+  "domain_family_and_feature_summary": ["string"],
+  "pathway_and_context_summary": ["string"],
+  "tool_prediction_summary": ["string"],
+  "strong_or_curated_information": ["string"],
+  "weak_predicted_or_indirect_information": ["string"],
+  "conflicting_or_inconsistent_information": ["string"],
+  "missing_or_limited_information": ["string"],
+  "review_notes": ["string"]
+}
+Protein profile JSON:
+{
+  "accession": "H2EIF6",
+  "identity": {
+    "protein_name": "Homocysteine s-methytransferase",
+    "protein_name_evidences": [
+      {
+        "code": "ECO:0000313",
+        "source": "EMBL",
+        "id": "AEX97078.1"
+      }
+    ],
+    "alternative_names": [],
+    "gene_name": "HMT",
+    "gene_name_inferred": null,
+    "gene_name_synonyms": [],
+    "gene_name_synonym_details": [],
+    "reviewed_status": "unreviewed",
+    "entry_type": "UniProtKB unreviewed (TrEMBL)",
+    "annotation_score": 1.0,
+    "protein_existence": "2: Evidence at transcript level",
+    "entry_name": "H2EIF6_MALDO",
+    "entry_version": 41,
+    "sequence_version": 1,
+    "first_public_date": "2012-03-21",
+    "last_annotation_update": "2026-01-28",
+    "last_sequence_update": "2012-03-21",
+    "organism": {
+      "scientific_name": "Malus domestica",
+      "common_name": "Apple",
+      "taxon_id": "3750",
+      "lineage": [
+        "Eukaryota",
+        "Viridiplantae",
+        "Streptophyta",
+        "Embryophyta",
+        "Tracheophyta",
+        "Spermatophyta",
+        "Magnoliopsida",
+        "eudicotyledons",
+        "Gunneridae",
+        "Pentapetalae",
+        "rosids",
+        "fabids",
+        "Rosales",
+        "Rosaceae",
+        "Amygdaloideae",
+        "Maleae",
+        "Malus"
+      ],
+      "evidences": [
+        {
+          "code": "ECO:0000313",
+          "source": "EMBL",
+          "id": "AEX97078.1"
+        }
+      ]
+    },
+    "uniprot_id": "UPI000249FFFB"
+  },
+  "function": {
+    "description": [],
+    "keywords": [
+      {
+        "id": "KW-0479",
+        "name": "Metal-binding",
+        "category": "Ligand",
+        "evidences": [
+          {
+            "code": "ECO:0000256",
+            "source": "ARBA",
+            "id": "ARBA00022723"
+          },
+          {
+            "code": "ECO:0000256",
+            "source": "PIRSR",
+            "id": "PIRSR037505-2"
+          }
+        ]
+      },
+      {
+        "id": "KW-0489",
+        "name": "Methyltransferase",
+        "category": "Molecular function",
+        "evidences": [
+          {
+            "code": "ECO:0000256",
+            "source": "ARBA",
+            "id": "ARBA00022603"
+          },
+          {
+            "code": "ECO:0000256",
+            "source": "PROSITE-ProRule",
+            "id": "PRU00333"
+          }
+        ]
+      },
+      {
+        "id": "KW-0808",
+        "name": "Transferase",
+        "category": "Molecular function",
+        "evidences": [
+          {
+            "code": "ECO:0000256",
+            "source": "ARBA",
+            "id": "ARBA00022679"
+          },
+          {
+            "code": "ECO:0000256",
+            "source": "PROSITE-ProRule",
+            "id": "PRU00333"
+          }
+        ]
+      },
+      {
+        "id": "KW-0862",
+        "name": "Zinc",
+        "category": "Ligand",
+        "evidences": [
+          {
+            "code": "ECO:0000256",
+            "source": "ARBA",
+            "id": "ARBA00022833"
+          },
+          {
+            "code": "ECO:0000256",
+            "source": "PIRSR",
+            "id": "PIRSR037505-2"
+          }
+        ]
+      }
+    ],
+    "subcellular_location": [],
+    "catalytic_activity": [],
+    "pathway": [],
+    "subunit": [],
+    "similarity": []
+  },
+  "go_annotations": {
+    "molecular_function": [
+      {
+        "go_id": "GO:0008898",
+        "label": "S-adenosylmethionine-homocysteine S-methyltransferase activity",
+        "evidence_code": "IEA",
+        "evidence_source": "TreeGrafter",
+        "sources": [
+          "upimapi",
+          "eggnog",
+          "deepgo2",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 6.91e-242
+          },
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.651
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "TreeGrafter"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0008270",
+        "label": "zinc ion binding",
+        "evidence_code": "IEA",
+        "evidence_source": "InterPro",
+        "sources": [
+          "upimapi",
+          "eggnog",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 6.91e-242
+          },
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "InterPro"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0003824",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.986
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0008168",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.794
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0016740",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.862
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0043169",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0046872",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0046914",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepfri"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.11195
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0016741",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.84
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0008172",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.495
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0016829",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.45
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0008757",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.415
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005488",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.174
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005515",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.151
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016835",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.146
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016836",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.124
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016830",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.116
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043167",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.101
+          }
+        },
+        "confidence": "low"
+      }
+    ],
+    "biological_process": [
+      {
+        "go_id": "GO:0009086",
+        "label": "methionine biosynthetic process",
+        "evidence_code": "IEA",
+        "evidence_source": "InterPro",
+        "sources": [
+          "upimapi",
+          "eggnog",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 6.91e-242
+          },
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "InterPro"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0032259",
+        "label": "methylation",
+        "evidence_code": "IEA",
+        "evidence_source": "UniProtKB-KW",
+        "sources": [
+          "upimapi",
+          "eggnog",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 6.91e-242
+          },
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "UniProtKB-KW"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0033528",
+        "label": "S-methylmethionine cycle",
+        "evidence_code": "IEA",
+        "evidence_source": "TreeGrafter",
+        "sources": [
+          "upimapi",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 6.91e-242
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "TreeGrafter"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0006082",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.254
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0006520",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.112
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0008652",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.119
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0019752",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.192
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0044272",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0044281",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.535
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:1901605",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.156
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0009987",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.817
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0008152",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.801
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0071704",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.702
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0044237",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.669
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0006807",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.424
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:1901564",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.387
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0006725",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.346
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0009058",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.34
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:1901360",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.329
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:1901576",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.329
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0044249",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.322
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0046483",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.297
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0050896",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.284
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044283",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.276
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044238",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.269
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0034641",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.262
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043436",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.231
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901362",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.211
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0019438",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.21
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901566",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.189
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006950",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.177
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016053",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.175
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0018130",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.174
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006793",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.159
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0046394",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.15
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006796",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.147
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901135",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.145
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901615",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.132
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0042221",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.128
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006766",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.127
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006767",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.126
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0009308",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.122
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006790",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.12
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0042430",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.12
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0032502",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.118
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0048856",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.116
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044271",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.113
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901607",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.106
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006576",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.104
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0065007",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.102
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0009605",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.1
+          }
+        },
+        "confidence": "low"
+      }
+    ],
+    "cellular_component": [
+      {
+        "go_id": "GO:0005737",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 5.2e-232
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.9
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0110165",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.991
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0005622",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.915
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0016020",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.479
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0043227",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.407
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005829",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.406
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0043231",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.393
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0043226",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.368
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0043229",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.356
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005634",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.124
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0009536",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.11
+          }
+        },
+        "confidence": "low"
+      }
+    ]
+  },
+  "enzymatic": {
+    "ec_numbers": [
+      {
+        "ec_id": "2.1.1.10",
+        "sources": [
+          "eggnog",
+          "clean",
+          "recognizer"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology"
+          },
+          "clean": {
+            "source_type": "ml_enzyme"
+          },
+          "recognizer": {
+            "source_type": "domain_search"
+          }
+        },
+        "confidence": "high"
+      }
+    ]
+  },
+  "domains": {
+    "cog": [
+      {
+        "id": "COG2040",
+        "label": "Homocysteine/selenocysteine methylase (S-methylmethionine-dependent)",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "kog": [
+      {
+        "id": "KOG1579",
+        "label": "Homocysteine S-methyltransferase",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "pfam": [
+      {
+        "id": "PF02574",
+        "label": null,
+        "sources": [
+          "upimapi"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "S-methyl_trans",
+        "label": null,
+        "sources": [
+          "eggnog"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "pfam02574",
+        "label": "homocysteine S-methyltransferase family protein",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "tigrfam": [],
+    "smart": [],
+    "cog_categories": [
+      "E",
+      "Amino acid transport and metabolism"
+    ]
+  },
+  "features": {
+    "domains": [
+      {
+        "type": "Domain",
+        "description": "Hcy-binding",
+        "position_start": 10,
+        "position_end": 324,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": null,
+        "evidences": [
+          {
+            "code": "ECO:0000259",
+            "source": "PROSITE",
+            "id": "PS50970"
+          }
+        ]
+      }
+    ],
+    "active_sites": [],
+    "binding_sites": [
+      {
+        "type": "Binding site",
+        "description": null,
+        "position_start": 242,
+        "position_end": 242,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": null,
+        "evidences": [
+          {
+            "code": "ECO:0000256",
+            "source": "PIRSR",
+            "id": "PIRSR037505-2"
+          },
+          {
+            "code": "ECO:0000256",
+            "source": "PROSITE-ProRule",
+            "id": "PRU00333"
+          }
+        ],
+        "ligand_name": "Zn(2+)",
+        "ligand_id": "ChEBI:CHEBI:29105",
+        "ligand_note": null,
+        "ligand_chebi": [
+          "CHEBI:29105"
+        ]
+      },
+      {
+        "type": "Binding site",
+        "description": null,
+        "position_start": 309,
+        "position_end": 309,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": null,
+        "evidences": [
+          {
+            "code": "ECO:0000256",
+            "source": "PROSITE-ProRule",
+            "id": "PRU00333"
+          }
+        ],
+        "ligand_name": "Zn(2+)",
+        "ligand_id": "ChEBI:CHEBI:29105",
+        "ligand_note": null,
+        "ligand_chebi": [
+          "CHEBI:29105"
+        ]
+      },
+      {
+        "type": "Binding site",
+        "description": null,
+        "position_start": 310,
+        "position_end": 310,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": null,
+        "evidences": [
+          {
+            "code": "ECO:0000256",
+            "source": "PROSITE-ProRule",
+            "id": "PRU00333"
+          }
+        ],
+        "ligand_name": "Zn(2+)",
+        "ligand_id": "ChEBI:CHEBI:29105",
+        "ligand_note": null,
+        "ligand_chebi": [
+          "CHEBI:29105"
+        ]
+      }
+    ],
+    "other_features": [
+      {
+        "type": "Non-terminal residue",
+        "description": null,
+        "position_start": 324,
+        "position_end": 324,
+        "position_start_modifier": "EXACT",
+        "position_end_modifier": "EXACT",
+        "feature_id": null,
+        "evidences": [
+          {
+            "code": "ECO:0000313",
+            "source": "EMBL",
+            "id": "AEX97078.1"
+          }
+        ]
+      }
+    ]
+  },
+  "pathways": {
+    "kegg_ko": [
+      "ko:K00547",
+      "K00547"
+    ],
+    "kegg_pathways": [
+      "ko00270",
+      "ko01100",
+      "ko01110",
+      "map00270",
+      "map01100",
+      "map01110"
+    ],
+    "kegg_modules": []
+  },
+  "sequence": {
+    "value": "MGLNKAFTSSLEDAIEKAGGCAVVDGGFATQLERHGAAINDPLWSAVCLINQPDLIKRVHLDYLDAGADILITSSYQATIPGFLSRGLSIEQGELLLKKSVKLAVEARNSFWDALKVTPDHRYNRALVAASIGSYGAYLADGSEYSGCYGPRVDVDKLKDFHRRRFQVLVEAGPDLLAFETFPNKLEAQACLELLEEQSVQIPSWICFSSVDGENAPSGEGFTECLEVINKSNKIHAVGINCTPPHLIKSLICKFKDLTSKAIIVYPNSGEIWDGKAKRWLPAKCFDEENFECFATIWRDSGAKHIGRCCRTTPSTVRAISKVL",
+    "length": 324,
+    "mol_weight": 35575,
+    "crc64": "EF050CB5D46A14BD",
+    "md5": "E9EACF832771D675209EEAAE909650C5"
+  },
+  "references": [
+    {
+      "reference_number": 1,
+      "id": "CI-25G8F792LA2",
+      "pmid": null,
+      "citation_type": "submission",
+      "title": "Characterization and isolation of differentially expressed bud sport genes in apple by suppression subtractive hybridization.",
+      "authors": [
+        "Song Y."
+      ],
+      "authoring_group": [],
+      "date": "OCT-2011",
+      "journal": null,
+      "volume": null,
+      "pages": null,
+      "reference_positions": [
+        "NUCLEOTIDE SEQUENCE"
+      ],
+      "reference_comments": [],
+      "submission_database": "EMBL/GenBank/DDBJ databases",
+      "evidences": [
+        {
+          "code": "ECO:0000313",
+          "source": "EMBL",
+          "id": "AEX97078.1"
+        }
+      ]
+    }
+  ],
+  "cross_references": {
+    "EMBL": [
+      {
+        "id": "JN941559",
+        "properties": {
+          "ProteinId": "AEX97078.1",
+          "Status": "-",
+          "MoleculeType": "mRNA"
+        }
+      }
+    ],
+    "AlphaFoldDB": [
+      {
+        "id": "H2EIF6",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "FunFam": [
+      {
+        "id": "3.20.20.330:FF:000002",
+        "properties": {
+          "EntryName": "Homocysteine S-methyltransferase",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "Gene3D": [
+      {
+        "id": "3.20.20.330",
+        "properties": {
+          "EntryName": "Homocysteine-binding-like domain",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "InterPro": [
+      {
+        "id": "IPR017226",
+        "properties": {
+          "EntryName": "BHMT-like"
+        }
+      },
+      {
+        "id": "IPR003726",
+        "properties": {
+          "EntryName": "HCY_dom"
+        }
+      },
+      {
+        "id": "IPR036589",
+        "properties": {
+          "EntryName": "HCY_dom_sf"
+        }
+      },
+      {
+        "id": "IPR051486",
+        "properties": {
+          "EntryName": "Hcy_S-methyltransferase"
+        }
+      }
+    ],
+    "NCBIfam": [
+      {
+        "id": "NF007020",
+        "properties": {
+          "EntryName": "PRK09485.1",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "PANTHER": [
+      {
+        "id": "PTHR46015:SF7",
+        "properties": {
+          "EntryName": "HOMOCYSTEINE S-METHYLTRANSFERASE 1",
+          "MatchStatus": "1"
+        }
+      },
+      {
+        "id": "PTHR46015",
+        "properties": {
+          "EntryName": "ZGC:172121",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "Pfam": [
+      {
+        "id": "PF02574",
+        "properties": {
+          "EntryName": "S-methyl_trans",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "PIRSF": [
+      {
+        "id": "PIRSF037505",
+        "properties": {
+          "EntryName": "Betaine_HMT",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "SUPFAM": [
+      {
+        "id": "SSF82282",
+        "properties": {
+          "EntryName": "Homocysteine S-methyltransferase",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "PROSITE": [
+      {
+        "id": "PS50970",
+        "properties": {
+          "EntryName": "HCY",
+          "MatchStatus": "1"
+        }
+      }
+    ]
+  },
+  "extra_attributes": {
+    "count_by_comment_type": {
+      "COFACTOR": 1
+    },
+    "count_by_feature_type": {
+      "Domain": 1,
+      "Binding site": 3,
+      "Non-terminal residue": 1
+    }
+  },
+  "interpro": {
+    "entries": [
+      {
+        "accession": "G3DSA:3.20.20.330",
+        "name": "Homocysteine-binding-like domain",
+        "short_name": null,
+        "description": [],
+        "type": "homologous_superfamily",
+        "source_database": "cathgene3d",
+        "integrated": "IPR036589",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h2eif6",
+            "protein_length": 324,
+            "source_database": "unreviewed",
+            "organism": "3750",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 9,
+                    "end": 323,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "5dmmA00",
+                "score": 2.5e-94
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR003726",
+        "name": "Homocysteine-binding domain",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "profile": [
+            {
+              "accession": "PS50970",
+              "name": "Homocysteine-binding domain profile"
+            }
+          ],
+          "pfam": [
+            {
+              "accession": "PF02574",
+              "name": "Homocysteine S-methyltransferase"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h2eif6",
+            "protein_length": 324,
+            "source_database": "unreviewed",
+            "organism": "3750",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 10,
+                    "end": 324,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR017226",
+        "name": "Betaine-homocysteine S-methyltransferase-like",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "pirsf": [
+            {
+              "accession": "PIRSF037505",
+              "name": "Betaine--homocysteine S-methyltransferase, BHMT type"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0008168",
+              "name": "methyltransferase activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            },
+            {
+              "go_id": "GO:0008270",
+              "name": "zinc ion binding",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h2eif6",
+            "protein_length": 324,
+            "source_database": "unreviewed",
+            "organism": "3750",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 18,
+                    "end": 322,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR036589",
+        "name": "Homocysteine-binding domain superfamily",
+        "short_name": null,
+        "description": [],
+        "type": "homologous_superfamily",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "cathgene3d": [
+            {
+              "accession": "G3DSA:3.20.20.330",
+              "name": "Homocysteine-binding-like domain"
+            }
+          ],
+          "ssf": [
+            {
+              "accession": "SSF82282",
+              "name": "Homocysteine S-methyltransferase"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h2eif6",
+            "protein_length": 324,
+            "source_database": "unreviewed",
+            "organism": "3750",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 9,
+                    "end": 324,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR051486",
+        "name": "Homocysteine S-methyltransferase",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "panther": [
+            {
+              "accession": "PTHR46015",
+              "name": "Homocysteine S-methyltransferase"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h2eif6",
+            "protein_length": 324,
+            "source_database": "unreviewed",
+            "organism": "3750",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 15,
+                    "end": 323,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "NF007020",
+        "name": "homocysteine S-methyltransferase",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "ncbifam",
+        "integrated": null,
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h2eif6",
+            "protein_length": 324,
+            "source_database": "unreviewed",
+            "organism": "3750",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 20,
+                    "end": 323,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "NF007020",
+                "score": 1.4e-101
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PF02574",
+        "name": "Homocysteine S-methyltransferase",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "pfam",
+        "integrated": "IPR003726",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h2eif6",
+            "protein_length": 324,
+            "source_database": "unreviewed",
+            "organism": "3750",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 23,
+                    "end": 323,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "PF02574",
+                "score": 2.1e-70
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PIRSF037505",
+        "name": "Betaine--homocysteine S-methyltransferase, BHMT type",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "pirsf",
+        "integrated": "IPR017226",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h2eif6",
+            "protein_length": 324,
+            "source_database": "unreviewed",
+            "organism": "3750",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 18,
+                    "end": 322,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "PIRSF037505",
+                "score": 8.3e-10
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PS50970",
+        "name": "Homocysteine-binding domain profile",
+        "short_name": null,
+        "description": [],
+        "type": "domain",
+        "source_database": "profile",
+        "integrated": "IPR003726",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h2eif6",
+            "protein_length": 324,
+            "source_database": "unreviewed",
+            "organism": "3750",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 10,
+                    "end": 324,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": true,
+                "model": "PS50970",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PTHR46015",
+        "name": "Homocysteine S-methyltransferase",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "panther",
+        "integrated": "IPR051486",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h2eif6",
+            "protein_length": 324,
+            "source_database": "unreviewed",
+            "organism": "3750",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 15,
+                    "end": 323,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": true,
+                "model": "PTHR46015:SF7",
+                "score": 1.8e-122,
+                "subfamily": {
+                  "accession": "PTHR46015:SF7",
+                  "name": "HOMOCYSTEINE S-METHYLTRANSFERASE 1"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "SSF82282",
+        "name": "Homocysteine S-methyltransferase",
+        "short_name": null,
+        "description": [],
+        "type": "homologous_superfamily",
+        "source_database": "ssf",
+        "integrated": "IPR036589",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h2eif6",
+            "protein_length": 324,
+            "source_database": "unreviewed",
+            "organism": "3750",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 18,
+                    "end": 324,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "0049954",
+                "score": 7.98e-76
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "total_entries": 11,
+      "total_interpro_integrated": 4,
+      "total_unintegrated": 1,
+      "by_source_database": {
+        "cathgene3d": 1,
+        "interpro": 4,
+        "ncbifam": 1,
+        "pfam": 1,
+        "pirsf": 1,
+        "profile": 1,
+        "panther": 1,
+        "ssf": 1
+      },
+      "by_type": {
+        "homologous_superfamily": 3,
+        "domain": 2,
+        "family": 6
+      },
+      "member_databases_used": [
+        "cathgene3d",
+        "panther",
+        "pfam",
+        "pirsf",
+        "profile",
+        "ssf"
+      ],
+      "go_terms_count": {
+        "molecular_function": 2,
+        "biological_process": 0,
+        "cellular_component": 0
+      },
+      "go_terms_list": [
+        {
+          "go_id": "GO:0008168",
+          "name": "methyltransferase activity",
+          "category": "molecular_function",
+          "sources": [
+            "IPR017226"
+          ]
+        },
+        {
+          "go_id": "GO:0008270",
+          "name": "zinc ion binding",
+          "category": "molecular_function",
+          "sources": [
+            "IPR017226"
+          ]
+        }
+      ],
+      "interpro_integrated_ids": [
+        "IPR003726",
+        "IPR017226",
+        "IPR036589",
+        "IPR051486"
+      ],
+      "unintegrated_ids": [
+        "NF007020"
+      ]
+    }
+  },
+  "evidence_summary": {
+    "tools": [
+      "upimapi",
+      "eggnog",
+      "clean",
+      "deepgo2",
+      "deepfri",
+      "recognizer"
+    ],
+    "annotation_count": 165,
+    "confidence_distribution": {
+      "high": 102,
+      "medium": 19,
+      "low": 44
+    },
+    "overall_confidence": "high",
+    "in_poorly_annotated_subset": false
+  },
+  "provenance": {
+    "source": "UniProtKB",
+    "uniprot_url": "https://www.uniprot.org/uniprotkb/H2EIF6/entry",
+    "db_source": "tr",
+    "raw_file": "H2EIF6.json"
+  },
+  "_test_group": "Proteins with EC predictions"
+}

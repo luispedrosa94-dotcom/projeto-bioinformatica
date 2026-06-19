@@ -1,0 +1,55 @@
+nohup: ignoring input
+  ERROR: Ollama request timed out after 600 seconds: HTTPConnectionPool(host='localhost', port=11436): Read timed out. (read timeout=600)
+Input proteins: 25
+Selected proteins: 25
+Already completed/skipped: 1
+Output JSONL: outputs/qwen3/stage3_results.jsonl
+[1/25] Skipping completed accession Q46505
+[2/25] Processing Q2LXU2 (Reviewed UniProt proteins)
+  Completed successfully.
+[3/25] Processing Q2RI41 (Reviewed UniProt proteins)
+  Completed successfully.
+[4/25] Processing P11560 (Reviewed UniProt proteins)
+[5/25] Processing P06131 (Reviewed UniProt proteins)
+  Completed successfully.
+[6/25] Processing B3E8W6 (Poorly annotated proteins)
+  Completed successfully.
+[7/25] Processing I9KF72 (Poorly annotated proteins)
+  Completed successfully.
+[8/25] Processing G8TMW4 (Poorly annotated proteins)
+  Completed successfully.
+[9/25] Processing Q01Q37 (Poorly annotated proteins)
+  Completed successfully.
+[10/25] Processing A1ATR7 (Poorly annotated proteins)
+  Completed successfully.
+[11/25] Processing U6EEC5 (Proteins with EC predictions)
+  Completed successfully.
+[12/25] Processing G3F6H2 (Proteins with EC predictions)
+  Completed successfully.
+[13/25] Processing H1YXH1 (Proteins with EC predictions)
+  Completed successfully.
+[14/25] Processing A8UKK6 (Proteins with EC predictions)
+  Completed successfully.
+[15/25] Processing H2EIF6 (Proteins with EC predictions)
+  Completed successfully.
+[16/25] Processing H1XYF8 (Conflicting evidence proteins)
+  Completed successfully.
+[17/25] Processing F6D5H3 (Conflicting evidence proteins)
+  Completed successfully.
+[18/25] Processing U6EF42 (Conflicting evidence proteins)
+  Completed successfully.
+[19/25] Processing K2R6I7 (Conflicting evidence proteins)
+  Completed successfully.
+[20/25] Processing F0T7S9 (Conflicting evidence proteins)
+  Completed successfully.
+[21/25] Processing U6EF83 (ML-only / weak-evidence proteins)
+  Completed successfully.
+[22/25] Processing H0UK06 (ML-only / weak-evidence proteins)
+  Completed successfully.
+[23/25] Processing W2LNG5 (ML-only / weak-evidence proteins)
+  Completed successfully.
+[24/25] Processing L0DDH1 (ML-only / weak-evidence proteins)
+  Completed successfully.
+[25/25] Processing J0HCT8 (ML-only / weak-evidence proteins)
+  Completed successfully.
+Done. Combined JSON written to outputs/qwen3/stage3_results.current.json

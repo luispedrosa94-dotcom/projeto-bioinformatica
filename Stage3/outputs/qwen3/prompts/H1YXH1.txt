@@ -1,0 +1,2071 @@
+/no_think
+You are a protein profile summarization assistant.
+Your task:
+Given the complete JSON profile for ONE protein, write a structured summary of the information contained in that profile.
+Important framing:
+- You are NOT predicting protein function from sequence or from your own knowledge.
+- You are NOT choosing a final biological annotation.
+- You are NOT acting as a curator who decides the correct function.
+- You are summarizing what the record contains: identity, source status, reported functions, GO terms, EC numbers, domains, features, pathways, tool predictions, literature/curated evidence, weak evidence, missing information, and conflicts.
+- The output should help a human quickly understand what is known, predicted, uncertain, or absent for this specific protein.
+Rules:
+1. Use only information present in the input JSON.
+2. Do not invent functions, pathways, EC numbers, organisms, locations, domains, gene names, scores, or references.
+3. Do not produce a "recommended annotation" or claim that one function is the final correct answer.
+4. If the input contains a curated/reviewed function, describe it as "reported" or "curated in the record", not as your own conclusion.
+5. If the input contains EC numbers, GO terms, pathways, domains, or protein names, summarize them as information present in the record.
+6. Keep evidence provenance visible: distinguish curated/literature/database evidence from homology evidence, domain evidence, automatic annotations, ML predictions, and contextual/network evidence.
+7. Treat ML predictions from tools such as DeepGO2, DeepFRI, CLEAN, or similar tools as predictions, not confirmed facts.
+8. Treat STRING, enrichment, pathway, or network information as context only, not direct proof of individual protein function.
+9. Mention sparse, missing, generic, low-confidence, or conflicting information explicitly.
+10. Be concise but complete enough for a supervisor/biologist to inspect the protein quickly.
+11. Return valid JSON only. Do not include Markdown, commentary, or text outside the JSON object.
+12. For "conflicting_or_inconsistent_information", consider the following situations as conflicts that MUST be reported when present in the input:
+    a. The same GO term annotated with different confidence levels by different tools in the input.
+    b. Different EC numbers assigned to the same protein by different tools in the input.
+    c. Tool predictions that contradict the curated UniProt function.
+    d. Domain hits from different databases that imply incompatible biological functions.
+    e. Mismatch between organism/taxonomy data and the predicted function (e.g., bacterial protein predicted as eukaryotic-specific function).
+    When you find any of these, list them explicitly with the conflicting IDs and sources. If no conflicts are present, leave the list empty.
+13. For "review_notes", always include 1 to 4 short suggestions to help a human reviewer prioritize what to check. These are NOT new annotations — they are pointers to what should be validated.
+    Types of review notes you may write (use the actual identifiers from the input,
+    never invent or copy IDs):
+    - Suggest verifying a specific EC number reported in the input against the
+      literature references also listed in the input.
+    - Suggest checking whether a Pfam (or other domain) reported in the input
+      covers the full sequence or only a partial region.
+    - Suggest confirming whether a high-confidence ML prediction matches the
+      curated function reported in the input.
+    - Suggest investigating why two tools report different confidence levels
+      for the same GO term in the input.
+    - Suggest reviewing an InterPro entry hierarchy or cross-referencing a
+      KEGG identifier reported in the input with the curated reaction.
+    Always produce at least 1 review_note unless the protein has NO usable information at all.
+14. When confidence levels are explicitly listed in the input (e.g., "confidence": "high" in source_details), include them in the summary bullets in parentheses. Format: "GO_ID - term name (confidence-level from tool-name)". When multiple tools report the same item with different confidence levels, list each in the same parentheses.
+15. Final reminder: the goal is to help a human curator quickly understand: (a) what is known with confidence, (b) what is predicted but uncertain, (c) what is contradictory, and (d) what needs further checking. Filling "conflicting_or_inconsistent_information" and "review_notes" with concrete content is essential for this task.
+16. "overall_profile_summary" MUST always be a single non-empty sentence (between 10 and 50 words) describing what this protein is: its name, organism, and main function or family if known. This field is required and cannot be left blank — even for poorly annotated proteins, write a brief sentence summarizing what little is known (e.g., "Uncharacterized protein from organism X with no curated function but predicted Y domains by Z tools"). Do NOT leave this field empty.
+Required JSON fields:
+{
+  "protein_id": "string",
+  "protein_name": "string",
+  "organism": "string",
+  "source_status": "string",
+  "overall_profile_summary": "string",
+  "identity_summary": "string",
+  "reported_function_summary": "string",
+  "go_annotation_summary": ["string"],
+  "enzyme_and_reaction_summary": ["string"],
+  "domain_family_and_feature_summary": ["string"],
+  "pathway_and_context_summary": ["string"],
+  "tool_prediction_summary": ["string"],
+  "strong_or_curated_information": ["string"],
+  "weak_predicted_or_indirect_information": ["string"],
+  "conflicting_or_inconsistent_information": ["string"],
+  "missing_or_limited_information": ["string"],
+  "review_notes": ["string"]
+}
+Protein profile JSON:
+{
+  "accession": "H1YXH1",
+  "identity": {
+    "protein_name": "Tetrahydromethanopterin S-methyltransferase, subunit H",
+    "protein_name_evidences": [
+      {
+        "code": "ECO:0000313",
+        "source": "EMBL",
+        "id": "EHQ36908.1"
+      }
+    ],
+    "alternative_names": [],
+    "gene_name": null,
+    "gene_name_inferred": {
+      "value": "mtrH",
+      "note": "inferred by homology from tools — not directly from UniProt for this protein"
+    },
+    "gene_name_synonyms": [
+      "Metlim_2874"
+    ],
+    "gene_name_synonym_details": [
+      {
+        "value": "Metlim_2874",
+        "type": "orf_name",
+        "evidences": [
+          {
+            "code": "ECO:0000313",
+            "source": "EMBL",
+            "id": "EHQ36908.1"
+          }
+        ]
+      }
+    ],
+    "reviewed_status": "unreviewed",
+    "entry_type": "UniProtKB unreviewed (TrEMBL)",
+    "annotation_score": 1.0,
+    "protein_existence": "4: Predicted",
+    "entry_name": "H1YXH1_9EURY",
+    "entry_version": 33,
+    "sequence_version": 1,
+    "first_public_date": "2012-03-21",
+    "last_annotation_update": "2025-10-08",
+    "last_sequence_update": "2012-03-21",
+    "organism": {
+      "scientific_name": "Methanoplanus limicola DSM 2279",
+      "common_name": null,
+      "taxon_id": "937775",
+      "lineage": [
+        "Archaea",
+        "Methanobacteriati",
+        "Methanobacteriota",
+        "Stenosarchaea group",
+        "Methanomicrobia",
+        "Methanomicrobiales",
+        "Methanomicrobiaceae",
+        "Methanoplanus"
+      ],
+      "evidences": [
+        {
+          "code": "ECO:0000313",
+          "source": "EMBL",
+          "id": "EHQ36908.1"
+        },
+        {
+          "code": "ECO:0000313",
+          "source": "Proteomes",
+          "id": "UP000005741"
+        }
+      ]
+    },
+    "uniprot_id": "UPI00024D864A"
+  },
+  "function": {
+    "description": [],
+    "keywords": [
+      {
+        "id": "KW-0489",
+        "name": "Methyltransferase",
+        "category": "Molecular function",
+        "evidences": [
+          {
+            "code": "ECO:0000256",
+            "source": "ARBA",
+            "id": "ARBA00022603"
+          },
+          {
+            "code": "ECO:0000313",
+            "source": "EMBL",
+            "id": "EHQ36908.1"
+          }
+        ]
+      },
+      {
+        "id": "KW-1185",
+        "name": "Reference proteome",
+        "category": "Technical term",
+        "evidences": [
+          {
+            "code": "ECO:0000313",
+            "source": "Proteomes",
+            "id": "UP000005741"
+          }
+        ]
+      },
+      {
+        "id": "KW-0808",
+        "name": "Transferase",
+        "category": "Molecular function",
+        "evidences": [
+          {
+            "code": "ECO:0000256",
+            "source": "ARBA",
+            "id": "ARBA00022679"
+          },
+          {
+            "code": "ECO:0000313",
+            "source": "EMBL",
+            "id": "EHQ36908.1"
+          }
+        ]
+      }
+    ],
+    "subcellular_location": [],
+    "catalytic_activity": [],
+    "pathway": [],
+    "subunit": [],
+    "similarity": []
+  },
+  "go_annotations": {
+    "molecular_function": [
+      {
+        "go_id": "GO:0008168",
+        "label": "methyltransferase activity",
+        "evidence_code": "IEA",
+        "evidence_source": "UniProtKB-KW",
+        "sources": [
+          "upimapi",
+          "eggnog",
+          "deepgo2",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 1.26e-252
+          },
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.37e-227
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.323
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "UniProtKB-KW"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0003824",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.37e-227
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.871
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0016740",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.37e-227
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.49
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0030269",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.37e-227
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0016741",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.348
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0018492",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.325
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005488",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.281
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0046912",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.268
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016491",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.226
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016746",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.184
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016829",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2",
+          "deepfri"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.165
+          },
+          "deepfri": {
+            "source_type": "ml_structure",
+            "confidence": "low",
+            "score": 0.11568
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016903",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.12
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005515",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.119
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0008172",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.109
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043169",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.102
+          }
+        },
+        "confidence": "low"
+      }
+    ],
+    "biological_process": [
+      {
+        "go_id": "GO:0032259",
+        "label": "methylation",
+        "evidence_code": "IEA",
+        "evidence_source": "UniProtKB-KW",
+        "sources": [
+          "upimapi",
+          "eggnog",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 1.26e-252
+          },
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.37e-227
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "UniProtKB-KW"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0006730",
+        "label": "one-carbon metabolic process",
+        "evidence_code": "IEA",
+        "evidence_source": "InterPro",
+        "sources": [
+          "upimapi",
+          "eggnog",
+          "uniprot"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology",
+            "confidence": "high",
+            "score": 1.26e-252
+          },
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.37e-227
+          },
+          "uniprot": {
+            "source_type": "curated",
+            "evidence_code": "IEA",
+            "evidence_source": "InterPro"
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0006091",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.37e-227
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0009061",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.37e-227
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0015948",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.37e-227
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0019386",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.37e-227
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0044281",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog",
+          "deepgo2"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.37e-227
+          },
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.721
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0045333",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "eggnog"
+        ],
+        "source_details": {
+          "eggnog": {
+            "source_type": "orthology",
+            "confidence": "high",
+            "score": 1.37e-227
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0008152",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.839
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0009987",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.802
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0044237",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.752
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0071704",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.737
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0019752",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.581
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0006082",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.578
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0043436",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.576
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0006807",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.423
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0044238",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.391
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:1901564",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.382
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0009058",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.337
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0034641",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.311
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0032787",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.281
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006725",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.274
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901360",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.267
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901566",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.252
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901576",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.248
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0046483",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.242
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044249",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.228
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044283",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.227
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0044271",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.156
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0016053",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.149
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006520",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.134
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0046394",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.134
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901605",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.13
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:1901575",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.127
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0050896",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.123
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006139",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.115
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0006097",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.109
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0018130",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.106
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0009056",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.102
+          }
+        },
+        "confidence": "low"
+      }
+    ],
+    "cellular_component": [
+      {
+        "go_id": "GO:0110165",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.98
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0005622",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.934
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0005737",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "high",
+            "score": 0.857
+          }
+        },
+        "confidence": "high"
+      },
+      {
+        "go_id": "GO:0043226",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.558
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0043229",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.541
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0005829",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.465
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0016020",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.46
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0043227",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.367
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0043231",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "medium",
+            "score": 0.341
+          }
+        },
+        "confidence": "medium"
+      },
+      {
+        "go_id": "GO:0032991",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.268
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043228",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.203
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0043232",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.202
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005634",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.121
+          }
+        },
+        "confidence": "low"
+      },
+      {
+        "go_id": "GO:0005576",
+        "label": null,
+        "evidence_code": null,
+        "evidence_source": null,
+        "sources": [
+          "deepgo2"
+        ],
+        "source_details": {
+          "deepgo2": {
+            "source_type": "ml_sequence",
+            "confidence": "low",
+            "score": 0.109
+          }
+        },
+        "confidence": "low"
+      }
+    ]
+  },
+  "enzymatic": {
+    "ec_numbers": [
+      {
+        "ec_id": "2.1.1.86",
+        "sources": [
+          "upimapi",
+          "eggnog",
+          "clean",
+          "recognizer"
+        ],
+        "source_details": {
+          "upimapi": {
+            "source_type": "homology"
+          },
+          "eggnog": {
+            "source_type": "orthology"
+          },
+          "clean": {
+            "source_type": "ml_enzyme"
+          },
+          "recognizer": {
+            "source_type": "domain_search"
+          }
+        },
+        "confidence": "high"
+      }
+    ]
+  },
+  "domains": {
+    "cog": [
+      {
+        "id": "COG1962",
+        "label": "Tetrahydromethanopterin S-methyltransferase, subunit H",
+        "sources": [
+          "recognizer"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "kog": [],
+    "pfam": [
+      {
+        "id": "PF02007",
+        "label": null,
+        "sources": [
+          "upimapi"
+        ],
+        "confidence": "high"
+      },
+      {
+        "id": "MtrH",
+        "label": null,
+        "sources": [
+          "eggnog"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "tigrfam": [],
+    "smart": [],
+    "cog_categories": [
+      "H",
+      "Coenzyme transport and metabolism"
+    ]
+  },
+  "features": {
+    "domains": [],
+    "active_sites": [],
+    "binding_sites": [],
+    "other_features": []
+  },
+  "pathways": {
+    "kegg_ko": [
+      "ko:K00584"
+    ],
+    "kegg_pathways": [
+      "ko00680",
+      "ko01100",
+      "ko01120",
+      "ko01200",
+      "map00680",
+      "map01100",
+      "map01120",
+      "map01200"
+    ],
+    "kegg_modules": [
+      "M00357",
+      "M00567"
+    ]
+  },
+  "sequence": {
+    "value": "MFKFEKEQTVHDFNGTKIGGQPGEYPRVLGASIFYNKHETVIDDEKGIIDKDRAEALWNRCLELSDITGVPHFIQIISETSEAFESYFSWFDSVDNKTAFLMDSSNPPALAHACEYVTEVGLADRAIYNSINGSIGPENIEALKNSDVNAAIVLAFNPGDPTVRGREAVLAEGGVAGQEKSMLQIAEECGITRPILDTAATPLGIGSGGSFREILACKAIHGLPTGGAYHNMTVSWTWLKRWRKNVLAEQYVGKDLLMEQMSHHHFGGFEGIRQTAWAAPDIGCNIMAATLGADLIMYGPIENCEGASTAIAFSDIVLAEAAKEFGLEPQVDTHPLFHLV",
+    "length": 340,
+    "mol_weight": 37021,
+    "crc64": "BF6A0CEC34CA5AAB",
+    "md5": "1368E8EB968736003049499FCE29FA6E"
+  },
+  "references": [
+    {
+      "reference_number": 1,
+      "id": "CI-48QM5ABN7MJ8O",
+      "pmid": null,
+      "citation_type": "submission",
+      "title": "The Improved High-Quality Draft genome of Methanoplanus limicola DSM 2279.",
+      "authors": [
+        "Lucas S.",
+        "Copeland A.",
+        "Lapidus A.",
+        "Glavina del Rio T.",
+        "Dalin E.",
+        "Tice H.",
+        "Bruce D.",
+        "Goodwin L.",
+        "Pitluck S.",
+        "Peters L.",
+        "Mikhailova N.",
+        "Lu M.",
+        "Kyrpides N.",
+        "Mavromatis K.",
+        "Ivanova N.",
+        "Markowitz V.",
+        "Cheng J.-F.",
+        "Hugenholtz P.",
+        "Woyke T.",
+        "Wu D.",
+        "Wirth R.",
+        "Brambilla E.-M.",
+        "Klenk H.-P.",
+        "Eisen J.A."
+      ],
+      "authoring_group": [
+        "US DOE Joint Genome Institute (JGI-PGF)"
+      ],
+      "date": "OCT-2011",
+      "journal": null,
+      "volume": null,
+      "pages": null,
+      "reference_positions": [
+        "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+      ],
+      "reference_comments": [
+        {
+          "type": "STRAIN",
+          "value": "DSM 2279",
+          "evidences": [
+            {
+              "code": "ECO:0000313",
+              "source": "EMBL",
+              "id": "EHQ36908.1"
+            },
+            {
+              "code": "ECO:0000313",
+              "source": "Proteomes",
+              "id": "UP000005741"
+            }
+          ]
+        }
+      ],
+      "submission_database": "EMBL/GenBank/DDBJ databases",
+      "evidences": [
+        {
+          "code": "ECO:0000313",
+          "source": "EMBL",
+          "id": "EHQ36908.1"
+        },
+        {
+          "code": "ECO:0000313",
+          "source": "Proteomes",
+          "id": "UP000005741"
+        }
+      ]
+    }
+  ],
+  "cross_references": {
+    "EMBL": [
+      {
+        "id": "CM001436",
+        "properties": {
+          "ProteinId": "EHQ36908.1",
+          "Status": "-",
+          "MoleculeType": "Genomic_DNA"
+        }
+      }
+    ],
+    "RefSeq": [
+      {
+        "id": "WP_004079627.1",
+        "properties": {
+          "NucleotideSequenceId": "NZ_CM001436.1"
+        }
+      }
+    ],
+    "AlphaFoldDB": [
+      {
+        "id": "H1YXH1",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "FunCoup": [
+      {
+        "id": "H1YXH1",
+        "properties": {
+          "Number of interactors": "61"
+        }
+      }
+    ],
+    "STRING": [
+      {
+        "id": "937775.Metlim_2874",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "PATRIC": [
+      {
+        "id": "fig|937775.9.peg.3220",
+        "properties": {
+          "GeneDesignation": "-"
+        }
+      }
+    ],
+    "HOGENOM": [
+      {
+        "id": "CLU_048697_0_0_2",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "InParanoid": [
+      {
+        "id": "H1YXH1",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "OrthoDB": [
+      {
+        "id": "18811at2157",
+        "properties": {
+          "Description": "-"
+        }
+      }
+    ],
+    "Proteomes": [
+      {
+        "id": "UP000005741",
+        "properties": {
+          "Component": "Chromosome"
+        }
+      }
+    ],
+    "InterPro": [
+      {
+        "id": "IPR023467",
+        "properties": {
+          "EntryName": "MeTrfase_MtrH/MtxH"
+        }
+      },
+      {
+        "id": "IPR028342",
+        "properties": {
+          "EntryName": "MtrH"
+        }
+      }
+    ],
+    "NCBIfam": [
+      {
+        "id": "TIGR01114",
+        "properties": {
+          "EntryName": "mtrH",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "Pfam": [
+      {
+        "id": "PF02007",
+        "properties": {
+          "EntryName": "MtrH",
+          "MatchStatus": "1"
+        }
+      }
+    ],
+    "PIRSF": [
+      {
+        "id": "PIRSF004960",
+        "properties": {
+          "EntryName": "MtrH_MtxH",
+          "MatchStatus": "1"
+        }
+      }
+    ]
+  },
+  "extra_attributes": {
+    "count_by_comment_type": {},
+    "count_by_feature_type": {}
+  },
+  "interpro": {
+    "entries": [
+      {
+        "accession": "IPR023467",
+        "name": "Tetrahydromethanopterin S-methyltransferase, subunit H/Methyltransferase Mtx, subunit H",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "pirsf": [
+            {
+              "accession": "PIRSF004960",
+              "name": "N5-methyltetrahydromethanopterin--coenzyme M methyltransferase, subunit H/methyltransferase Mtx, subunit H"
+            }
+          ],
+          "pfam": [
+            {
+              "accession": "PF02007",
+              "name": "Tetrahydromethanopterin S-methyltransferase MtrH subunit"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [
+            {
+              "go_id": "GO:0008168",
+              "name": "methyltransferase activity",
+              "category": "molecular_function",
+              "category_raw": "F"
+            }
+          ],
+          "biological_process": [
+            {
+              "go_id": "GO:0006730",
+              "name": "one-carbon metabolic process",
+              "category": "biological_process",
+              "category_raw": "P"
+            }
+          ],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h1yxh1",
+            "protein_length": 340,
+            "source_database": "unreviewed",
+            "organism": "937775",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 1,
+                    "end": 339,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "IPR028342",
+        "name": "Tetrahydromethanopterin S-methyltransferase subunit H",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "interpro",
+        "integrated": null,
+        "member_databases": {
+          "pirsf": [
+            {
+              "accession": "PIRSF500206",
+              "name": "N5-methyltetrahydromethanopterin--coenzyme M methyltransferase, subunit H"
+            }
+          ],
+          "hamap": [
+            {
+              "accession": "MF_01501",
+              "name": "Tetrahydromethanopterin S-methyltransferase subunit H [mtrH]"
+            }
+          ],
+          "ncbifam": [
+            {
+              "accession": "TIGR01114",
+              "name": "tetrahydromethanopterin S-methyltransferase subunit H"
+            }
+          ]
+        },
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h1yxh1",
+            "protein_length": 340,
+            "source_database": "unreviewed",
+            "organism": "937775",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 1,
+                    "end": 339,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": null,
+                "score": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PF02007",
+        "name": "Tetrahydromethanopterin S-methyltransferase MtrH subunit",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "pfam",
+        "integrated": "IPR023467",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h1yxh1",
+            "protein_length": 340,
+            "source_database": "unreviewed",
+            "organism": "937775",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 6,
+                    "end": 329,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "PF02007",
+                "score": 1.7e-95
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "PIRSF004960",
+        "name": "N5-methyltetrahydromethanopterin--coenzyme M methyltransferase, subunit H/methyltransferase Mtx, subunit H",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "pirsf",
+        "integrated": "IPR023467",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h1yxh1",
+            "protein_length": 340,
+            "source_database": "unreviewed",
+            "organism": "937775",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 1,
+                    "end": 339,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": true,
+                "model": "PIRSF004960",
+                "score": 4.5e-101
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accession": "TIGR01114",
+        "name": "tetrahydromethanopterin S-methyltransferase subunit H",
+        "short_name": null,
+        "description": [],
+        "type": "family",
+        "source_database": "ncbifam",
+        "integrated": "IPR028342",
+        "member_databases": {},
+        "go_terms": {
+          "molecular_function": [],
+          "biological_process": [],
+          "cellular_component": []
+        },
+        "hierarchy": {},
+        "cross_references": {},
+        "literature": {},
+        "entry_id": null,
+        "entry_date": null,
+        "proteins": [
+          {
+            "accession": "h1yxh1",
+            "protein_length": 340,
+            "source_database": "unreviewed",
+            "organism": "937775",
+            "in_alphafold": true,
+            "in_bfvd": false,
+            "entry_protein_locations": [
+              {
+                "fragments": [
+                  {
+                    "start": 1,
+                    "end": 339,
+                    "dc-status": "CONTINUOUS"
+                  }
+                ],
+                "representative": false,
+                "model": "TIGR01114",
+                "score": 1.2e-107
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "total_entries": 5,
+      "total_interpro_integrated": 2,
+      "total_unintegrated": 0,
+      "by_source_database": {
+        "interpro": 2,
+        "pfam": 1,
+        "pirsf": 1,
+        "ncbifam": 1
+      },
+      "by_type": {
+        "family": 5
+      },
+      "member_databases_used": [
+        "hamap",
+        "ncbifam",
+        "pfam",
+        "pirsf"
+      ],
+      "go_terms_count": {
+        "molecular_function": 1,
+        "biological_process": 1,
+        "cellular_component": 0
+      },
+      "go_terms_list": [
+        {
+          "go_id": "GO:0008168",
+          "name": "methyltransferase activity",
+          "category": "molecular_function",
+          "sources": [
+            "IPR023467"
+          ]
+        },
+        {
+          "go_id": "GO:0006730",
+          "name": "one-carbon metabolic process",
+          "category": "biological_process",
+          "sources": [
+            "IPR023467"
+          ]
+        }
+      ],
+      "interpro_integrated_ids": [
+        "IPR023467",
+        "IPR028342"
+      ],
+      "unintegrated_ids": []
+    }
+  },
+  "evidence_summary": {
+    "tools": [
+      "upimapi",
+      "eggnog",
+      "clean",
+      "deepgo2",
+      "deepfri",
+      "recognizer"
+    ],
+    "annotation_count": 140,
+    "confidence_distribution": {
+      "high": 87,
+      "low": 35,
+      "medium": 18
+    },
+    "overall_confidence": "high",
+    "in_poorly_annotated_subset": false
+  },
+  "provenance": {
+    "source": "UniProtKB",
+    "uniprot_url": "https://www.uniprot.org/uniprotkb/H1YXH1/entry",
+    "db_source": "tr",
+    "raw_file": "H1YXH1.json"
+  },
+  "_test_group": "Proteins with EC predictions"
+}

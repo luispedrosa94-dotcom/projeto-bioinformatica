@@ -1,0 +1,72 @@
+{
+  "protein_id": "L0DDH1",
+  "protein_name": "Type VI secretion protein, EvpB/VC_A0108 family",
+  "organism": "Singulisphaera acidiphila (strain ATCC BAA-1392 / DSM 18658 / VKM B-2454 / MOB10)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized Type VI secretion protein from Singulisphaera acidiphila, annotated with TssC-like domains and predicted to be part of the secretion system by multiple tools.",
+  "identity_summary": "Entry L0DDH1 from Singulisphaera acidiphila (TaxID: 886293), a bacterium in the Planctomycetota phylum. The protein is 497 amino acids long, predicted from genomic sequence (Protein Existence 4), and has no curated gene name. It is part of the reference proteome UP000010798.",
+  "reported_function_summary": "No curated biological function or catalytic activity is reported in the record. The protein name suggests a role in the Type VI secretion system (TssC-like). Keywords include 'Reference proteome'.",
+  "go_annotation_summary": [
+    "GO:0005488 (protein binding) - high confidence from deepgo2",
+    "GO:0009987 (cellular process) - high confidence from deepgo2",
+    "GO:0110165 (cellular anatomical entity) - high confidence from deepgo2",
+    "GO:0005515 (protein binding) - medium confidence from deepgo2",
+    "GO:0005524 (ATP binding) - low confidence from deepfri",
+    "GO:0030554 (adenyl nucleotide binding) - low confidence from deepfri",
+    "GO:0003824 (catalytic activity) - medium confidence from deepgo2",
+    "GO:0016491 (oxidoreductase activity) - low confidence from deepgo2"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 2.4.2.31 (glycosyltransferase) - low confidence prediction from CLEAN"
+  ],
+  "domain_family_and_feature_summary": [
+    "Pfam PF05943 (EvpB/VC_A0108, tail sheath N-terminal domain) at residues 70-370",
+    "Pfam PF18945 (EvpB/VC_A0108, tail sheath gpW/gp25-like domain) at residues 380-490",
+    "TIGR03355 (type VI secretion system contractile sheath large subunit)",
+    "COG3517 (Predicted component TssB of the type VI protein secretion system)",
+    "PTHR35565:SF3 (TYPE VI SECRETION SYSTEM SHEATH PROTEIN TSSC1)",
+    "InterPro IPR010269 (Type VI secretion system TssC-like)",
+    "Disordered region at residues 1-20",
+    "Compositional bias (polar residues) at residues 1-15"
+  ],
+  "pathway_and_context_summary": [
+    "KEGG KEGG K11900",
+    "KEGG Pathway ko02025 (Two-component system)",
+    "KEGG Module M00334",
+    "STRING interaction partner Sinac_2410"
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predicts high-confidence protein binding and cellular process associations.",
+    "DeepFRI predicts low-confidence ATP binding and catalytic activity based on structure.",
+    "CLEAN predicts low-confidence EC 2.4.2.31.",
+    "Domain tools (Pfam, TIGR, COG, PANTHER) consistently identify Type VI secretion system sheath components."
+  ],
+  "strong_or_curated_information": [
+    "Domain architecture strongly supports Type VI secretion system sheath protein identity (Pfam PF05943, PF18945, TIGR03355, COG3517).",
+    "Organism taxonomy is confirmed by genomic submission (EMBL AGA26721.1)."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "GO terms for catalytic activity and ATP binding are low-confidence ML predictions.",
+    "EC 2.4.2.31 is a low-confidence ML prediction.",
+    "STRING context provides indirect interaction evidence but no direct functional proof.",
+    "No curated subcellular location or specific biological process is recorded."
+  ],
+  "conflicting_or_inconsistent_information": [
+    "GO:0003824 (catalytic activity) is predicted with medium confidence by DeepGO2, while DeepFRI predicts low-confidence catalytic activity acting on a protein (GO:0140096), showing inconsistent confidence levels for catalytic function.",
+    "CLEAN predicts EC 2.4.2.31 (glycosyltransferase), which implies a specific enzymatic function, whereas domain annotations (TssC-like) suggest a structural role in the secretion sheath, creating a potential functional conflict between enzymatic and structural roles.",
+    "DeepFRI predicts ATP binding (GO:0005524) with low confidence, but no ATP-binding domains are explicitly identified in the domain summary, relying solely on structural prediction."
+  ],
+  "missing_or_limited_information": [
+    "No curated gene name is provided.",
+    "No curated subcellular location is reported.",
+    "No literature references with PMIDs are available; evidence is limited to genomic submission.",
+    "GO term labels are missing for many annotations, requiring external lookup.",
+    "No experimental validation of the predicted EC number or GO terms."
+  ],
+  "review_notes": [
+    "Verify if the predicted EC 2.4.2.31 is consistent with the TssC-like domain architecture, as TssC proteins are typically structural sheath components rather than glycosyltransferases.",
+    "Check if the Pfam PF05943 and PF18945 domains cover the full functional region of the protein or if they are partial hits.",
+    "Investigate why DeepGO2 assigns medium confidence to catalytic activity (GO:0003824) while DeepFRI assigns low confidence to protein catalytic activity (GO:0140096).",
+    "Confirm if the STRING interaction partner Sinac_2410 is a known component of the same Type VI secretion system complex."
+  ]
+}

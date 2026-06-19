@@ -1,0 +1,61 @@
+{
+  "protein_id": "H2EIF6",
+  "protein_name": "Homocysteine s-methytransferase",
+  "organism": "Malus domestica (Apple)",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized homocysteine S-methyltransferase from Malus domestica, annotated with high-confidence domain hits and ML predictions for methyltransferase activity and zinc binding.",
+  "identity_summary": "Entry H2EIF6 from Malus domestica (taxon 3750), entry type UniProtKB unreviewed (TrEMBL), annotation score 1.0, protein existence evidence at transcript level (ECO:0000313 from EMBL AEX97078.1).",
+  "reported_function_summary": "The record reports the protein name 'Homocysteine s-methytransferase' and gene name 'HMT' via EMBL submission evidence. Keywords indicate metal-binding, methyltransferase, and transferase activity.",
+  "go_annotation_summary": [
+    "GO:0008898 - S-adenosylmethionine-homocysteine S-methyltransferase activity (high confidence from upimapi, eggnog; medium from deepgo2)",
+    "GO:0008270 - zinc ion binding (high confidence from upimapi, eggnog)",
+    "GO:0009086 - methionine biosynthetic process (high confidence from upimapi, eggnog)",
+    "GO:0032259 - methylation (high confidence from upimapi, eggnog)",
+    "GO:0033528 - S-methylmethionine cycle (high confidence from upimapi)",
+    "Multiple additional GO terms predicted by deepgo2 and eggnog with varying confidence levels (high, medium, low)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 2.1.1.10 reported by eggnog (orthology), clean (ml_enzyme), and recognizer (domain_search) with high confidence."
+  ],
+  "domain_family_and_feature_summary": [
+    "Pfam PF02574 (S-methyl_trans) and PROSITE PS50970 (Hcy-binding domain) detected with high confidence.",
+    "COG2040 and KOG1579 identify the protein as a homocysteine/selenocysteine methylase.",
+    "Binding sites for Zn(2+) identified at positions 242, 309, and 310 by PIRS and PROSITE-ProRule.",
+    "InterPro entries include IPR003726, IPR017226, IPR036589, and IPR051486."
+  ],
+  "pathway_and_context_summary": [
+    "KEGG K00547 assigned, linking to pathways ko00270, ko01100, and ko01110.",
+    "No specific subcellular location curated; cellular component terms predicted by deepgo2 and eggnog."
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predicts S-adenosylmethionine-homocysteine S-methyltransferase activity with medium confidence (score 0.651).",
+    "DeepFRI predicts GO:0046914 with low confidence (score 0.11195).",
+    "CLEAN predicts EC 2.1.1.10.",
+    "TreeGrafter and InterPro provide IEA annotations for function and domains."
+  ],
+  "strong_or_curated_information": [
+    "High-confidence domain matches from Pfam (PF02574), PROSITE (PS50970), COG (COG2040), and KOG (KOG1579).",
+    "High-confidence orthology/homology evidence from upimapi and eggnog for GO:0008898 and GO:0008270.",
+    "Zinc binding sites confirmed by PROSITE-ProRule and PIRS."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "Many GO terms from deepgo2 have low confidence scores (e.g., GO:0005488, GO:0005515).",
+    "DeepFRI structural prediction for GO:0046914 is low confidence.",
+    "Subcellular location is not curated, only predicted by ML tools."
+  ],
+  "conflicting_or_inconsistent_information": [
+    "GO:0008898 (S-adenosylmethionine-homocysteine S-methyltransferase activity) is reported with high confidence by upimapi and eggnog, but only medium confidence by deepgo2.",
+    "GO:0046914 is reported by eggnog with high confidence (orthology) but by deepfri with low confidence (ml_structure)."
+  ],
+  "missing_or_limited_information": [
+    "No curated subcellular location is provided in the record.",
+    "No specific catalytic activity description or literature references with PMIDs are present; evidence is primarily computational.",
+    "No alternative gene names or synonyms are listed."
+  ],
+  "review_notes": [
+    "Verify if the high-confidence EC 2.1.1.10 prediction aligns with the specific substrate specificity implied by the 'Homocysteine' vs 'Betaine' domain classifications in InterPro.",
+    "Check whether the PROSITE PS50970 domain covers the full sequence or if the Pfam PF02574 hit represents a partial match.",
+    "Investigate the discrepancy in confidence levels for GO:0008898 between orthology-based tools (high) and ML sequence tools (medium).",
+    "Confirm if the zinc binding sites are functionally relevant for the predicted methyltransferase activity or if they are structural artifacts."
+  ]
+}

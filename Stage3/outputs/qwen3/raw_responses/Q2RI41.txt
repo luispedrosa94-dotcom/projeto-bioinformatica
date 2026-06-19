@@ -1,0 +1,66 @@
+{
+  "protein_id": "Q2RI41",
+  "protein_name": "Oxalate oxidoreductase subunit alpha",
+  "organism": "Moorella thermoacetica",
+  "source_status": "Reviewed (UniProtKB/Swiss-Prot)",
+  "overall_profile_summary": "This protein is a high-confidence, experimentally validated enzyme involved in anaerobic oxalate metabolism. It functions as an oxalate oxidoreductase, catalyzing the cleavage of oxalate into formate and carbon dioxide. The annotation is supported by multiple high-confidence sources including curated UniProt data, crystallographic structures (PDB: 5EXE, 5EXD, 5C4I), and homology-based predictions from EggNOG and InterPro. It belongs to the pyruvate:ferredoxin oxidoreductase (PFOR) family and contains key domains for thiamine pyrophosphate (TPP) binding and substrate interaction.",
+  "identity_summary": "UniProtKB/Swiss-Prot entry Q2RI41 from *Moorella thermoacetica* (formerly *Clostridium thermoaceticum*). It is the alpha subunit of oxalate oxidoreductase, a thiamine pyrophosphate-dependent enzyme essential for anaerobic growth on oxalate.",
+  "reported_function_summary": "Catalyzes the oxidative decarboxylation of oxalate to formate and CO2. It is part of the 2-oxoacid oxidoreductase family, structurally and functionally related to pyruvate:ferredoxin oxidoreductase (PFOR). The enzyme requires thiamine pyrophosphate (TPP) as a cofactor.",
+  "go_annotation_summary": [
+    "GO:0016491 (oxidoreductase activity) - High confidence, derived from InterPro entry IPR002880.",
+    "GO:0070013 (extracellular exosome) - Low confidence, predicted by DeepGO2 (likely false positive/noise, as the protein is intracellular/cytosolic in anaerobic bacteria)."
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 1.2.1.58 (Oxalate oxidoreductase) - High confidence, derived from UniProt API homology.",
+    "EC 1.2.7.1 (Pyruvate oxidase) - High confidence, derived from EggNOG orthology (likely a broader family annotation).",
+    "EC 1.2.7.10 (Pyruvate:ferredoxin oxidoreductase) - High confidence, derived from multiple sources (EggNOG, Clean, UniProt curated)."
+  ],
+  "domain_family_and_feature_summary": [
+    "COG0674: Pyruvate:ferredoxin oxidoreductase or related 2-oxoacid:ferredoxin oxidoreductase, alpha subunit (High confidence).",
+    "Pfam PF17147: Pyruvate:ferredoxin oxidoreductase core domain II (High confidence).",
+    "Pfam PF01855: Pyruvate flavodoxin/ferredoxin oxidoreductase, thiamine diP-bdg (High confidence).",
+    "InterPro IPR002880: Pyruvate flavodoxin/ferredoxin oxidoreductase, pyrimidine binding domain.",
+    "InterPro IPR029061: Thiamin diphosphate-binding fold.",
+    "InterPro IPR054917: Oxalate oxidoreductase subunit alpha (Specific family assignment)."
+  ],
+  "pathway_and_context_summary": [
+    "KEGG Pathway ko00620 (Oxalate degradation).",
+    "KEGG Pathway ko00633 (Glyoxylate and dicarboxylate metabolism).",
+    "KEGG Pathway ko00010 (Glycolysis / Gluconeogenesis) - Indirectly related via pyruvate/oxaloacetate nodes.",
+    "KEGG Module M00173: Oxalate degradation I (anaerobic)."
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predicted low-confidence GO terms, including extracellular exosome (likely noise).",
+    "DeepFRI predicted low-confidence GO terms, including extracellular exosome.",
+    "EggNOG and UniProt provide high-confidence functional and structural annotations.",
+    "Overall annotation confidence is Medium, driven by the mix of high-confidence curated data and low-confidence ML predictions."
+  ],
+  "strong_or_curated_information": [
+    "UniProtKB/Swiss-Prot (Q2RI41) is a reviewed entry, meaning the information is manually annotated and verified.",
+    "Crystal structures are available in the PDB (5EXE, 5EXD, 5C4I), providing high-confidence structural data.",
+    "The enzyme is explicitly identified as 'Oxalate oxidoreductase' in the UniProt comment section.",
+    "It is a thiamine pyrophosphate (TPP)-dependent enzyme, as confirmed by structural and biochemical studies (Pierce et al., 2010).",
+    "The protein is 395 amino acids long, with a molecular weight of ~43.7 kDa."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "GO:0070013 (extracellular exosome) is predicted with low confidence by DeepGO2 and DeepFRI. This is likely incorrect as oxalate oxidoreductase is an intracellular enzyme in anaerobic bacteria.",
+    "EC 1.2.7.1 (Pyruvate oxidase) is predicted via orthology but is less specific than EC 1.2.1.58 for this specific substrate.",
+    "Some InterPro entries are 'unintegrated' or have lower confidence scores compared to the curated UniProt data."
+  ],
+  "conflicting_or_inconsistent_information": [
+    "There is no major conflict in the core function (oxalate oxidoreductase). However, the low-confidence GO prediction of 'extracellular exosome' contradicts the known intracellular localization of this metabolic enzyme.",
+    "The EC number 1.2.7.10 is listed, which typically refers to pyruvate:ferredoxin oxidoreductase. While oxalate oxidoreductase is in the same family, its primary substrate is oxalate, not pyruvate. This reflects the broad family annotation rather than specific substrate specificity."
+  ],
+  "missing_or_limited_information": [
+    "Specific cellular localization beyond 'cytoplasm' (implied by anaerobic metabolism) is not explicitly detailed in the provided JSON, though PDB structures confirm its folded state.",
+    "Post-translational modifications are not listed in the provided features.",
+    "Detailed kinetic parameters (Km, kcat) are not included in this JSON summary, though they are available in the cited literature (Pierce et al., 2010)."
+  ],
+  "review_notes": [
+    "The protein is well-annotated with high-confidence data from UniProt and structural databases.",
+    "The low-confidence GO predictions from DeepGO2/DeepFRI should be disregarded for functional inference.",
+    "The enzyme is critical for the anaerobic degradation of oxalate in *Moorella thermoacetica*.",
+    "The presence of TPP-binding domains confirms the cofactor requirement.",
+    "The protein is part of the PFOR family, which is common in anaerobic bacteria for 2-oxoacid metabolism."
+  ]
+}

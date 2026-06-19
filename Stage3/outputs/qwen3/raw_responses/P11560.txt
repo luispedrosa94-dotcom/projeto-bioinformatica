@@ -1,0 +1,97 @@
+{
+  "protein_id": "P11560",
+  "protein_name": "Methyl-coenzyme M reductase I subunit beta",
+  "organism": "Methanothermobacter marburgensis",
+  "source_status": "reviewed",
+  "overall_profile_summary": "Reviewed methyl-coenzyme M reductase beta subunit from Methanothermobacter marburgensis, catalyzing the final step of methanogenesis with strong curated and structural evidence.",
+  "identity_summary": "UniProtKB reviewed entry (Swiss-Prot) for Methyl-coenzyme M reductase I subunit beta (mcrB) from Methanothermobacter marburgensis (Archaea). Entry name MCRB_METTM. Protein existence: Evidence at protein level. Annotation score: 5.0.",
+  "reported_function_summary": "Curated in the record as the component of methyl-coenzyme M reductase (MCR) I that catalyzes the reductive cleavage of methyl-coenzyme M using coenzyme B as reductant to produce methane and the CoB-CoM heterodisulfide. This is the final step in methanogenesis. Strict substrate specificity for coenzyme B is reported.",
+  "go_annotation_summary": [
+    "GO:0050524 - coenzyme-B sulfoethylthiotransferase activity (high confidence from upimapi/homology and uniprot/curated)",
+    "GO:0015948 - methanogenesis (high confidence from upimapi/homology and uniprot/curated)",
+    "GO:0003824 - catalytic activity (medium confidence from deepgo2)",
+    "GO:0005488 - transferase activity (medium confidence from deepgo2)",
+    "GO:0042802 - oxidoreductase activity (low confidence from deepgo2)",
+    "GO:0016491 - ligase activity (low confidence from deepgo2)",
+    "GO:0005515 - protein binding (low confidence from deepgo2)",
+    "GO:0030269 - monosaccharide binding (low confidence from deepgo2)",
+    "GO:0042086 - protein homodimerization activity (low confidence from deepgo2)",
+    "GO:0046872 - metal ion binding (low confidence from deepgo2)",
+    "GO:0043169 - cytokine activity (low confidence from deepgo2)",
+    "GO:0097367 - carbohydrate derivative binding (low confidence from deepfri)",
+    "GO:0032553 - ribonucleotide binding (low confidence from deepfri)",
+    "GO:0032555 - purine ribonucleotide binding (low confidence from deepfri)",
+    "GO:0017076 - purine nucleotide binding (low confidence from deepfri)",
+    "GO:0035639 - purine ribonucleoside triphosphate binding (low confidence from deepfri)",
+    "GO:0016829 - lyase activity (low confidence from deepfri)",
+    "GO:0046914 - transition metal ion binding (low confidence from deepfri)",
+    "GO:0009987 - cellular process (medium confidence from deepgo2)",
+    "GO:0016043 - membrane organization (low confidence from deepgo2)",
+    "GO:0019058 - viral life cycle (low confidence from deepgo2)",
+    "GO:0071840 - protein complex localization (low confidence from deepgo2)",
+    "GO:0008152 - metabolic process (low confidence from deepgo2)",
+    "GO:0110165 - cellular anatomical entity (high confidence from deepgo2)",
+    "GO:0005737 - cytoplasm (medium confidence from deepgo2, high from uniprot/curated)",
+    "GO:0005622 - intracellular part (medium confidence from deepgo2)",
+    "GO:0032991 - membrane-bounded organelle (low confidence from deepgo2)",
+    "GO:0043226 - organelle membrane (low confidence from deepgo2)",
+    "GO:0005576 - extracellular region (low confidence from deepgo2)",
+    "GO:0005829 - cytosol (low confidence from deepgo2)",
+    "GO:0043229 - intracellular membrane-bounded organelle (low confidence from deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 2.8.4.1 (coenzyme-B sulfoethylthiotransferase) reported by uniprot (curated), upimapi (homology), eggnog (orthology), clean (ml_enzyme), and recognizer (domain_search). Confidence: high."
+  ],
+  "domain_family_and_feature_summary": [
+    "Pfam PF02241 (MCR_beta) and PF02783 (MCR_beta_N) identified by upimapi and recognizer with high confidence.",
+    "TIGRfam TIGR03257 (coenzyme-B sulfoethylthiotransferase subunit beta) identified by recognizer with high confidence.",
+    "COG COG4054 (Methyl coenzyme M reductase, beta subunit) identified by recognizer with high confidence.",
+    "Binding sites for coenzyme M (pos 367) and coenzyme B (pos 369) reported with PDB and PubMed evidence.",
+    "Secondary structure elements (helices, strands, turns) extensively mapped via PDB structures (e.g., 5A0Y, 1MRO).",
+    "Initiator methionine removed (pos 1). Chain spans residues 2-443."
+  ],
+  "pathway_and_context_summary": [
+    "KEGG K00401 (Methyl-coenzyme M reductase).",
+    "KEGG Pathways: ko00680 (Methane metabolism), ko01100 (Metabolic pathways), ko01120 (Microbial metabolism in diverse environments), ko01200 (Carbon metabolism).",
+    "KEGG Modules: M00356, M00357, M00563, M00567.",
+    "UniPathway UPA00646 (Methane metabolism).",
+    "STRING interaction partner identified: 79929.MTBMA_c15520."
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predicted GO terms for molecular function, biological process, and cellular component with varying confidence (high to low). High confidence for GO:0110165 (cellular anatomical entity) and medium for GO:0003824/GO:0005488.",
+    "DeepFRI predicted low-confidence binding terms including carbohydrate derivative, ribonucleotide, purine nucleotide, and transition metal ion binding.",
+    "CLEAN predicted EC 2.8.4.1.",
+    "EGGNog predicted orthology and domain matches (MCR_beta, MCR_beta_N).",
+    "UPIMAPI predicted homology-based GO terms with high confidence."
+  ],
+  "strong_or_curated_information": [
+    "Curated function: Component of MCR I catalyzing reductive cleavage of methyl-coenzyme M to methane (PubMed:2269306, PubMed:3350018).",
+    "Curated EC number: 2.8.4.1 (PubMed:2269306, PubMed:25691570, PubMed:27140643, PubMed:3350018).",
+    "Curated subcellular location: Cytoplasm (PubMed:23533332).",
+    "Curated subunit structure: Hexamer of two alpha, two beta, and two gamma chains (PubMed:2269306, PubMed:3350018, PubMed:9367957).",
+    "High-confidence domain hits: Pfam PF02241, PF02783; TIGRfam TIGR03257; COG COG4054.",
+    "Multiple high-resolution PDB structures available (e.g., 5A0Y, 1MRO, 3POT) confirming binding sites and secondary structure.",
+    "GO:0050524 and GO:0015948 supported by curated evidence (IDA/IEA) and high-confidence homology."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "DeepGO2 and DeepFRI predictions for binding activities (e.g., ribonucleotide, carbohydrate derivative) are low confidence and likely indirect or non-specific.",
+    "DeepGO2 predictions for cellular components like 'extracellular region' (GO:0005576) and 'membrane-bounded organelle' (GO:0032991) are low confidence and contradict the curated cytoplasmic location.",
+    "DeepGO2 prediction of 'viral life cycle' (GO:0019058) is low confidence and likely spurious for an archaeal enzyme.",
+    "Homology-based GO annotations (upimapi) are high confidence but rely on sequence similarity rather than direct experimental evidence for this specific residue."
+  ],
+  "conflicting_or_inconsistent_information": [
+    "DeepGO2 predicts low confidence for GO:0005576 (extracellular region) and GO:0032991 (membrane-bounded organelle), which contradicts the curated subcellular location of 'Cytoplasm' (GO:0005737) supported by PubMed:23533332 and high-confidence DeepGO2 prediction for GO:0005737.",
+    "DeepGO2 predicts low confidence for GO:0019058 (viral life cycle), which is biologically inconsistent with a methanogenic archaeal enzyme, though it is a low-confidence ML prediction."
+  ],
+  "missing_or_limited_information": [
+    "No specific cofactor details (e.g., F430) are explicitly listed in the 'function' description text, though references mention it. The record focuses on the beta subunit's role in substrate binding.",
+    "No explicit post-translational modifications other than the removed initiator methionine are listed in the features summary.",
+    "No specific kinetic parameters (Km, kcat) are provided in the summary, only qualitative substrate specificity."
+  ],
+  "review_notes": [
+    "Verify the curated EC number 2.8.4.1 against the primary literature references (PubMed:2269306, PubMed:3350018) to ensure no recent reclassification.",
+    "Check if the Pfam domains PF02241 and PF02783 cover the full sequence or if there are gaps, given the detailed secondary structure mapping.",
+    "Confirm whether the high-confidence DeepGO2 prediction for GO:0110165 (cellular anatomical entity) adds any specific localization detail beyond the curated 'Cytoplasm'.",
+    "Investigate why DeepGO2 predicts low-confidence extracellular/membrane GO terms (GO:0005576, GO:0032991) despite strong curated evidence for cytoplasmic localization."
+  ]
+}

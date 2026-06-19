@@ -1,0 +1,72 @@
+{
+  "protein_id": "H1YXH1",
+  "protein_name": "Tetrahydromethanopterin S-methyltransferase, subunit H",
+  "organism": "Methanoplanus limicola DSM 2279",
+  "source_status": "UniProtKB unreviewed (TrEMBL)",
+  "overall_profile_summary": "Uncharacterized methyltransferase subunit H from Methanoplanus limicola, annotated with high-confidence homology and ML predictions for EC 2.1.1.86 and methyltransferase activity.",
+  "identity_summary": "Protein H1YXH1 from Methanoplanus limicola (Archaea). Gene name inferred as mtrH by homology. Entry is unreviewed (TrEMBL) with protein existence level 4 (Predicted). Last updated 2025-10-08.",
+  "reported_function_summary": "Record reports 'Methyltransferase' and 'Transferase' keywords via ARBA and EMBL. No curated catalytic activity or subcellular location is present in the record.",
+  "go_annotation_summary": [
+    "GO:0008168 - methyltransferase activity (high from upimapi, eggnog; medium from deepgo2)",
+    "GO:0032259 - methylation (high from upimapi, eggnog)",
+    "GO:0006730 - one-carbon metabolic process (high from upimapi, eggnog)",
+    "GO:0003824 - transferase activity (high from eggnog, deepgo2)",
+    "GO:0016740 - catalytic activity (high from eggnog, deepgo2)",
+    "GO:0016741 - transferase activity (medium from deepgo2)",
+    "GO:0016491 - oxidoreductase activity (low from deepgo2)",
+    "GO:0016746 - hydrolase activity (low from deepgo2)",
+    "GO:0016829 - lyase activity (low from deepgo2, deepfri)",
+    "GO:0110165 - cellular component (high from deepgo2)",
+    "GO:0005622 - cellular component (high from deepgo2)"
+  ],
+  "enzyme_and_reaction_summary": [
+    "EC 2.1.1.86 reported with high confidence by upimapi (homology), eggnog (orthology), clean (ML), and recognizer (domain search)."
+  ],
+  "domain_family_and_feature_summary": [
+    "Pfam PF02007 (MtrH) detected by upimapi (high confidence).",
+    "COG1962 (Tetrahydromethanopterin S-methyltransferase, subunit H) detected by recognizer (high confidence).",
+    "InterPro entries IPR023467 and IPR028342 integrated from Pfam, PIRSF, and NCBIFam.",
+    "PIRSF004960 and TIGR01114 hits confirm MtrH family membership."
+  ],
+  "pathway_and_context_summary": [
+    "KEGG K00584 (MtrH) assigned.",
+    "Associated with KEGG pathways ko00680, ko01100, ko01120, ko01200.",
+    "KEGG modules M00357 and M00567 identified.",
+    "STRING network context available for Metlim_2874."
+  ],
+  "tool_prediction_summary": [
+    "DeepGO2 predicts methyltransferase activity (medium confidence) and numerous other molecular functions with low confidence.",
+    "DeepFRI predicts lyase activity (low confidence).",
+    "CLEAN predicts EC 2.1.1.86.",
+    "EGGNOG and UPIMAPI provide high-confidence orthology/homology support for methyltransferase activity and one-carbon metabolism."
+  ],
+  "strong_or_curated_information": [
+    "High-confidence homology/orthology evidence (upimapi, eggnog) supports methyltransferase activity (GO:0008168) and one-carbon metabolism (GO:0006730).",
+    "High-confidence domain hits (Pfam PF02007, COG1962) identify the protein as MtrH subunit.",
+    "EC 2.1.1.86 is supported by multiple sources including domain search (recognizer) and ML (clean)."
+  ],
+  "weak_predicted_or_indirect_information": [
+    "DeepGO2 predicts many low-confidence GO terms including oxidoreductase (GO:0016491), hydrolase (GO:0016746), and lyase (GO:0016829) activities.",
+    "DeepFRI predicts lyase activity (GO:0016829) with low confidence.",
+    "Cellular component predictions (e.g., GO:0110165) are from DeepGO2 only.",
+    "Gene name mtrH is inferred by homology, not directly curated for this specific entry."
+  ],
+  "conflicting_or_inconsistent_information": [
+    "GO:0008168 (methyltransferase activity) is reported with high confidence by upimapi/eggnog but medium confidence by deepgo2.",
+    "GO:0016740 (catalytic activity) is reported with high confidence by eggnog but medium confidence by deepgo2.",
+    "GO:0016829 (lyase activity) is predicted by both deepgo2 and deepfri with low confidence, which contradicts the primary methyltransferase function implied by EC 2.1.1.86 and domain data.",
+    "GO:0003824 (transferase activity) is reported with high confidence by eggnog and deepgo2, but the specific label is null in the input for this term, relying on source inference."
+  ],
+  "missing_or_limited_information": [
+    "No curated subcellular location is provided in the record.",
+    "No specific catalytic activity description or literature references are present.",
+    "Gene name is not directly assigned in UniProt, only inferred.",
+    "No experimental evidence codes (e.g., EXP, IDA) are present; all annotations are IEA, homology, or ML-based."
+  ],
+  "review_notes": [
+    "Verify if the high-confidence EC 2.1.1.86 prediction aligns with the specific methyltransferase activity (GO:0008168) supported by homology, as DeepGO2 assigns it only medium confidence.",
+    "Investigate why DeepGO2 and DeepFRI predict lyase activity (GO:0016829) with low confidence, which conflicts with the strong methyltransferase signal.",
+    "Check if the Pfam PF02007 domain covers the full sequence or just a fragment, as InterPro data shows a fragment match (6-329) for Pfam but full coverage for PIRSF/TIGRFam.",
+    "Confirm if the 'one-carbon metabolic process' (GO:0006730) annotation is consistent with the KEGG pathway assignments (ko00680) for methanogenesis."
+  ]
+}
