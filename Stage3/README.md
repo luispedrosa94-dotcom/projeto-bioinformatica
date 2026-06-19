@@ -71,7 +71,10 @@ Expected design:
 
 These groups are still useful, but now they test whether the LLM can summarize different types of protein profiles, not whether it can recommend an annotation.
 
+> **Note:** All examples below use `llama3.1` as the default model. To run with Qwen3.6-35B, replace `--model llama3.1` with `--model qwen3.6:35b` and use `--output-dir outputs/qwen3`. See the "Running with Qwen3.6-35B" section below for details.
+
 ## Dry run
+
 
 This validates input handling and saves prompts without calling Ollama:
 
@@ -348,3 +351,4 @@ records that failed, add `--rerun-failed`:
 ```bash
 python run_stage3.py --input test_proteins.json --model llama3.1 --rerun-failed
 ```
+
