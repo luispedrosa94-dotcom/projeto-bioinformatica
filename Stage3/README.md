@@ -321,29 +321,24 @@ python run_stage3.py \
 The runner writes after each protein, so partial progress is preserved on
 SSH disconnects, server reboots, or timeouts.
 
-### Switching to llama3.3
 
-`llama3.3` (70B) is heavier and uses substantially more GPU memory. Before
-running, check GPU availability:
+### Running with Qwen3.6-35B
 
-```bash
-nvidia-smi
-```
-
-If GPUs are mostly free, swap the model name:
+Qwen3.6-35B is a sparse Mixture-of-Experts model. It was run in non-thinking
+mode with Q4_K_M quantization:
 
 ```bash
 python run_stage3.py \
   --input test_proteins.json \
-  --model llama3.3 \
+  --model qwen3.6:35b \
   --ollama-url http://localhost:11434/api/generate \
-  --output-dir outputs_llama3_3 \
+  --output-dir outputs/qwen3 \
+  --num-ctx 32768 \
   --timeout 600 \
   --save-prompts
 ```
 
-The longer `--timeout 600` accounts for the slower 70B model — without it,
-larger prompts (such as `Q46505`) may time out at the default 300 seconds.
+The longer `--timeout 600` accounts for the slower model.
 
 ### Resuming after a partial / failed run
 
